@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import HomePage from './resident/HomePage'
 
 function Home() {
   const navigate = useNavigate()
@@ -20,7 +19,6 @@ function Home() {
 
   return (
     <div className="container">
-      <HomePage/>
     </div>
   )
 }
