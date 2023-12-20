@@ -1,24 +1,27 @@
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import SidebarResident from "../../components/SidebarResident";
 
 function HomePage() {
+  const navigate = useNavigate()
   return (
     <div className="h-screen">
       <Header />
       <div className="flex">
         <SidebarResident />
-        <div className="flex flex-col gap-8 w-4/5 items-start mt-4 ml-2">
+        <div className="flex flex-col w-4/5 items-start mt-2 mb-4">
           <div className="flex flex-col gap-3 w-full items-start">
-            <h1 className="text-2xl font-bold ml-1">Thông tin chung cư</h1>
+            <h1 className="text-[22px] font-bold ml-1 cursor-pointer" onClick={() => navigate('/buildingInfo')}>Thông tin chung cư</h1>
             <img
               src="https://file.rendit.io/n/PK3kkNhDEvLADNM0od7k.png"
               alt="Image1"
               id="Image1"
+              className="h-4/5 w-full"
             />
           </div>
           <div className="flex flex-col gap-5 w-full items-start">
             <div className="flex flex-col ml-1 gap-2 w-full items-start">
-              <h1 className="text-2xl font-bold">Nộp phí</h1>
+              <h1 className="text-[22px] font-bold">Nộp phí</h1>
               <div className="bg-[#99b7f0] flex flex-col justify-end gap-2 w-full items-start pt-3 px-4 rounded-lg">
                 <div className="flex flex-row gap-20 w-full items-start">
                   <div
@@ -118,31 +121,31 @@ function HomePage() {
             </div>
             <div className="flex flex-row gap-12 w-full items-start">
               <div className="flex flex-col gap-4 w-1/2 items-start">
-                <div className="text-2xl font-bold ml-1">
+                <div className="text-[22px] font-bold ml-1">
                   Đăng ký tạm trú tạm vắng
                 </div>
                 <div className="relative flex flex-row w-full items-start">
-                  <div className="bg-[#99b7f0] relative flex flex-col justify-center gap-6 w-full h-56 items-center rounded-lg">
+                  <div className="bg-[#99b7f0] relative flex flex-col justify-center gap-6 w-full h-48 items-center rounded-lg">
                     <div className="relative w-1/3 items-center justify-center">
-                      <h2 className="text-center text-2xl text-white h-10">
+                      <h2 className="text-center text-[22px] text-white h-10">
                         Tạm trú
                       </h2>
                       <h3 className="text-center text-xl underline text-[#efecec]">
                         Thủ tục tạm trú
                       </h3>
                     </div>
-                    <button className="text-center text-xl uppercase text-[#99b7f0] border-solid border-[#5387e9] bg-white flex flex-row w-1/3 h-16 pl-8 items-start pt-5 px-5 border-0 rounded-lg">
+                    <button className="text-center text-lg uppercase text-[#99b7f0] border-solid border-[#5387e9] bg-white flex flex-row w-1/3 h-14 pl-9 items-start pt-4 border-0 rounded-lg">
                       đăng ký
                     </button>
                   </div>
                 </div>
               </div>
               <div className="flex flex-col w-1/2 items-start">
-                <div className="bg-[#99b7f0] relative flex flex-col justify-center gap-6 w-full mt-12 h-56 items-center rounded-lg">
+                <div className="bg-[#99b7f0] relative flex flex-col justify-center gap-6 w-full mt-12 h-48 items-center rounded-lg">
                   <div className="w-1/2 items-center">
                     <h2
                       id="TmVng1"
-                      className="text-center text-2xl text-white h-10 justify-center"
+                      className="text-center text-[22px] text-white h-10 justify-center"
                     >
                       Tạm vắng
                     </h2>
@@ -153,7 +156,7 @@ function HomePage() {
                       Thủ tục tạm vắng
                     </h3>
                   </div>
-                  <button className="text-center text-xl uppercase text-[#99b7f0] border-solid border-[#5387e9] bg-white flex flex-row w-1/3 pl-8 h-16 items-start pt-5 px-5 border-0 rounded-lg">
+                  <button className="text-center text-lg uppercase text-[#99b7f0] border-solid border-[#5387e9] bg-white flex flex-row w-1/3 pl-9 h-14 items-start pt-4 border-0 rounded-lg">
                     đăng ký
                   </button>
                 </div>
