@@ -7,6 +7,7 @@ function Home() {
 
   useEffect(() => {
     (async () => {
+      localStorage.setItem('chung-cu-user', 'hihi')
       if (!localStorage.getItem('chungcu-user')) {
         navigate('/login')
       } else {
@@ -18,7 +19,6 @@ function Home() {
 
   return (
     <div className="container">
-      Home
     </div>
   )
 }
