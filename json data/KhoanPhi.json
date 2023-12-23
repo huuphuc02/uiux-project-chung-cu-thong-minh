@@ -1,0 +1,402 @@
+[
+ {
+   "ID": "P1",
+   "Loại phí": "Phí quản lý",
+   "Khoản phí": "Phí quản lý chung cư",
+   "Chi phí": 50000,
+   "ID CănHộ": "All",
+   "Thời hạn": "11/15/2022"
+ },
+ {
+   "ID": "P2",
+   "Loại phí": "Phí gửi xe",
+   "Khoản phí": "Phí giữ chỗ bãi đỗ xe máy",
+   "Chi phí": 50000,
+   "ID CănHộ": "All",
+   "Thời hạn": "7/8/2021"
+ },
+ {
+   "ID": "P3",
+   "Loại phí": "Phí dịch vụ",
+   "Khoản phí": "Phí dịch vụ vệ sinh khu vực chung",
+   "Chi phí": 20000,
+   "ID CănHộ": "All",
+   "Thời hạn": "12/3/2021"
+ },
+ {
+   "ID": "P4",
+   "Loại phí": "Phí dịch vụ",
+   "Khoản phí": "Phí sử dụng hồ bơi",
+   "Chi phí": 80000,
+   "ID CănHộ": "3022",
+   "Thời hạn": "9/19/2022"
+ },
+ {
+   "ID": "P5",
+   "Loại phí": "Phí dịch vụ",
+   "Khoản phí": "Phí dịch vụ an ninh 24/7",
+   "Chi phí": 50000,
+   "ID CănHộ": "All",
+   "Thời hạn": "2/8/2022"
+ },
+ {
+   "ID": "P6",
+   "Loại phí": "Phí quản lý",
+   "Khoản phí": "Phí quản lý vận hành thang máy",
+   "Chi phí": 20000,
+   "ID CănHộ": "All",
+   "Thời hạn": "5/5/2021"
+ },
+ {
+   "ID": "P7",
+   "Loại phí": "Phí dịch vụ",
+   "Khoản phí": "Phí sử dụng phòng gym",
+   "Chi phí": 40000,
+   "ID CănHộ": "2012",
+   "Thời hạn": "5/28/2023"
+ },
+ {
+   "ID": "P8",
+   "Loại phí": "Phí quản lý",
+   "Khoản phí": "Phí bảo dưỡng cảnh quan",
+   "Chi phí": 30000,
+   "ID CănHộ": "All",
+   "Thời hạn": "1/30/2023"
+ },
+ {
+   "ID": "P9",
+   "Loại phí": "Phí thuê",
+   "Khoản phí": "Phí thuê phòng họp chung",
+   "Chi phí": 200000,
+   "ID CănHộ": "4022",
+   "Thời hạn": "9/10/2023"
+ },
+ {
+   "ID": "P10",
+   "Loại phí": "Phí dịch vụ",
+   "Khoản phí": "Phí sử dụng sân chơi cho trẻ em",
+   "Chi phí": 30000,
+   "ID CănHộ": "3012",
+   "Thời hạn": "4/20/2022"
+ },
+ {
+   "ID": "P11",
+   "Loại phí": "Phí bảo trì",
+   "Khoản phí": "Phí bảo trì và sửa chữa kết cấu chung cư",
+   "Chi phí": 30000,
+   "ID CănHộ": "All",
+   "Thời hạn": "7/1/2022"
+ },
+ {
+   "ID": "P12",
+   "Loại phí": "Phí bảo trì",
+   "Khoản phí": "Phí bảo dưỡng cửa tự động và cổng an ninh",
+   "Chi phí": 20000,
+   "ID CănHộ": "All",
+   "Thời hạn": "10/2/2021"
+ },
+ {
+   "ID": "P13",
+   "Loại phí": "Phí dịch vụ",
+   "Khoản phí": "Phí sử dụng khu vực barbecue chung",
+   "Chi phí": 200000,
+   "ID CănHộ": "5011",
+   "Thời hạn": "3/10/2021"
+ },
+ {
+   "ID": "P14",
+   "Loại phí": "Phí dịch vụ",
+   "Khoản phí": "Phí đổ rác và xử lý chất thải",
+   "Chi phí": 30000,
+   "ID CănHộ": "All",
+   "Thời hạn": "2/25/2023"
+ },
+ {
+   "ID": "P15",
+   "Loại phí": "Phí bảo trì",
+   "Khoản phí": "Phí bảo dưỡng hệ thống điện và chiếu sáng chung",
+   "Chi phí": 20000,
+   "ID CănHộ": "All",
+   "Thời hạn": "5/28/2022"
+ },
+ {
+   "ID": "P16",
+   "Loại phí": "Phí thuê",
+   "Khoản phí": "Phí sử dụng phòng sinh hoạt cộng đồng",
+   "Chi phí": 150000,
+   "ID CănHộ": "3012",
+   "Thời hạn": "12/20/2022"
+ },
+ {
+   "ID": "P17",
+   "Loại phí": "Tiền điện, nước, internet",
+   "Khoản phí": "Phí dịch vụ internet và truyền hình cáp chung",
+   "Chi phí": 250000,
+   "ID CănHộ": "2022",
+   "Thời hạn": "8/6/2021"
+ },
+ {
+   "ID": "P18",
+   "Loại phí": "Phí bảo trì",
+   "Khoản phí": "Phí bảo trì và sửa chữa hệ thống điều hòa không khí",
+   "Chi phí": 20000,
+   "ID CănHộ": "All",
+   "Thời hạn": "6/15/2022"
+ },
+ {
+   "ID": "P19",
+   "Loại phí": "Phí thiết bị",
+   "Khoản phí": "Phí đặt cọc dành cho các thiết bị chung cư (remote, thẻ từ, etc.)",
+   "Chi phí": 50000,
+   "ID CănHộ": "4052",
+   "Thời hạn": "3/30/2022"
+ },
+ {
+   "ID": "P20",
+   "Loại phí": "Phí gửi xe",
+   "Khoản phí": "Phí sử dụng khu vực đậu xe cho khách",
+   "Chi phí": 30000,
+   "ID CănHộ": "All",
+   "Thời hạn": "2/18/2021"
+ },
+ {
+   "ID": "P21",
+   "Loại phí": "Phí bảo trì",
+   "Khoản phí": "Phí bảo trì và sửa chữa thang bộ",
+   "Chi phí": 15000,
+   "ID CănHộ": "All",
+   "Thời hạn": "1/15/2022"
+ },
+ {
+   "ID": "P22",
+   "Loại phí": "Tiền điện, nước, internet",
+   "Khoản phí": "Tiền nước tháng 8/2021",
+   "Chi phí": 180000,
+   "ID CănHộ": "3051",
+   "Thời hạn": "9/15/2021"
+ },
+ {
+   "ID": "P23",
+   "Loại phí": "Phí dịch vụ",
+   "Khoản phí": "Phí dịch vụ chăm sóc sức khỏe",
+   "Chi phí": 300000,
+   "ID CănHộ": "3051",
+   "Thời hạn": "6/22/2021"
+ },
+ {
+   "ID": "P24",
+   "Loại phí": "Phí bảo trì",
+   "Khoản phí": "Phí bảo dưỡng hệ thống nước sạch",
+   "Chi phí": 20000,
+   "ID CănHộ": "All",
+   "Thời hạn": "10/5/2022"
+ },
+ {
+   "ID": "P25",
+   "Loại phí": "Phí bảo trì",
+   "Khoản phí": "Phí bảo trì và sửa chữa hệ thống xử lý nước thải",
+   "Chi phí": 15000,
+   "ID CănHộ": "All",
+   "Thời hạn": "11/20/2023"
+ },
+ {
+   "ID": "P26",
+   "Loại phí": "Phí thuê",
+   "Khoản phí": "Phí sử dụng khu vực trồng cây và vườn hoa",
+   "Chi phí": 4000000,
+   "ID CănHộ": "All",
+   "Thời hạn": "1/20/2021"
+ },
+ {
+   "ID": "P27",
+   "Loại phí": "Phí dịch vụ",
+   "Khoản phí": "Phí dịch vụ đưa thư và bưu kiện",
+   "Chi phí": 30000,
+   "ID CănHộ": "All",
+   "Thời hạn": "8/1/2023"
+ },
+ {
+   "ID": "P28",
+   "Loại phí": "Phí bảo trì",
+   "Khoản phí": "Phí bảo trì và sửa chữa cửa kính và cổng sổ",
+   "Chi phí": 25000,
+   "ID CănHộ": "All",
+   "Thời hạn": "8/11/2022"
+ },
+ {
+   "ID": "P29",
+   "Loại phí": "Phí bảo trì",
+   "Khoản phí": "Phí bảo trì và sửa chữa hệ thống chống cháy",
+   "Chi phí": 30000,
+   "ID CănHộ": "All",
+   "Thời hạn": "11/10/2021"
+ },
+ {
+   "ID": "P30",
+   "Loại phí": "Phí dịch vụ",
+   "Khoản phí": "Phí dịch vụ dọn dẹp hàng ngày",
+   "Chi phí": 20000,
+   "ID CănHộ": "All",
+   "Thời hạn": "4/13/2021"
+ },
+ {
+   "ID": "P31",
+   "Loại phí": "Phí bảo trì",
+   "Khoản phí": "Phí bảo trì và sửa chữa hệ thống an ninh camera",
+   "Chi phí": 10000,
+   "ID CănHộ": "All",
+   "Thời hạn": "6/5/2023"
+ },
+ {
+   "ID": "P32",
+   "Loại phí": "Phí dịch vụ",
+   "Khoản phí": "Phí dịch vụ lễ tân",
+   "Chi phí": 10000,
+   "ID CănHộ": "All",
+   "Thời hạn": "6/30/2022"
+ },
+ {
+   "ID": "P33",
+   "Loại phí": "Phí bảo trì",
+   "Khoản phí": "Phí bảo dưỡng và sửa chữa thang cuốn",
+   "Chi phí": 10000,
+   "ID CănHộ": "All",
+   "Thời hạn": "8/17/2021"
+ },
+ {
+   "ID": "P34",
+   "Loại phí": "Tiền điện, nước, internet",
+   "Khoản phí": "Tiền Internet tháng 11/2023",
+   "Chi phí": 150000,
+   "ID CănHộ": "1011",
+   "Thời hạn": "12/14/2023"
+ },
+ {
+   "ID": "P35",
+   "Loại phí": "Phí dịch vụ",
+   "Khoản phí": "Phí dịch vụ tư vấn pháp lý và quản lý tài chính",
+   "Chi phí": 300000,
+   "ID CănHộ": "1022",
+   "Thời hạn": "1/30/2022"
+ },
+ {
+   "ID": "P36",
+   "Loại phí": "Tiền điện, nước, internet",
+   "Khoản phí": "Tiền Internet tháng 11/2023",
+   "Chi phí": 200000,
+   "ID CănHộ": "4021",
+   "Thời hạn": "12/14/2023"
+ },
+ {
+   "ID": "P37",
+   "Loại phí": "Phí bảo hiểm",
+   "Khoản phí": "Phí bảo hiểm chung cư",
+   "Chi phí": 200000,
+   "ID CănHộ": "All",
+   "Thời hạn": "4/5/2022"
+ },
+ {
+   "ID": "P38",
+   "Loại phí": "Phí dịch vụ",
+   "Khoản phí": "Phí sử dụng khu vực đọc sách và thư viện",
+   "Chi phí": 30000,
+   "ID CănHộ": "All",
+   "Thời hạn": "3/10/2023"
+ },
+ {
+   "ID": "P39",
+   "Loại phí": "Phí bảo trì",
+   "Khoản phí": "Phí bảo trì và sửa chữa thang máy tải",
+   "Chi phí": 15000,
+   "ID CănHộ": "All",
+   "Thời hạn": "10/12/2021"
+ },
+ {
+   "ID": "P40",
+   "Loại phí": "Phí thuê",
+   "Khoản phí": "Phí sử dụng khu vực tiệc nước và sự kiện",
+   "Chi phí": 500000,
+   "ID CănHộ": "All",
+   "Thời hạn": "3/4/2022"
+ },
+ {
+   "ID": "P41",
+   "Loại phí": "Phí bảo trì",
+   "Khoản phí": "Phí bảo dưỡng hệ thống cảm biến và báo động",
+   "Chi phí": 20000,
+   "ID CănHộ": "All",
+   "Thời hạn": "2/1/2023"
+ },
+ {
+   "ID": "P42",
+   "Loại phí": "Phí dịch vụ",
+   "Khoản phí": "Phí dịch vụ điện thoại chung cư",
+   "Chi phí": 20000,
+   "ID CănHộ": "All",
+   "Thời hạn": "5/20/2021"
+ },
+ {
+   "ID": "P43",
+   "Loại phí": "Phí bảo trì",
+   "Khoản phí": "Phí bảo trì và sửa chữa cầu thang ngoại vi",
+   "Chi phí": 20000,
+   "ID CănHộ": "All",
+   "Thời hạn": "11/23/2022"
+ },
+ {
+   "ID": "P44",
+   "Loại phí": "Tiền điện, nước, internet",
+   "Khoản phí": "Tiền điện tháng 11/2023",
+   "Chi phí": 700000,
+   "ID CănHộ": "3022",
+   "Thời hạn": "12/14/2023"
+ },
+ {
+   "ID": "P45",
+   "Loại phí": "Phí bảo trì",
+   "Khoản phí": "Phí bảo dưỡng hệ thống điều khiển cổng và chuỗi khóa",
+   "Chi phí": 10000,
+   "ID CănHộ": "All",
+   "Thời hạn": "3/27/2021"
+ },
+ {
+   "ID": "P46",
+   "Loại phí": "Phí dịch vụ",
+   "Khoản phí": "Phí sử dụng khu vực thể dục ngoài trời",
+   "Chi phí": 10000,
+   "ID CănHộ": "All",
+   "Thời hạn": "8/6/2022"
+ },
+ {
+   "ID": "P47",
+   "Loại phí": "Phí bảo trì",
+   "Khoản phí": "Phí bảo trì và sửa chữa hệ thống đèn hiệu và biển báo",
+   "Chi phí": 15000,
+   "ID CănHộ": "All",
+   "Thời hạn": "11/15/2021"
+ },
+ {
+   "ID": "P48",
+   "Loại phí": "Phí dịch vụ",
+   "Khoản phí": "Phí sử dụng khu vực chơi thể thao đa năng",
+   "Chi phí": 10000,
+   "ID CănHộ": "All",
+   "Thời hạn": "4/5/2022"
+ },
+ {
+   "ID": "P49",
+   "Loại phí": "Phí bảo trì",
+   "Khoản phí": "Phí bảo dưỡng hệ thống thông gió và điều hòa không khí",
+   "Chi phí": 20000,
+   "ID CănHộ": "All",
+   "Thời hạn": "10/20/2023"
+ },
+ {
+   "ID": "P50",
+   "Loại phí": "Tiền điện, nước, internet",
+   "Khoản phí": "Tiền nước tháng 11/2023",
+   "Chi phí": 200000,
+   "ID CănHộ": "1021",
+   "Thời hạn": "12/15/2023"
+ }
+]
