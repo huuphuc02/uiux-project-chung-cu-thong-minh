@@ -62,7 +62,11 @@ function Login() {
               <label id="MtKhu" className="text-xl font-bold leading-[24px]">
                 Mật khẩu
               </label>
-              <button id="QunMtKhu" className="leading-[24px] text-[#99b7f0]">
+              <button
+                id="QunMtKhu"
+                className="leading-[24px] text-[#99b7f0]"
+                onClick={() => navigate("/resetpw")}
+              >
                 Quên mật khẩu
               </button>
             </div>

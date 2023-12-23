@@ -1,3 +1,5 @@
+import { LuSearch } from "react-icons/lu";
+
 function Header() {
   return (
     <div id="NewRootRoot" className="flex flex-row w-full items-start">
@@ -13,13 +15,16 @@ function Header() {
               Chung cư thông minh
             </span>
           </div>
-          <input
-            type="text"
-            name="search"
-            id="search"
-            placeholder="Search"
-            className="text-[#adaaaa] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row mt-4 gap-3 w-3/5 h-10 items-start px-3 rounded-lg"
-          />
+          <div className="text-[#adaaaa] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row mt-4 w-3/5 h-10 items-center pl-2 rounded-lg py-2">
+            <LuSearch />
+            <input
+              type="text"
+              name="search"
+              id="search"
+              placeholder="Search"
+              className="w-full h-10 pl-2 ml-2"
+            />
+          </div>
         </div>
         <div className="flex flex-row mt-3 gap-8 w-2/5 items-start">
           <div className="flex flex-row mt-3 items-start cursor-pointer">
@@ -44,9 +49,7 @@ function Header() {
               <div id="LHuTiCDn1" className="font-semibold text-left">
                 Lê Hữu Tài
                 <br />
-                <span className="text-[#686868]">
-                  Cư dân
-                </span>
+                <span className="text-[#686868]">Cư dân</span>
               </div>
               <span className="ml-4 text-center text-4xl">...</span>
             </div>
