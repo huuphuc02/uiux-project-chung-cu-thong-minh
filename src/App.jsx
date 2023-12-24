@@ -15,6 +15,10 @@ import FeesList from "./pages/resident/Fee/FeesList";
 import PayFee from "./pages/resident/Fee/PayFee";
 import PaymentResult from "./pages/resident/Fee/PaymentResult";
 import FeePaymentHistory from "./pages/resident/Fee/FeePaymentHistory";
+import FamilyRegister from "./pages/manager/FamilyRegister";
+import Announce from "./pages/manager/Announce";
+import FeeManager from "./pages/manager/FeeManager";
+import Statistics from "./pages/manager/Statistics";
 
 function App() {
   return (
@@ -34,6 +38,10 @@ function App() {
         <Route path="/paymentResult" element={<PaymentResult />} />
         <Route path="/history" element={<FeePaymentHistory />} />
         <Route path="/resetpw" element={<ForgotPassword />} />
+        <Route path="/familyRegister" element={<FamilyRegister />} />
+        <Route path="/announce" element={<Announce />} />
+        <Route path="/feeManager" element={<FeeManager />} />
+        <Route path="/statistics" element={<Statistics />} />
         <Route path="/" element={<Login />} />
       </Routes>
     </BrowserRouter>
