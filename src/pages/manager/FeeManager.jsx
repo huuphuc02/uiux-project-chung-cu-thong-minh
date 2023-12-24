@@ -1,4 +1,4 @@
-import Header from "../../components/Header";
+import ManagerHeader from "../../components/manager/ManagerHeader";
 import Pagination from "../../components/Pagination";
 import SidebarManager from "../../components/SidebarManager";
 import { LuSearch } from "react-icons/lu";
@@ -7,7 +7,7 @@ function FeeManager() {
   const months = Array.from({ length: 12 }, (_, index) => index + 1);
   return (
     <div>
-      <Header />
+      <ManagerHeader />
       <div className="flex">
         <SidebarManager />
         <div className="w-[82%] bg-[#f5f5f5] px-8 py-4 pb-4">

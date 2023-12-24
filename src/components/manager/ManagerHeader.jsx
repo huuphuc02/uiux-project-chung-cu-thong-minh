@@ -4,13 +4,13 @@ import OverlayResident from "./OverlayResident";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Header() {
+function ManagerHeader() {
   const [overlay, setOverlay] = useState(false);
   const navigate = useNavigate();
   const [resident, setResident] = useState({});
 
   useEffect(() => {
-    setResident(JSON.parse(localStorage.getItem("resident")));
+    setResident(JSON.parse(localStorage.getItem("manager")));
   }, []);
   return (
     <div id="NewRootRoot" className="w-full items-start">
@@ -81,4 +81,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default ManagerHeader;

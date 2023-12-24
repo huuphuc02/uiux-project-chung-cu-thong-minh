@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Header from "../../components/Header";
+import ManagerHeader from "../../components/manager/ManagerHeader";
 import Pagination from "../../components/Pagination";
 import SidebarManager from "../../components/SidebarManager";
 import { LuSearch } from "react-icons/lu";
@@ -11,7 +11,7 @@ function FamilyRegister() {
 
   return (
     <div>
-      <Header />
+      <ManagerHeader />
       <div className="flex">
         <SidebarManager />
         <div className="w-[82%] bg-[#f5f5f5] relative">
