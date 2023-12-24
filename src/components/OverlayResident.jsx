@@ -11,7 +11,7 @@ function OverlayResident() {
   return (
     <div
       id="OverlayttincudanRoot"
-      className="overflow-hidden bg-white flex flex-row w-1/5 items-start rounded-lg absolute right-10"
+      className="overflow-hidden z-20 bg-white flex flex-row w-1/5 items-start rounded-lg absolute right-10"
     >
       <div className="bg-white flex flex-col justify-center mr-0 pl-5 gap-8 w-full h-full pb-4 pt-2 items-start rounded-lg">
         <div className="flex flex-col ml-px gap-4 w-full items-start">

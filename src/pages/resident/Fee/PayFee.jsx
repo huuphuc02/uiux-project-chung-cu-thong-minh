@@ -1,9 +1,36 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../../../components/Header";
 import SidebarResident from "../../../components/SidebarResident";
+import { useEffect, useState } from "react";
 
 function PayFee() {
   const navigate = useNavigate();
+  const [listFees, setListFees] = useState([]);
+  const [apartment, setApartment] = useState({});
+  const [selectedFee, setSelectedFee] = useState(listFees[0]?.feeName);
+  const [paymentMethod, setPaymentMethod] = useState("Tài khoản ngân hàng");
+  useEffect(() => {
+    setApartment(JSON.parse(localStorage.getItem("apartment")));
+    const getListFees = async () => {
+      let response = await fetch(`http://localhost:3001/khoanphi`);
+      const data = await response.json();
+      console.log(apartment.ID);
+      let list = data.filter(
+        (fee) => fee.apartmentId == apartment.ID || fee.apartmentId == "All"
+      );
+      const currentDate = new Date();
+      list = list.filter((item) => {
+        const [month, day, year] = item.deadline.split("/");
+        const itemDate = new Date(`${year}-${month}-${day}`);
+        return itemDate > currentDate;
+      });
+      console.log(listFees);
+      list.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+      setListFees(list);
+    };
+
+    getListFees();
+  }, []);
   return (
     <div>
       <Header />
@@ -23,11 +50,18 @@ function PayFee() {
                 <label className="text-lg font-bold ml-[144px]">
                   Khoản phí:
                 </label>
-                <select className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4 pt-2">
-                  <option value="1">Phí thay mới hệ thống đèn</option>
-                  <option value="2">Tiền nước tháng 11/2023</option>
-                  <option value="3">Tiền điện tháng 11/2023</option>
-                  <option value="4">Tiền internet tháng 11/2023</option>
+                <select
+                  value={selectedFee}
+                  onChange={(e) => setSelectedFee(e.target.value)}
+                  className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4 pt-2"
+                >
+                  {listFees.map((fee, key) => {
+                    return (
+                      <option key={key} value={fee.feeName}>
+                        {fee.feeName}
+                      </option>
+                    );
+                  })}
                 </select>
               </div>
               <div className="flex flex-row justify-between w-full items-center">
@@ -35,7 +69,9 @@ function PayFee() {
                   Số tiền (VND):
                 </label>
                 <input
-                  value="200.000"
+                  value={
+                    listFees.find((fee) => fee?.feeName == selectedFee)?.cost
+                  }
                   className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-center px-4"
                 ></input>
               </div>
@@ -43,10 +79,16 @@ function PayFee() {
                 <label className="text-lg font-bold mt-2 ml-[144px]">
                   Phương thức thanh toán:
                 </label>
-                <select className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4 pt-2">
-                  <option value="1">Tài khoản ngân hàng</option>
-                  <option value="2">VNPay</option>
-                  <option value="3">Paypal</option>
+                <select
+                  value={paymentMethod}
+                  onChange={(e) => setPaymentMethod(e.target.value)}
+                  className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4 pt-2"
+                >
+                  <option selected value="Tài khoản ngân hàng">
+                    Tài khoản ngân hàng
+                  </option>
+                  <option value="VNPay">VNPay</option>
+                  <option value="Paypal">Paypal</option>
                 </select>
               </div>
               <div className="flex flex-row justify-between w-full items-center">
@@ -77,7 +119,18 @@ function PayFee() {
               </button>
               <button
                 className="text-center uppercase text-white bg-[#99b7f0] h-10 items-start px-2 rounded-lg"
-                onClick={() => navigate("/paymentResult")}
+                onClick={() => {
+                  const selected = listFees.find(
+                    (fee) => fee?.feeName == selectedFee
+                  );
+                  console.log(selected);
+                  const queryParams = {
+                    fee: selected?.feeName,
+                    cost: selected?.cost,
+                    method: paymentMethod,
+                  };
+                  navigate("/paymentResult", { state: queryParams });
+                }}
               >
                 thanh toán
               </button>
