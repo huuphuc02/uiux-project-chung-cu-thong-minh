@@ -26,13 +26,14 @@ function Login() {
             `http://localhost:3001/cudan?Sdt=${phoneNumber}`
           );
           const currentUser = await response.json();
+          console.log(currentUser);
           localStorage.setItem("resident", JSON.stringify(currentUser[0]));
           response = await fetch(
-            `http://localhost:3001/chungcu-cudan?MSCD=${currentUser[0].ID}`
+            `http://localhost:3001/chungcu-cudan?MSCD=${currentUser[0]?.ID}`
           );
           const ap = await response.json();
           response = await fetch(
-            `http://localhost:3001/chungcu?ID=${ap[0].MSCH}`
+            `http://localhost:3001/chungcu?ID=${ap[0]?.MSCH}`
           );
           const apartment = await response.json();
           console.log(apartment);
