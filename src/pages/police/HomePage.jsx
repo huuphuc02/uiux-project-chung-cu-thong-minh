@@ -1,8 +1,14 @@
+import { useNavigate } from "react-router-dom";
+import PoliceHeader from "../../components/police/PoliceHeader";
+import SidebarPolice from "../../components/SidebarPolice";
+
 function HomePage() {
     return(
     <div className="h-screen">
-      <div id="NewRootRoot" className="w-full items-start">
-      <div className="border-solid border-b border-[#e2e2e2] pl-2 bg-white flex flex-row gap-16 w-full items-center">
+        <PoliceHeader />
+        <div classname="flex">
+            <SidebarPolice />
+        <div className="border-solid border-b border-[#e2e2e2] pl-2 bg-white flex flex-row gap-16 w-full items-center">
         <div className="flex flex-row gap-12 w-3/5 items-start">
           <div className="flex flex-row items-center w-2/5">
             <img

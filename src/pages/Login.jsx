@@ -55,6 +55,14 @@ function Login() {
           console.log(currentUser);
           localStorage.setItem("manager", JSON.stringify(currentUser));
           navigate("/homePageManager");
+        } else if (role == "Police") {
+          const response = await fetch(
+            `http://localhost:3001/congan?Sdt=${phoneNumber}`
+          );
+          const currentUser = await response.json();
+          console.log(currentUser);
+          localStorage.setItem("police", JSON.stringify(currentUser));
+          navigate("/homePagePolice");
         }
       } else {
         alert("Phone number or password is incorrect");
@@ -100,6 +108,7 @@ function Login() {
               <option value="Resident">Cư dân</option>
               <option value="Admin">Quản trị</option>
               <option value="Manager">Quản lý</option>
+              <option value="Police">Công an</option>
             </select>
           </div>
         </div>

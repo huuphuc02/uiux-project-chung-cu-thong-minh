@@ -4,13 +4,13 @@ import OverlayResident from "../OverlayResident";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Header() {
+function PoliceHeader() {
   const [overlay, setOverlay] = useState(false);
   const navigate = useNavigate();
   const [police, setPolice] = useState({});
 
   useEffect(() => {
-    setPolice(JSON.parse(localStorage.getItem("police")));
+    setPolice(JSON.parse(localStorage.getItem("police"))[0]);
   }, []);
   return (
     <div id="NewRootRoot" className="w-full items-start">
@@ -62,7 +62,7 @@ function Header() {
                 className="font-semibold text-left"
                 onClick={() => navigate("/residentInfo")}
               >
-                {resident.fullname}
+                Nguyễn Thị Thảo
                 <br />
                 <span className="text-[#686868]">Công an</span>
               </div>
@@ -81,4 +81,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default PoliceHeader;

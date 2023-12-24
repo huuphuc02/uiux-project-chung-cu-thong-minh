@@ -30,10 +30,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/homepageResident" element={<HomePageResident />} />
-<<<<<<< HEAD
         <Route path="/homepageAdmin" element={<HomePageAdmin />} />
         <Route path="/homepagePolice" element={<HomePagePolice />}/>
-=======
         <Route path="/homepageAdmin" element={<HomePage />} />
         <Route path="/sendNotifications" element={<SendNotifications />} />
         <Route path="/statistics" element={<Statistics />} />
@@ -43,7 +41,6 @@ function App() {
           path="/sendNotificationsSuccess"
           element={<SendNotificationsSuccess />}
         />
->>>>>>> 2cae5b587ce9b4f8cb18511dc1e87db350eeb6bc
         <Route path="/homepageManager" element={<HomePageManager />} />
         <Route path="/buildingInfo" element={<BuildingInfor />} />
         <Route path="/apartmentInfo" element={<Apartment />} />
