@@ -4,13 +4,13 @@ import OverlayResident from "../OverlayResident";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function ManagerHeader() {
+function Header() {
   const [overlay, setOverlay] = useState(false);
   const navigate = useNavigate();
-  const [resident, setResident] = useState({});
+  const [police, setPolice] = useState({});
 
   useEffect(() => {
-    setResident(JSON.parse(localStorage.getItem("manager")));
+    setPolice(JSON.parse(localStorage.getItem("police")));
   }, []);
   return (
     <div id="NewRootRoot" className="w-full items-start">
@@ -64,7 +64,7 @@ function ManagerHeader() {
               >
                 {resident.fullname}
                 <br />
-                <span className="text-[#686868]">Cư dân</span>
+                <span className="text-[#686868]">Công an</span>
               </div>
               <span
                 className="ml-4 text-center text-4xl"
@@ -81,4 +81,4 @@ function ManagerHeader() {
   );
 }
 
-export default ManagerHeader;
+export default Header;

@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePageResident from "./pages/resident/HomePage";
 import HomePageAdmin from "./pages/administrator/HomePage";
 import HomePageManager from "./pages/manager/HomePage";
+import HomePagePolice from "./pages/police/HomePage";
 import BuildingInfor from "./pages/resident/BuildingInfor";
 import Apartment from "./pages/resident/ApartmentInfor";
 import ResidentInfor from "./pages/resident/ResidentInfor";
@@ -26,6 +27,7 @@ function App() {
       <Routes>
         <Route path="/homepageResident" element={<HomePageResident />} />
         <Route path="/homepageAdmin" element={<HomePageAdmin />} />
+        <Route path="/homepagePolice" element={<HomePagePolice />}/>
         <Route path="/homepageManager" element={<HomePageManager />} />
         <Route path="/buildingInfo" element={<BuildingInfor />} />
         <Route path="/apartmentInfo" element={<Apartment />} />
