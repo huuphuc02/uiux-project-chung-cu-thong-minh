@@ -18,16 +18,21 @@ import FamilyRegister from "./pages/manager/FamilyRegister";
 import Announce from "./pages/manager/Announce";
 import FeeManager from "./pages/manager/FeeManager";
 import Statistics from "./pages/manager/Statistics";
-import HomePageAdministrator from "./pages/administrator/HomePageAdministrator";
+import HomePage from "./pages/administrator/HomePage";
+import SendNotificationsSuccess from "./pages/administrator/SendNotificationsSuccess";
+import SendNotifications from "./pages/administrator/SendNotifications";
+import Setting from "./pages/administrator/Setting";
+import StatisticsAdmin from "./pages/administrator/Statistics";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/homepageResident" element={<HomePageResident />} />
-        <Route path="/homepageAdmin" element={<HomePageAdmin />} />
+        <Route path="/homepageAdmin" element={<HomePage />} />
         <Route path="/sendNotifications" element={<SendNotifications />} />
         <Route path="/statistics" element={<Statistics />} />
+        <Route path="/statisticsAdmin" element={<StatisticsAdmin />} />
         <Route path="/setting" element={<Setting />} />
         <Route
           path="/sendNotificationsSuccess"

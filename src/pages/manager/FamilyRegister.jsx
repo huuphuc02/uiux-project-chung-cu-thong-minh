@@ -6,7 +6,7 @@ import { LuSearch } from "react-icons/lu";
 import ModalDetailApartment from "../../components/manager/modalDetailApartment";
 
 function FamilyRegister() {
-  const apartment = ["A1", "A2", "A3", "A4", "A5"];
+  const apartment = ["A1", "A2"];
   const [isShowDetailApartment, setShowDetailApartment] = useState(false);
 
   return (
@@ -46,13 +46,11 @@ function FamilyRegister() {
                 <button
                   id="ButtonRoot"
                   className="cursor-pointer items-start text-center font-['Nunito_Sans'] uppercase text-white bg-[#99b7f0] justify-center py-2 px-4 h-10 ml-8 rounded-lg"
-                // onClick={() => navigate("/payFee")}
+                  // onClick={() => navigate("/payFee")}
                 >
                   THÊM MỚI
                 </button>
               </div>
-
-
             </div>
             <div className=" mt-4 z-0">
               <table className="h-4 w-full text-sm text-left rtl:text-right">
@@ -73,7 +71,12 @@ function FamilyRegister() {
                   </tr>
                 </thead>
                 <tbody className="font-medium cursor-pointer overflow-y-scroll">
-                  <tr className="bg-[#b1c9f1] border-b" onClick={() => setShowDetailApartment(!isShowDetailApartment)}>
+                  <tr
+                    className="bg-[#b1c9f1] border-b"
+                    onClick={() =>
+                      setShowDetailApartment(!isShowDetailApartment)
+                    }
+                  >
                     <td scope="row" className="px-6 py-4 ">
                       1
                     </td>
@@ -158,7 +161,6 @@ function FamilyRegister() {
             </div>
 
             <Pagination />
-
           </div>
         </div>
       </div>

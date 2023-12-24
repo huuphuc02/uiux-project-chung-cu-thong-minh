@@ -1,25 +1,24 @@
-// import { useNavigate } from "react-router-dom";
-// import AdministratorHeader from "../../components/AdministratorHeader";
-// import SidebarAdministrator from "../../components/SidebarAdministrator";
+import AdministratorHeader from "../../components/AdministratorHeader";
+import SidebarAdministrator from "../../components/SidebarAdministrator";
 function HomePage() {
   // const navigate = useNavigate()
   return (
     <div className="h-screen">
-      {/* <AdministratorHeader /> */}
+      <AdministratorHeader />
       <div className="flex">
-        {/* <SidebarAdministrator /> */}
+        <SidebarAdministrator />
         <div id="NewRootRoot" className="flex flex-row w-full items-start">
           <div className="bg-white w-full h-[141px] rounded-lg">
             <div className="text-6xl font-['Nunito_Sans'] font-bold text-[#99b7f0] bg-white flex flex-row w-full h-[141px] items-start pt-4 px-10 rounded-lg">
-              100
+              40
               <div
                 id="CnHRoot"
-                className="text-5xl font-['Nunito_Sans'] w-2/5 text-left text-black"
+                className="text-5xl font-['Nunito_Sans'] ml-6 w-2/5 text-left text-black"
               >
                 căn hộ{" "}
               </div>
               <div className="text-center text-6xl font-['Nunito_Sans'] font-bold text-[#99b7f0] w-min">
-                364
+                100
               </div>
               <div
                 id="CDnRoot"
