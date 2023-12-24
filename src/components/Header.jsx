@@ -10,7 +10,7 @@ function Header() {
   const [resident, setResident] = useState({});
 
   useEffect(() => {
-    setResident(JSON.parse(localStorage.getItem("resident")));
+    setResident(JSON.parse(localStorage.getItem("manager")));
   }, []);
   return (
     <div id="NewRootRoot" className="w-full items-start">
