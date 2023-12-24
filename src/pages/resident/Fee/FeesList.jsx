@@ -1,9 +1,35 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../../../components/Header";
 import SidebarResident from "../../../components/SidebarResident";
+import { Fragment, useEffect, useState } from "react";
+import Pagination from "../../../components/Pagination";
 
 function FeesList() {
   const navigate = useNavigate();
+  const [listFees, setListFees] = useState([]);
+  const [apartment, setApartment] = useState({});
+  useEffect(() => {
+    setApartment(JSON.parse(localStorage.getItem("apartment")));
+    const getListFees = async () => {
+      let response = await fetch(`http://localhost:3001/khoanphi`);
+      const data = await response.json();
+      console.log(apartment.ID);
+      let list = data.filter(
+        (fee) => fee.apartmentId == apartment.ID || fee.apartmentId == "All"
+      );
+      const currentDate = new Date();
+      list = list.filter((item) => {
+        const [month, day, year] = item.deadline.split("/");
+        const itemDate = new Date(`${year}-${month}-${day}`);
+        return itemDate > currentDate;
+      });
+      console.log(listFees);
+      list.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+      setListFees(list);
+    };
+
+    getListFees();
+  }, []);
   return (
     <div>
       <Header />
@@ -33,53 +59,44 @@ function FeesList() {
                   </tr>
                 </thead>
                 <tbody className="font-medium cursor-pointer overflow-y-scroll">
-                  <tr className="bg-[#b1c9f1] border-b">
-                    <td scope="row" className="px-6 py-4 ">
-                      Phí bảo trì
-                    </td>
-                    <td className="px-6 py-4">Phí thay mới hệ thống đèn</td>
-                    <td className="px-6 py-4">300. 000</td>
-                    <td className="px-6 py-4">28/11/2023</td>
-                  </tr>
-                  <tr className="bg-[#b1c9f1] border-b">
-                    <td scope="row" className="px-6 py-4 ">
-                      Tiền nước
-                    </td>
-                    <td className="px-6 py-4">Tiền nước tháng 11/2023</td>
-                    <td className="px-6 py-4">200.000</td>
-                    <td className="px-6 py-4">8/12/2023</td>
-                  </tr>
-                  <tr className="bg-[#b1c9f1] border-b">
-                    <td scope="row" className="px-6 py-4 ">
-                      Tiền điện
-                    </td>
-                    <td className="px-6 py-4">Tiền điện tháng 11/2023</td>
-                    <td className="px-6 py-4">500.000</td>
-                    <td className="px-6 py-4">8/12/2023</td>
-                  </tr>
-                  <tr className="bg-[#b1c9f1] border-b">
-                    <td scope="row" className="px-6 py-4 ">
-                      Tiền Internet
-                    </td>
-                    <td className="px-6 py-4">Tiền internet tháng 11/2023</td>
-                    <td className="px-6 py-4">100.000</td>
-                    <td className="px-6 py-4">10/12/2023</td>
-                  </tr>
+                  {listFees
+                    ? listFees.map((fee, key) => {
+                        return (
+                          <tr className="bg-[#b1c9f1] border-b" key={key}>
+                            <td scope="row" className="px-6 py-4 ">
+                              {fee.type}
+                            </td>
+                            <td className="px-6 py-4">{fee.feeName}</td>
+                            <td className="px-6 py-4">{fee.cost}</td>
+                            <td className="px-6 py-4">{fee.deadline}</td>
+                          </tr>
+                        );
+                      })
+                    : Fragment}
                 </tbody>
               </table>
             </div>
+            <Pagination length={listFees.length} />
             <div className="text-center text-lg font-bold self-center mt-10 ml-56 mb-6 relative">
               <div className="flex">
                 <label>Tổng tiền: </label>
-                <span className="absolute left-64">1.200.000 VND</span>
+                <span className="absolute left-64">
+                  {listFees
+                    .reduce((accumulator, fee) => {
+                      return accumulator + fee.cost;
+                    }, 0)
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}{" "}
+                  VND
+                </span>
               </div>
               <div className="flex">
                 <label>Số khoản phí quá hạn đóng: </label>
-                <span className="absolute left-64">1</span>
+                <span className="absolute left-64">0</span>
               </div>
               <div className="flex">
                 <label>Số khoản phí còn hạn đóng: </label>
-                <span className="absolute left-64">3</span>
+                <span className="absolute left-64">{listFees.length}</span>
               </div>
             </div>
           </div>

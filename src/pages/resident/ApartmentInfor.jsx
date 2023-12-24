@@ -7,15 +7,17 @@ function Apartment() {
   const navigate = useNavigate();
   const [apartment, setApartment] = useState({});
   const [listMembers, setMembers] = useState([]);
+  const [relations, setRelations] = useState([]);
 
   useEffect(() => {
     setApartment(JSON.parse(localStorage.getItem("apartment")));
     const getListMembers = async () => {
       let response = await fetch(
-        `http://localhost:3001/chungcu-cudan?MSCH=${4042}`
+        `http://localhost:3001/chungcu-cudan?MSCH=${apartment.ID}`
       );
       const data = await response.json();
       let listMembersArray = [];
+      let listRelationsArray = [];
       for (let i in data) {
         console.log(data[i]);
         response = await fetch(
@@ -23,9 +25,10 @@ function Apartment() {
         );
         const member = await response.json();
         listMembersArray.push(member[0]);
+        listRelationsArray.push(data[i].QHChuHo);
       }
       setMembers(listMembersArray);
-      console.log(listMembers);
+      setRelations(listRelationsArray);
     };
 
     getListMembers();
@@ -108,14 +111,18 @@ function Apartment() {
                           <tr
                             key={key}
                             className="bg-[#b1c9f1] border-b"
-                            onClick={() => navigate("/residentInfo")}
+                            onClick={() =>
+                              navigate("/residentInfo", {
+                                state: { id: member.id },
+                              })
+                            }
                           >
                             <td scope="row" className="px-6 py-4 ">
                               {member?.fullname}
                             </td>
                             <td className="px-6 py-4">{member?.dob}</td>
                             <td className="px-6 py-4">{member?.gender}</td>
-                            <td className="px-6 py-4">Chu ho</td>
+                            <td className="px-6 py-4">{relations[key]}</td>
                           </tr>
                         );
                       })

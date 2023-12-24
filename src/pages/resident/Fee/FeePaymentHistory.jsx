@@ -1,3 +1,4 @@
+import { Fragment, useEffect, useState } from "react";
 import Header from "../../../components/Header";
 import Pagination from "../../../components/Pagination";
 import SidebarResident from "../../../components/SidebarResident";
@@ -5,6 +6,24 @@ import { LuSearch } from "react-icons/lu";
 
 function FeePaymentHistory() {
   const months = Array.from({ length: 12 }, (_, index) => index + 1);
+  const [listFees, setListFees] = useState([]);
+  const [apartment, setApartment] = useState({});
+  useEffect(() => {
+    setApartment(JSON.parse(localStorage.getItem("apartment")));
+    const getListFees = async () => {
+      let response = await fetch(`http://localhost:3001/khoanphi`);
+      const data = await response.json();
+      console.log(apartment.ID);
+      let list = data.filter(
+        (fee) => fee.apartmentId == apartment.ID || fee.apartmentId == "All"
+      );
+      list.sort((a, b) => new Date(b.deadline) - new Date(a.deadline));
+      setListFees(list);
+      console.log(listFees);
+    };
+
+    getListFees();
+  }, []);
   return (
     <div>
       <Header />
@@ -71,91 +90,25 @@ function FeePaymentHistory() {
                 </tr>
               </thead>
               <tbody className="font-medium cursor-pointer overflow-y-scroll">
-                <tr className="bg-[#b1c9f1] border-b">
-                  <td scope="row" className="px-6 py-4 ">
-                    Phí bảo trì
-                  </td>
-                  <td className="px-6 py-4">Phí thay mới hệ thống đèn</td>
-                  <td className="px-6 py-4">300. 000</td>
-                  <td className="px-6 py-4">11:23:00 25/11/2023</td>
-                </tr>
-                <tr className="bg-[#b1c9f1] border-b">
-                  <td scope="row" className="px-6 py-4 ">
-                    Tiền nước
-                  </td>
-                  <td className="px-6 py-4">Tiền nước tháng 11/2023</td>
-                  <td className="px-6 py-4">200.000</td>
-                  <td className="px-6 py-4">11:23:00 25/11/2023</td>
-                </tr>
-                <tr className="bg-[#b1c9f1] border-b">
-                  <td scope="row" className="px-6 py-4 ">
-                    Tiền điện
-                  </td>
-                  <td className="px-6 py-4">Tiền điện tháng 11/2023</td>
-                  <td className="px-6 py-4">500.000</td>
-                  <td className="px-6 py-4">11:23:00 25/11/2023</td>
-                </tr>
-                <tr className="bg-[#b1c9f1] border-b">
-                  <td scope="row" className="px-6 py-4 ">
-                    Tiền Internet
-                  </td>
-                  <td className="px-6 py-4">Tiền internet tháng 11/2023</td>
-                  <td className="px-6 py-4">100.000</td>
-                  <td className="px-6 py-4">11:23:00 25/11/2023</td>
-                </tr>
-                <tr className="bg-[#b1c9f1] border-b">
-                  <td scope="row" className="px-6 py-4 ">
-                    Tiền Internet
-                  </td>
-                  <td className="px-6 py-4">Tiền internet tháng 11/2023</td>
-                  <td className="px-6 py-4">100.000</td>
-                  <td className="px-6 py-4">11:23:00 25/11/2023</td>
-                </tr>
-                <tr className="bg-[#b1c9f1] border-b">
-                  <td scope="row" className="px-6 py-4 ">
-                    Tiền Internet
-                  </td>
-                  <td className="px-6 py-4">Tiền internet tháng 11/2023</td>
-                  <td className="px-6 py-4">100.000</td>
-                  <td className="px-6 py-4">11:23:00 25/11/2023</td>
-                </tr>
-                <tr className="bg-[#b1c9f1] border-b">
-                  <td scope="row" className="px-6 py-4 ">
-                    Tiền Internet
-                  </td>
-                  <td className="px-6 py-4">Tiền internet tháng 11/2023</td>
-                  <td className="px-6 py-4">100.000</td>
-                  <td className="px-6 py-4">11:23:00 25/11/2023</td>
-                </tr>
-                <tr className="bg-[#b1c9f1] border-b">
-                  <td scope="row" className="px-6 py-4 ">
-                    Tiền Internet
-                  </td>
-                  <td className="px-6 py-4">Tiền internet tháng 11/2023</td>
-                  <td className="px-6 py-4">100.000</td>
-                  <td className="px-6 py-4">11:23:00 25/11/2023</td>
-                </tr>
-                <tr className="bg-[#b1c9f1] border-b">
-                  <td scope="row" className="px-6 py-4 ">
-                    Tiền Internet
-                  </td>
-                  <td className="px-6 py-4">Tiền internet tháng 11/2023</td>
-                  <td className="px-6 py-4">100.000</td>
-                  <td className="px-6 py-4">11:23:00 25/11/2023</td>
-                </tr>
-                <tr className="bg-[#b1c9f1] border-b">
-                  <td scope="row" className="px-6 py-4 ">
-                    Tiền Internet
-                  </td>
-                  <td className="px-6 py-4">Tiền internet tháng 11/2023</td>
-                  <td className="px-6 py-4">100.000</td>
-                  <td className="px-6 py-4">11:23:00 25/11/2023</td>
-                </tr>
+                {listFees
+                  ? listFees.slice(0, 10).map((fee, key) => {
+                      return (
+                        <tr className="bg-[#b1c9f1] border-b" key={key}>
+                          <td scope="row" className="px-6 py-4 ">
+                            {fee.type}
+                          </td>
+                          <td className="px-6 py-4">{fee.feeName}</td>
+                          <td className="px-6 py-4">{fee.cost}</td>
+                          <td className="px-6 py-4">{fee.deadline}</td>
+                        </tr>
+                      );
+                    })
+                  : Fragment}
               </tbody>
             </table>
           </div>
 
-          <Pagination />
+          <Pagination length={listFees.length} />
         </div>
       </div>
     </div>
