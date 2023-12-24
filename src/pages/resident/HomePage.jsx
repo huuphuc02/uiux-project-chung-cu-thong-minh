@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import SidebarResident from "../../components/SidebarResident";
+// import api from "../../services/api";
 
 function HomePage() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <div className="h-screen">
       <Header />
@@ -11,7 +12,12 @@ function HomePage() {
         <SidebarResident />
         <div className="flex flex-col w-4/5 items-start mt-2 mb-4">
           <div className="flex flex-col gap-3 w-full items-start">
-            <h1 className="text-[22px] font-bold ml-1 cursor-pointer" onClick={() => navigate('/buildingInfo')}>Thông tin chung cư</h1>
+            <h1
+              className="text-[22px] font-bold ml-1 cursor-pointer"
+              onClick={() => navigate("/buildingInfo")}
+            >
+              Thông tin chung cư
+            </h1>
             <img
               src="https://file.rendit.io/n/PK3kkNhDEvLADNM0od7k.png"
               alt="Image1"
@@ -22,7 +28,10 @@ function HomePage() {
           <div className="flex flex-col gap-5 w-full items-start">
             <div className="flex flex-col ml-1 gap-2 w-full items-start">
               <h1 className="text-[22px] font-bold">Nộp phí</h1>
-              <div className="bg-[#99b7f0] flex flex-col justify-end gap-2 w-full items-start pt-3 px-4 rounded-lg">
+              <div
+                className="bg-[#99b7f0] flex flex-col justify-end gap-2 w-full items-start pt-3 px-4 rounded-lg"
+                onClick={() => navigate("/listofFees")}
+              >
                 <div className="flex flex-row gap-20 w-full items-start">
                   <div
                     id="Ellipse"
@@ -102,9 +111,7 @@ function HomePage() {
                 <div className="flex flex-row gap-20 w-full items-start">
                   <div className="flex flex-row gap-[76px] items-start">
                     <span className="text-center text-white">Phí bảo trì</span>
-                    <span className="text-center text-white">
-                      Tiền điện
-                    </span>
+                    <span className="text-center text-white">Tiền điện</span>
                     <span id="TinNc" className="text-center text-white">
                       Tiền nước
                     </span>
@@ -112,10 +119,11 @@ function HomePage() {
                     <span id="TinGiXe" className="text-center text-white">
                       Tiền gửi xe
                     </span>
-                  <span className="text-center text-white">Internet</span>
-                  <span id="XemThm" className="text-center text-white">
-                    Xem thêm</span>
-                  </div>                 
+                    <span className="text-center text-white">Internet</span>
+                    <span id="XemThm" className="text-center text-white">
+                      Xem thêm
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -125,7 +133,7 @@ function HomePage() {
                   Đăng ký tạm trú tạm vắng
                 </div>
                 <div className="relative flex flex-row w-full items-start">
-                  <div className="bg-[#99b7f0] relative flex flex-col justify-center gap-6 w-full h-48 items-center rounded-lg">
+                  <div className="bg-[#99b7f0] relative flex flex-col cursor-pointer justify-center gap-6 w-full h-48 items-center rounded-lg">
                     <div className="relative w-1/3 items-center justify-center">
                       <h2 className="text-center text-[22px] text-white h-10">
                         Tạm trú
@@ -134,7 +142,10 @@ function HomePage() {
                         Thủ tục tạm trú
                       </h3>
                     </div>
-                    <button className="text-center text-lg uppercase text-[#99b7f0] border-solid border-[#5387e9] bg-white flex flex-row w-1/3 h-14 pl-9 items-start pt-4 border-0 rounded-lg">
+                    <button
+                      className="text-center text-lg uppercase text-[#99b7f0] border-solid border-[#5387e9] bg-white flex flex-row w-1/3 h-14 pl-9 items-start pt-4 border-0 rounded-lg"
+                      onClick={() => navigate("/residence")}
+                    >
                       đăng ký
                     </button>
                   </div>
@@ -156,7 +167,10 @@ function HomePage() {
                       Thủ tục tạm vắng
                     </h3>
                   </div>
-                  <button className="text-center text-lg uppercase text-[#99b7f0] border-solid border-[#5387e9] bg-white flex flex-row w-1/3 pl-9 h-14 items-start pt-4 border-0 rounded-lg">
+                  <button
+                    className="text-center text-lg uppercase text-[#99b7f0] border-solid border-[#5387e9] bg-white flex flex-row w-1/3 pl-9 h-14 items-start pt-4 border-0 rounded-lg"
+                    onClick={() => navigate("/absence")}
+                  >
                     đăng ký
                   </button>
                 </div>

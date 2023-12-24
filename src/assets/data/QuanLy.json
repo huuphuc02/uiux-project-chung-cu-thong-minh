@@ -1,0 +1,72 @@
+[
+ {
+   "ID": "QL01",
+   "HoTen": "Nguyễn Thị Anh",
+   "NgaySinh": "15/02/1990",
+   "GioiTinh": "Nữ",
+   "Sdt": 555449372
+ },
+ {
+   "ID": "QL02",
+   "HoTen": "Trần Văn Nam",
+   "NgaySinh": "4/7/1985",
+   "GioiTinh": "Nam",
+   "Sdt": 556519129
+ },
+ {
+   "ID": "QL03",
+   "HoTen": "Lê Thị Hương",
+   "NgaySinh": "9/11/1992",
+   "GioiTinh": "Nữ",
+   "Sdt": 559589582
+ },
+ {
+   "ID": "QL04",
+   "HoTen": "Phạm Minh Tuấn",
+   "NgaySinh": "27/05/1988",
+   "GioiTinh": "Nam",
+   "Sdt": 559036509
+ },
+ {
+   "ID": "QL05",
+   "HoTen": "Đặng Thị Mai",
+   "NgaySinh": "8/9/1995",
+   "GioiTinh": "Nữ",
+   "Sdt": 357253991
+ },
+ {
+   "ID": "QL06",
+   "HoTen": "Vũ Quang Hải",
+   "NgaySinh": "20/03/1982",
+   "GioiTinh": "Nam",
+   "Sdt": 352780360
+ },
+ {
+   "ID": "QL07",
+   "HoTen": "Hoàng Thị Lan",
+   "NgaySinh": "14/06/1993",
+   "GioiTinh": "Nữ",
+   "Sdt": 755537329
+ },
+ {
+   "ID": "QL08",
+   "HoTen": "Ngô Minh Đức",
+   "NgaySinh": "1/12/1987",
+   "GioiTinh": "Nam",
+   "Sdt": 552414940
+ },
+ {
+   "ID": "QL09",
+   "HoTen": "Lê Ngọc Bảo",
+   "NgaySinh": "10/8/1998",
+   "GioiTinh": "Nam",
+   "Sdt": 555298559
+ },
+ {
+   "ID": "QL10",
+   "HoTen": "Mai Thanh Hà",
+   "NgaySinh": "5/4/1991",
+   "GioiTinh": "Nữ",
+   "Sdt": 755539284
+ }
+]
