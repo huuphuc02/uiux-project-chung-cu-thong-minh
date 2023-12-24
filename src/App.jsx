@@ -2,7 +2,6 @@ import "./App.css";
 import Login from "./pages/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePageResident from "./pages/resident/HomePage";
-import HomePageAdmin from "./pages/administrator/HomePage";
 import HomePageManager from "./pages/manager/HomePage";
 import BuildingInfor from "./pages/resident/BuildingInfor";
 import Apartment from "./pages/resident/ApartmentInfor";
@@ -19,6 +18,7 @@ import FamilyRegister from "./pages/manager/FamilyRegister";
 import Announce from "./pages/manager/Announce";
 import FeeManager from "./pages/manager/FeeManager";
 import Statistics from "./pages/manager/Statistics";
+import HomePageAdministrator from "./pages/administrator/HomePageAdministrator";
 
 function App() {
   return (
@@ -26,6 +26,13 @@ function App() {
       <Routes>
         <Route path="/homepageResident" element={<HomePageResident />} />
         <Route path="/homepageAdmin" element={<HomePageAdmin />} />
+        <Route path="/sendNotifications" element={<SendNotifications />} />
+        <Route path="/statistics" element={<Statistics />} />
+        <Route path="/setting" element={<Setting />} />
+        <Route
+          path="/sendNotificationsSuccess"
+          element={<SendNotificationsSuccess />}
+        />
         <Route path="/homepageManager" element={<HomePageManager />} />
         <Route path="/buildingInfo" element={<BuildingInfor />} />
         <Route path="/apartmentInfo" element={<Apartment />} />

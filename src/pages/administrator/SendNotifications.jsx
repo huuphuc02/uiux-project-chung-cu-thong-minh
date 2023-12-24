@@ -14,13 +14,15 @@ function SendNotifications() {
                             <div className="flex flex-row justify-between mb-1 w-2/3 items-start">
                                 <div className="text-2xl font-bold mt-32">Tiêu đề</div>
                                 <div className="flex flex-col gap-10 w-3/5 items-start">
-                                    <div className="text-5xl font-bold capitalize">Gửi thông báo</div>
+                                    <div className="flex justify-end ml-12">
+                                        <div className="text-4xl font-bold capitalize">Gửi thông báo</div>
+                                    </div>
                                     <input
                                         type="text"
                                         name="search"
                                         id="search"
                                         placeholder=""
-                                        className="text-[#adaaaa] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row mt-8 gap-3 w-4/5 h-10 items-start px-3 rounded-lg mr-2"
+                                        className="text-[#adaaaa] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row mt-8 gap-3 w-4/5 h-10 items-start px-3 rounded-lg ml-1"
                                     />
                                 </div>
                             </div>
@@ -31,13 +33,13 @@ function SendNotifications() {
                                     name="search"
                                     id="search"
                                     placeholder=""
-                                    className="text-[#adaaaa] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row mt-4 gap-3 w-3/4 h-40 items-start px-3 rounded-lg mr-2"
+                                    className="text-[#adaaaa] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row mt-4 gap-3 w-[678px] h-40 items-start px-3 rounded-lg"
                                 />
 
                             </div>
                             <div className="flex flex-row gap-20 w-4/5 font-['Nunito_Sans'] items-start mb-1 ml-px">
                                 <div className="text-2xl font-bold mt-4">Đối tượng gửi</div>
-                                <div className="text-[#adaaaa] mt-px shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row justify-between w-3/5 h-11 items-start mt-2">
+                                <div className="text-[#adaaaa] mt-px shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row justify-between w-3/5 h-11 items-start mt-2 ml-5">
                                     <select
                                         name="role"
                                         id="role"
@@ -50,22 +52,22 @@ function SendNotifications() {
                                     </select>
                                 </div>
                             </div>
-                            <div className="flex flex-row justify-between ml-px w-3/5 font-['Nunito_Sans'] items-start">
-                                <div className="text-2xl font-bold mt-4">Thời gian</div>
+                            <div className="flex flex-row justify-between ml-6 w-3/5 font-['Nunito_Sans'] items-start">
+                                <div className="text-2xl font-bold mt-4 mr-3">Thời gian</div>
                                 <input
-                                        type="text"
-                                        name="search"
-                                        id="search"
-                                        placeholder=""
-                                        className="text-[#adaaaa] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row mt-3 gap-3 w-3/5 h-10 items-start px-3 rounded-lg ml-[-2px]"
-                                    />
+                                    type="text"
+                                    name="search"
+                                    id="search"
+                                    placeholder=""
+                                    className="text-[#adaaaa] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row mt-3 gap-3 w-3/5 h-10 items-start px-3 rounded-lg ml-9"
+                                />
                             </div>
                         </div>
-                        <div className="flex flex-row ml-64 gap-16 w-2/5 items-start">
-                            <div className="text-center text-xl uppercase text-[#99b7f0] border-solid border-[#5387e9] bg-white flex flex-row w-2/5 h-16 items-start pt-5 px-8 border-0 rounded-lg">
+                        <div className="flex flex-row ml-64 gap-16 w-/5 items-start">
+                            <div className="text-center text-xl uppercase text-[#99b7f0] border-solid border-[#5387e9] bg-white flex flex-row w-2/5 h-16 items-start pt-5 px-8 border-0 rounded-lg ml-9" onClick={() => navigate("/homepageAdmin")}>
                                 huỷ
                             </div>
-                            <div className="text-center text-xl uppercase text-white bg-[#99b7f0] flex flex-row w-2/5 h-16 items-start pt-5 px-8 rounded-lg">
+                            <div className="text-center text-xl uppercase text-white bg-[#99b7f0] flex flex-row w-2/5 h-16 items-start pt-5 px-8 rounded-lg" onClick={() => navigate("/sendNotificationsSuccess")}>
                                 Gửi
                             </div>
                         </div>

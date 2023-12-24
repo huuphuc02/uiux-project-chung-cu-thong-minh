@@ -9,10 +9,10 @@ function SendNotificationsSuccess() {
             <AdministratorHeader />
             <div className="flex">
                 <SidebarAdministrator />
-                <div className="text-5xl font-['Nunito_Sans'] font-bold capitalize w-full mt-8">
+                <div className=" text-5xl font-['Nunito_Sans'] font-bold capitalize w-full mt-8 mb-3">
                     Gửi thông báo
                     <div id="NewRootRoot" className="flex flex-row w-full items-start">
-                        <div className="bg-white flex flex-row justify-end gap-12 w-full font-['Nunito_Sans'] items-start pt-10 px-6 rounded-lg">
+                        <div className="bg-gray-200 flex flex-row justify-end gap-12 w-full font-['Nunito_Sans'] items-start pt-10 px-6 rounded-lg mt-4">
                             <div className="flex flex-col justify-between mt-32 w-1/6 h-[352px] items-start">
                                 <div className="flex flex-col gap-8 w-full h-24 items-start ">
                                     <div id="Tiu" className="text-2xl font-bold">
