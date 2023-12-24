@@ -14,7 +14,7 @@ function Statistics() {
                         <div className="flex flex-row justify-between w-full items-start">
                             <div className="flex flex-col gap-8 w-2/5 items-start ml-5">
                                 <div className="bg-white flex flex-row gap-2 w-[370px] h-[141px] items-start pt-4 px-10 rounded-lg mt-1">
-                                    <div className="text-6xl font-bold text-[#99b7f0] mt-6">100</div>
+                                    <div className="text-6xl font-bold text-[#99b7f0] mt-6">40</div>
                                     <div id="CnH" className="text-[40px] mt-6">
                                         căn hộ{" "}
                                     </div>
@@ -31,7 +31,7 @@ function Statistics() {
                                     cư dân
                                 </div>
                                 <div className="text-center text-6xl font-bold text-[#99b7f0] relative mt-5 mb-4 ml-20">
-                                    364
+                                    100
                                 </div>
                             </div>
                         </div>
