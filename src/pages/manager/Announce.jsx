@@ -65,9 +65,9 @@ function Announce() {
 
             </div>
 
-            <div className="flex ">
+            <div className="flex justify-center items-center gap-10 ">
               <button
-                className="flex flex-row w-full cursor-pointer items-start "
+                className="flex flex-row  cursor-pointer items-start "
               >
                 <div className="text-center text-xl font-['Nunito_Sans'] uppercase text-[#99b7f0] border-solid border-[#5387e9] bg-white flex flex-row w-full h-16 items-start pt-5 px-8 border-0 rounded-lg">
                   huỷ
@@ -75,7 +75,7 @@ function Announce() {
               </button>
 
               <button
-                className="flex flex-row w-full cursor-pointer items-start "
+                className="flex flex-row  cursor-pointer items-center justify-center "
               >
                 <div className="text-center text-xl font-['Nunito_Sans'] uppercase text-white bg-[#99b7f0] flex flex-row w-full h-16 items-start pt-5 px-8 rounded-lg">
                   Gửi

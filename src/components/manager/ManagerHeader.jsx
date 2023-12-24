@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { LuSearch } from "react-icons/lu";
-import OverlayResident from "./OverlayResident";
+import OverlayResident from "../OverlayResident";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
