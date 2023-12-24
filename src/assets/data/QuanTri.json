@@ -1,0 +1,52 @@
+[
+ {
+   "ID": "QT01",
+   "ID_CD": "CD47",
+   "Chức vụ": "Trưởng ban quản trị"
+ },
+ {
+   "ID": "QT02",
+   "ID_CD": "CD35",
+   "Chức vụ": "Thành viên "
+ },
+ {
+   "ID": "QT03",
+   "ID_CD": "CD38",
+   "Chức vụ": "Thành viên "
+ },
+ {
+   "ID": "QT04",
+   "ID_CD": "CD03",
+   "Chức vụ": "Thành viên "
+ },
+ {
+   "ID": "QT05",
+   "ID_CD": "CD12",
+   "Chức vụ": "Thành viên "
+ },
+ {
+   "ID": "QT06",
+   "ID_CD": "CD15",
+   "Chức vụ": "Thành viên "
+ },
+ {
+   "ID": "QT07",
+   "ID_CD": "CD68",
+   "Chức vụ": "Thành viên "
+ },
+ {
+   "ID": "QT08",
+   "ID_CD": "CD69",
+   "Chức vụ": "Thành viên "
+ },
+ {
+   "ID": "QT09",
+   "ID_CD": "CD82",
+   "Chức vụ": "Thành viên "
+ },
+ {
+   "ID": "QT10",
+   "ID_CD": "CD87",
+   "Chức vụ": "Thành viên "
+ }
+]
