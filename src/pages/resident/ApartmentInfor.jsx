@@ -1,9 +1,35 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import SidebarResident from "../../components/SidebarResident";
+import { Fragment, useEffect, useState } from "react";
 
 function Apartment() {
   const navigate = useNavigate();
+  const [apartment, setApartment] = useState({});
+  const [listMembers, setMembers] = useState([]);
+
+  useEffect(() => {
+    setApartment(JSON.parse(localStorage.getItem("apartment")));
+    const getListMembers = async () => {
+      let response = await fetch(
+        `http://localhost:3001/chungcu-cudan?MSCH=${4042}`
+      );
+      const data = await response.json();
+      let listMembersArray = [];
+      for (let i in data) {
+        console.log(data[i]);
+        response = await fetch(
+          `http://localhost:3001/cudan?ID=${data[i].MSCD}`
+        );
+        const member = await response.json();
+        listMembersArray.push(member[0]);
+      }
+      setMembers(listMembersArray);
+      console.log(listMembers);
+    };
+
+    getListMembers();
+  }, []);
   return (
     <div>
       <Header />
@@ -22,7 +48,7 @@ function Apartment() {
                 id="Element2"
                 className="text-lg font-medium leading-[26px] absolute left-48"
               >
-                203
+                {apartment.apartment}
               </span>
             </div>
             <div className="flex mb-4 relative">
@@ -30,7 +56,7 @@ function Apartment() {
                 Tòa nhà:
               </label>
               <span className="text-lg font-medium leading-[26px]  absolute left-48">
-                A1
+                {apartment.building}
               </span>
             </div>
             <div className="flex mb-4 relative">
@@ -38,7 +64,7 @@ function Apartment() {
                 Tầng:
               </label>
               <span className="text-lg font-medium leading-[26px]  absolute left-48">
-                2
+                {apartment.floor}
               </span>
             </div>
             <div className="flex mb-4 relative">
@@ -46,7 +72,7 @@ function Apartment() {
                 Diện tích:
               </label>
               <span className="text-lg font-medium leading-[26px] absolute left-48">
-                80 m2
+                {apartment.area} m2
               </span>
             </div>
             <div>
@@ -76,41 +102,24 @@ function Apartment() {
                   </tr>
                 </thead>
                 <tbody className="font-medium cursor-pointer">
-                  <tr
-                    className="bg-[#b1c9f1] border-b"
-                    onClick={() => navigate("/residentInfo")}
-                  >
-                    <td scope="row" className="px-6 py-4 ">
-                      Lê Hữu Tài
-                    </td>
-                    <td className="px-6 py-4">23/09/1980</td>
-                    <td className="px-6 py-4">Nam</td>
-                    <td className="px-6 py-4">Chủ hộ</td>
-                  </tr>
-                  <tr className="bg-[#b1c9f1] border-b">
-                    <td scope="row" className="px-6 py-4 ">
-                      Trần Mai Duyên
-                    </td>
-                    <td className="px-6 py-4">11/8/1982</td>
-                    <td className="px-6 py-4">Nữ</td>
-                    <td className="px-6 py-4">Vợ</td>
-                  </tr>
-                  <tr className="bg-[#b1c9f1] border-b">
-                    <td scope="row" className="px-6 py-4 ">
-                      Lê Hữu Đức
-                    </td>
-                    <td className="px-6 py-4">05/09/2003</td>
-                    <td className="px-6 py-4">Nam</td>
-                    <td className="px-6 py-4">Con trai</td>
-                  </tr>
-                  <tr className="bg-[#b1c9f1] border-b">
-                    <td scope="row" className="px-6 py-4 ">
-                      Lê Thùy Linh
-                    </td>
-                    <td className="px-6 py-4">29/11/2006</td>
-                    <td className="px-6 py-4">Nữ</td>
-                    <td className="px-6 py-4">Con gái</td>
-                  </tr>
+                  {listMembers
+                    ? listMembers.map((member, key) => {
+                        return (
+                          <tr
+                            key={key}
+                            className="bg-[#b1c9f1] border-b"
+                            onClick={() => navigate("/residentInfo")}
+                          >
+                            <td scope="row" className="px-6 py-4 ">
+                              {member?.fullname}
+                            </td>
+                            <td className="px-6 py-4">{member?.dob}</td>
+                            <td className="px-6 py-4">{member?.gender}</td>
+                            <td className="px-6 py-4">Chu ho</td>
+                          </tr>
+                        );
+                      })
+                    : Fragment}
                 </tbody>
               </table>
             </div>

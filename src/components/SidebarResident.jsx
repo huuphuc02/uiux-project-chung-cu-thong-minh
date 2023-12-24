@@ -6,7 +6,10 @@ function SidebarResident() {
     <div id="NewRootRoot" className="flex flex-row w-[18%] items-start">
       <div className="bg-white flex flex-col gap-16 w-full items-start pt-4 pb-4">
         <div className="flex flex-col gap-6 items-start">
-          <div className="bg-[#99b7f0] items-center flex flex-row gap-6 w-full h-16 px-4 cursor-pointer">
+          <div
+            className="bg-[#99b7f0] items-center flex flex-row gap-6 w-full h-16 px-4 cursor-pointer"
+            onClick={() => navigate("/homepageResident")}
+          >
             <img
               src="https://file.rendit.io/n/XZWscRXGASvVuDSsfZMI.svg"
               alt="OutlinedOtherLocationHome"
