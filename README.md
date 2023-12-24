@@ -1,8 +1,51 @@
-# React + Vite
+# Chung cư thông minh - HI-05
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Bắt Đầu
 
-Currently, two official plugins are available:
+Hướng dẫn cài đặt và chạy dự án trên máy tính cá nhân của bạn.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Yêu Cầu
+
+- [Node.js](https://nodejs.org/) - phiên bản 12 trở lên
+- [npm](https://www.npmjs.com/)
+
+### Cài Đặt
+
+1. Clone repository:
+
+   ```bash
+   git clone https://github.com/huuphuc02/uiux-project-chung-cu-thong-minh.git
+
+2. Di chuyển vào thư mục dự án
+    ```bash
+   cd uiux-project-chung-cu-thong-minh
+
+2. Cài đặt các gói npm
+    ```bash
+   npm install
+
+### Chạy dự án
+
+1. Chạy dự án React:
+
+   ```bash
+   npm run dev
+  Ứng dụng sẽ chạy tại http://localhost:5173.
+
+2. Chạy json-server để mô phỏng API:
+    ```bash
+    json-server --watch src/assets/data/data.json --port 3001
+
+### Tài khoản đăng nhập
+- Cư dân:
+  - Sdt: 0955551227
+  - Password: fLJ^z2qIv$8w
+- Quản trị:
+  - Sdt: 0555514940
+  - Password: t7X*8S2iJ!kP
+- Quản lý:
+  - Sdt: 0559036509
+  - Password: wH2!oL7zT@8y
+
+## Liên hệ
+  Nếu bạn có gặp khó khăn hay thắc mắc, vui lòng liên hệ với chúng tôi

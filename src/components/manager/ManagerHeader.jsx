@@ -1,16 +1,17 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { LuSearch } from "react-icons/lu";
-import OverlayResident from "./OverlayResident";
+import OverlayResident from "../OverlayResident";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function ManagerHeader() {
   const [overlay, setOverlay] = useState(false);
   const navigate = useNavigate();
-  const [resident, setResident] = useState({});
+  const [manager, setManager] = useState({});
 
   useEffect(() => {
-    setResident(JSON.parse(localStorage.getItem("manager")));
+    setManager(JSON.parse(localStorage.getItem("manager"))[0]);
   }, []);
   return (
     <div id="NewRootRoot" className="w-full items-start">
@@ -62,9 +63,9 @@ function ManagerHeader() {
                 className="font-semibold text-left"
                 onClick={() => navigate("/residentInfo")}
               >
-                {resident.fullname}
+                {manager.HoTen}
                 <br />
-                <span className="text-[#686868]">Cư dân</span>
+                <span className="text-[#686868]">Quản lý</span>
               </div>
               <span
                 className="ml-4 text-center text-4xl"
