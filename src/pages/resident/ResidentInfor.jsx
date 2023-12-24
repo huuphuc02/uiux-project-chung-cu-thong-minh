@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import SidebarResident from "../../components/SidebarResident";
 import { useEffect, useState } from "react";
@@ -6,7 +6,9 @@ import { useEffect, useState } from "react";
 function ResidentInfor() {
   const navigate = useNavigate();
   const [resident, setResident] = useState({});
+  const location = useLocation();
   useEffect(() => {
+    console.log(location.state?.id);
     setResident(JSON.parse(localStorage.getItem("resident")));
   }, []);
   return (

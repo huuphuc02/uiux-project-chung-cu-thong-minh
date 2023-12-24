@@ -411,502 +411,502 @@
  {
    "MSCD": "CD05",
    "MSCH": 1011,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD71",
-   "MSCH": 1011,
-   "ChuHo": 0
+   "MSCH": 1012,
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD87",
    "MSCH": 1012,
-   "ChuHo": 1
+   "QHChuHo": "Con trai"
  },
  {
    "MSCD": "CD94",
    "MSCH": 1012,
-   "ChuHo": 0
+   "QHChuHo": "Con trai"
  },
  {
    "MSCD": "CD14",
    "MSCH": 1021,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD46",
    "MSCH": 1021,
-   "ChuHo": 0
+   "QHChuHo": "Mẹ"
  },
  {
    "MSCD": "CD80",
    "MSCH": 1022,
-   "ChuHo": 1
+   "QHChuHo": "Con gái"
  },
  {
    "MSCD": "CD81",
    "MSCH": 1022,
-   "ChuHo": 0
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD21",
    "MSCH": 1031,
-   "ChuHo": 1
+   "QHChuHo": "Con gái"
  },
  {
    "MSCD": "CD24",
    "MSCH": 1031,
-   "ChuHo": 0
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD79",
    "MSCH": 1032,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD84",
    "MSCH": 1032,
-   "ChuHo": 0
+   "QHChuHo": "Vợ"
  },
  {
    "MSCD": "CD08",
    "MSCH": 1041,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD39",
    "MSCH": 1041,
-   "ChuHo": 0
+   "QHChuHo": "Vợ"
  },
  {
    "MSCD": "CD64",
    "MSCH": 1042,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD67",
    "MSCH": 1042,
-   "ChuHo": 0
+   "QHChuHo": "Con trai"
  },
  {
    "MSCD": "CD69",
    "MSCH": 1042,
-   "ChuHo": 0
+   "QHChuHo": "Em trai"
  },
  {
    "MSCD": "CD19",
    "MSCH": 1051,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD44",
    "MSCH": 1051,
-   "ChuHo": 0
+   "QHChuHo": "Em gái"
  },
  {
    "MSCD": "CD52",
    "MSCH": 1052,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD54",
    "MSCH": 1052,
-   "ChuHo": 0
+   "QHChuHo": "Ông"
  },
  {
    "MSCD": "CD88",
    "MSCH": 1052,
-   "ChuHo": 0
+   "QHChuHo": "Mẹ"
  },
  {
    "MSCD": "CD20",
    "MSCH": 2011,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD31",
    "MSCH": 2011,
-   "ChuHo": 0
+   "QHChuHo": "Cháu gái"
  },
  {
    "MSCD": "CD41",
    "MSCH": 2011,
-   "ChuHo": 0
+   "QHChuHo": "Vợ"
  },
  {
    "MSCD": "CD60",
    "MSCH": 2012,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD65",
    "MSCH": 2012,
-   "ChuHo": 0
+   "QHChuHo": "Con trai"
  },
  {
    "MSCD": "CD82",
    "MSCH": 2012,
-   "ChuHo": 0
+   "QHChuHo": "Vợ"
  },
  {
    "MSCD": "CD09",
    "MSCH": 2021,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD25",
    "MSCH": 2021,
-   "ChuHo": 0
+   "QHChuHo": "Chị gái"
  },
  {
    "MSCD": "CD43",
    "MSCH": 2021,
-   "ChuHo": 0
+   "QHChuHo": "Bố"
  },
  {
    "MSCD": "CD55",
    "MSCH": 2022,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD56",
    "MSCH": 2022,
-   "ChuHo": 0
+   "QHChuHo": "Con trai"
  },
  {
    "MSCD": "CD78",
    "MSCH": 2022,
-   "ChuHo": 0
+   "QHChuHo": "Chị gái"
  },
  {
    "MSCD": "CD34",
    "MSCH": 2031,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD42",
-   "MSCH": 2032,
-   "ChuHo": 0
+   "MSCH": 2031,
+   "QHChuHo": "Bố"
  },
  {
    "MSCD": "CD47",
    "MSCH": 2031,
-   "ChuHo": 0
+   "QHChuHo": "Anh trái"
  },
  {
    "MSCD": "CD75",
    "MSCH": 2032,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD15",
    "MSCH": 2041,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD38",
    "MSCH": 2041,
-   "ChuHo": 0
+   "QHChuHo": "Chồng"
  },
  {
    "MSCD": "CD58",
    "MSCH": 2042,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD72",
    "MSCH": 2042,
-   "ChuHo": 0
+   "QHChuHo": "Vợ"
  },
  {
    "MSCD": "CD30",
    "MSCH": 2051,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD32",
    "MSCH": 2051,
-   "ChuHo": 0
+   "QHChuHo": "Em trai"
  },
  {
    "MSCD": "CD51",
    "MSCH": 2052,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD66",
    "MSCH": 2052,
-   "ChuHo": 0
+   "QHChuHo": "Em trai"
  },
  {
    "MSCD": "CD16",
    "MSCH": 3011,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD37",
    "MSCH": 3011,
-   "ChuHo": 0
+   "QHChuHo": "Chị gái"
  },
  {
    "MSCD": "CD45",
    "MSCH": 3011,
-   "ChuHo": 0
+   "QHChuHo": "Bố"
  },
  {
    "MSCD": "CD59",
    "MSCH": 3012,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD61",
    "MSCH": 3012,
-   "ChuHo": 0
+   "QHChuHo": "Em gái"
  },
  {
    "MSCD": "CD63",
    "MSCH": 3012,
-   "ChuHo": 0
+   "QHChuHo": "Chồng"
  },
  {
    "MSCD": "CD27",
    "MSCH": 3021,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD35",
    "MSCH": 3021,
-   "ChuHo": 0
+   "QHChuHo": "Chị gái"
  },
  {
    "MSCD": "CD76",
    "MSCH": 3022,
-   "ChuHo": 0
+   "QHChuHo": "Cháu gái"
  },
  {
    "MSCD": "CD86",
    "MSCH": 3022,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD06",
    "MSCH": 3031,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD17",
    "MSCH": 3031,
-   "ChuHo": 0
+   "QHChuHo": "Bà"
  },
  {
    "MSCD": "CD62",
    "MSCH": 3032,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD73",
    "MSCH": 3032,
-   "ChuHo": 0
+   "QHChuHo": "Chồng"
  },
  {
    "MSCD": "CD91",
    "MSCH": 3032,
-   "ChuHo": 0
+   "QHChuHo": "Mẹ"
  },
  {
    "MSCD": "CD01",
    "MSCH": 3041,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD03",
    "MSCH": 3041,
-   "ChuHo": 0
+   "QHChuHo": "Chị gái"
  },
  {
    "MSCD": "CD13",
    "MSCH": 3041,
-   "ChuHo": 0
+   "QHChuHo": "Con gái"
  },
  {
    "MSCD": "CD90",
    "MSCH": 3042,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD95",
    "MSCH": 3042,
-   "ChuHo": 0
+   "QHChuHo": "Con gái"
  },
  {
    "MSCD": "CD97",
    "MSCH": 3042,
-   "ChuHo": 0
+   "QHChuHo": "Vợ"
  },
  {
    "MSCD": "CD12",
    "MSCH": 3051,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD29",
    "MSCH": 3051,
-   "ChuHo": 0
+   "QHChuHo": "Mẹ"
  },
  {
    "MSCD": "CD53",
    "MSCH": 3052,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD74",
    "MSCH": 3052,
-   "ChuHo": 0
+   "QHChuHo": "Con gái"
  },
  {
    "MSCD": "CD83",
    "MSCH": 3052,
-   "ChuHo": 0
+   "QHChuHo": "Em trai"
  },
  {
    "MSCD": "CD99",
    "MSCH": 3052,
-   "ChuHo": 0
+   "QHChuHo": "Em gái"
  },
  {
    "MSCD": "CD100",
    "MSCH": 4012,
-   "ChuHo": 1
+   "QHChuHo": "Bố"
  },
  {
    "MSCD": "CD22",
    "MSCH": 4011,
-   "ChuHo": 1
+   "QHChuHo": "Bố"
  },
  {
    "MSCD": "CD23",
    "MSCH": 4011,
-   "ChuHo": 0
+   "QHChuHo": "Mẹ"
  },
  {
    "MSCD": "CD36",
    "MSCH": 4011,
-   "ChuHo": 0
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD50",
    "MSCH": 4011,
-   "ChuHo": 0
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD68",
    "MSCH": 4012,
-   "ChuHo": 0
+   "QHChuHo": "Mẹ"
  },
  {
    "MSCD": "CD10",
    "MSCH": 4021,
-   "ChuHo": 0
+   "QHChuHo": "Ông"
  },
  {
    "MSCD": "CD26",
    "MSCH": 4021,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD70",
    "MSCH": 4022,
-   "ChuHo": 1
+   "QHChuHo": "Vợ"
  },
  {
    "MSCD": "CD85",
    "MSCH": 4022,
-   "ChuHo": 0
+   "QHChuHo": "Con trai"
  },
  {
    "MSCD": "CD98",
    "MSCH": 4022,
-   "ChuHo": 0
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD07",
    "MSCH": 4031,
-   "ChuHo": 0
+   "QHChuHo": "Vợ"
  },
  {
    "MSCD": "CD18",
    "MSCH": 4031,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD40",
    "MSCH": 4031,
-   "ChuHo": 0
+   "QHChuHo": "Con trai"
  },
  {
    "MSCD": "CD57",
    "MSCH": 4032,
-   "ChuHo": 1
+   "QHChuHo": "Cháu gái"
  },
  {
    "MSCD": "CD93",
    "MSCH": 4032,
-   "ChuHo": 0
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD28",
    "MSCH": 4041,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD48",
    "MSCH": 4041,
-   "ChuHo": 0
+   "QHChuHo": "Bố"
  },
  {
    "MSCD": "CD49",
    "MSCH": 4041,
-   "ChuHo": 0
+   "QHChuHo": "Con gái"
  },
  {
    "MSCD": "CD89",
    "MSCH": 4042,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD96",
    "MSCH": 4042,
-   "ChuHo": 0
+   "QHChuHo": "Bố"
  },
  {
    "MSCD": "CD02",
    "MSCH": 4051,
-   "ChuHo": 0
+   "QHChuHo": "Bố"
  },
  {
    "MSCD": "CD04",
    "MSCH": 4051,
-   "ChuHo": 1
+   "QHChuHo": "Chủ hộ"
  },
  {
    "MSCD": "CD11",
    "MSCH": 4051,
-   "ChuHo": 0
+   "QHChuHo": "Vợ"
  },
  {
    "MSCD": "CD33",
    "MSCH": 4051,
-   "ChuHo": 0
+   "QHChuHo": "Mẹ"
  },
  {
    "MSCD": "CD77",
    "MSCH": 4052,
-   "ChuHo": 1
+   "QHChuHo": "Bố"
  },
  {
    "MSCD": "CD92",
    "MSCH": 4052,
-   "ChuHo": 0
+   "QHChuHo": "Chủ hộ"
  }
 ],
   "chungcu":
@@ -2559,7 +2559,7 @@
    "feeName": "Phí bảo dưỡng cảnh quan",
    "cost": 30000,
    "apartmentId": "All",
-   "deadline": "1/30/2023"
+   "deadline": "12/30/2023"
  },
  {
    "ID": "P9",
@@ -2663,7 +2663,7 @@
    "feeName": "Phí bảo trì và sửa chữa thang bộ",
    "cost": 15000,
    "apartmentId": "All",
-   "deadline": "1/15/2022"
+   "deadline": "1/15/2024"
  },
  {
    "ID": "P22",
@@ -2703,7 +2703,7 @@
    "feeName": "Phí sử dụng khu vực trồng cây và vườn hoa",
    "cost": 4000000,
    "apartmentId": "All",
-   "deadline": "1/20/2021"
+   "deadline": "1/20/2024"
  },
  {
    "ID": "P27",
@@ -2767,7 +2767,7 @@
    "feeName": "Tiền Internet tháng 11/2023",
    "cost": 150000,
    "apartmentId": "1011",
-   "deadline": "12/14/2023"
+   "deadline": "12/28/2023"
  },
  {
    "ID": "P35",
@@ -2791,7 +2791,7 @@
    "feeName": "Phí bảo hiểm chung cư",
    "cost": 200000,
    "apartmentId": "All",
-   "deadline": "4/5/2022"
+   "deadline": "1/5/2024"
  },
  {
    "ID": "P38",
@@ -2799,7 +2799,7 @@
    "feeName": "Phí sử dụng khu vực đọc sách và thư viện",
    "cost": 30000,
    "apartmentId": "All",
-   "deadline": "3/10/2023"
+   "deadline": "12/29/2023"
  },
  {
    "ID": "P39",
