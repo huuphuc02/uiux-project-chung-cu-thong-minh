@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Header from "../../components/Header";
+import ManagerHeader from "../../components/manager/ManagerHeader";
 import SidebarManager from "../../components/SidebarManager";
 
 function HomePage() {
@@ -8,7 +8,7 @@ function HomePage() {
 
   return (
     <div className="h-screen">
-      <Header />
+      <ManagerHeader />
       <div className="flex">
         <SidebarManager />
         <div className="flex flex-col w-4/5 items-start mt-2 mb-4 ">

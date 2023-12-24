@@ -1,11 +1,11 @@
 // import { useNavigate } from "react-router-dom";
-import Header from "../../components/Header";
+import ManagerHeader from "../../components/manager/ManagerHeader";
 import SidebarManager from "../../components/SidebarManager";
 function Announce() {
   // const navigate = useNavigate()
   return (
     <div className="s-Screen">
-      <Header />
+      <ManagerHeader />
       <div className="flex">
         <SidebarManager />
         <div className="w-[82%] bg-[#f5f5f5] px-8 py-4 pb-4">
