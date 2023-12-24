@@ -15,11 +15,6 @@ import FeesList from "./pages/resident/Fee/FeesList";
 import PayFee from "./pages/resident/Fee/PayFee";
 import PaymentResult from "./pages/resident/Fee/PaymentResult";
 import FeePaymentHistory from "./pages/resident/Fee/FeePaymentHistory";
-import SendNotifications from "./pages/administrator/SendNotifications";
-import Statistics from "./pages/administrator/Statistics";
-import Setting from "./pages/administrator/Setting";
-import ResidentStatistics from "./pages/administrator/ResidentStatistics";
-import SendNotificationsSuccess from "./pages/administrator/SendNotificationsSuccess";
 
 function App() {
   return (
@@ -27,15 +22,7 @@ function App() {
       <Routes>
         <Route path="/homepageResident" element={<HomePageResident />} />
         <Route path="/homepageAdmin" element={<HomePageAdmin />} />
-        <Route path="/sendNotifications" element={<SendNotifications />} />
-        <Route path="/statistics" element={<Statistics />} />
-        <Route path="/setting" element={<Setting />} />
-        <Route
-          path="/sendNotificationsSuccess"
-          element={<SendNotificationsSuccess />}
-        />
         <Route path="/homepageManager" element={<HomePageManager />} />
-        <Route path="/residentStatistics" element={<ResidentStatistics />} />
         <Route path="/buildingInfo" element={<BuildingInfor />} />
         <Route path="/apartmentInfo" element={<Apartment />} />
         <Route path="/residentInfo" element={<ResidentInfor />} />

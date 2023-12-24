@@ -1,7 +1,13 @@
+import { useEffect, useState } from "react";
 import Header from "../../../components/Header";
 import SidebarResident from "../../../components/SidebarResident";
 
 function Absence() {
+  const [resident, setResident] = useState({});
+
+  useEffect(() => {
+    setResident(JSON.parse(localStorage.getItem("resident")));
+  }, []);
   return (
     <div>
       <Header />
@@ -22,7 +28,7 @@ function Absence() {
                     Họ và tên:
                   </label>
                   <input
-                    defaultValue="Lê Hữu Tài"
+                    defaultValue={resident.fullname}
                     className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"
                   ></input>
                 </div>
@@ -31,7 +37,7 @@ function Absence() {
                     CCCD:
                   </label>
                   <input
-                    defaultValue="042202012345"
+                    defaultValue={resident.CCCD}
                     className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"
                   ></input>
                 </div>
@@ -40,7 +46,7 @@ function Absence() {
                     Ngày sinh:
                   </label>
                   <input
-                    defaultValue="23/09/1980"
+                    defaultValue={resident.dob}
                     className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"
                   ></input>
                 </div>
@@ -49,7 +55,7 @@ function Absence() {
                     Giới tính:
                   </label>
                   <input
-                    defaultValue="Nam"
+                    defaultValue={resident.gender}
                     className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"
                   ></input>
                 </div>
@@ -58,7 +64,7 @@ function Absence() {
                     SĐT liên hệ:
                   </label>
                   <input
-                    defaultValue="0987654321"
+                    defaultValue={resident.Sdt}
                     className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"
                   ></input>
                 </div>

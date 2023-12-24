@@ -1,9 +1,20 @@
+/* eslint-disable react/prop-types */
 import { LuSearch } from "react-icons/lu";
+import OverlayResident from "./OverlayResident";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const [overlay, setOverlay] = useState(false);
+  const navigate = useNavigate();
+  const [resident, setResident] = useState({});
+
+  useEffect(() => {
+    setResident(JSON.parse(localStorage.getItem("resident")));
+  }, []);
   return (
-    <div id="NewRootRoot" className="flex flex-row w-full items-start">
-      <div className="border-solid border-b border-[#e2e2e2] pl-2 bg-white flex flex-row gap-56 w-full items-center">
+    <div id="NewRootRoot" className="w-full items-start">
+      <div className="border-solid border-b border-[#e2e2e2] pl-2 bg-white flex flex-row gap-16 w-full items-center">
         <div className="flex flex-row gap-12 w-3/5 items-start">
           <div className="flex flex-row items-center w-2/5">
             <img
@@ -11,7 +22,7 @@ function Header() {
               alt="ActionTextRotationDown icon"
               className="w-16"
             />
-            <span className="text-xl font-bold mt-2 w-3/5">
+            <span className="text-xl font-bold mt-2 w-2/5">
               Chung cư thông minh
             </span>
           </div>
@@ -46,16 +57,26 @@ function Header() {
               className="mb-1 w-12"
             />
             <div className="cursor-pointer flex flex-row gap-2 w-3/5 items-center">
-              <div id="LHuTiCDn1" className="font-semibold text-left">
-                Lê Hữu Tài
+              <div
+                id="LHuTiCDn1"
+                className="font-semibold text-left"
+                onClick={() => navigate("/residentInfo")}
+              >
+                {resident.fullname}
                 <br />
                 <span className="text-[#686868]">Cư dân</span>
               </div>
-              <span className="ml-4 text-center text-4xl">...</span>
+              <span
+                className="ml-4 text-center text-4xl"
+                onClick={() => setOverlay(!overlay)}
+              >
+                ...
+              </span>
             </div>
           </div>
         </div>
       </div>
+      {overlay && <OverlayResident />}
     </div>
   );
 }

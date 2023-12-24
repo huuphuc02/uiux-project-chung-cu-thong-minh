@@ -1,12 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import SidebarResident from "../../components/SidebarResident";
+import { useEffect, useState } from "react";
 
 function ResidentInfor() {
   const navigate = useNavigate();
+  const [resident, setResident] = useState({});
+  useEffect(() => {
+    setResident(JSON.parse(localStorage.getItem("resident")));
+  }, []);
   return (
     <div>
-      <Header />
+      <Header name={resident.fullname} role="Cư dân" />
       <div className="flex">
         <SidebarResident />
         <div className="bg-[#f5f5f5] w-[82%] h-max p-4">
@@ -16,7 +21,7 @@ function ResidentInfor() {
           >
             Thông tin nhân khẩu
           </h1>
-          <div className="bg-white py-5 pl-28">
+          <div className="bg-white py-5 pl-40">
             <div className="flex mb-4 relative">
               <label id="CnH2" className="text-lg font-bold">
                 Họ và tên:
@@ -25,7 +30,7 @@ function ResidentInfor() {
                 id="Element2"
                 className="text-lg font-medium leading-[26px] absolute left-48"
               >
-                Lê Hữu Tài
+                {resident.fullname}
               </span>
             </div>
             <div className="flex mb-4 relative">
@@ -33,7 +38,7 @@ function ResidentInfor() {
                 CCCD:
               </label>
               <span className="text-lg font-medium leading-[26px]  absolute left-48">
-                042202012345
+                {resident.CCCD}
               </span>
             </div>
             <div className="flex mb-4 relative">
@@ -41,7 +46,7 @@ function ResidentInfor() {
                 Ngày sinh:
               </label>
               <span className="text-lg font-medium leading-[26px]  absolute left-48">
-                23/09/1980
+                {resident.dob}
               </span>
             </div>
             <div className="flex mb-4 relative">
@@ -49,7 +54,7 @@ function ResidentInfor() {
                 Giới tính:
               </label>
               <span className="text-lg font-medium leading-[26px] absolute left-48">
-                Nam
+                {resident.gender}
               </span>
             </div>
             <div className="flex mb-4 relative">
@@ -57,7 +62,7 @@ function ResidentInfor() {
                 Dân tộc:
               </label>
               <span className="text-lg font-medium leading-[26px] absolute left-48">
-                Kinh
+                {resident.ethnic}
               </span>
             </div>
             <div className="flex mb-4 relative">
@@ -65,7 +70,7 @@ function ResidentInfor() {
                 Tôn giáo:
               </label>
               <span className="text-lg font-medium leading-[26px] absolute left-48">
-                Không
+                {resident.religion}
               </span>
             </div>
             <div className="flex mb-4 relative">
@@ -73,7 +78,7 @@ function ResidentInfor() {
                 Nghề nghiệp:
               </label>
               <span className="text-lg font-medium leading-[26px] absolute left-48">
-                Kỹ sư
+                {resident.job}
               </span>
             </div>
             <div className="flex mb-4 relative">
@@ -81,7 +86,7 @@ function ResidentInfor() {
                 Quê quán:
               </label>
               <span className="text-lg font-medium leading-[26px] absolute left-48">
-                Phủ Lý, Hà Nam
+                {resident.hometown}
               </span>
             </div>
             <div className="flex mb-4 relative">
@@ -97,7 +102,7 @@ function ResidentInfor() {
                 Tình trạng cư trú:
               </label>
               <span className="text-lg font-medium leading-[26px] absolute left-48">
-                Thường trú
+                {resident.residenceStatus}
               </span>
             </div>
           </div>

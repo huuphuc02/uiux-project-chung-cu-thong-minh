@@ -1,29 +1,38 @@
-import { useNavigate } from "react-router-dom";
-import AdministratorHeader from "../../components/AdministratorHeader";
-import SidebarAdministrator from "../../components/SidebarAdministrator";
+// import { useNavigate } from "react-router-dom";
+// import AdministratorHeader from "../../components/AdministratorHeader";
+// import SidebarAdministrator from "../../components/SidebarAdministrator";
 function HomePage() {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   return (
     <div className="h-screen">
-      <AdministratorHeader />
+      {/* <AdministratorHeader /> */}
       <div className="flex">
-        <SidebarAdministrator />
+        {/* <SidebarAdministrator /> */}
         <div id="NewRootRoot" className="flex flex-row w-full items-start">
           <div className="bg-white w-full h-[141px] rounded-lg">
             <div className="text-6xl font-['Nunito_Sans'] font-bold text-[#99b7f0] bg-white flex flex-row w-full h-[141px] items-start pt-4 px-10 rounded-lg">
               100
-              <div id="CnHRoot" className="text-5xl font-['Nunito_Sans'] w-2/5 text-left text-black">
+              <div
+                id="CnHRoot"
+                className="text-5xl font-['Nunito_Sans'] w-2/5 text-left text-black"
+              >
                 căn hộ{" "}
               </div>
               <div className="text-center text-6xl font-['Nunito_Sans'] font-bold text-[#99b7f0] w-min">
                 364
               </div>
-              <div id="CDnRoot" className="text-5xl font-['Nunito_Sans'] w-1/5 text-black">
+              <div
+                id="CDnRoot"
+                className="text-5xl font-['Nunito_Sans'] w-1/5 text-black"
+              >
                 cư dân
                 {"  "}
               </div>
             </div>
-            <div id="ThngKRoot" className="text-3xl font-['Nunito_Sans'] font-bold text-[#4e4e4e] w-1/5">
+            <div
+              id="ThngKRoot"
+              className="text-3xl font-['Nunito_Sans'] font-bold text-[#4e4e4e] w-1/5"
+            >
               Thống kê{" "}
             </div>
             <div
@@ -59,8 +68,12 @@ function HomePage() {
                         id="Bullet1"
                         className="w-4"
                       />
-                      <div id="PhThuLt1" className="text-xs font-medium text-black/38">
-                        Phụ thu - 01 <span className="text-xs font-sans">(lt)</span>
+                      <div
+                        id="PhThuLt1"
+                        className="text-xs font-medium text-black/38"
+                      >
+                        Phụ thu - 01{" "}
+                        <span className="text-xs font-sans">(lt)</span>
                       </div>
                     </div>
                     <div className="font-medium text-black/87 ml-6">12,423</div>
@@ -73,8 +86,12 @@ function HomePage() {
                         id="Bullet2"
                         className="w-4"
                       />
-                      <div id="DchVLt1" className="text-xs font-medium text-black/38">
-                        Dịch vụ - 01 <span className="text-xs font-sans">(lt)</span>
+                      <div
+                        id="DchVLt1"
+                        className="text-xs font-medium text-black/38"
+                      >
+                        Dịch vụ - 01{" "}
+                        <span className="text-xs font-sans">(lt)</span>
                       </div>
                     </div>
                     <div className="font-medium text-black/87 ml-6">12,423</div>
@@ -87,8 +104,12 @@ function HomePage() {
                         id="Bullet3"
                         className="w-4"
                       />
-                      <div id="NcLt1" className="text-xs font-medium text-black/38 w-4/5">
-                        Nước - 01 <span className="text-xs font-sans">(lt)</span>
+                      <div
+                        id="NcLt1"
+                        className="text-xs font-medium text-black/38 w-4/5"
+                      >
+                        Nước - 01{" "}
+                        <span className="text-xs font-sans">(lt)</span>
                       </div>
                     </div>
                     <div className="font-medium text-black/87 ml-6">12,423</div>
