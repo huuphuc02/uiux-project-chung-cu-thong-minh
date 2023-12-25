@@ -7,7 +7,11 @@ import { LuSearch } from "react-icons/lu";
 function FeePaymentHistory() {
   const months = Array.from({ length: 12 }, (_, index) => index + 1);
   const [listFees, setListFees] = useState([]);
+  const [filteredFees, setFilteredFees] = useState(listFees);
   const [apartment, setApartment] = useState({});
+  const [keySearch, setKeySearch] = useState("");
+  const [selectedMonth, setSelectedMonth] = useState("");
+  const [selectedFeeType, setSelectedFeeType] = useState("");
   useEffect(() => {
     setApartment(JSON.parse(localStorage.getItem("apartment")));
     const getListFees = async () => {
@@ -24,6 +28,22 @@ function FeePaymentHistory() {
 
     getListFees();
   }, []);
+
+  useEffect(() => {
+    console.log(keySearch);
+    const filteredResults = listFees.filter((fee) => {
+      const matchesMonth =
+        !selectedMonth || fee.deadline.includes(selectedMonth);
+      const matchedFeeType = !selectedFeeType || fee.type == selectedFeeType;
+      console.log(selectedFeeType);
+      const matchesKeyword = fee.feeName
+        .toLowerCase()
+        .includes(keySearch.toLowerCase());
+      return matchedFeeType && matchesKeyword && matchesMonth;
+    });
+    setFilteredFees(filteredResults);
+    console.log(filteredResults);
+  }, [keySearch, listFees, selectedFeeType, selectedMonth]);
   return (
     <div>
       <Header />
@@ -35,6 +55,10 @@ function FeePaymentHistory() {
             <div className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/3 rounded-lg h-10 items-center pl-2 py-2">
               <LuSearch />
               <input
+                value={keySearch}
+                onChange={(e) => {
+                  setKeySearch(e.target.value);
+                }}
                 placeholder="Tìm theo tên khoản phí"
                 className="pl-2 ml-2 w-full h-10"
               ></input>
@@ -46,8 +70,12 @@ function FeePaymentHistory() {
               >
                 Lọc theo tháng
               </label>
-              <select className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row ml-2 rounded-lg h-10 items-start px-4 pt-2">
-                <option value="0">Tất cả</option>
+              <select
+                value={selectedMonth}
+                onChange={(e) => setSelectedMonth(e.target.value)}
+                className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row ml-2 rounded-lg h-10 items-start px-4 pt-2"
+              >
+                <option value="">Tất cả</option>
                 {months.map((value) => (
                   <option key={value} value={value}>
                     Tháng {value}
@@ -62,12 +90,21 @@ function FeePaymentHistory() {
               >
                 Lọc theo loại phí
               </label>
-              <select className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-full rounded-lg h-10 items-start px-4 pt-2">
-                <option value="0">Tất cả</option>
-                <option value="1">Phí bảo trì</option>
-                <option value="2">Tiền điện</option>
-                <option value="3">Tiền nước</option>
-                <option value="4">Tiền internet</option>
+              <select
+                value={selectedFeeType}
+                onChange={(e) => setSelectedFeeType(e.target.value)}
+                className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-full rounded-lg h-10 items-start px-4 pt-2"
+              >
+                <option value="">Tất cả</option>
+                <option value="Tiền điện, nước, internet">
+                  Tiền điện, nước, internet
+                </option>
+                <option value="Phí bảo trì">Phí bảo trì</option>
+                <option value="Phí bảo hiểm">Phí bảo hiểm</option>
+                <option value="Phí dịch vụ">Phí dịch vụ</option>
+                <option value="Phí thuê">Phí thuê</option>
+                <option value="Phí gửi xe">Phí gửi xe</option>
+                <option value="Phí quản lý">Phí quản lý</option>
               </select>
             </div>
           </div>
@@ -90,25 +127,31 @@ function FeePaymentHistory() {
                 </tr>
               </thead>
               <tbody className="font-medium cursor-pointer overflow-y-scroll">
-                {listFees
-                  ? listFees.slice(0, 10).map((fee, key) => {
-                      return (
-                        <tr className="bg-[#b1c9f1] border-b" key={key}>
-                          <td scope="row" className="px-6 py-4 ">
-                            {fee.type}
-                          </td>
-                          <td className="px-6 py-4">{fee.feeName}</td>
-                          <td className="px-6 py-4">{fee.cost}</td>
-                          <td className="px-6 py-4">{fee.deadline}</td>
-                        </tr>
-                      );
-                    })
-                  : Fragment}
+                {filteredFees.length ? (
+                  filteredFees.slice(0, 10).map((fee, key) => {
+                    return (
+                      <tr className="bg-[#b1c9f1] border-b" key={key}>
+                        <td scope="row" className="px-6 py-4 ">
+                          {fee.type}
+                        </td>
+                        <td className="px-6 py-4">{fee.feeName}</td>
+                        <td className="px-6 py-4">{fee.cost}</td>
+                        <td className="px-6 py-4">{fee.deadline}</td>
+                      </tr>
+                    );
+                  })
+                ) : (
+                  <h3 className="mt-10">Không tìm thấy khoản phí</h3>
+                )}
               </tbody>
             </table>
           </div>
 
-          <Pagination length={listFees.length} />
+          {filteredFees.length ? (
+            <Pagination length={filteredFees.length} />
+          ) : (
+            Fragment
+          )}
         </div>
       </div>
     </div>
