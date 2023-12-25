@@ -1,17 +1,13 @@
 /* eslint-disable react/prop-types */
 import { LuSearch } from "react-icons/lu";
-import OverlayResident from "../OverlayResident";
+import OverlayPolice from "./OverlayPolice";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function PoliceHeader() {
   const [overlay, setOverlay] = useState(false);
   const navigate = useNavigate();
-  const [police, setPolice] = useState({});
-
-  useEffect(() => {
-    setPolice(JSON.parse(localStorage.getItem("police"))[0]);
-  }, []);
+  
   return (
     <div id="NewRootRoot" className="w-full items-start">
       <div className="border-solid border-b border-[#e2e2e2] pl-2 bg-white flex flex-row gap-16 w-full items-center">
@@ -76,7 +72,7 @@ function PoliceHeader() {
           </div>
         </div>
       </div>
-      {overlay && <OverlayResident />}
+      {overlay && <OverlayPolice />}
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import PoliceHeader from "../../components/police/PoliceHeader";
 import SidebarPolice from "../../components/SidebarPolice";
 
-function HomePage() {
+function Statistics() {
   const navigate = useNavigate()
   return(
     <div className="h-screen">
@@ -94,4 +94,4 @@ function HomePage() {
     );
 }
 
-export default HomePage;
+export default Statistics;

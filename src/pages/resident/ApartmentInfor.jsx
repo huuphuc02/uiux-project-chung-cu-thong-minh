@@ -13,7 +13,7 @@ function Apartment() {
     setApartment(JSON.parse(localStorage.getItem("apartment")));
     const getListMembers = async () => {
       let response = await fetch(
-        `http://localhost:3001/chungcu-cudan?MSCH=${apartment.ID}`
+        `http://localhost:3000/chungcu-cudan?MSCH=${apartment.ID}`
       );
       const data = await response.json();
       let listMembersArray = [];
@@ -21,7 +21,7 @@ function Apartment() {
       for (let i in data) {
         console.log(data[i]);
         response = await fetch(
-          `http://localhost:3001/cudan?ID=${data[i].MSCD}`
+          `http://localhost:3000/cudan?ID=${data[i].MSCD}`
         );
         const member = await response.json();
         listMembersArray.push(member[0]);
