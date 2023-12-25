@@ -20,9 +20,9 @@ function ResidenceAbsence() {
         let listAppartmentArray = [];
         for(let i in data){
             console.log(data[i]);
-            response = await fetch(`http://localhost:3000/chungcu-cudan?MSCD=${data[i].ID}`);
+            response = await fetch(`http://localhost:3001/chungcu-cudan?MSCD=${data[i].ID}`);
             const chungcu_cudan = await response.json();
-            response = await fetch(`http://localhost:3000/chungcu?ID=${chungcu_cudan[0].MSCH}`);
+            response = await fetch(`http://localhost:/chungcu?ID=${chungcu_cudan[0].MSCH}`);
             const appartment = await response.json();
             var canHo = (appartment[0].apartment) + (appartment[0].building);
             console.log(canHo);
