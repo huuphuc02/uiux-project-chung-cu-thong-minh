@@ -11,7 +11,7 @@ function FeesList() {
   useEffect(() => {
     setApartment(JSON.parse(localStorage.getItem("apartment")));
     const getListFees = async () => {
-      let response = await fetch(`http://localhost:3000/khoanphi`);
+      let response = await fetch(`http://localhost:3001/khoanphi`);
       const data = await response.json();
       console.log(apartment.ID);
       let list = data.filter(
