@@ -15,7 +15,7 @@ function FamilyRegister() {
       <div className="flex">
         <SidebarManager />
         <div className="w-[82%] bg-[#f5f5f5] relative">
-          {isShowDetailApartment && <ModalDetailApartment />}
+          {isShowDetailApartment && <ModalDetailApartment isShowDetailApartment={isShowDetailApartment} setShowDetailApartment={setShowDetailApartment}/>}
           <div className="w-full px-8 py-4 pb-4 ">
             <h1 className="text-4xl font-bold text-left">Danh sách hộ khẩu</h1>
             <div className="flex mt-6 justify-between">
