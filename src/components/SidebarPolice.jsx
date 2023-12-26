@@ -41,7 +41,20 @@ function SidebarPolice() {
               className="w-8"
             />
             <span className="font-semibold text-[#a3a0a0] w-1/2 text-left mt-3 ml-2">
-              Tạm trú tạm vắng
+              Tạm trú
+            </span>
+          </div>
+          <div
+            className="flex flex-row gap-4 items-center cursor-pointer w-full px-4 hover:bg-[#99b7f0]"
+            onClick={() => navigate("/residenceAbsencePolice")}
+          >
+            <img
+              src="https://file.rendit.io/n/awWdrMe5AXDBgOYlzQHr.svg"
+              alt="Vector2"
+              className="w-8"
+            />
+            <span className="font-semibold text-[#a3a0a0] w-1/2 text-left mt-3 ml-2">
+              Tạm vắng
             </span>
           </div>
           <div className="flex flex-row gap-6 items-center cursor-pointer w-full px-4 py-4 hover:bg-[#99b7f0]">
