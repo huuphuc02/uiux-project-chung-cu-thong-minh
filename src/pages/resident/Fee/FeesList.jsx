@@ -2,12 +2,16 @@ import { useNavigate } from "react-router-dom";
 import Header from "../../../components/Header";
 import SidebarResident from "../../../components/SidebarResident";
 import { Fragment, useEffect, useState } from "react";
-import Pagination from "../../../components/Pagination";
+// import Pagination from "../../../components/Pagination";
 
 function FeesList() {
   const navigate = useNavigate();
   const [listFees, setListFees] = useState([]);
   const [apartment, setApartment] = useState({});
+  const parseDate = (dateString) => {
+    const [day, month, year] = dateString.split("/");
+    return new Date(`${year}-${month}-${day}`);
+  };
   useEffect(() => {
     setApartment(JSON.parse(localStorage.getItem("apartment")));
     const getListFees = async () => {
@@ -19,12 +23,15 @@ function FeesList() {
       );
       const currentDate = new Date();
       list = list.filter((item) => {
-        const [month, day, year] = item.deadline.split("/");
+        const [day, month, year] = item.deadline.split("/");
         const itemDate = new Date(`${year}-${month}-${day}`);
-        return itemDate > currentDate;
+        return itemDate >= currentDate;
       });
       console.log(listFees);
-      list.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+      list.sort(
+        (a, b) =>
+          new Date(parseDate(a.deadline)) - new Date(parseDate(b.deadline))
+      );
       setListFees(list);
     };
 
@@ -34,7 +41,7 @@ function FeesList() {
     <div>
       <Header />
       <div className="flex">
-        <SidebarResident />
+        <SidebarResident tab={"Nộp phí"} />
         <div className="w-[82%] bg-[#f5f5f5] px-8 py-4">
           <h1 className="text-[22px] font-bold text-left">
             Danh sách khoản phí
@@ -76,7 +83,6 @@ function FeesList() {
                 </tbody>
               </table>
             </div>
-            <Pagination length={listFees.length} />
             <div className="text-center text-lg font-bold self-center mt-10 ml-56 mb-6 relative">
               <div className="flex">
                 <label>Tổng tiền: </label>

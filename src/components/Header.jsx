@@ -56,7 +56,7 @@ function Header() {
               id="Ellipse"
               className="mb-1 w-12"
             />
-            <div className="cursor-pointer flex flex-row gap-2 w-3/5 items-center">
+            <div className="cursor-pointer flex flex-row gap-2 w-4/5 items-center">
               <div
                 id="LHuTiCDn1"
                 className="font-semibold text-left"
