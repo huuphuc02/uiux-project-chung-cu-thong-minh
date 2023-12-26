@@ -16,13 +16,19 @@ Hướng dẫn cài đặt và chạy dự án trên máy tính cá nhân của 
    ```bash
    git clone https://github.com/huuphuc02/uiux-project-chung-cu-thong-minh.git
 
+   ```
+
 2. Di chuyển vào thư mục dự án
-    ```bash
+
+   ```bash
    cd uiux-project-chung-cu-thong-minh
 
-2. Cài đặt các gói npm
-    ```bash
+   ```
+
+3. Cài đặt các gói npm
+   ```bash
    npm install
+   ```
 
 ### Chạy dự án
 
@@ -30,22 +36,27 @@ Hướng dẫn cài đặt và chạy dự án trên máy tính cá nhân của 
 
    ```bash
    npm run dev
-  Ứng dụng sẽ chạy tại http://localhost:5173.
+   Ứng dụng sẽ chạy tại http://localhost:5173.
+
+   ```
 
 2. Chạy json-server để mô phỏng API:
-    ```bash
-    json-server --watch src/assets/data/data.json --port 3001
+   ```bash
+   json-server --watch src/assets/data/data.json --port 3001
+   ```
 
 ### Tài khoản đăng nhập
+
 - Cư dân:
-  - Sdt: 0955551227
-  - Password: fLJ^z2qIv$8w
+  - Sdt: 0355554059
+  - Password: Rk6!zJm$g7Ew
 - Quản trị:
   - Sdt: 0555514940
-  - Password: t7X*8S2iJ!kP
+  - Password: t7X\*8S2iJ!kP
 - Quản lý:
   - Sdt: 0559036509
   - Password: wH2!oL7zT@8y
 
 ## Liên hệ
-  Nếu bạn có gặp khó khăn hay thắc mắc, vui lòng liên hệ với chúng tôi
+
+Nếu bạn có gặp khó khăn hay thắc mắc, vui lòng liên hệ với chúng tôi

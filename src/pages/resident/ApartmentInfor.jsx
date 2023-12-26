@@ -18,6 +18,7 @@ function Apartment() {
       const data = await response.json();
       let listMembersArray = [];
       let listRelationsArray = [];
+      console.log(data);
       for (let i in data) {
         console.log(data[i]);
         response = await fetch(
@@ -32,12 +33,12 @@ function Apartment() {
     };
 
     getListMembers();
-  }, []);
+  }, [apartment.ID]);
   return (
     <div>
       <Header />
       <div className="flex">
-        <SidebarResident />
+        <SidebarResident tab="Trang chủ" />
         <div className="bg-[#f5f5f5] w-[82%] h-max p-4">
           <h1 id="ThngTinCnHRoot" className="text-[22px] font-bold text-left">
             Thông tin căn hộ
@@ -111,11 +112,14 @@ function Apartment() {
                           <tr
                             key={key}
                             className="bg-[#b1c9f1] border-b"
-                            onClick={() =>
+                            onClick={() => {
+                              const queryParams = {
+                                resident: member,
+                              };
                               navigate("/residentInfo", {
-                                state: { id: member.id },
-                              })
-                            }
+                                state: queryParams,
+                              });
+                            }}
                           >
                             <td scope="row" className="px-6 py-4 ">
                               {member?.fullname}
