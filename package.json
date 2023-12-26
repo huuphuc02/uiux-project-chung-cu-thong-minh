@@ -10,10 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
+    "@material-tailwind/react": "^2.1.8",
+=======
     "bootstrap": "^5.2.3",
     "date-fns": "^3.0.6",
+>>>>>>> 6d29b867ff8180bf8a4f6f695dfa2a4ad83c139d
     "json-server": "^0.17.4",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.9.2",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
     "react-router-dom": "^6.21.0"
