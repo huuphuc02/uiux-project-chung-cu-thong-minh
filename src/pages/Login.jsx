@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../services/api";
 
 function Login() {
   const navigate = useNavigate();
@@ -40,10 +39,15 @@ function Login() {
           localStorage.setItem("apartment", JSON.stringify(apartment[0]));
           navigate("/homepageResident");
         } else if (role == "Admin") {
-          const response = await fetch(
+          let response = await fetch(
             `http://localhost:3001/quantri?Sdt=${phoneNumber}`
           );
-          const currentUser = await response.json();
+          let currentUser = await response.json();
+          console.log(currentUser[0]);
+          response = await fetch(
+            `http://localhost:3001/cudan?ID=${currentUser[0]?.ID_CD}`
+          );
+          currentUser = await response.json();
           console.log(currentUser);
           localStorage.setItem("admin", JSON.stringify(currentUser));
           navigate("/homePageAdmin");
@@ -56,8 +60,8 @@ function Login() {
           localStorage.setItem("manager", JSON.stringify(currentUser));
           navigate("/homePageManager");
         } else if (role == "Police") {
-          if(phoneNumber == "0123456789"){
-            if(password == "123456"){
+          if (phoneNumber == "0123456789") {
+            if (password == "123456") {
               navigate("/homePagePolice");
             }
           }
