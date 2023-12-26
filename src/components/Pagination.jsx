@@ -1,12 +1,13 @@
-function Pagination(props) {
-  const numberOfPages = Math.ceil(props.length / 10);
-  const array = Array.from({ length: numberOfPages }, (_, index) => index + 1);
+function Pagination({ totalPages, currentPage, onPageClick }) {
+  const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
+  console.log(totalPages);
   return (
     <nav aria-label="Page navigation example" className="mt-6 mx-80">
       <ul className="flex items-center -space-x-px h-8 text-sm">
         <li>
-          <a
-            href="#"
+          <button
+            onClick={() => onPageClick(currentPage - 1)}
+            disabled={currentPage === 1}
             className="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 rounded-s-lg hover:bg-[#99b7f0] hover:text-gray-700 "
           >
             <span className="sr-only">Previous</span>
@@ -25,24 +26,30 @@ function Pagination(props) {
                 d="M5 1 1 5l4 4"
               />
             </svg>
-          </a>
+          </button>
         </li>
-        {array.map((page, index) => {
+        {pages.map((page, index) => {
           return (
             <li key={index}>
-              <a
-                href="#"
+              <button
+                onClick={() => onPageClick(page)}
+                disabled={currentPage === page}
                 aria-current="page"
-                className="z-10 flex items-center justify-center px-3 h-8 leading-tight text-gray-500"
+                className={
+                  currentPage === page
+                    ? "z-10 flex bg-[#b1c9f1] items-center justify-center px-3 h-8 leading-tight text-gray-500"
+                    : "z-10 flex items-center justify-center px-3 h-8 leading-tight text-gray-500"
+                }
               >
                 {page}
-              </a>
+              </button>
             </li>
           );
         })}
         <li>
-          <a
-            href="#"
+          <button
+            onClick={() => onPageClick(currentPage + 1)}
+            disabled={currentPage === totalPages}
             className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500  rounded-e-lg hover:bg-[#99b7f0] hover:text-gray-700"
           >
             <span className="sr-only">Next</span>
@@ -61,7 +68,7 @@ function Pagination(props) {
                 d="m1 9 4-4-4-4"
               />
             </svg>
-          </a>
+          </button>
         </li>
       </ul>
     </nav>
