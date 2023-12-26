@@ -5,13 +5,19 @@ import SidebarResident from "../../../components/SidebarResident";
 import { LuSearch } from "react-icons/lu";
 
 function FeePaymentHistory() {
-  const months = Array.from({ length: 12 }, (_, index) => index + 1);
   const [listFees, setListFees] = useState([]);
   const [filteredFees, setFilteredFees] = useState(listFees);
   const [apartment, setApartment] = useState({});
   const [keySearch, setKeySearch] = useState("");
   const [selectedMonth, setSelectedMonth] = useState("");
   const [selectedFeeType, setSelectedFeeType] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const parseDate = (dateString) => {
+    const [day, month, year] = dateString.split("/");
+    return new Date(`${year}-${month}-${day}`);
+  };
+
   useEffect(() => {
     setApartment(JSON.parse(localStorage.getItem("apartment")));
     const getListFees = async () => {
@@ -21,7 +27,16 @@ function FeePaymentHistory() {
       let list = data.filter(
         (fee) => fee.apartmentId == apartment.ID || fee.apartmentId == "All"
       );
-      list.sort((a, b) => new Date(b.deadline) - new Date(a.deadline));
+      const currentDate = new Date();
+      list = list.filter((item) => {
+        const [day, month, year] = item.deadline.split("/");
+        const itemDate = new Date(`${year}-${month}-${day}`);
+        return itemDate < currentDate;
+      });
+      list.sort(
+        (a, b) =>
+          new Date(parseDate(b.deadline)) - new Date(parseDate(a.deadline))
+      );
       setListFees(list);
       console.log(listFees);
     };
@@ -29,26 +44,37 @@ function FeePaymentHistory() {
     getListFees();
   }, []);
 
+  // Handler khi bấm vào trang số
+  const handlePageClick = (page) => {
+    setCurrentPage(page);
+  };
   useEffect(() => {
     console.log(keySearch);
     const filteredResults = listFees.filter((fee) => {
-      const matchesMonth =
-        !selectedMonth || fee.deadline.includes(selectedMonth);
+      const itemDate = fee.deadline.split("/").reverse().join("-");
+      const itemMonth = itemDate.slice(0, 7);
+      // const current = (new Date())
+      const matchesMonth = !selectedMonth || itemMonth == selectedMonth;
       const matchedFeeType = !selectedFeeType || fee.type == selectedFeeType;
-      console.log(selectedFeeType);
       const matchesKeyword = fee.feeName
         .toLowerCase()
         .includes(keySearch.toLowerCase());
       return matchedFeeType && matchesKeyword && matchesMonth;
     });
-    setFilteredFees(filteredResults);
+    filteredResults.sort((a, b) => new Date(b.deadline) - new Date(a.deadline));
+    setTotalPages(Math.ceil(filteredResults.length / 10));
+    const startIndex = (currentPage - 1) * 10;
+    const endIndex = startIndex + 10;
+    const slicedData = filteredResults.slice(startIndex, endIndex);
+    setFilteredFees(slicedData);
     console.log(filteredResults);
-  }, [keySearch, listFees, selectedFeeType, selectedMonth]);
+  }, [keySearch, listFees, selectedFeeType, selectedMonth, currentPage]);
+
   return (
     <div>
       <Header />
       <div className="flex">
-        <SidebarResident />
+        <SidebarResident tab={"Lịch sử"} />
         <div className="w-[82%] bg-[#f5f5f5] px-8 py-4 pb-4">
           <h1 className="text-[22px] font-bold text-left">Lịch sử đóng phí</h1>
           <div className="flex mt-6">
@@ -70,18 +96,12 @@ function FeePaymentHistory() {
               >
                 Lọc theo tháng
               </label>
-              <select
+              <input
                 value={selectedMonth}
                 onChange={(e) => setSelectedMonth(e.target.value)}
-                className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row ml-2 rounded-lg h-10 items-start px-4 pt-2"
-              >
-                <option value="">Tất cả</option>
-                {months.map((value) => (
-                  <option key={value} value={value}>
-                    Tháng {value}
-                  </option>
-                ))}
-              </select>
+                type="month"
+                className="text-sm w-full h-10 rounded-lg text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)]"
+              />
             </div>
             <div className="ml-4 justify-center items-center flex w-[35%]">
               <label
@@ -128,7 +148,7 @@ function FeePaymentHistory() {
               </thead>
               <tbody className="font-medium cursor-pointer overflow-y-scroll">
                 {filteredFees.length ? (
-                  filteredFees.slice(0, 10).map((fee, key) => {
+                  filteredFees.map((fee, key) => {
                     return (
                       <tr className="bg-[#b1c9f1] border-b" key={key}>
                         <td scope="row" className="px-6 py-4 ">
@@ -148,7 +168,11 @@ function FeePaymentHistory() {
           </div>
 
           {filteredFees.length ? (
-            <Pagination length={filteredFees.length} />
+            <Pagination
+              totalPages={totalPages}
+              currentPage={currentPage}
+              onPageClick={handlePageClick}
+            />
           ) : (
             Fragment
           )}

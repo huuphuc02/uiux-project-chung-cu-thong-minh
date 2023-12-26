@@ -14,10 +14,10 @@ function Absence() {
     <div>
       <Header />
       <div className="flex">
-        <SidebarResident />
+        <SidebarResident tab={"Vắng trú"} />
         <div
           id="DesktopRoot"
-          className="bg-[#f5f5f5] flex flex-col gap-10 w-full items-start pt-2 pb-6 px-10"
+          className="bg-[#f5f5f5] flex flex-col gap-10 w-[82%] items-start pt-2 pb-6 px-10"
         >
           <div className="flex flex-col justify-between gap-4 w-4/5 items-start">
             <div className="flex flex-col justify-between gap-5 w-full items-start">

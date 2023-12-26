@@ -14,10 +14,10 @@ function Residence() {
     <div>
       <Header />
       <div className="flex">
-        <SidebarResident />
+        <SidebarResident tab={"Vắng trú"} />
         <div
           id="DesktopRoot"
-          className="bg-[#f5f5f5] flex flex-col gap-10 w-full items-start pt-2 pb-6 px-10"
+          className="bg-[#f5f5f5] flex flex-col gap-10 w-[82%] items-start pt-2 pb-6 px-10"
         >
           <div className="flex flex-col justify-between gap-4 w-4/5 items-start">
             <div className="flex flex-col justify-between gap-5 w-full items-start">
@@ -87,8 +87,8 @@ function Residence() {
                     Ngày bắt đầu (*):
                   </label>
                   <input
-                    placeholder="Định dạng dd/mm/yyyy"
-                    className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"
+                    type="date"
+                    className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4 pt-2"
                   ></input>
                 </div>
                 <div className="flex flex-row justify-between w-full items-start">
@@ -96,8 +96,8 @@ function Residence() {
                     Ngày kết thúc (*):
                   </label>
                   <input
-                    placeholder="Định dạng dd/mm/yyyy"
-                    className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"
+                    type="date"
+                    className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4 pt-2"
                   ></input>
                 </div>
                 <div className="flex flex-row justify-between w-full items-start">
@@ -107,7 +107,7 @@ function Residence() {
                   <input className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"></input>
                 </div>
               </div>
-              <div className="flex flex-row ml-[510px] gap-8 w-1/3 items-start">
+              <div className="flex flex-row ml-[490px] gap-8 w-1/3 items-start">
                 <button
                   className="text-center text-lg uppercase text-[#99b7f0] border-solid border-[#5387e9] bg-white flex flex-row w-1/2 h-10 items-start pt-2 pl-8 border-0 rounded-lg"
                   onClick={() => navigate("/residenceAbsence")}

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import { useNavigate } from "react-router-dom";
 import Header from "../../../components/Header";
 import SidebarResident from "../../../components/SidebarResident";
@@ -8,7 +9,7 @@ function ResidenceAbsence() {
     <div className="h-screen">
       <Header />
       <div className="flex">
-        <SidebarResident />
+        <SidebarResident tab={"Vắng trú"} />
         <div className="flex flex-col w-[82%] items-start mb-2">
           <div className="flex flex-col w-full items-start mb-16">
             <h1 className="text-[22px] font-bold ml-1">
@@ -67,6 +68,7 @@ function ResidenceAbsence() {
                     <a
                       className="text-center text-xl underline text-[#efecec]"
                       href="https://luatvietnam.vn/hanh-chinh/thu-tuc-dang-ky-tam-tru-570-28204-article.html"
+                      target="_blank"
                     >
                       Thủ tục tạm trú
                     </a>
@@ -93,6 +95,7 @@ function ResidenceAbsence() {
                     id="ThTcTmVng"
                     className="text-center text-xl underline text-[#efecec]"
                     href="https://namnhun.laichau.gov.vn/cai-cach-hanh-chinh/quy-dinh-ve-khai-bao-tam-vang-va-huong-dan-thuc-hien-khai-bao-tam-vang-truc-tuyen-qua-cong-dich--610697"
+                    target="_blank"
                   >
                     Thủ tục tạm vắng
                   </a>

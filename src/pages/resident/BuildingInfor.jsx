@@ -6,7 +6,7 @@ function BuildingInfor() {
     <div>
       <Header />
       <div className="flex">
-        <SidebarResident />
+        <SidebarResident tab="Trang chủ" />
         <div
           id="ThongTinChungCuRoot"
           className="bg-[#f5f5f5] flex flex-col pb-4 gap-6 w-[82%] pl-2 pt-2"

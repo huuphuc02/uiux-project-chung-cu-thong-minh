@@ -20,7 +20,7 @@ function PayFee() {
       );
       const currentDate = new Date();
       list = list.filter((item) => {
-        const [month, day, year] = item.deadline.split("/");
+        const [day, month, year] = item.deadline.split("/");
         const itemDate = new Date(`${year}-${month}-${day}`);
         return itemDate > currentDate;
       });
@@ -35,7 +35,7 @@ function PayFee() {
     <div>
       <Header />
       <div className="flex">
-        <SidebarResident />
+        <SidebarResident tab={"Nộp phí"} />
         <div className="w-[82%] bg-[#f5f5f5] px-8 py-4 pb-6">
           <h1 className="text-[22px] font-bold text-left">
             Thanh toán khoản phí
