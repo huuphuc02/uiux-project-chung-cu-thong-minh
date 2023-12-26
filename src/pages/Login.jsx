@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import api from "../services/api";
+import api from "../services/api";
 
 function Login() {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ function Login() {
       console.log(phoneNumber);
       console.log(password);
       console.log(role);
-      const response = await fetch(`http://localhost:3001/account`);
+      const response = await fetch(`http://localhost:3000/account`);
       const accounts = await response.json();
       const user = accounts.find(
         (account) => account.Sdt == phoneNumber && account.Password === password
@@ -23,17 +23,17 @@ function Login() {
         console.log(role);
         if (role == "Resident") {
           let response = await fetch(
-            `http://localhost:3001/cudan?Sdt=${phoneNumber}`
+            `http://localhost:3000/cudan?Sdt=${phoneNumber}`
           );
           const currentUser = await response.json();
           console.log(currentUser);
           localStorage.setItem("resident", JSON.stringify(currentUser[0]));
           response = await fetch(
-            `http://localhost:3001/chungcu-cudan?MSCD=${currentUser[0]?.ID}`
+            `http://localhost:3000/chungcu-cudan?MSCD=${currentUser[0]?.ID}`
           );
           const ap = await response.json();
           response = await fetch(
-            `http://localhost:3001/chungcu?ID=${ap[0]?.MSCH}`
+            `http://localhost:3000/chungcu?ID=${ap[0]?.MSCH}`
           );
           const apartment = await response.json();
           console.log(apartment);
@@ -41,7 +41,7 @@ function Login() {
           navigate("/homepageResident");
         } else if (role == "Admin") {
           const response = await fetch(
-            `http://localhost:3001/quantri?Sdt=${phoneNumber}`
+            `http://localhost:3000/quantri?Sdt=${phoneNumber}`
           );
           const currentUser = await response.json();
           console.log(currentUser);
@@ -49,18 +49,24 @@ function Login() {
           navigate("/homePageAdmin");
         } else if (role == "Manager") {
           const response = await fetch(
-            `http://localhost:3001/quanly?Sdt=${phoneNumber}`
+            `http://localhost:3000/quanly?Sdt=${phoneNumber}`
           );
           const currentUser = await response.json();
           console.log(currentUser);
           localStorage.setItem("manager", JSON.stringify(currentUser));
           navigate("/homePageManager");
+        } else if (role == "Police") {
+          if(phoneNumber == "0123456789"){
+            if(password == "123456"){
+              navigate("/homePagePolice");
+            }
+          }
         }
       } else {
         alert("Phone number or password is incorrect");
       }
     } catch (error) {
-      console.error("Error logging in:", error);
+      console.error("Error logging in:", error.response);
     }
   };
 
@@ -100,6 +106,7 @@ function Login() {
               <option value="Resident">Cư dân</option>
               <option value="Admin">Quản trị</option>
               <option value="Manager">Quản lý</option>
+              <option value="Police">Công an</option>
             </select>
           </div>
         </div>

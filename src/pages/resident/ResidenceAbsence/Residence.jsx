@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import Header from "../../../components/Header";
 import SidebarResident from "../../../components/SidebarResident";
+import { useNavigate } from "react-router-dom";
 
 function Residence() {
   const [resident, setResident] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     setResident(JSON.parse(localStorage.getItem("resident")));
@@ -25,7 +27,7 @@ function Residence() {
               <div className="flex flex-col gap-4 w-full items-start">
                 <div className="flex flex-row justify-between w-full items-start">
                   <label className="text-lg font-bold ml-[144px]">
-                    Họ và tên:
+                    Họ và tên (*):
                   </label>
                   <input
                     defaultValue={resident.fullname}
@@ -34,7 +36,7 @@ function Residence() {
                 </div>
                 <div className="flex flex-row justify-between w-full items-start">
                   <label className="text-lg font-bold mt-2 ml-[144px]">
-                    CCCD:
+                    CCCD (*):
                   </label>
                   <input
                     defaultValue={resident.CCCD}
@@ -43,7 +45,7 @@ function Residence() {
                 </div>
                 <div className="flex flex-row justify-between w-full items-start">
                   <label className="text-lg font-bold mt-2 ml-[144px]">
-                    Ngày sinh:
+                    Ngày sinh (*):
                   </label>
                   <input
                     defaultValue={resident.dob}
@@ -52,7 +54,7 @@ function Residence() {
                 </div>
                 <div className="flex flex-row justify-between w-full items-start">
                   <label className="text-lg font-bold mt-2 ml-[144px]">
-                    Giới tính:
+                    Giới tính (*):
                   </label>
                   <input
                     defaultValue={resident.gender}
@@ -61,7 +63,7 @@ function Residence() {
                 </div>
                 <div className="flex flex-row justify-between w-full items-start">
                   <label className="text-lg font-bold mt-2 ml-[144px]">
-                    SĐT liên hệ:
+                    SĐT liên hệ (*):
                   </label>
                   <input
                     defaultValue={resident.Sdt}
@@ -70,27 +72,33 @@ function Residence() {
                 </div>
                 <div className="flex flex-row justify-between w-full items-start">
                   <label className="text-lg font-bold mt-2 ml-[144px]">
-                    Địa chỉ thường trú:
+                    Địa chỉ thường trú (*):
                   </label>
                   <input className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"></input>
                 </div>
                 <div className="flex flex-row justify-between w-full items-start">
                   <label className="text-lg font-bold mt-2 ml-[144px]">
-                    Địa chỉ đăng ký tạm trú:
+                    Địa chỉ đăng ký tạm trú (*):
                   </label>
                   <input className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"></input>
                 </div>
                 <div className="flex flex-row justify-between w-full items-start">
                   <label className="text-lg font-bold mt-2 ml-[144px]">
-                    Ngày bắt đầu:
+                    Ngày bắt đầu (*):
                   </label>
-                  <input className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"></input>
+                  <input
+                    placeholder="Định dạng dd/mm/yyyy"
+                    className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"
+                  ></input>
                 </div>
                 <div className="flex flex-row justify-between w-full items-start">
                   <label className="text-lg font-bold mt-2 ml-[144px]">
-                    Ngày kết thúc:
+                    Ngày kết thúc (*):
                   </label>
-                  <input className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"></input>
+                  <input
+                    placeholder="Định dạng dd/mm/yyyy"
+                    className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"
+                  ></input>
                 </div>
                 <div className="flex flex-row justify-between w-full items-start">
                   <label className="text-lg font-bold mt-2 ml-[144px]">
@@ -100,10 +108,21 @@ function Residence() {
                 </div>
               </div>
               <div className="flex flex-row ml-[510px] gap-8 w-1/3 items-start">
-                <button className="text-center text-lg uppercase text-[#99b7f0] border-solid border-[#5387e9] bg-white flex flex-row w-1/2 h-10 items-start pt-2 pl-8 border-0 rounded-lg">
+                <button
+                  className="text-center text-lg uppercase text-[#99b7f0] border-solid border-[#5387e9] bg-white flex flex-row w-1/2 h-10 items-start pt-2 pl-8 border-0 rounded-lg"
+                  onClick={() => navigate("/residenceAbsence")}
+                >
                   huỷ
                 </button>
-                <button className="text-center text-lg uppercase text-white bg-[#99b7f0] flex flex-row w-1/2 h-10 items-start pt-2 pl-10 rounded-lg">
+                <button
+                  className="text-center text-lg uppercase text-white bg-[#99b7f0] flex flex-row w-1/2 h-10 items-start pt-2 pl-10 rounded-lg"
+                  onClick={() => {
+                    alert(
+                      "Đăng ký tạm trú thành công!. Đơn đăng ký của bạn sẽ được gửi công an phê duyệt."
+                    );
+                    navigate("/residenceAbsence");
+                  }}
+                >
                   Gửi
                 </button>
               </div>
