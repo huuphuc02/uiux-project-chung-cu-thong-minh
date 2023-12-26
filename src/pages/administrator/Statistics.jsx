@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import AdministratorHeader from "../../components/AdministratorHeader";
 import SidebarAdministrator from "../../components/SidebarAdministrator";
-function Statistics() {
+function StatisticsAdmin() {
     const navigate = useNavigate()
     return (
         <div className="h-Screen">
@@ -20,7 +20,7 @@ function Statistics() {
                                     </div>
                                 </div>
                                 <div id="NewRootRoot" className="flex flex-row w-full items-start">
-                                    <div className="text-center text-xl font-['Nunito_Sans'] uppercase text-white bg-[#5387e9] flex flex-row justify-center pt-3 w-[242px] h-12 items-start rounded-lg">
+                                    <div className="text-center text-xl font-['Nunito_Sans'] uppercase text-white bg-[#5387e9] flex flex-row justify-center pt-3 w-[242px] h-12 items-start rounded-lg" onClick={() => navigate("/residentStatistics")}>
                                         Xem chi tiết
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@ function Statistics() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="text-center text-xl uppercase text-white bg-[#5387e9] flex flex-row justify-center pt-3 w-2/5 h-12 items-start rounded-lg ml-6 mb-3">
+                            <div className="text-center text-xl uppercase text-white bg-[#5387e9] flex flex-row justify-center pt-3 w-2/5 h-12 items-start rounded-lg ml-6 mb-3 " onClick={() => navigate("/feesStatistics")}>
                                 Xem chi tiết
                             </div>
                         </div>
@@ -123,4 +123,4 @@ function Statistics() {
         </div>
     );
 }
-export default Statistics;
+export default StatisticsAdmin;

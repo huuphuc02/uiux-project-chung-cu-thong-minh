@@ -1,21 +1,12 @@
-/* eslint-disable react/prop-types */
-<<<<<<< HEAD
 function Pagination(props) {
   const numberOfPages = Math.ceil(props.length / 10);
   const array = Array.from({ length: numberOfPages }, (_, index) => index + 1);
-  // const sliceData = props.slice((numberOfPages-1)*10, numberOfPages * 10);
-=======
-function Pagination({ totalPages, currentPage, onPageClick }) {
-  const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
-  console.log(totalPages);
->>>>>>> 6bdd606f4b524cd6f9ec65774f740f88abf617b8
   return (
     <nav aria-label="Page navigation example" className="mt-6 mx-80">
       <ul className="flex items-center -space-x-px h-8 text-sm">
         <li>
-          <button
-            onClick={() => onPageClick(currentPage - 1)}
-            disabled={currentPage === 1}
+          <a
+            href="#"
             className="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 rounded-s-lg hover:bg-[#99b7f0] hover:text-gray-700 "
           >
             <span className="sr-only">Previous</span>
@@ -34,30 +25,24 @@ function Pagination({ totalPages, currentPage, onPageClick }) {
                 d="M5 1 1 5l4 4"
               />
             </svg>
-          </button>
+          </a>
         </li>
-        {pages.map((page, index) => {
+        {array.map((page, index) => {
           return (
             <li key={index}>
-              <button
-                onClick={() => onPageClick(page)}
-                disabled={currentPage === page}
+              <a
+                href="#"
                 aria-current="page"
-                className={
-                  currentPage === page
-                    ? "z-10 flex bg-[#b1c9f1] items-center justify-center px-3 h-8 leading-tight text-gray-500"
-                    : "z-10 flex items-center justify-center px-3 h-8 leading-tight text-gray-500"
-                }
+                className="z-10 flex items-center justify-center px-3 h-8 leading-tight text-gray-500"
               >
                 {page}
-              </button>
+              </a>
             </li>
           );
         })}
         <li>
-          <button
-            onClick={() => onPageClick(currentPage + 1)}
-            disabled={currentPage === totalPages}
+          <a
+            href="#"
             className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500  rounded-e-lg hover:bg-[#99b7f0] hover:text-gray-700"
           >
             <span className="sr-only">Next</span>
@@ -76,7 +61,7 @@ function Pagination({ totalPages, currentPage, onPageClick }) {
                 d="m1 9 4-4-4-4"
               />
             </svg>
-          </button>
+          </a>
         </li>
       </ul>
     </nav>

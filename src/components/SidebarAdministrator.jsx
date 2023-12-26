@@ -40,7 +40,7 @@ function SidebarAdministrator() {
           </div>
           <div
             className="flex flex-row gap-6 items-center cursor-pointer px-4 py-4 w-full hover:bg-[#99b7f0]"
-            onClick={() => navigate("/statisticsAdmin")}
+            onClick={() => navigate("/statisticAdmin")}
           >
             <img
               src="https://file.rendit.io/n/FapPhxCkgv1XFtWzSiVW.svg"
