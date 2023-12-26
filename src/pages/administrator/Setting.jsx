@@ -35,7 +35,7 @@ function Setting() {
                             <div className="flex flex-col gap-12 w-1/2 items-start mt-12 mb-16">
                                 <div className="flex flex-col gap-10 w-full items-start">
                                     <div className="flex flex-col ml-1 gap-8 w-full items-start">
-                                        <div className="text-2xl font-semibold">Nguyễn Hoàng Hiệp</div>
+                                        <div className="text-2xl font-semibold">Nguyễn Quốc Thành</div>
                                         <div className="flex flex-col mb-px gap-6 w-2/3 font-['Nunito_Sans'] items-start">
                                             <div className="text-2xl font-semibold mt-3">Quản trị viên</div>
                                             <div className="text-2xl font-semibold mt-7">23/09/1980</div>

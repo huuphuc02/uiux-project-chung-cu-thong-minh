@@ -5,6 +5,9 @@ import SidebarAdministrator from '../../components/SidebarAdministrator';
 
 function ResidentStatistics() {
     const navigate = useNavigate();
+    const [cuDanData, setCuDanData] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 10;
 
     useEffect(() => {
         fetchData();
@@ -31,23 +34,30 @@ function ResidentStatistics() {
     }
 
     function displayTable(chungCu, cuDan, chungCuCuDan) {
-        const tableBody = document.getElementById('tableBody');
-        tableBody.innerHTML = '';
-
-        for (let i = 0; i < 100; i++) {
-            const cuDanData = cuDan[i];
-            const chungCuData = chungCuCuDan.find((data) => data.MSCD === cuDanData.ID && data.MSCH);
-
+        const combinedData = cuDan.map((cuDanData, index) => {
+            const chungCuData = chungCuCuDan.find(data => data.MSCD === cuDanData.ID && data.MSCH);
             if (cuDanData && chungCuData) {
-                const chungCuInfo = chungCu.find((chungcu) => chungcu.ID === chungCuData.MSCH);
-                const tr = document.createElement('tr');
-                tr.innerHTML = `<td class="px-6 py-4">${i + 1}</td><td>${cuDanData.fullname}</td><td>${chungCuInfo.apartment}</td><td>${chungCuInfo.building}</td>`;
-                tableBody.appendChild(tr);
+                const chungCuInfo = chungCu.find(chungcu => chungcu.ID === chungCuData.MSCH);
+                return {
+                    id: index + 1,
+                    fullname: cuDanData.fullname,
+                    apartment: chungCuInfo.apartment,
+                    building: chungCuInfo.building,
+                };
             } else {
-                console.warn('No matching data found for index:', i);
+                console.warn('No matching data found for index:', index);
+                return null;
             }
-        }
+        });
+
+        setCuDanData(combinedData.filter(data => data !== null));
     }
+
+    const totalPages = Math.ceil(cuDanData.length / itemsPerPage);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentData = cuDanData.slice(startIndex, endIndex);
+
     return (
         <div className="h-Screen">
             <AdministratorHeader />
@@ -82,11 +92,8 @@ function ResidentStatistics() {
                                                 <select className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] w-20 h-10 bg-white absolute top-0 left-0 flex flex-row items-start pt-3 px-2 rounded-lg">
                                                     <option value="1">A1</option>
                                                     <option value="2">A2</option>
-
                                                 </select>
-
                                             </div>
-
                                         </div>
                                     </div>
                                     <div className="flex flex-row mt-1 gap-12 w-2/5 items-start mr-4">
@@ -106,18 +113,51 @@ function ResidentStatistics() {
                                 </div>
                             </div>
                             <div className="relative mt-4 w-full">
-                                <table className="h-4 w-full text-sm text-left rtl:text-right">
+                                <table className="h-4 w-full text-sm text-left rtl:text-right border-collapse border border-[#d9d9d9]">
                                     <thead className="text-sm text-white bg-[#445f99] ">
                                         <tr>
-                                            <th scope="col" className="px-6 py-3">STT</th>
-                                            <th scope="col" className="px-6 py-3">Họ và tên</th>
-                                            <th scope="col" className="px-6 py-3">Căn hộ</th>
-                                            <th scope="col" className="px-6 py-3">Tòa nhà</th>
+                                            <th scope="col" className="px-6 py-3 border border-[#d9d9d9]">STT</th>
+                                            <th scope="col" className="px-6 py-3 border border-[#d9d9d9]">Họ và tên</th>
+                                            <th scope="col" className="px-6 py-3 border border-[#d9d9d9]">Căn hộ</th>
+                                            <th scope="col" className="px-6 py-3 border border-[#d9d9d9]">Tòa nhà</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tableBody" className="font-medium cursor-pointer overflow-y-scroll">
+                                        {currentData.map((item) => (
+                                            <tr key={item.id}>
+                                                <td className="px-6 py-3 border border-[#d9d9d9]">{item.id}</td>
+                                                <td className="px-6 py-3 border border-[#d9d9d9]">{item.fullname}</td>
+                                                <td className="px-6 py-3 border border-[#d9d9d9]">{item.apartment}</td>
+                                                <td className="px-6 py-3 border border-[#d9d9d9]">{item.building}</td>
+                                            </tr>
+                                        ))}
                                     </tbody>
                                 </table>
+                            </div>
+                            <div className="flex justify-center mt-4">
+                                <button
+                                    id="ButtonRoot"
+                                    className="flex flex-row w-full h-[20px] cursor-pointer items-start" onClick={() => navigate("/statisticAdmin")}
+                                >
+                                    <div className="text-center text-xl font-['Nunito_Sans'] uppercase text-[#99b7f0] border-solid border-[#99b7f0] bg-white flex flex-row w-full h-16 items-start pt-4 px-12 border rounded-lg">
+                                        Quay lại
+                                    </div>
+                                </button>
+                                <button
+                                    onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                                    disabled={currentPage === 1}
+                                    className="mr-2 px-4 py-2 bg-gray-300 ml-[200px]"
+                                >
+                                    Previous
+                                </button>
+                                <button
+                                    onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                                    disabled={currentPage === totalPages}
+                                    className="ml-2 px-4 py-2 bg-gray-300"
+                                >
+                                    Next
+                                </button>
+
                             </div>
                         </div>
                     </div>
@@ -126,4 +166,5 @@ function ResidentStatistics() {
         </div>
     );
 }
+
 export default ResidentStatistics;

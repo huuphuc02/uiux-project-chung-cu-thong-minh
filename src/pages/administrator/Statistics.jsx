@@ -27,10 +27,11 @@ function StatisticsAdmin() {
 
                             </div>
                             <div className="relative flex flex-row mt-1 pt-4 w-1/2 items-start">
-                                <div className="text-5xl w-5/6 h-[141px] bg-white absolute top-0 left-7 flex flex-row justify-end items-start pt-5 px-12 rounded-lg ml-[-15]">
+                                <div className="text-5xl w-5/6 h-[141px] bg-white absolute top-0 left-7 flex flex-row left-3 justify-end items-center pt-0 px-12 rounded-lg ml-[-15]">
                                     cư dân
                                 </div>
-                                <div className="text-center text-6xl font-bold text-[#99b7f0] relative mt-5 mb-4 ml-20">
+
+                                <div className="text-center text-6xl font-bold text-[#99b7f0] relative mt-6 mb-4 ml-20">
                                     100
                                 </div>
                             </div>

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-
+import OverlayAdministrator from "./OverlayAdministrator"
 function AdministratorHeader() {
   const [admin, setAdmin] = useState({});
-
+  const [overlay, setOverlay] = useState(false);
   useEffect(() => {
     setAdmin(JSON.parse(localStorage.getItem("admin"))[0]);
   }, []);
@@ -53,11 +53,12 @@ function AdministratorHeader() {
                 <br />
                 <span className="text-[#686868]">Quản trị viên</span>
               </div>
-              <span className="ml-4 text-center text-4xl">...</span>
+              <span className="ml-4 text-center text-4xl" onClick={() => setOverlay(!overlay)}>...</span>
             </div>
           </div>
         </div>
       </div>
+      {overlay && <OverlayAdministrator />}
     </div>
   );
 }
