@@ -2,6 +2,7 @@
 function Pagination(props) {
   const numberOfPages = Math.ceil(props.length / 10);
   const array = Array.from({ length: numberOfPages }, (_, index) => index + 1);
+  // const sliceData = props.slice((numberOfPages-1)*10, numberOfPages * 10);
   return (
     <nav aria-label="Page navigation example" className="mt-6 mx-80">
       <ul className="flex items-center -space-x-px h-8 text-sm">
