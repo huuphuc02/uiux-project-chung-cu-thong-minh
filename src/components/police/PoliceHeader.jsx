@@ -1,18 +1,13 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { LuSearch } from "react-icons/lu";
-import OverlayResident from "../OverlayResident";
+import OverlayPolice from "./OverlayPolice";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function ManagerHeader() {
+function PoliceHeader() {
   const [overlay, setOverlay] = useState(false);
   const navigate = useNavigate();
-  const [manager, setManager] = useState({});
-
-  useEffect(() => {
-    setManager(JSON.parse(localStorage.getItem("manager"))[0]);
-  }, []);
+  
   return (
     <div id="NewRootRoot" className="w-full items-start">
       <div className="border-solid border-b border-[#e2e2e2] pl-2 bg-white flex flex-row gap-16 w-full items-center">
@@ -63,9 +58,9 @@ function ManagerHeader() {
                 className="font-semibold text-left"
                 onClick={() => navigate("/residentInfo")}
               >
-                {manager.HoTen}
+                Nguyễn Thị Thảo
                 <br />
-                <span className="text-[#686868]">Quản lý</span>
+                <span className="text-[#686868]">Công an</span>
               </div>
               <span
                 className="ml-4 text-center text-4xl"
@@ -77,9 +72,9 @@ function ManagerHeader() {
           </div>
         </div>
       </div>
-      {overlay && <OverlayResident />}
+      {overlay && <OverlayPolice />}
     </div>
   );
 }
 
-export default ManagerHeader;
+export default PoliceHeader;

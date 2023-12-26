@@ -7,15 +7,17 @@ function ResidentInfor() {
   const navigate = useNavigate();
   const [resident, setResident] = useState({});
   const location = useLocation();
+  const queryParams = location.state;
   useEffect(() => {
-    console.log(location.state?.id);
-    setResident(JSON.parse(localStorage.getItem("resident")));
+    if (queryParams) {
+      setResident(queryParams.resident);
+    } else setResident(JSON.parse(localStorage.getItem("resident")));
   }, []);
   return (
     <div>
       <Header name={resident.fullname} role="Cư dân" />
       <div className="flex">
-        <SidebarResident />
+        <SidebarResident tab="Trang chủ" />
         <div className="bg-[#f5f5f5] w-[82%] h-max p-4">
           <h1
             id="ThngTinCnHRoot"
@@ -96,7 +98,7 @@ function ResidentInfor() {
                 Địa chỉ thường trú:
               </label>
               <span className="text-lg font-medium leading-[26px] absolute left-48">
-                30 Tạ Quang Bửu, Hai Bà Trưng, Hà Nội
+                125D Minh Khai, Hai Bà Trưng, Hà Nội
               </span>
             </div>
             <div className="flex mb-4 relative">
@@ -107,6 +109,11 @@ function ResidentInfor() {
                 {resident.residenceStatus}
               </span>
             </div>
+            <img
+              src="src\assets\images\avatar.png"
+              alt="avatar"
+              className="w-40 rounded-lg absolute top-[140px] right-[120px]"
+            />
           </div>
           <button
             className="items-center mt-6 mb-6 bg-white px-6 py-2 text-[#99b7f0] border-[#99b7f0] hover:bg-[#99b7f0] hover:text-white rounded-lg"

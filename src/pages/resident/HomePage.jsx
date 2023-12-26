@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import SidebarResident from "../../components/SidebarResident";
@@ -9,7 +10,7 @@ function HomePage() {
     <div className="h-screen">
       <Header />
       <div className="flex">
-        <SidebarResident />
+        <SidebarResident tab={"Trang chủ"} />
         <div className="flex flex-col w-4/5 items-start mt-2 mb-4">
           <div className="flex flex-col gap-3 w-full items-start">
             <h1
@@ -138,9 +139,13 @@ function HomePage() {
                       <h2 className="text-center text-[22px] text-white h-10">
                         Tạm trú
                       </h2>
-                      <h3 className="text-center text-xl underline text-[#efecec]">
+                      <a
+                        className="text-center text-xl underline text-[#efecec]"
+                        href="https://luatvietnam.vn/hanh-chinh/thu-tuc-dang-ky-tam-tru-570-28204-article.html"
+                        target="_blank"
+                      >
                         Thủ tục tạm trú
-                      </h3>
+                      </a>
                     </div>
                     <button
                       className="text-center text-lg uppercase text-[#99b7f0] border-solid border-[#5387e9] bg-white flex flex-row w-1/3 h-14 pl-9 items-start pt-4 border-0 rounded-lg"
@@ -160,12 +165,14 @@ function HomePage() {
                     >
                       Tạm vắng
                     </h2>
-                    <h3
+                    <a
                       id="ThTcTmVng"
                       className="text-center text-xl underline text-[#efecec]"
+                      href="https://namnhun.laichau.gov.vn/cai-cach-hanh-chinh/quy-dinh-ve-khai-bao-tam-vang-va-huong-dan-thuc-hien-khai-bao-tam-vang-truc-tuyen-qua-cong-dich--610697"
+                      target="_blank"
                     >
                       Thủ tục tạm vắng
-                    </h3>
+                    </a>
                   </div>
                   <button
                     className="text-center text-lg uppercase text-[#99b7f0] border-solid border-[#5387e9] bg-white flex flex-row w-1/3 pl-9 h-14 items-start pt-4 border-0 rounded-lg"

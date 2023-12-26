@@ -37,7 +37,7 @@ function PaymentResult() {
     <div>
       <Header />
       <div className="flex">
-        <SidebarResident />
+        <SidebarResident tab={"Nộp phí"} />
         <div className="w-[82%] bg-[#f5f5f5] px-8 py-4 pb-24">
           <h1 className="text-[22px] font-bold text-left">
             Kết quả thanh toán
