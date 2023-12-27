@@ -10,7 +10,7 @@ function HomePage() {
     <div className="h-screen">
       <ManagerHeader />
       <div className="flex">
-        <SidebarManager />
+        <SidebarManager tab={"Trang chủ"}/>
         <div className="flex flex-col w-4/5 items-start mt-2 mb-4 ">
           <div className="flex flex-col gap-3 w-full items-start">
             <h1 className="text-[22px] font-bold ml-1 cursor-pointer" onClick={() => navigate('/buildingInfo')}>Thông tin chung cư</h1>

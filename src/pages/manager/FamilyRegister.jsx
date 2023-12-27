@@ -51,7 +51,7 @@ function FamilyRegister() {
     <div>
       <ManagerHeader />
       <div className="flex">
-        <SidebarManager />
+      <SidebarManager tab={"Hộ khẩu"}/>
         <div className="w-[82%] bg-[#f5f5f5] relative">
           {isShowDetailApartment && <ModalDetailApartment isShowDetailApartment={isShowDetailApartment} setShowDetailApartment={setShowDetailApartment} currentApartment={currentApartment} />}
           {isShowNewApartment && <ModalNewApartment isShowNewApartment={isShowNewApartment} setShowNewApartment={setShowNewApartment} />}

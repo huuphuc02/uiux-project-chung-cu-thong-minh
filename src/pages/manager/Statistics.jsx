@@ -1,13 +1,14 @@
 // import { useNavigate } from "react-router-dom";
 import ManagerHeader from "../../components/manager/ManagerHeader";
 import SidebarManager from "../../components/SidebarManager";
+import { useNavigate } from "react-router-dom";
 function Statistics() {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   return (
     <div className="s-Screen">
       <ManagerHeader />
       <div className="flex">
-        <SidebarManager />
+        <SidebarManager tab={"Thống kê"}/>
         <div className="w-[82%] bg-[#f5f5f5] px-8 py-4 pb-4">
           <h1 className="text-4xl font-bold text-left mb-[26px]">Thống kê cư dân</h1>
           <div className="flex gap-28 mb-[38px]">
@@ -34,7 +35,9 @@ function Statistics() {
 
           </div>
           <div className="flex flex-row items-start">
-            <div className="text-center text-xl font-['Nunito_Sans'] uppercase text-white bg-[#99b7f0] flex flex-row  h-16 items-start pt-4 pl-10 pr-12 rounded-lg">
+            <div className="text-center text-xl font-['Nunito_Sans'] uppercase text-white bg-[#99b7f0] flex flex-row  h-16 items-start pt-4 pl-10 pr-12 rounded-lg cursor-pointer"
+              onClick={() => navigate("/familyRegister")}
+            >
               Xem chi tiết
             </div>
           </div>
@@ -115,7 +118,9 @@ function Statistics() {
           </div>
 
           <div className="flex flex-row items-start mt-8">
-            <div className="text-center text-xl font-['Nunito_Sans'] uppercase text-white bg-[#99b7f0] flex flex-row  h-16 items-start pt-4 pl-10 pr-12 rounded-lg">
+            <div className="text-center text-xl font-['Nunito_Sans'] uppercase text-white bg-[#99b7f0] flex flex-row  h-16 items-start pt-4 pl-10 pr-12 rounded-lg cursor-pointer"
+              onClick={() => navigate("/feeManager")}
+            >
               Xem chi tiết
             </div>
           </div>
