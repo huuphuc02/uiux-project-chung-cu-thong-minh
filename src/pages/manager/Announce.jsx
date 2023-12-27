@@ -1,8 +1,20 @@
 // import { useNavigate } from "react-router-dom";
 import ManagerHeader from "../../components/manager/ManagerHeader";
 import SidebarManager from "../../components/SidebarManager";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 function Announce() {
   // const navigate = useNavigate()
+
+  const [type, setType] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state) {
+      setType(location.state.doiTuong)
+    }
+  }, [])
+
   return (
     <div className="s-Screen">
       <ManagerHeader />
@@ -10,11 +22,6 @@ function Announce() {
         <SidebarManager />
         <div className="w-[82%] bg-[#f5f5f5] px-8 py-4 pb-4">
           <h1 className="text-4xl font-bold text-left ">Gửi thông báo</h1>
-          {/* <div id="NewRootRoot" className="bg-[#f5f5f5] flex flex-col w-[82%] items-center justify-center">
-          <h1 className="text-5xl font-['Nunito_Sans'] font-bold capitalize w-full my-6">
-            Gửi thông báo
-          </h1> */}
-          {/* <div className="bg-white w-full h-[751px] rounded-lg" /> */}
 
           <div className="bg-white w-full h-[751px] rounded-lg flex flex-col mt-6">
             <div className="flex justify-start items-center mt-[43px] ml-[118px] mb-[62px] mr-[98px]">
@@ -47,9 +54,26 @@ function Announce() {
                   className="w-full h-12 px-5"
                 // onChange={(e) => setRole(e.target.value)}
                 >
-                  <option value="Resident">Dân cư</option>
-                  <option value="Admin">Quản trị</option>
-                  <option value="Manager">Quản lý</option>
+                  {
+                    type === "Admin" ? (
+                      <><option value="Resident">Dân cư</option><option selected value="Admin">Quản trị</option><option value="Manager">Quản lý</option></>
+                    ) : ""
+                  }
+
+                  {
+                    type === "Manager" ? (
+                      <><option value="Resident">Dân cư</option><option  value="Admin">Quản trị</option><option selected value="Manager">Quản lý</option></>
+                    ) : ""
+                  }
+
+                  {
+                    type === "Resident" ? (
+                      <><option value="Resident">Dân cư</option><option  value="Admin">Quản trị</option><option  value="Manager">Quản lý</option></>
+                    ) : ""
+                  }
+                  {
+                    !type && <><option value="Resident">Dân cư</option><option value="Admin">Quản trị</option><option value="Manager">Quản lý</option></>
+                  }
                 </select>
               </div>
             </div>

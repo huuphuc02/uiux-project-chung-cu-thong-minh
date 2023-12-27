@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import AdministratorHeader from "../../components/AdministratorHeader";
 import SidebarAdministrator from "../../components/SidebarAdministrator";
-function Statistics() {
+function StatisticsAdmin() {
     const navigate = useNavigate()
     return (
         <div className="h-Screen">
@@ -20,17 +20,18 @@ function Statistics() {
                                     </div>
                                 </div>
                                 <div id="NewRootRoot" className="flex flex-row w-full items-start">
-                                    <div className="text-center text-xl font-['Nunito_Sans'] uppercase text-white bg-[#5387e9] flex flex-row justify-center pt-3 w-[242px] h-12 items-start rounded-lg">
+                                    <div className="text-center text-xl font-['Nunito_Sans'] uppercase text-white bg-[#5387e9] flex flex-row justify-center pt-3 w-[242px] h-12 items-start rounded-lg" onClick={() => navigate("/residentStatistics")}>
                                         Xem chi tiết
                                     </div>
                                 </div>
 
                             </div>
                             <div className="relative flex flex-row mt-1 pt-4 w-1/2 items-start">
-                                <div className="text-5xl w-5/6 h-[141px] bg-white absolute top-0 left-7 flex flex-row justify-end items-start pt-5 px-12 rounded-lg ml-[-15]">
+                                <div className="text-5xl w-5/6 h-[141px] bg-white absolute top-0 left-7 flex flex-row left-3 justify-end items-center pt-0 px-12 rounded-lg ml-[-15]">
                                     cư dân
                                 </div>
-                                <div className="text-center text-6xl font-bold text-[#99b7f0] relative mt-5 mb-4 ml-20">
+
+                                <div className="text-center text-6xl font-bold text-[#99b7f0] relative mt-6 mb-4 ml-20">
                                     100
                                 </div>
                             </div>
@@ -112,7 +113,7 @@ function Statistics() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="text-center text-xl uppercase text-white bg-[#5387e9] flex flex-row justify-center pt-3 w-2/5 h-12 items-start rounded-lg ml-6 mb-3">
+                            <div className="text-center text-xl uppercase text-white bg-[#5387e9] flex flex-row justify-center pt-3 w-2/5 h-12 items-start rounded-lg ml-6 mb-3 " onClick={() => navigate("/feesStatistics")}>
                                 Xem chi tiết
                             </div>
                         </div>
@@ -123,4 +124,4 @@ function Statistics() {
         </div>
     );
 }
-export default Statistics;
+export default StatisticsAdmin;
