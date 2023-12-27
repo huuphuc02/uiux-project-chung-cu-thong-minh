@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+/* eslint-disable react/prop-types */
+import { useEffect, useRef, useState, Fragment, } from 'react';
 
 function ModalDetailApartment(props) {
   const ref = useRef(null);
@@ -56,7 +57,7 @@ function ModalDetailApartment(props) {
           <h1 id="ThngTinCnHRoot" className="text-[22px] font-bold text-left">
             Thông tin căn hộ
           </h1>
-          <div className="bg-white py-5 pl-20">
+          <div className="bg-white py-5 pl-10">
             <div className="flex mb-4 relative">
               <label id="CnH2" className="text-lg font-bold">
                 Căn hộ:
@@ -100,7 +101,7 @@ function ModalDetailApartment(props) {
                 Danh sách thành viên
               </label>
             </div>
-            <div className="relative w-4/5">
+            <div className="relative w-[90%]">
               <table className="w-full text-sm text-left rtl:text-right">
                 <thead className="text-sm text-white bg-[#445f99] ">
                   <tr>
@@ -126,12 +127,12 @@ function ModalDetailApartment(props) {
                           key={key}
                           className="bg-[#b1c9f1] border-b"
                           onClick={() => {
-                            const queryParams = {
-                              resident: member,
-                            };
-                            navigate("/residentInfo", {
-                              state: queryParams,
-                            });
+                            // const queryParams = {
+                            //   resident: member,
+                            // };
+                            // navigate("/residentInfo", {
+                            //   state: queryParams,
+                            // });
                           }}
                         >
                           <td scope="row" className="px-6 py-4 ">

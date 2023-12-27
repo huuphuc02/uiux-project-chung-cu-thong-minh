@@ -25,7 +25,15 @@ function HomePage() {
             <div className="flex ml-1 gap-16 w-full items-start">
               <div className="flex flex-col w-1/4 items-start">
                 <h1 className="text-[22px] font-bold">Tạo khoản thu</h1>
-                <div className="flex flex-row w-full justify-center">
+                <div className="flex flex-row w-full justify-center cursor-pointer"
+                  onClick={() => {
+                    navigate("/feeManager", {
+                      state: {
+                        isShowNewFee: true,
+                      }
+                    })
+                  }}
+                >
                   <div className="bg-[#99b7f0] flex flex-col justify-center items-center gap-1 w-full font-['Nunito_Sans'] pt-2 px-10 rounded-lg py-2.5">
                     <div
                       id="Ellipse"
@@ -117,13 +125,37 @@ function HomePage() {
               <div className="flex flex-col gap-2 w-full font-['Nunito_Sans'] items-start">
                 <div className="text-3xl font-bold text-[#4e4e4e]">Gửi thông báo</div>
                 <div className="flex flex-row justify-between w-full items-start">
-                  <div className="text-center text-xl uppercase bg-[#99b7f0] flex flex-row justify-center mt-px pt-5 w-1/4 h-16 items-start rounded-lg">
+                  <div className="text-center text-xl uppercase bg-[#99b7f0] flex flex-row justify-center mt-px pt-5 w-1/4 h-16 items-start rounded-lg cursor-pointer"
+                    onClick={() => {
+                      navigate("/announce", {
+                        state: {
+                          doiTuong: "Resident",
+                        }
+                      })
+                    }}
+                  >
                     Cư dân
                   </div>
-                  <div className="text-center text-xl uppercase bg-[#99b7f0] flex flex-row justify-center pt-5 w-1/4 h-16 items-start rounded-lg">
+                  <div className="text-center text-xl uppercase bg-[#99b7f0] flex flex-row justify-center pt-5 w-1/4 h-16 items-start rounded-lg cursor-pointer"
+                    onClick={() => {
+                      navigate("/announce", {
+                        state: {
+                          doiTuong: "Manager",
+                        }
+                      })
+                    }}
+                  >
                     quản lý{" "}
                   </div>
-                  <div className="text-center text-xl uppercase bg-[#99b7f0] flex flex-row justify-center pt-5 w-1/4 h-16 items-start rounded-lg">
+                  <div className="text-center text-xl uppercase bg-[#99b7f0] flex flex-row justify-center pt-5 w-1/4 h-16 items-start rounded-lg cursor-pointer"
+                    onClick={() => {
+                      navigate("/announce", {
+                        state: {
+                          doiTuong: "Admin",
+                        }
+                      })
+                    }}
+                  >
                     quản trị{" "}
                   </div>
                 </div>

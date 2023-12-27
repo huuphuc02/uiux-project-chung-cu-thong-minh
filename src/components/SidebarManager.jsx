@@ -10,7 +10,7 @@ function SidebarManager() {
         <div className="flex flex-col gap-6 items-start">
           <div className="bg-[#99b7f0] items-center flex flex-row gap-6 w-full h-16 px-4 cursor-pointer"
             onClick={() => {
-              navigate("/")
+              navigate("/homePageManager")
             }}
           >
 
