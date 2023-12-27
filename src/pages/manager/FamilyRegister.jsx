@@ -4,8 +4,10 @@ import Pagination from "../../components/Pagination";
 import SidebarManager from "../../components/SidebarManager";
 import { LuSearch } from "react-icons/lu";
 import ModalDetailApartment from "../../components/manager/modalDetailApartment";
+import ModalNewApartment from "../../components/manager/ModalNewApartment";
 
 function FamilyRegister() {
+  const [isShowNewApartment, setShowNewApartment] = useState(false);
   const [isShowDetailApartment, setShowDetailApartment] = useState(false);
   const [listApartments, setlistApartments] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -51,7 +53,8 @@ function FamilyRegister() {
       <div className="flex">
         <SidebarManager />
         <div className="w-[82%] bg-[#f5f5f5] relative">
-          {isShowDetailApartment && <ModalDetailApartment isShowDetailApartment={isShowDetailApartment} setShowDetailApartment={setShowDetailApartment} currentApartment={currentApartment}/>}
+          {isShowDetailApartment && <ModalDetailApartment isShowDetailApartment={isShowDetailApartment} setShowDetailApartment={setShowDetailApartment} currentApartment={currentApartment} />}
+          {isShowNewApartment && <ModalNewApartment isShowNewApartment={isShowNewApartment} setShowNewApartment={setShowNewApartment} />}
           <div className="w-full px-8 py-4 pb-4 ">
             <h1 className="text-4xl font-bold text-left">Danh sách hộ khẩu</h1>
             <div className="flex mt-6 justify-between">
@@ -82,7 +85,9 @@ function FamilyRegister() {
                 <button
                   id="ButtonRoot"
                   className="cursor-pointer items-start text-center font-['Nunito_Sans'] uppercase text-white bg-[#99b7f0] justify-center py-2 px-4 h-10 ml-8 rounded-lg"
-                // onClick={() => navigate("/payFee")}
+                  onClick={() => {
+                    setShowNewApartment(!isShowNewApartment)
+                  }}
                 >
                   THÊM MỚI
                 </button>
