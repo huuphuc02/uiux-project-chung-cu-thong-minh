@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import Header from "../../../components/Header";
-import SidebarResident from "../../../components/SidebarResident";
+import Header from "../../../components/resident/Header";
+import SidebarResident from "../../../components/resident/SidebarResident";
 import { Fragment, useEffect, useState } from "react";
 // import Pagination from "../../../components/Pagination";
 
