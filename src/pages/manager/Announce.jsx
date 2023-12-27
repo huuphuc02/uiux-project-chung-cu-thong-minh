@@ -19,7 +19,7 @@ function Announce() {
     <div className="s-Screen">
       <ManagerHeader />
       <div className="flex">
-        <SidebarManager />
+        <SidebarManager tab={"Thông báo"}/>
         <div className="w-[82%] bg-[#f5f5f5] px-8 py-4 pb-4">
           <h1 className="text-4xl font-bold text-left ">Gửi thông báo</h1>
 
