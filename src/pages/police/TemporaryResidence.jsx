@@ -3,12 +3,18 @@ import PoliceHeader from "../../components/police/PoliceHeader";
 import SidebarPolice from "../../components/SidebarPolice";
 import { Fragment, useEffect, useState } from "react";
 import Pagination from "../../components/Pagination";
+import { LuSearch } from "react-icons/lu";
 
-function ResidenceAbsence() {
+function TemporaryResidence() {
     const navigate = useNavigate();
     const [listTamTru, setListTamTru] = useState([]);
+    const [filteredTamTru, setFilteredTamTru] = useState([listTamTru]);
     const [listAppartment, setListAppartment] = useState([]);
-    //   const [listTamVang, setListTamVang] = useState([]);
+    const [keySearch, setKeySearch] = useState("");
+    const [selectedMonth, setSelectedMonth] = useState("");
+    const [selectedApartment, setSelectedApartment] = useState("");
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(0);
 
     useEffect(() => {
         const getListTamTru = async () => {
@@ -34,6 +40,33 @@ function ResidenceAbsence() {
         };
         getListTamTru();
     }, []);
+
+    const handlePageClick = (page) => {
+        setCurrentPage(page);
+    };
+
+    useEffect(() => {
+        console.log(keySearch);
+        // const filteredResults = listTamTru.filter((cudan) => {
+        //   const itemDate = fee.deadline.split("/").reverse().join("-");
+        //   const itemMonth = itemDate.slice(0, 7);
+        //   // const current = (new Date())
+        //   const matchesMonth = !selectedMonth || itemMonth == selectedMonth;
+        //   const matchedApartment = !selectedApartment || cudan. == selectedFeeType;
+        //   const matchesKeyword = fee.feeName
+        //     .toLowerCase()
+        //     .includes(keySearch.toLowerCase());
+        //   return matchedFeeType && matchesKeyword && matchesMonth;
+        // });
+        // filteredResults.sort((a, b) => new Date(b.deadline) - new Date(a.deadline));
+        setTotalPages(Math.ceil(listTamTru.length / 10));
+        const startIndex = (currentPage - 1) * 10;
+        const endIndex = startIndex + 10;
+        const slicedData = listTamTru.slice(startIndex, endIndex);
+        setFilteredTamTru(slicedData);
+        console.log(listTamTru);
+    }, [keySearch, listTamTru, selectedApartment, selectedMonth, currentPage]);
+    
     return (
         <div className="h-screen">
             <PoliceHeader />
@@ -54,7 +87,7 @@ function ResidenceAbsence() {
                             </div>
 
                         </div>
-                        <div className="bg-white flex flex-col ml-8 gap-12 w-full h-[761px] items-start pl-5 py-5">
+                        <div className="bg-white flex flex-col ml-8 gap-12 w-full h-[1024px] items-start pl-5 py-5">
                             <div className="flex flex-col ml-1 gap-10 w-full items-start"></div>
                             <div className="flex flex-col w-4/5 items-start mt-2 mb-4">
                                 <div className="bg-white flex flex-col ml-8 gap-12 w-full h-[761px] items-start pl-5 py-5">
@@ -124,25 +157,35 @@ function ResidenceAbsence() {
                                                         </tr>
                                                     </thead>
                                                     <tbody className="font-medium cursor-pointer overflow-y-scroll">
-                                                        {listTamTru
-                                                            ? listTamTru.map((cudan, key) => {
+                                                        {filteredTamTru.length ? (
+                                                            filteredTamTru.map((cudan, key) => {
                                                                 return (
                                                                     <tr className="bg-[#b1c9f1] border-b" key={key}>
                                                                         <td scope="row" className="px-6 py-4 ">
-                                                                            {key + 1}
+                                                                            {(key + 1)+10*(currentPage-1)}
                                                                         </td>
                                                                         <td className="px-6 py-4">{cudan.fullname}</td>
                                                                         <td className="px-6 py-4">{cudan.CCCD}</td>
                                                                         <td className="px-6 py-4">20/10/2023</td>
-                                                                        <td className="px-6 py-4">{listAppartment[key]}</td>
+                                                                        <td className="px-6 py-4">{listAppartment[key+10*(currentPage-1)]}</td>
                                                                     </tr>
                                                                 );
                                                             })
-                                                            : Fragment}
+                                                        ) : (
+                                                            <h3 className="mt-10">Không tìm thấy cư dân tạm vắng</h3>
+                                                        )}
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <Pagination length={listTamTru.length} />
+                                            {filteredTamTru.length ? (
+                                                <Pagination
+                                                  totalPages={totalPages}
+                                                  currentPage={currentPage}
+                                                  onPageClick={handlePageClick}
+                                                />
+                                              ) : (
+                                                Fragment
+                                            )}
                                         </div>
                                     </div>
 
@@ -156,4 +199,4 @@ function ResidenceAbsence() {
     );
 }
 
-export default ResidenceAbsence;
+export default TemporaryResidence;

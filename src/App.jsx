@@ -25,7 +25,8 @@ import SendNotifications from "./pages/administrator/SendNotifications";
 import Setting from "./pages/administrator/Setting";
 import StatisticsAdmin from "./pages/administrator/Statistics";
 import StatisticPolice from "./pages/police/Statistics";
-import ResidenceAbsencePolice from "./pages/police/ResidenceAbsense";
+import ResidenceAbsencePolice from "./pages/police/ResidenceAbsence";
+import TemporaryResidencePolice from "./pages/police/TemporaryResidence";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
         <Route path="/residentInfo" element={<ResidentInfor />} />
         <Route path="/residenceAbsence" element={<ResidenceAbsence />} />
         <Route path="/residenceAbsencePolice" element={<ResidenceAbsencePolice/>}/>
+        <Route path="temporaryResidencePolice" element={<TemporaryResidencePolice/>}/>
         <Route path="/residence" element={<Residence />} />
         <Route path="/absence" element={<Absence />} />
         <Route path="/listofFees" element={<FeesList />} />

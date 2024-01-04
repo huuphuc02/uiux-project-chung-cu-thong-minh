@@ -33,7 +33,7 @@ function SidebarPolice() {
           </div>
           <div
             className="flex flex-row gap-4 items-center cursor-pointer w-full px-4 hover:bg-[#99b7f0]"
-            onClick={() => navigate("/residenceAbsencePolice")}
+            onClick={() => navigate("/temporaryResidencePolice")}
           >
             <img
               src="https://file.rendit.io/n/awWdrMe5AXDBgOYlzQHr.svg"
