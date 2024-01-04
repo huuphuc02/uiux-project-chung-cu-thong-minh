@@ -3,9 +3,12 @@ import { LuSearch } from "react-icons/lu";
 import OverlayResident from "./OverlayResident";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PopupNotification from "./PopupNotification";
+import NotificationDetail from "./NotificationDetail";
 
 function Header() {
   const [overlay, setOverlay] = useState(false);
+  const [popupNoti, setPopupNoti] = useState(false);
   const navigate = useNavigate();
   const [resident, setResident] = useState({});
 
@@ -38,7 +41,10 @@ function Header() {
           </div>
         </div>
         <div className="flex flex-row mt-3 gap-8 w-2/5 items-start">
-          <div className="flex flex-row mt-3 items-start cursor-pointer">
+          <div
+            className="flex flex-row mt-3 items-start cursor-pointer"
+            onClick={() => setPopupNoti(!popupNoti)}
+          >
             <img
               src="https://file.rendit.io/n/iBFcxEGp8ZRjB80YBCkZ.png"
               alt="Image1"
@@ -77,6 +83,7 @@ function Header() {
         </div>
       </div>
       {overlay && <OverlayResident />}
+      {popupNoti && <PopupNotification />}
     </div>
   );
 }

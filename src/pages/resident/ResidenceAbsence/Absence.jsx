@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Header from "../../../components/Header";
-import SidebarResident from "../../../components/SidebarResident";
+import Header from "../../../components/resident/Header";
+import SidebarResident from "../../../components/resident/SidebarResident";
 import { useNavigate } from "react-router-dom";
 
 function Absence() {

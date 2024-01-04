@@ -27,6 +27,9 @@ import StatisticsAdmin from "./pages/administrator/Statistics";
 import StatisticPolice from "./pages/police/Statistics";
 import ResidenceAbsencePolice from "./pages/police/ResidenceAbsence";
 import TemporaryResidencePolice from "./pages/police/TemporaryResidence";
+import ChangePasswordSuccess from "./pages/administrator/ChangePasswordSuccess";
+import ResidentStatistics from "./pages/administrator/ResidentStatistics";
+import FeesStatistics from "./pages/administrator/FeesStatistics";
 
 function App() {
   return (
@@ -36,11 +39,14 @@ function App() {
         <Route path="/homepageAdmin" element={<HomePageAdmin />} />
         <Route path="/homepageManager" element={<HomePageManager />} />
         <Route path="/homepagePolice" element={<HomePagePolice />} />
+        <Route path="/changePasswordSuccess" element={<ChangePasswordSuccess />} />
         <Route path="/sendNotifications" element={<SendNotifications />} />
         <Route path="/statistics" element={<Statistics />} />
-        <Route path="/statisticsAdmin" element={<StatisticsAdmin />} />
         <Route path="/statisticsPolice" element={<StatisticPolice/>} />
+        <Route path="/statisticAdmin" element={<StatisticsAdmin />} />
         <Route path="/setting" element={<Setting />} />
+        <Route path="/residentStatistics" element={<ResidentStatistics />} />
+        <Route path="/feesStatistics" element={<FeesStatistics />} />
         <Route
           path="/sendNotificationsSuccess"
           element={<SendNotificationsSuccess />}

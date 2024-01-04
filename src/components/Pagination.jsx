@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 function Pagination({ totalPages, currentPage, onPageClick }) {
   const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
   console.log(totalPages);
