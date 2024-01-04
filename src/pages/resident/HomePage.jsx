@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-target-blank */
 import { useNavigate } from "react-router-dom";
-import Header from "../../components/Header";
-import SidebarResident from "../../components/SidebarResident";
+import Header from "../../components/resident/Header";
+import SidebarResident from "../../components/resident/SidebarResident";
 // import api from "../../services/api";
 
 function HomePage() {
@@ -30,7 +30,7 @@ function HomePage() {
             <div className="flex flex-col ml-1 gap-2 w-full items-start">
               <h1 className="text-[22px] font-bold">Nộp phí</h1>
               <div
-                className="bg-[#99b7f0] flex flex-col justify-end gap-2 w-full items-start pt-3 px-4 rounded-lg"
+                className="bg-[#99b7f0] cursor-pointer flex flex-col justify-end gap-2 w-full items-start pt-3 px-4 rounded-lg"
                 onClick={() => navigate("/listofFees")}
               >
                 <div className="flex flex-row gap-20 w-full items-start">
@@ -134,7 +134,7 @@ function HomePage() {
                   Đăng ký tạm trú tạm vắng
                 </div>
                 <div className="relative flex flex-row w-full items-start">
-                  <div className="bg-[#99b7f0] relative flex flex-col cursor-pointer justify-center gap-6 w-full h-48 items-center rounded-lg">
+                  <div className="bg-[#99b7f0] relative flex flex-col justify-center gap-6 w-full h-48 items-center rounded-lg">
                     <div className="relative w-1/3 items-center justify-center">
                       <h2 className="text-center text-[22px] text-white h-10">
                         Tạm trú

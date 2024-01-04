@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import Header from "../../components/Header";
-import SidebarResident from "../../components/SidebarResident";
+import Header from "../../components/resident/Header";
+import SidebarResident from "../../components/resident/SidebarResident";
 import { useEffect, useState } from "react";
 
 function ResidentInfor() {

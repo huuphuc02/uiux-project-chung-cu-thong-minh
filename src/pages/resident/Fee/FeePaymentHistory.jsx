@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
-import Header from "../../../components/Header";
+import Header from "../../../components/resident/Header";
 import Pagination from "../../../components/Pagination";
-import SidebarResident from "../../../components/SidebarResident";
+import SidebarResident from "../../../components/resident/SidebarResident";
 import { LuSearch } from "react-icons/lu";
 
 function FeePaymentHistory() {

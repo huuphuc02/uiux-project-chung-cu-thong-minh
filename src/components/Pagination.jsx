@@ -1,14 +1,6 @@
-/* eslint-disable react/prop-types */
-<<<<<<< HEAD
-function Pagination(props) {
-  const numberOfPages = Math.ceil(props.length / 10);
-  const array = Array.from({ length: numberOfPages }, (_, index) => index + 1);
-  // const sliceData = props.slice((numberOfPages-1)*10, numberOfPages * 10);
-=======
 function Pagination({ totalPages, currentPage, onPageClick }) {
   const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
   console.log(totalPages);
->>>>>>> 6bdd606f4b524cd6f9ec65774f740f88abf617b8
   return (
     <nav aria-label="Page navigation example" className="mt-6 mx-80">
       <ul className="flex items-center -space-x-px h-8 text-sm">
