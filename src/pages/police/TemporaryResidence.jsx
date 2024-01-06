@@ -10,6 +10,8 @@ function TemporaryResidence() {
     const [listTamTru, setListTamTru] = useState([]);
     const [filteredTamTru, setFilteredTamTru] = useState([listTamTru]);
     const [listAppartment, setListAppartment] = useState([]);
+    const [listNgayBatDau, setListNgayBatDau] = useState([]);
+    const [listNgayKetThuc, setListNgayKetThuc] = useState([]);
     const [keySearch, setKeySearch] = useState("");
     const [selectedMonth, setSelectedMonth] = useState("");
     const [selectedApartment, setSelectedApartment] = useState("");
@@ -24,22 +26,29 @@ function TemporaryResidence() {
                 (cudan) => cudan.residenceStatus == "Tam tru"
             );
             let listAppartmentArray = [];
-            for (let i in data) {
-                console.log(data[i]);
-                response = await fetch(`http://localhost:3001/chungcu-cudan?MSCD=${data[i].ID}`);
+            let listNgayBatDauArray = [];
+            let listNgayKetThucArray = [];
+            for (let i in list) {
+                response = await fetch(`http://localhost:3001/chungcu-cudan?MSCD=${list[i].ID}`);
                 const chungcu_cudan = await response.json();
                 response = await fetch(`http://localhost:3001/chungcu?ID=${chungcu_cudan[0].MSCH}`);
                 const appartment = await response.json();
                 var canHo = (appartment[0].apartment) + (appartment[0].building);
-                console.log(canHo);
                 listAppartmentArray.push(canHo);
+                response = await fetch(`http://localhost:3001/tamtru?MSCD=${list[i].ID}`);
+                const tamtru = await response.json();
+                listNgayBatDauArray.push(tamtru[0].ngayBatDau);
+                listNgayKetThucArray.push(tamtru[0].ngayKetThuc);
             }
+            setListNgayBatDau(listNgayBatDauArray);
+            setListNgayKetThuc(listNgayKetThucArray);
             setListAppartment(listAppartmentArray);
             setListTamTru(list);
-
         };
         getListTamTru();
     }, []);
+
+
 
     const handlePageClick = (page) => {
         setCurrentPage(page);
@@ -77,7 +86,9 @@ function TemporaryResidence() {
                         <div className="flex flex-row gap-3 w-full items-center pt-6 pb-12 px-5 justify-between">
                             <div className="text-3xl font-bold capitalize ml-8 text-center">Danh sách tạm trú</div>
                             <div>
-                                <button className="items-center mt-6 mb-6 bg-white px-6 py-2 text-[#99b7f0] border-[#99b7f0] rounded-lg h-10">
+                                <button
+                                onClick={() => navigate("/inspectTemporaryResidence")} 
+                                className="items-center mt-6 mb-6 bg-white px-6 py-2 text-[#99b7f0] border-[#99b7f0] rounded-lg h-10">
                                     Duyệt mới
                                 </button>
                                 <button id="ButtonRoot"
@@ -149,7 +160,10 @@ function TemporaryResidence() {
                                                                 CCCD
                                                             </th>
                                                             <th scope="col" className="px-6 py-3">
-                                                                Thời hạn
+                                                                Ngày bắt đầu
+                                                            </th>
+                                                            <th scope="col" className="px-6 py-3">
+                                                                Ngày kết thúc
                                                             </th>
                                                             <th scope="col" className="px-6 py-3">
                                                                 Căn hộ
@@ -161,18 +175,19 @@ function TemporaryResidence() {
                                                             filteredTamTru.map((cudan, key) => {
                                                                 return (
                                                                     <tr className="bg-[#b1c9f1] border-b" key={key}>
-                                                                        <td scope="row" className="px-6 py-4 ">
+                                                                        <td className="px-6 py-4 ">
                                                                             {(key + 1)+10*(currentPage-1)}
                                                                         </td>
                                                                         <td className="px-6 py-4">{cudan.fullname}</td>
                                                                         <td className="px-6 py-4">{cudan.CCCD}</td>
-                                                                        <td className="px-6 py-4">20/10/2023</td>
+                                                                        <td className="px-6 py-4">{listNgayBatDau[key+10*(currentPage-1)]}</td>
+                                                                        <td className="px-6 py-4">{listNgayKetThuc[key+10*(currentPage-1)]}</td>
                                                                         <td className="px-6 py-4">{listAppartment[key+10*(currentPage-1)]}</td>
                                                                     </tr>
                                                                 );
                                                             })
                                                         ) : (
-                                                            <h3 className="mt-10">Không tìm thấy cư dân tạm vắng</h3>
+                                                            <h3 className="mt-10">Không tìm thấy cư dân tạm trú</h3>
                                                         )}
                                                     </tbody>
                                                 </table>

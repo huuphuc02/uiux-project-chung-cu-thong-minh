@@ -1,0 +1,112 @@
+[
+ {
+   "fullname": "Nguyễn Thị Hoài",
+   "CCCD": 193824657508,
+   "DoB": "05/12/1989",
+   "gender": "Nữ",
+   "phone": 755509969,
+   "thuongTru": "57 Đường Võ Oanh, Phường 25, Quận Bình Thạnh, Thành phố Hồ Chí Minh",
+   "ngayBatDau": "07/01/2024",
+   "ngayKetThuc": "06/02/2024",
+   "lyDo": "thăm người thân"
+ },
+ {
+   "fullname": "Trần Văn Minh",
+   "CCCD": 657208341295,
+   "DoB": "11/25/1976",
+   "gender": "Nam",
+   "phone": 355544725,
+   "thuongTru": "12 Đường Đỗ Quang, Quận Cầu Giấy, Thành phố Hà Nội",
+   "ngayBatDau": "09/01/2024",
+   "ngayKetThuc": "08/02/2024",
+   "lyDo": "thuê phòng"
+ },
+ {
+   "fullname": "Lê Thị Anh",
+   "CCCD": 419632857028,
+   "DoB": "03/08/1995",
+   "gender": "Nữ",
+   "phone": 555517184,
+   "thuongTru": "84 Đường Trần Phú, Phường Thạch Thang, Quận Hải Châu, Thành phố Đà Nẵng",
+   "ngayBatDau": "12/01/2024",
+   "ngayKetThuc": "11/02/2024",
+   "lyDo": "thuê phòng"
+ },
+ {
+   "fullname": "Phạm Quốc Bảo",
+   "CCCD": 874510392568,
+   "DoB": "09/16/1982",
+   "gender": "Nam",
+   "phone": 855502632,
+   "thuongTru": "36 Đường Lạch , Quận Ngô Quyền, Thành phố Hải Phòng",
+   "ngayBatDau": "13/01/2024",
+   "ngayKetThuc": "12/02/2024",
+   "lyDo": "thuê phòng"
+ },
+ {
+   "fullname": "Hoàng Minh Tuấn",
+   "CCCD": 230985716498,
+   "DoB": "01/30/2000",
+   "gender": "Nam",
+   "phone": 555570495,
+   "thuongTru": "69 Đường Nguyễn Văn Linh , Phường An Khánh, Quận Bình Thủy, Thành phố Cần Thơ",
+   "ngayBatDau": "14/01/2024",
+   "ngayKetThuc": "13/02/2024",
+   "lyDo": "thuê phòng"
+ },
+ {
+   "fullname": "Đặng Thị Mai",
+   "CCCD": 768502314679,
+   "DoB": "07/22/1991",
+   "gender": "Nữ",
+   "phone": 355519928,
+   "thuongTru": "23 Đường Cầu Giấy, Phường Dịch Vọng Hậu , Quận Cầu Giấy, Thành phố Hà Nội",
+   "ngayBatDau": "15/01/2024",
+   "ngayKetThuc": "14/02/2024",
+   "lyDo": "thăm người thân"
+ },
+ {
+   "fullname": "Vũ Đức Hòa",
+   "CCCD": 562389041703,
+   "DoB": "04/11/1978",
+   "gender": "Nam",
+   "phone": 855555813,
+   "thuongTru": "48 Đường Tân Sơn, Phường 15, Quận Tân Bình, Thành phố Hồ Chí Minh",
+   "ngayBatDau": "17/01/2024",
+   "ngayKetThuc": "16/02/2024",
+   "lyDo": "Công tác"
+ },
+ {
+   "fullname": "Lý Thanh Trúc",
+   "CCCD": 927601438514,
+   "DoB": "10/03/1985",
+   "gender": "Nữ",
+   "phone": 855502843,
+   "thuongTru": "19 Đông Phát, Phường Lam Sơn, Thành phố Thanh Hóa, Tỉnh Thanh Hoá",
+   "ngayBatDau": "18/01/2024",
+   "ngayKetThuc": "17/02/2024",
+   "lyDo": "Học tập"
+ },
+ {
+   "fullname": "Ngô Thị Lan Anh",
+   "CCCD": 385174960231,
+   "DoB": "06/19/1998",
+   "gender": "Nữ",
+   "phone": 755518326,
+   "thuongTru": "17 Đường Tuệ Tĩnh, phường Nam Thành, Thành phố Ninh Bình",
+   "ngayBatDau": "19/01/2024",
+   "ngayKetThuc": "18/02/2024",
+   "lyDo": "Công tác"
+ },
+ {
+   "fullname": "Bùi Văn Đức",
+   "CCCD": 146795283012,
+   "DoB": "12/07/1972",
+   "gender": "Nam",
+   "phone": 855514205,
+   "thuongTru": "75 Đường Hữu , Phường Việt Hưng, Thành phố Hạ Long, tỉnh Quảng Ninh",
+   "ngayBatDau": "01/02/2024",
+   "ngayKetThuc": "02/03/2024",
+   "lyDo": "Học tập"
+ }
+]

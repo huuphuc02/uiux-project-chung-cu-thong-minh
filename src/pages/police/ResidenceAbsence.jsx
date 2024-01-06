@@ -10,6 +10,8 @@ function ResidenceAbsence() {
     const [listTamVang, setListTamVang] = useState([]);
     const [filteredTamVang, setFilteredTamVang] = useState([listTamVang]);
     const [listAppartment, setListAppartment] = useState([]);
+    const [listFullName, setListFullName] = useState([]);
+    const [listCCCD, setListCCCD] = useState([]);
     const [keySearch, setKeySearch] = useState("");
     const [selectedMonth, setSelectedMonth] = useState("");
     const [selectedApartment, setSelectedApartment] = useState("");
@@ -18,27 +20,31 @@ function ResidenceAbsence() {
 
     useEffect(() => {
         const getListTamVang = async () => {
-            let response = await fetch(`http://localhost:3001/cudan`);
-            const data = await response.json();
-            let list = data.filter(
-                (cudan) => cudan.residenceStatus == "Tam tru"
-            );
+            let response = await fetch(`http://localhost:3001/tamvang`);
+            const listTamVang = await response.json();
             let listAppartmentArray = [];
-            for (let i in data) {
-                console.log(data[i]);
-                response = await fetch(`http://localhost:3001/chungcu-cudan?MSCD=${data[i].ID}`);
+            let listFullNameArray = [];
+            let listCCCDArray = [];
+            for (let i in listTamVang) {
+                console.log(listTamVang[i]);
+                response = await fetch(`http://localhost:3001/chungcu-cudan?MSCD=${listTamVang[i].MSCD}`);
                 const chungcu_cudan = await response.json();
                 response = await fetch(`http://localhost:3001/chungcu?ID=${chungcu_cudan[0].MSCH}`);
                 const appartment = await response.json();
                 var canHo = (appartment[0].apartment) + (appartment[0].building);
                 console.log(canHo);
                 listAppartmentArray.push(canHo);
+                response = await fetch(`http://localhost:3001/cudan?ID=${listTamVang[i].MSCD}`);
+                const cudan = await response.json();
+                listFullNameArray.push(cudan[0].fullname);
+                listCCCDArray.push(cudan[0].CCCD)
             }
             setListAppartment(listAppartmentArray);
-            setListTamTru(list);
-
+            setListTamVang(listTamVang);
+            setListFullName(listFullNameArray);
+            setListCCCD(listCCCDArray);
         };
-        getListTamTru();
+        getListTamVang();
     }, []);
 
     const handlePageClick = (page) => {
@@ -47,7 +53,7 @@ function ResidenceAbsence() {
 
     useEffect(() => {
         console.log(keySearch);
-        // const filteredResults = listTamTru.filter((cudan) => {
+        // const filteredResults = listTamVang.filter((cudan) => {
         //   const itemDate = fee.deadline.split("/").reverse().join("-");
         //   const itemMonth = itemDate.slice(0, 7);
         //   // const current = (new Date())
@@ -59,13 +65,13 @@ function ResidenceAbsence() {
         //   return matchedFeeType && matchesKeyword && matchesMonth;
         // });
         // filteredResults.sort((a, b) => new Date(b.deadline) - new Date(a.deadline));
-        setTotalPages(Math.ceil(listTamTru.length / 10));
+        setTotalPages(Math.ceil(listTamVang.length / 10));
         const startIndex = (currentPage - 1) * 10;
         const endIndex = startIndex + 10;
-        const slicedData = listTamTru.slice(startIndex, endIndex);
-        setFilteredTamTru(slicedData);
-        console.log(listTamTru);
-    }, [keySearch, listTamTru, selectedApartment, selectedMonth, currentPage]);
+        const slicedData = listTamVang.slice(startIndex, endIndex);
+        setFilteredTamVang(slicedData);
+        console.log(listTamVang);
+    }, [keySearch, listTamVang, selectedApartment, selectedMonth, currentPage]);
     
     return (
         <div className="h-screen">
@@ -77,7 +83,9 @@ function ResidenceAbsence() {
                         <div className="flex flex-row gap-3 w-full items-center pt-6 pb-12 px-5 justify-between">
                             <div className="text-3xl font-bold capitalize ml-8 text-center">Danh sách tạm Vắng</div>
                             <div>
-                                <button className="items-center mt-6 mb-6 bg-white px-6 py-2 text-[#99b7f0] border-[#99b7f0] rounded-lg h-10">
+                                <button
+                                onClick={() => navigate("/inspectAbsence")}
+                                className="items-center mt-6 mb-6 bg-white px-6 py-2 text-[#99b7f0] border-[#99b7f0] rounded-lg h-10">
                                     Duyệt mới
                                 </button>
                                 <button id="ButtonRoot"
@@ -161,15 +169,16 @@ function ResidenceAbsence() {
                                                     </thead>
                                                     <tbody className="font-medium cursor-pointer overflow-y-scroll">
                                                         {filteredTamVang.length ? (
-                                                            filteredTamVang.map((cudan, key) => {
+                                                            filteredTamVang.map((tamvang, key) => {
                                                                 return (
                                                                     <tr className="bg-[#b1c9f1] border-b" key={key}>
                                                                         <td scope="row" className="px-6 py-4 ">
                                                                             {(key + 1)+10*(currentPage-1)}
-                                                                        </td>
-                                                                        <td className="px-6 py-4">{cudan.fullname}</td>
-                                                                        <td className="px-6 py-4">{cudan.CCCD}</td>
-                                                                        <td className="px-6 py-4">20/10/2023</td>
+                                                                        </td>                                                                        
+                                                                        <td className="px-6 py-4">{listFullName[key+10*(currentPage-1)]}</td>
+                                                                        <td className="px-6 py-4">{listCCCD[key+10*(currentPage-1)]}</td>
+                                                                        <td className="px-6 py-4">{tamvang.ngayBatDau}</td>
+                                                                        <td className="px-6 py-4">{tamvang.ngayKetThuc}</td>
                                                                         <td className="px-6 py-4">{listAppartment[key+10*(currentPage-1)]}</td>
                                                                     </tr>
                                                                 );
@@ -180,7 +189,7 @@ function ResidenceAbsence() {
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            {filteredTamTru.length ? (
+                                            {filteredTamVang.length ? (
                                                 <Pagination
                                                   totalPages={totalPages}
                                                   currentPage={currentPage}

@@ -1,0 +1,282 @@
+[
+ {
+   "MSCD": "CD01",
+   "ngayBatDau": "21/05/2021",
+   "ngayKetThuc": "20/6/2021"
+ },
+ {
+   "MSCD": "CD03",
+   "ngayBatDau": "08/11/2022",
+   "ngayKetThuc": "8/12/2022"
+ },
+ {
+   "MSCD": "CD05",
+   "ngayBatDau": "14/03/2019",
+   "ngayKetThuc": "13/4/2019"
+ },
+ {
+   "MSCD": "CD07",
+   "ngayBatDau": "27/09/2020",
+   "ngayKetThuc": "27/10/2020"
+ },
+ {
+   "MSCD": "CD09",
+   "ngayBatDau": "05/01/2023",
+   "ngayKetThuc": "4/2/2023"
+ },
+ {
+   "MSCD": "CD10",
+   "ngayBatDau": "12/07/2019",
+   "ngayKetThuc": "11/8/2019"
+ },
+ {
+   "MSCD": "CD12",
+   "ngayBatDau": "30/04/2022",
+   "ngayKetThuc": "30/5/2022"
+ },
+ {
+   "MSCD": "CD14",
+   "ngayBatDau": "18/10/2021",
+   "ngayKetThuc": "17/11/2021"
+ },
+ {
+   "MSCD": "CD16",
+   "ngayBatDau": "05/06/2020",
+   "ngayKetThuc": "5/7/2020"
+ },
+ {
+   "MSCD": "CD18",
+   "ngayBatDau": "22/12/2023",
+   "ngayKetThuc": "21/1/2024"
+ },
+ {
+   "MSCD": "CD19",
+   "ngayBatDau": "09/08/2019",
+   "ngayKetThuc": "8/9/2019"
+ },
+ {
+   "MSCD": "CD21",
+   "ngayBatDau": "17/02/2022",
+   "ngayKetThuc": "19/3/2022"
+ },
+ {
+   "MSCD": "CD23",
+   "ngayBatDau": "03/10/2020",
+   "ngayKetThuc": "2/11/2020"
+ },
+ {
+   "MSCD": "CD25",
+   "ngayBatDau": "19/04/2023",
+   "ngayKetThuc": "19/5/2023"
+ },
+ {
+   "MSCD": "CD27",
+   "ngayBatDau": "26/11/2019",
+   "ngayKetThuc": "26/12/2019"
+ },
+ {
+   "MSCD": "CD28",
+   "ngayBatDau": "04/07/2022",
+   "ngayKetThuc": "3/8/2022"
+ },
+ {
+   "MSCD": "CD30",
+   "ngayBatDau": "10/01/2021",
+   "ngayKetThuc": "9/2/2021"
+ },
+ {
+   "MSCD": "CD32",
+   "ngayBatDau": "28/05/2020",
+   "ngayKetThuc": "27/6/2020"
+ },
+ {
+   "MSCD": "CD34",
+   "ngayBatDau": "15/12/2023",
+   "ngayKetThuc": "14/1/2024"
+ },
+ {
+   "MSCD": "CD36",
+   "ngayBatDau": "01/08/2019",
+   "ngayKetThuc": "31/8/2019"
+ },
+ {
+   "MSCD": "CD37",
+   "ngayBatDau": "09/03/2022",
+   "ngayKetThuc": "8/4/2022"
+ },
+ {
+   "MSCD": "CD39",
+   "ngayBatDau": "24/09/2020",
+   "ngayKetThuc": "24/10/2020"
+ },
+ {
+   "MSCD": "CD41",
+   "ngayBatDau": "01/02/2023",
+   "ngayKetThuc": "3/3/2023"
+ },
+ {
+   "MSCD": "CD43",
+   "ngayBatDau": "18/06/2019",
+   "ngayKetThuc": "18/7/2019"
+ },
+ {
+   "MSCD": "CD45",
+   "ngayBatDau": "26/01/2022",
+   "ngayKetThuc": "25/2/2022"
+ },
+ {
+   "MSCD": "CD46",
+   "ngayBatDau": "11/11/2021",
+   "ngayKetThuc": "11/12/2021"
+ },
+ {
+   "MSCD": "CD48",
+   "ngayBatDau": "05/05/2020",
+   "ngayKetThuc": "4/6/2020"
+ },
+ {
+   "MSCD": "CD50",
+   "ngayBatDau": "12/12/2023",
+   "ngayKetThuc": "11/1/2024"
+ },
+ {
+   "MSCD": "CD52",
+   "ngayBatDau": "28/08/2019",
+   "ngayKetThuc": "27/9/2019"
+ },
+ {
+   "MSCD": "CD54",
+   "ngayBatDau": "06/04/2022",
+   "ngayKetThuc": "6/5/2022"
+ },
+ {
+   "MSCD": "CD55",
+   "ngayBatDau": "23/10/2020",
+   "ngayKetThuc": "22/11/2020"
+ },
+ {
+   "MSCD": "CD57",
+   "ngayBatDau": "01/03/2023",
+   "ngayKetThuc": "31/3/2023"
+ },
+ {
+   "MSCD": "CD59",
+   "ngayBatDau": "08/06/2019",
+   "ngayKetThuc": "8/7/2019"
+ },
+ {
+   "MSCD": "CD61",
+   "ngayBatDau": "16/01/2022",
+   "ngayKetThuc": "15/2/2022"
+ },
+ {
+   "MSCD": "CD63",
+   "ngayBatDau": "01/11/2021",
+   "ngayKetThuc": "1/12/2021"
+ },
+ {
+   "MSCD": "CD64",
+   "ngayBatDau": "17/05/2020",
+   "ngayKetThuc": "16/6/2020"
+ },
+ {
+   "MSCD": "CD66",
+   "ngayBatDau": "04/12/2023",
+   "ngayKetThuc": "3/1/2024"
+ },
+ {
+   "MSCD": "CD68",
+   "ngayBatDau": "20/08/2019",
+   "ngayKetThuc": "19/9/2019"
+ },
+ {
+   "MSCD": "CD70",
+   "ngayBatDau": "27/02/2022",
+   "ngayKetThuc": "29/3/2022"
+ },
+ {
+   "MSCD": "CD72",
+   "ngayBatDau": "13/10/2020",
+   "ngayKetThuc": "12/11/2020"
+ },
+ {
+   "MSCD": "CD73",
+   "ngayBatDau": "29/04/2023",
+   "ngayKetThuc": "29/5/2023"
+ },
+ {
+   "MSCD": "CD75",
+   "ngayBatDau": "05/11/2019",
+   "ngayKetThuc": "5/12/2019"
+ },
+ {
+   "MSCD": "CD77",
+   "ngayBatDau": "13/07/2022",
+   "ngayKetThuc": "12/8/2022"
+ },
+ {
+   "MSCD": "CD79",
+   "ngayBatDau": "20/01/2021",
+   "ngayKetThuc": "19/2/2021"
+ },
+ {
+   "MSCD": "CD81",
+   "ngayBatDau": "06/06/2020",
+   "ngayKetThuc": "6/7/2020"
+ },
+ {
+   "MSCD": "CD82",
+   "ngayBatDau": "23/12/2023",
+   "ngayKetThuc": "22/1/2024"
+ },
+ {
+   "MSCD": "CD84",
+   "ngayBatDau": "09/08/2019",
+   "ngayKetThuc": "8/9/2019"
+ },
+ {
+   "MSCD": "CD86",
+   "ngayBatDau": "17/03/2022",
+   "ngayKetThuc": "16/4/2022"
+ },
+ {
+   "MSCD": "CD88",
+   "ngayBatDau": "02/09/2020",
+   "ngayKetThuc": "2/10/2020"
+ },
+ {
+   "MSCD": "CD90",
+   "ngayBatDau": "10/01/2023",
+   "ngayKetThuc": "9/2/2023"
+ },
+ {
+   "MSCD": "CD91",
+   "ngayBatDau": "27/06/2019",
+   "ngayKetThuc": "27/7/2019"
+ },
+ {
+   "MSCD": "CD93",
+   "ngayBatDau": "04/02/2022",
+   "ngayKetThuc": "6/3/2022"
+ },
+ {
+   "MSCD": "CD95",
+   "ngayBatDau": "20/10/2021",
+   "ngayKetThuc": "19/11/2021"
+ },
+ {
+   "MSCD": "CD97",
+   "ngayBatDau": "06/04/2020",
+   "ngayKetThuc": "6/5/2020"
+ },
+ {
+   "MSCD": "CD99",
+   "ngayBatDau": "23/11/2023",
+   "ngayKetThuc": "23/12/2023"
+ },
+ {
+   "MSCD": "CD100",
+   "ngayBatDau": "09/07/2019",
+   "ngayKetThuc": "8/8/2019"
+ }
+]

@@ -1,0 +1,37 @@
+[
+ {
+   "MSCD": "CD65",
+   "ngayBatDau": "08/02/2024",
+   "ngayKetThuc": "15/02/2024",
+   "lyDo": "Công tác",
+   "address": "Thành phố Vũng Tàu"
+ },
+ {
+   "MSCD": "CD82",
+   "ngayBatDau": "01/03/2024",
+   "ngayKetThuc": "08/03/2024",
+   "lyDo": "Du lịch",
+   "address": "Thành phố Huế"
+ },
+ {
+   "MSCD": "CD09",
+   "ngayBatDau": "05/04/2024",
+   "ngayKetThuc": "13/04/2024",
+   "lyDo": "Công tác",
+   "address": "Thành phố Qui nhơn"
+ },
+ {
+   "MSCD": "CD25",
+   "ngayBatDau": "24/1/2024",
+   "ngayKetThuc": "31/1/2024",
+   "lyDo": "Du lịch",
+   "address": "Thành phố Hải phòng"
+ },
+ {
+   "MSCD": "CD43",
+   "ngayBatDau": "10/02/2024",
+   "ngayKetThuc": "20/02/2024",
+   "lyDo": "Công tác",
+   "address": "Thành phố Hồ Chí Minh"
+ }
+]

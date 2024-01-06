@@ -30,6 +30,8 @@ import TemporaryResidencePolice from "./pages/police/TemporaryResidence";
 import ChangePasswordSuccess from "./pages/administrator/ChangePasswordSuccess";
 import ResidentStatistics from "./pages/administrator/ResidentStatistics";
 import FeesStatistics from "./pages/administrator/FeesStatistics";
+import InspectTempResidence from "./pages/police/InspectTempResidence";
+import InspectAbsence from "./pages/police/InspectAbsence";
 
 function App() {
   return (
@@ -63,6 +65,8 @@ function App() {
         <Route path="/payFee" element={<PayFee />} />
         <Route path="/paymentResult" element={<PaymentResult />} />
         <Route path="/history" element={<FeePaymentHistory />} />
+        <Route path="/inspectTemporaryResidence" element={<InspectTempResidence/>}/>
+        <Route path="/inspectAbsence" element={<InspectAbsence/>}/>
         <Route path="/resetpw" element={<ForgotPassword />} />
         <Route path="/familyRegister" element={<FamilyRegister />} />
         <Route path="/announce" element={<Announce />} />
