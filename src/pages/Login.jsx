@@ -6,6 +6,7 @@ function Login() {
   const [role, setRole] = useState("Resident");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
+  const [typePassword, setTypePassword] = useState("true");
 
   const handleLogin = async () => {
     try {
@@ -77,7 +78,7 @@ function Login() {
   return (
     <div
       id="LoginRoot"
-      className="bg-white flex flex-row justify-between w-full h-max items-start pt-10 pl-24 pr-28"
+      className="bg-white min-h-screen flex flex-row justify-between w-full h-max items-start pt-10 pl-24 pr-28"
     >
       <div className="relative flex flex-row w-2/5 items-start pt-20">
         <img
@@ -100,7 +101,7 @@ function Login() {
           >
             Vai trò
           </label>
-          <div className="text-[#adaaaa] mt-px shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row justify-between w-full h-12 items-start">
+          <div className="text-black mt-px shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row justify-between w-full h-12 items-start">
             <select
               name="role"
               id="role"
@@ -124,8 +125,8 @@ function Login() {
             </label>
             <input
               type="text"
-              defaultValue="0123456789"
-              className="text-[#adaaaa] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-full h-12 items-start px-5"
+              placeholder="0123456789"
+              className="text-black shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-full h-12 items-start px-5"
               onChange={(e) => setPhoneNumber(e.target.value)}
             ></input>
           </div>
@@ -144,7 +145,7 @@ function Login() {
             </div>
             <div className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row justify-between w-full h-12 items-start">
               <input
-                type="password"
+                type={typePassword ? "password" : "text"}
                 id="Text1"
                 className="pl-5 leading-[24px] mr-2 h-12 w-full text-[#212121]"
                 onChange={(e) => setPassword(e.target.value)}
@@ -152,7 +153,8 @@ function Login() {
               <img
                 src="https://file.rendit.io/n/vSKVapmggcl7QPTeULIj.svg"
                 alt="Group2"
-                className="w-6 pt-4 mr-3"
+                className="w-6 pt-4 mr-3 cursor-pointer"
+                onClick={() => setTypePassword(!typePassword)}
               />
             </div>
           </div>

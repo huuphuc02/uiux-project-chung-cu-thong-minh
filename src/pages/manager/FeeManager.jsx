@@ -1,6 +1,6 @@
 import ManagerHeader from "../../components/manager/ManagerHeader";
 import Pagination from "../../components/Pagination";
-import SidebarManager from "../../components/SidebarManager";
+import SidebarManager from "../../components/manager/SidebarManager";
 import { LuSearch } from "react-icons/lu";
 import { useState, useEffect, Fragment } from "react";
 import { useLocation } from "react-router-dom";
@@ -16,7 +16,6 @@ function FeeManager() {
   const [selectedFeeType, setSelectedFeeType] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-
 
   const parseDate = (dateString) => {
     const [day, month, year] = dateString.split("/");
@@ -73,17 +72,22 @@ function FeeManager() {
 
   useEffect(() => {
     if (location.state) {
-      setShowNewFee(location.state.isShowNewFee)
+      setShowNewFee(location.state.isShowNewFee);
     }
-  }, [])
+  }, []);
 
   return (
     <div>
       <ManagerHeader />
       <div className="flex">
-        <SidebarManager tab={"Khoản thu"}/>
+        <SidebarManager tab={"Khoản thu"} />
         <div className="w-[82%] bg-[#f5f5f5] relative">
-          {isShowNewFee && <ModalNewFee isShowNewFee={isShowNewFee} setShowNewFee={setShowNewFee} />}
+          {isShowNewFee && (
+            <ModalNewFee
+              isShowNewFee={isShowNewFee}
+              setShowNewFee={setShowNewFee}
+            />
+          )}
           <div className="w-full px-8 py-4 pb-4 ">
             <h1 className="text-4xl font-bold text-left">Khoản thu</h1>
             <div className="flex justify-end">
@@ -91,7 +95,7 @@ function FeeManager() {
                 id="ButtonRoot"
                 className="cursor-pointer items-start text-center font-['Nunito_Sans'] uppercase text-white bg-[#99b7f0] justify-center py-2 px-4 h-10 ml-8 rounded-lg"
                 onClick={() => {
-                  setShowNewFee(!isShowNewFee)
+                  setShowNewFee(!isShowNewFee);
                 }}
               >
                 THÊM MỚI
@@ -176,7 +180,7 @@ function FeeManager() {
                             {fee.type}
                           </td>
                           <td className="px-6 py-4">{fee.feeName}</td>
-                          <td className="px-6 py-4">{fee.cost*40}</td>
+                          <td className="px-6 py-4">{fee.cost * 40}</td>
                           <td className="px-6 py-4">{fee.deadline}</td>
                         </tr>
                       );

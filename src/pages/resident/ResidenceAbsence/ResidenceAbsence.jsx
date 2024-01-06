@@ -10,7 +10,7 @@ function ResidenceAbsence() {
       <Header />
       <div className="flex">
         <SidebarResident tab={"Vắng trú"} />
-        <div className="flex flex-col w-[82%] items-start mb-2">
+        <div className="flex flex-col w-[82%] min-h-screen items-start bg-[#f5f5f5]">
           <div className="flex flex-col w-full items-start mb-16">
             <h1 className="text-[22px] font-bold ml-1">
               Lịch sử đăng ký tạm trú tạm vắng

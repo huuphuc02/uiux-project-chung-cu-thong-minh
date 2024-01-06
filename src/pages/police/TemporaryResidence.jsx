@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import PoliceHeader from "../../components/police/PoliceHeader";
-import SidebarPolice from "../../components/SidebarPolice";
+import SidebarPolice from "../../components/police/SidebarPolice";
 import { Fragment, useEffect, useState } from "react";
 import Pagination from "../../components/Pagination";
 import { LuSearch } from "react-icons/lu";
@@ -209,9 +209,10 @@ function TemporaryResidence() {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    );
+
+           </div>
+           </div>
+  );
 }
 
 export default TemporaryResidence;

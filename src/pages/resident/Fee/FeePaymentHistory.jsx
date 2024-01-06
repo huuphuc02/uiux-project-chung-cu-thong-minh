@@ -75,10 +75,10 @@ function FeePaymentHistory() {
       <Header />
       <div className="flex">
         <SidebarResident tab={"Lịch sử"} />
-        <div className="w-[82%] bg-[#f5f5f5] px-8 py-4 pb-4">
+        <div className="w-[82%] bg-[#f5f5f5] min-h-screen px-8 py-4 pb-4">
           <h1 className="text-[22px] font-bold text-left">Lịch sử đóng phí</h1>
           <div className="flex mt-6">
-            <div className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/3 rounded-lg h-10 items-center pl-2 py-2">
+            <div className="text-black shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/3 rounded-lg h-10 items-center pl-2 py-2">
               <LuSearch />
               <input
                 value={keySearch}
@@ -113,7 +113,7 @@ function FeePaymentHistory() {
               <select
                 value={selectedFeeType}
                 onChange={(e) => setSelectedFeeType(e.target.value)}
-                className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-full rounded-lg h-10 items-start px-4 pt-2"
+                className="text-black shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-full rounded-lg h-10 items-start px-4 pt-2"
               >
                 <option value="">Tất cả</option>
                 <option value="Tiền điện, nước, internet">

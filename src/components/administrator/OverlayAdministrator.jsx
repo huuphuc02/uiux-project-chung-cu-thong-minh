@@ -1,26 +1,23 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function OverlayAdministrator() {
   const navigate = useNavigate();
-  const [apartment, setApartment] = useState({});
+  // const [apartment, setApartment] = useState({});
 
-  useEffect(() => {
-    setApartment(JSON.parse(localStorage.getItem("apartment")));
-  }, []);
+  // useEffect(() => {
+  //   setApartment(JSON.parse(localStorage.getItem("apartment")));
+  // }, []);
   return (
     <div
       id="OverlayttincudanRoot"
-      className="overflow-hidden z-20 bg-white flex flex-row w-1/5 items-start rounded-lg absolute right-10"
+      className="overflow-hidden z-20 bg-white flex flex-row w-1/5 items-start rounded-lg absolute right-10 top-16"
     >
       <div className="bg-white flex flex-col justify-center mr-0 pl-5 gap-8 w-full h-full pb-4 pt-2 items-start rounded-lg">
         <div className="flex flex-col ml-px gap-4 w-full items-start">
           <div className="font-semibold flex">
             <label htmlFor="apartment">Căn hộ: </label>
-            <span className="ml-2">
-              203
-              A1
-            </span>
+            <span className="ml-2">203 A1</span>
           </div>
           <div className="flex flex-col gap-4 w-full items-start">
             <span

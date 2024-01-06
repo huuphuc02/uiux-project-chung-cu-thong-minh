@@ -1,13 +1,23 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PopupConfirm from "../PopupConfirm";
 
 function OverlayResident() {
   const navigate = useNavigate();
   const [apartment, setApartment] = useState({});
+  const [popupLogout, setPopupLogout] = useState(false);
 
   useEffect(() => {
     setApartment(JSON.parse(localStorage.getItem("apartment")));
   }, []);
+  const handleClosePopup = () => {
+    setPopupLogout(false);
+  };
+
+  const handleConfirmAction = () => {
+    setPopupLogout(false);
+    navigate("/");
+  };
   return (
     <div
       id="OverlayttincudanRoot"
@@ -51,10 +61,20 @@ function OverlayResident() {
             </div>
           </div>
         </div>
-        <a id="NgXut" href="/" className="font-bold text-[#99b7f0] ml-28">
+        <button
+          id="NgXut"
+          className="font-bold text-[#99b7f0] ml-28"
+          onClick={() => setPopupLogout(true)}
+        >
           Đăng xuất &#62;
-        </a>
+        </button>
       </div>
+      <PopupConfirm
+        isOpen={popupLogout}
+        onClose={handleClosePopup}
+        onConfirm={handleConfirmAction}
+        message="Bạn có chắc chắn muốn đăng xuất?"
+      />
     </div>
   );
 }
