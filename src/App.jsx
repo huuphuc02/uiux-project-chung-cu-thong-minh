@@ -25,10 +25,13 @@ import SendNotifications from "./pages/administrator/SendNotifications";
 import Setting from "./pages/administrator/Setting";
 import StatisticsAdmin from "./pages/administrator/Statistics";
 import StatisticPolice from "./pages/police/Statistics";
-import ResidenceAbsencePolice from "./pages/police/ResidenceAbsense";
+import ResidenceAbsencePolice from "./pages/police/ResidenceAbsence";
+import TemporaryResidencePolice from "./pages/police/TemporaryResidence";
 import ChangePasswordSuccess from "./pages/administrator/ChangePasswordSuccess";
 import ResidentStatistics from "./pages/administrator/ResidentStatistics";
 import FeesStatistics from "./pages/administrator/FeesStatistics";
+import InspectTempResidence from "./pages/police/InspectTempResidence";
+import InspectAbsence from "./pages/police/InspectAbsence";
 
 function App() {
   return (
@@ -55,12 +58,15 @@ function App() {
         <Route path="/residentInfo" element={<ResidentInfor />} />
         <Route path="/residenceAbsence" element={<ResidenceAbsence />} />
         <Route path="/residenceAbsencePolice" element={<ResidenceAbsencePolice/>}/>
+        <Route path="temporaryResidencePolice" element={<TemporaryResidencePolice/>}/>
         <Route path="/residence" element={<Residence />} />
         <Route path="/absence" element={<Absence />} />
         <Route path="/listofFees" element={<FeesList />} />
         <Route path="/payFee" element={<PayFee />} />
         <Route path="/paymentResult" element={<PaymentResult />} />
         <Route path="/history" element={<FeePaymentHistory />} />
+        <Route path="/inspectTemporaryResidence" element={<InspectTempResidence/>}/>
+        <Route path="/inspectAbsence" element={<InspectAbsence/>}/>
         <Route path="/resetpw" element={<ForgotPassword />} />
         <Route path="/familyRegister" element={<FamilyRegister />} />
         <Route path="/announce" element={<Announce />} />

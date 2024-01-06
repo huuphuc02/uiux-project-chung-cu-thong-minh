@@ -3068,5 +3068,483 @@
    "GioiTinh": "Nữ",
    "Sdt": "0755539284"
  }
-]
+],
+"tamvang": [
+  {
+    "MSCD": "CD21",
+    "ngayBatDau": "25/06/2021",
+    "ngayKetThuc": "02/07/2021"
+  },
+  {
+    "MSCD": "CD22",
+    "ngayBatDau": "12/10/2022",
+    "ngayKetThuc": "19/10/2022"
+  },
+  {
+    "MSCD": "CD23",
+    "ngayBatDau": "08/03/2023",
+    "ngayKetThuc": "15/03/2023"
+  },
+  {
+    "MSCD": "CD24",
+    "ngayBatDau": "17/09/2021",
+    "ngayKetThuc": "24/09/2021"
+  },
+  {
+    "MSCD": "CD25",
+    "ngayBatDau": "20/01/2023",
+    "ngayKetThuc": "27/01/2023"
+  },
+  {
+    "MSCD": "CD26",
+    "ngayBatDau": "09/10/2022",
+    "ngayKetThuc": "16/10/2022"
+  },
+  {
+    "MSCD": "CD27",
+    "ngayBatDau": "05/07/2021",
+    "ngayKetThuc": "12/07/2021"
+  }
+], 
+"dangkytamvang":[
+  {
+    "MSCD": "CD65",
+    "ngayBatDau": "08/02/2024",
+    "ngayKetThuc": "15/02/2024",
+    "lyDo": "Công tác",
+    "address": "Thành phố Vũng Tàu"
+  },
+  {
+    "MSCD": "CD32",
+    "ngayBatDau": "01/03/2024",
+    "ngayKetThuc": "08/03/2024",
+    "lyDo": "Du lịch",
+    "address": "Thành phố Huế"
+  },
+  {
+    "MSCD": "CD09",
+    "ngayBatDau": "05/04/2024",
+    "ngayKetThuc": "13/04/2024",
+    "lyDo": "Công tác",
+    "address": "Thành phố Qui nhơn"
+  },
+  {
+    "MSCD": "CD54",
+    "ngayBatDau": "24/1/2024",
+    "ngayKetThuc": "31/1/2024",
+    "lyDo": "Du lịch",
+    "address": "Thành phố Hải phòng"
+  },
+  {
+    "MSCD": "CD79",
+    "ngayBatDau": "10/02/2024",
+    "ngayKetThuc": "20/02/2024",
+    "lyDo": "Công tác",
+    "address": "Thành phố Hồ Chí Minh"
+  }
+ ], 
+ "tamtru":[
+  {
+    "MSCD": "CD01",
+    "ngayBatDau": "21/05/2021",
+    "ngayKetThuc": "20/6/2021"
+  },
+  {
+    "MSCD": "CD03",
+    "ngayBatDau": "08/11/2022",
+    "ngayKetThuc": "08/12/2022"
+  },
+  {
+    "MSCD": "CD05",
+    "ngayBatDau": "14/03/2019",
+    "ngayKetThuc": "13/4/2019"
+  },
+  {
+    "MSCD": "CD07",
+    "ngayBatDau": "27/09/2020",
+    "ngayKetThuc": "27/10/2020"
+  },
+  {
+    "MSCD": "CD09",
+    "ngayBatDau": "05/01/2023",
+    "ngayKetThuc": "04/2/2023"
+  },
+  {
+    "MSCD": "CD10",
+    "ngayBatDau": "12/07/2019",
+    "ngayKetThuc": "11/8/2019"
+  },
+  {
+    "MSCD": "CD12",
+    "ngayBatDau": "30/04/2022",
+    "ngayKetThuc": "30/5/2022"
+  },
+  {
+    "MSCD": "CD14",
+    "ngayBatDau": "18/10/2021",
+    "ngayKetThuc": "17/11/2021"
+  },
+  {
+    "MSCD": "CD16",
+    "ngayBatDau": "05/06/2020",
+    "ngayKetThuc": "05/07/2020"
+  },
+  {
+    "MSCD": "CD18",
+    "ngayBatDau": "22/12/2023",
+    "ngayKetThuc": "21/01/2024"
+  },
+  {
+    "MSCD": "CD19",
+    "ngayBatDau": "09/08/2019",
+    "ngayKetThuc": "08/09/2019"
+  },
+  {
+    "MSCD": "CD21",
+    "ngayBatDau": "17/02/2022",
+    "ngayKetThuc": "19/03/2022"
+  },
+  {
+    "MSCD": "CD23",
+    "ngayBatDau": "03/10/2020",
+    "ngayKetThuc": "02/11/2020"
+  },
+  {
+    "MSCD": "CD25",
+    "ngayBatDau": "19/04/2023",
+    "ngayKetThuc": "19/05/2023"
+  },
+  {
+    "MSCD": "CD27",
+    "ngayBatDau": "26/11/2019",
+    "ngayKetThuc": "26/12/2019"
+  },
+  {
+    "MSCD": "CD28",
+    "ngayBatDau": "04/07/2022",
+    "ngayKetThuc": "03/08/2022"
+  },
+  {
+    "MSCD": "CD30",
+    "ngayBatDau": "10/01/2021",
+    "ngayKetThuc": "09/02/2021"
+  },
+  {
+    "MSCD": "CD32",
+    "ngayBatDau": "28/05/2020",
+    "ngayKetThuc": "27/06/2020"
+  },
+  {
+    "MSCD": "CD34",
+    "ngayBatDau": "15/12/2023",
+    "ngayKetThuc": "14/01/2024"
+  },
+  {
+    "MSCD": "CD36",
+    "ngayBatDau": "01/08/2019",
+    "ngayKetThuc": "31/08/2019"
+  },
+  {
+    "MSCD": "CD37",
+    "ngayBatDau": "09/03/2022",
+    "ngayKetThuc": "08/04/2022"
+  },
+  {
+    "MSCD": "CD39",
+    "ngayBatDau": "24/09/2020",
+    "ngayKetThuc": "24/10/2020"
+  },
+  {
+    "MSCD": "CD41",
+    "ngayBatDau": "01/02/2023",
+    "ngayKetThuc": "03/03/2023"
+  },
+  {
+    "MSCD": "CD43",
+    "ngayBatDau": "18/06/2019",
+    "ngayKetThuc": "18/07/2019"
+  },
+  {
+    "MSCD": "CD45",
+    "ngayBatDau": "26/01/2022",
+    "ngayKetThuc": "25/02/2022"
+  },
+  {
+    "MSCD": "CD46",
+    "ngayBatDau": "11/11/2021",
+    "ngayKetThuc": "11/12/2021"
+  },
+  {
+    "MSCD": "CD48",
+    "ngayBatDau": "05/05/2020",
+    "ngayKetThuc": "04/06/2020"
+  },
+  {
+    "MSCD": "CD50",
+    "ngayBatDau": "12/12/2023",
+    "ngayKetThuc": "11/01/2024"
+  },
+  {
+    "MSCD": "CD52",
+    "ngayBatDau": "28/08/2019",
+    "ngayKetThuc": "27/09/2019"
+  },
+  {
+    "MSCD": "CD54",
+    "ngayBatDau": "06/04/2022",
+    "ngayKetThuc": "06/05/2022"
+  },
+  {
+    "MSCD": "CD55",
+    "ngayBatDau": "23/10/2020",
+    "ngayKetThuc": "22/11/2020"
+  },
+  {
+    "MSCD": "CD57",
+    "ngayBatDau": "01/03/2023",
+    "ngayKetThuc": "31/03/2023"
+  },
+  {
+    "MSCD": "CD59",
+    "ngayBatDau": "08/06/2019",
+    "ngayKetThuc": "08/07/2019"
+  },
+  {
+    "MSCD": "CD61",
+    "ngayBatDau": "16/01/2022",
+    "ngayKetThuc": "15/02/2022"
+  },
+  {
+    "MSCD": "CD63",
+    "ngayBatDau": "01/11/2021",
+    "ngayKetThuc": "01/12/2021"
+  },
+  {
+    "MSCD": "CD64",
+    "ngayBatDau": "17/05/2020",
+    "ngayKetThuc": "16/06/2020"
+  },
+  {
+    "MSCD": "CD66",
+    "ngayBatDau": "04/12/2023",
+    "ngayKetThuc": "03/01/2024"
+  },
+  {
+    "MSCD": "CD68",
+    "ngayBatDau": "20/08/2019",
+    "ngayKetThuc": "19/09/2019"
+  },
+  {
+    "MSCD": "CD70",
+    "ngayBatDau": "27/02/2022",
+    "ngayKetThuc": "29/03/2022"
+  },
+  {
+    "MSCD": "CD72",
+    "ngayBatDau": "13/10/2020",
+    "ngayKetThuc": "12/11/2020"
+  },
+  {
+    "MSCD": "CD73",
+    "ngayBatDau": "29/04/2023",
+    "ngayKetThuc": "29/05/2023"
+  },
+  {
+    "MSCD": "CD75",
+    "ngayBatDau": "05/11/2019",
+    "ngayKetThuc": "05/12/2019"
+  },
+  {
+    "MSCD": "CD77",
+    "ngayBatDau": "13/07/2022",
+    "ngayKetThuc": "12/08/2022"
+  },
+  {
+    "MSCD": "CD79",
+    "ngayBatDau": "20/01/2021",
+    "ngayKetThuc": "19/02/2021"
+  },
+  {
+    "MSCD": "CD81",
+    "ngayBatDau": "06/06/2020",
+    "ngayKetThuc": "06/07/2020"
+  },
+  {
+    "MSCD": "CD82",
+    "ngayBatDau": "23/12/2023",
+    "ngayKetThuc": "22/01/2024"
+  },
+  {
+    "MSCD": "CD84",
+    "ngayBatDau": "09/08/2019",
+    "ngayKetThuc": "08/09/2019"
+  },
+  {
+    "MSCD": "CD86",
+    "ngayBatDau": "17/03/2022",
+    "ngayKetThuc": "16/04/2022"
+  },
+  {
+    "MSCD": "CD88",
+    "ngayBatDau": "02/09/2020",
+    "ngayKetThuc": "02/10/2020"
+  },
+  {
+    "MSCD": "CD90",
+    "ngayBatDau": "10/01/2023",
+    "ngayKetThuc": "09/02/2023"
+  },
+  {
+    "MSCD": "CD91",
+    "ngayBatDau": "27/06/2019",
+    "ngayKetThuc": "27/07/2019"
+  },
+  {
+    "MSCD": "CD93",
+    "ngayBatDau": "04/02/2022",
+    "ngayKetThuc": "06/03/2022"
+  },
+  {
+    "MSCD": "CD95",
+    "ngayBatDau": "20/10/2021",
+    "ngayKetThuc": "19/11/2021"
+  },
+  {
+    "MSCD": "CD97",
+    "ngayBatDau": "06/04/2020",
+    "ngayKetThuc": "06/05/2020"
+  },
+  {
+    "MSCD": "CD99",
+    "ngayBatDau": "23/11/2023",
+    "ngayKetThuc": "23/12/2023"
+  },
+  {
+    "MSCD": "CD100",
+    "ngayBatDau": "09/07/2019",
+    "ngayKetThuc": "08/08/2019"
+  }
+ ],
+ "dangkytamtru":[
+  {
+    "fullname": "Nguyễn Thị Hoài",
+    "CCCD": 193824657508,
+    "DoB": "05/12/1989",
+    "gender": "Nữ",
+    "phone": 755509969,
+    "thuongTru": "57 Đường Võ Oanh, Phường 25, Quận Bình Thạnh, Thành phố Hồ Chí Minh",
+    "ngayBatDau": "07/01/2024",
+    "ngayKetThuc": "06/02/2024",
+    "lyDo": "thăm người thân",
+    "canHo": "1011"
+  },
+  {
+    "fullname": "Trần Văn Minh",
+    "CCCD": 657208341295,
+    "DoB": "11/25/1976",
+    "gender": "Nam",
+    "phone": 355544725,
+    "thuongTru": "12 Đường Đỗ Quang, Quận Cầu Giấy, Thành phố Hà Nội",
+    "ngayBatDau": "09/01/2024",
+    "ngayKetThuc": "08/02/2024",
+    "lyDo": "thuê phòng",
+    "canHo": "1032"
+  },
+  {
+    "fullname": "Lê Thị Anh",
+    "CCCD": 419632857028,
+    "DoB": "03/08/1995",
+    "gender": "Nữ",
+    "phone": 555517184,
+    "thuongTru": "84 Đường Trần Phú, Phường Thạch Thang, Quận Hải Châu, Thành phố Đà Nẵng",
+    "ngayBatDau": "12/01/2024",
+    "ngayKetThuc": "11/02/2024",
+    "lyDo": "thuê phòng",
+    "canHo": "3011"
+  },
+  {
+    "fullname": "Phạm Quốc Bảo",
+    "CCCD": 874510392568,
+    "DoB": "09/16/1982",
+    "gender": "Nam",
+    "phone": 855502632,
+    "thuongTru": "36 Đường Lạch , Quận Ngô Quyền, Thành phố Hải Phòng",
+    "ngayBatDau": "13/01/2024",
+    "ngayKetThuc": "12/02/2024",
+    "lyDo": "thuê phòng",
+    "canHo": "2051"
+  },
+  {
+    "fullname": "Hoàng Minh Tuấn",
+    "CCCD": 230985716498,
+    "DoB": "01/30/2000",
+    "gender": "Nam",
+    "phone": 555570495,
+    "thuongTru": "69 Đường Nguyễn Văn Linh , Phường An Khánh, Quận Bình Thủy, Thành phố Cần Thơ",
+    "ngayBatDau": "14/01/2024",
+    "ngayKetThuc": "13/02/2024",
+    "lyDo": "thuê phòng",
+    "canHo": "3022"
+  },
+  {
+    "fullname": "Đặng Thị Mai",
+    "CCCD": 768502314679,
+    "DoB": "07/22/1991",
+    "gender": "Nữ",
+    "phone": 355519928,
+    "thuongTru": "23 Đường Cầu Giấy, Phường Dịch Vọng Hậu , Quận Cầu Giấy, Thành phố Hà Nội",
+    "ngayBatDau": "15/01/2024",
+    "ngayKetThuc": "14/02/2024",
+    "lyDo": "thăm người thân",
+    "canHo": "1022"
+  },
+  {
+    "fullname": "Vũ Đức Hòa",
+    "CCCD": 562389041703,
+    "DoB": "04/11/1978",
+    "gender": "Nam",
+    "phone": 855555813,
+    "thuongTru": "48 Đường Tân Sơn, Phường 15, Quận Tân Bình, Thành phố Hồ Chí Minh",
+    "ngayBatDau": "17/01/2024",
+    "ngayKetThuc": "16/02/2024",
+    "lyDo": "Công tác",
+    "canHo": "4031"
+  },
+  {
+    "fullname": "Lý Thanh Trúc",
+    "CCCD": 927601438514,
+    "DoB": "10/03/1985",
+    "gender": "Nữ",
+    "phone": 855502843,
+    "thuongTru": "19 Đông Phát, Phường Lam Sơn, Thành phố Thanh Hóa, Tỉnh Thanh Hoá",
+    "ngayBatDau": "18/01/2024",
+    "ngayKetThuc": "17/02/2024",
+    "lyDo": "Học tập",
+    "canHo": "1021"
+  },
+  {
+    "fullname": "Ngô Thị Lan Anh",
+    "CCCD": 385174960231,
+    "DoB": "06/19/1998",
+    "gender": "Nữ",
+    "phone": 755518326,
+    "thuongTru": "17 Đường Tuệ Tĩnh, phường Nam Thành, Thành phố Ninh Bình",
+    "ngayBatDau": "19/01/2024",
+    "ngayKetThuc": "18/02/2024",
+    "lyDo": "Công tác",
+    "canHo": "5012"
+  },
+  {
+    "fullname": "Bùi Văn Đức",
+    "CCCD": 146795283012,
+    "DoB": "12/07/1972",
+    "gender": "Nam",
+    "phone": 855514205,
+    "thuongTru": "75 Đường Hữu , Phường Việt Hưng, Thành phố Hạ Long, tỉnh Quảng Ninh",
+    "ngayBatDau": "01/02/2024",
+    "ngayKetThuc": "02/03/2024",
+    "lyDo": "Học tập",
+    "canHo": "4022"
+  }
+ ]
 }

@@ -1,0 +1,37 @@
+[
+ {
+   "MSCD": "CD21",
+   "ngayBatDau": "25/06/2021",
+   "ngayKetThuc": "02/07/2021"
+ },
+ {
+   "MSCD": "CD22",
+   "ngayBatDau": "12/10/2022",
+   "ngayKetThuc": "19/10/2022"
+ },
+ {
+   "MSCD": "CD23",
+   "ngayBatDau": "08/03/2023",
+   "ngayKetThuc": "15/03/2023"
+ },
+ {
+   "MSCD": "CD24",
+   "ngayBatDau": "17/09/2021",
+   "ngayKetThuc": "24/09/2021"
+ },
+ {
+   "MSCD": "CD25",
+   "ngayBatDau": "20/01/2023",
+   "ngayKetThuc": "27/01/2023"
+ },
+ {
+   "MSCD": "CD26",
+   "ngayBatDau": "09/10/2022",
+   "ngayKetThuc": "16/10/2022"
+ },
+ {
+   "MSCD": "CD27",
+   "ngayBatDau": "05/07/2021",
+   "ngayKetThuc": "12/07/2021"
+ }
+]
