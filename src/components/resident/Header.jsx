@@ -4,7 +4,6 @@ import OverlayResident from "./OverlayResident";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PopupNotification from "./PopupNotification";
-import NotificationDetail from "./NotificationDetail";
 
 function Header() {
   const [overlay, setOverlay] = useState(false);
@@ -19,13 +18,16 @@ function Header() {
     <div id="NewRootRoot" className="w-full items-start">
       <div className="border-solid border-b border-[#e2e2e2] pl-2 bg-white flex flex-row gap-16 w-full items-center">
         <div className="flex flex-row gap-12 w-3/5 items-start">
-          <div className="flex flex-row items-center w-2/5">
+          <div
+            className="flex flex-row items-center w-2/5"
+            onClick={() => navigate("/homepageResident")}
+          >
             <img
               src="https://file.rendit.io/n/Kfv6Ijyi67YATraEbp0v.png"
               alt="ActionTextRotationDown icon"
-              className="w-16"
+              className="w-16 cursor-pointer"
             />
-            <span className="text-xl font-bold mt-2 w-2/5">
+            <span className="text-xl font-bold mt-2 w-2/5 cursor-pointer">
               Chung cư thông minh
             </span>
           </div>

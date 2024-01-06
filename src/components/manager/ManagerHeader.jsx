@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { LuSearch } from "react-icons/lu";
-import OverlayResident from "../resident/OverlayResident";
+import OverlayPolice from "../police/OverlayPolice";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -77,7 +77,7 @@ function ManagerHeader() {
           </div>
         </div>
       </div>
-      {overlay && <OverlayResident />}
+      {overlay && <OverlayPolice />}
     </div>
   );
 }

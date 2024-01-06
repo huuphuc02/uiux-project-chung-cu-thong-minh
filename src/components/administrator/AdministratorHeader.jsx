@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import OverlayAdministrator from "./OverlayAdministrator"
+import OverlayAdministrator from "./OverlayAdministrator";
 function AdministratorHeader() {
   const [admin, setAdmin] = useState({});
   const [overlay, setOverlay] = useState(false);
@@ -28,7 +28,7 @@ function AdministratorHeader() {
             className="text-[#adaaaa] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row mt-4 gap-3 w-3/5 h-10 items-start px-3 rounded-lg"
           />
         </div>
-        <div className="flex flex-row mt-3 gap-8 w-2/5 items-start">
+        <div className="flex flex-row mt-3 gap-8 w-3/5 items-start">
           <div className="flex flex-row mt-3 items-start cursor-pointer">
             <img
               src="https://file.rendit.io/n/iBFcxEGp8ZRjB80YBCkZ.png"
@@ -40,20 +40,25 @@ function AdministratorHeader() {
               Thông báo
             </span>
           </div>
-          <div className="flex flex-row gap-4 w-3/5 items-start">
+          <div className="flex flex-row gap-4 items-start">
             <img
               src="https://file.rendit.io/n/bsosJvLrPusOJgxMZnsr.svg"
               alt="Ellipse"
               id="Ellipse"
               className="mb-1 w-12"
             />
-            <div className="cursor-pointer flex flex-row gap-2 w-3/5 items-center">
+            <div className="cursor-pointer flex flex-row gap-2 items-center">
               <div id="LHuTiCDn1" className="font-semibold text-left">
                 {admin.fullname}
                 <br />
                 <span className="text-[#686868]">Quản trị viên</span>
               </div>
-              <span className="ml-4 text-center text-4xl" onClick={() => setOverlay(!overlay)}>...</span>
+              <span
+                className="ml-4 text-center text-4xl"
+                onClick={() => setOverlay(!overlay)}
+              >
+                ...
+              </span>
             </div>
           </div>
         </div>

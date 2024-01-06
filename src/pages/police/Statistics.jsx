@@ -1,16 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import PoliceHeader from "../../components/police/PoliceHeader";
-import SidebarPolice from "../../components/SidebarPolice";
+import SidebarPolice from "../../components/police/SidebarPolice";
 
 function Statistics() {
-  const navigate = useNavigate()
-  return(
+  const navigate = useNavigate();
+  return (
     <div className="h-screen">
-        <PoliceHeader />
-        <div className="flex">
+      <PoliceHeader />
+      <div className="flex">
         <SidebarPolice />
         <div className="flex flex-col w-4/5 items-start mt-2 mb-4">
-        <div className="flex gap-28 mb-[38px]">
+          <div className="flex gap-28 mb-[38px]">
             <div className="flex flex-row w-full items-start">
               <div className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-[#fffefe] flex flex-row gap-2 w-full h-[141px] font-['Nunito_Sans'] items-start pt-4 px-10 rounded-lg">
                 <div className="text-6xl font-bold text-[#99b7f0] mt-5">40</div>
@@ -31,12 +31,10 @@ function Statistics() {
                 </div>
               </div>
             </div>
-
           </div>
           <div className="flex flex-col gap-5 w-full items-start">
             <div className="flex flex-col ml-1 gap-2 w-full items-start">
               <h1 className="text-[35px] font-bold">Thống kê</h1>
-            
             </div>
             {/* <div className="flex flex-row gap-12 w-full items-start">
               <div className="flex flex-col gap-4 w-1/2 items-start">
@@ -91,7 +89,7 @@ function Statistics() {
         </div>
       </div>
     </div>
-    );
+  );
 }
 
 export default Statistics;

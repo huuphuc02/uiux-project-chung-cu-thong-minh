@@ -32,8 +32,8 @@ function ForgotPassword() {
             </label>
             <input
               type="text"
-              defaultValue="0123456789"
-              className="text-[#adaaaa] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-full h-12 items-start px-5"
+              placeholder="0123456789"
+              className="text-black shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-full h-12 items-start px-5"
             ></input>
           </div>
         </div>

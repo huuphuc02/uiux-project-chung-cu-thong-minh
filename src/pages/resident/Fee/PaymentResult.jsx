@@ -1,44 +1,19 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../../../components/resident/Header";
 import SidebarResident from "../../../components/resident/SidebarResident";
+import { generateRandomString, getCurrentDateTime } from "../../../utility";
 
 function PaymentResult() {
   const location = useLocation();
   const queryParams = location.state;
   const navigate = useNavigate();
-  const getCurrentDateTime = () => {
-    const currentDate = new Date();
 
-    const hours = currentDate.getHours();
-    const minutes = currentDate.getMinutes();
-    const seconds = currentDate.getSeconds();
-
-    const day = currentDate.getDate();
-    const month = currentDate.getMonth() + 1;
-    const year = currentDate.getFullYear();
-
-    const formattedDateTime = `${hours}:${minutes}:${seconds} ${day}/${month}/${year}`;
-
-    return formattedDateTime;
-  };
-
-  const generateRandomString = (length) => {
-    const characters = "ABCDEF123456";
-    let result = "";
-
-    for (let i = 0; i < length; i++) {
-      const randomIndex = Math.floor(Math.random() * characters.length);
-      result += characters.charAt(randomIndex);
-    }
-
-    return result;
-  };
   return (
     <div>
       <Header />
       <div className="flex">
         <SidebarResident tab={"Nộp phí"} />
-        <div className="w-[82%] bg-[#f5f5f5] px-8 py-4 pb-24">
+        <div className="w-[82%] bg-[#f5f5f5] min-h-screen px-8 py-4 pb-24">
           <h1 className="text-[22px] font-bold text-left">
             Kết quả thanh toán
           </h1>
