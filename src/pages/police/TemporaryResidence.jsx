@@ -10,8 +10,11 @@ function TemporaryResidence() {
     const [listTamTru, setListTamTru] = useState([]);
     const [filteredTamTru, setFilteredTamTru] = useState([listTamTru]);
     const [listAppartment, setListAppartment] = useState([]);
+    const [filteredAppartment, setFilteredAppartment] = useState([listAppartment]);
     const [listNgayBatDau, setListNgayBatDau] = useState([]);
+    const [filteredStart, setFilteredStart] = useState([listNgayBatDau]);
     const [listNgayKetThuc, setListNgayKetThuc] = useState([]);
+    const [filteredEnd, setFilteredEnd] = useState([listNgayKetThuc]);
     const [keySearch, setKeySearch] = useState("");
     const [selectedMonth, setSelectedMonth] = useState("");
     const [selectedApartment, setSelectedApartment] = useState("");
@@ -56,23 +59,35 @@ function TemporaryResidence() {
 
     useEffect(() => {
         console.log(keySearch);
-        // const filteredResults = listTamTru.filter((cudan) => {
-        //   const itemDate = fee.deadline.split("/").reverse().join("-");
-        //   const itemMonth = itemDate.slice(0, 7);
-        //   // const current = (new Date())
-        //   const matchesMonth = !selectedMonth || itemMonth == selectedMonth;
-        //   const matchedApartment = !selectedApartment || cudan. == selectedFeeType;
-        //   const matchesKeyword = fee.feeName
-        //     .toLowerCase()
-        //     .includes(keySearch.toLowerCase());
-        //   return matchedFeeType && matchesKeyword && matchesMonth;
-        // });
-        // filteredResults.sort((a, b) => new Date(b.deadline) - new Date(a.deadline));
-        setTotalPages(Math.ceil(listTamTru.length / 10));
+        let filteredApartmentArray = [];
+        let filteredNgayBatDauArray = [];
+        let filteredNgayKetThucArray = [];
+        const filteredResults = listTamTru.filter((cudan,key) => {
+            const matchesKeyword = cudan.fullname.toLowerCase().includes(keySearch.toLowerCase()) || cudan.CCCD.toString().toLowerCase().includes(keySearch.toLowerCase());
+            const matchedAppartment = !selectedApartment || listAppartment[key] == selectedApartment;
+            let itemDate = listNgayBatDau[key].split("/").reverse().join("-");
+            const itemMonth1 = itemDate.slice(0,7);
+            itemDate = listNgayKetThuc[key].split("/").reverse().join("-");
+            const itemMonth2 = itemDate.slice(0,7);
+            const matchedMonth = !selectedMonth || itemMonth1 == selectedMonth || itemMonth2 == selectedMonth;
+            if(matchedAppartment){
+                filteredApartmentArray.push(listAppartment[key]);
+            }
+            if(matchedMonth){
+                filteredNgayBatDauArray.push(listNgayBatDau[key]);
+                filteredNgayKetThucArray.push(listNgayKetThuc[key]);
+            }
+            return matchesKeyword && matchedAppartment && matchedMonth;
+        });
+        // const filteredResults = filteredApartment
+        setTotalPages(Math.ceil(filteredResults.length / 10));
         const startIndex = (currentPage - 1) * 10;
         const endIndex = startIndex + 10;
-        const slicedData = listTamTru.slice(startIndex, endIndex);
+        const slicedData = filteredResults.slice(startIndex, endIndex);
         setFilteredTamTru(slicedData);
+        setFilteredAppartment(filteredApartmentArray);
+        setFilteredStart(filteredNgayBatDauArray);
+        setFilteredEnd(filteredNgayKetThucArray);
         console.log(listTamTru);
     }, [keySearch, listTamTru, selectedApartment, selectedMonth, currentPage]);
     
@@ -105,18 +120,16 @@ function TemporaryResidence() {
                                     <div className="flex flex-col ml-1 gap-10 w-full items-start">
                                         <div className="flex flex-row gap-16 w-full items-start">
                                             <div className="flex flex-row gap-4 w-3/5 items-start">
-                                                <div className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row mb-1 gap-5 w-1/2 h-10 items-start pt-2 px-2 rounded-lg">
+                                                <div className="text-black shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/3 rounded-lg h-10 items-center pl-2 py-2">
+                                                    <LuSearch />
                                                     <input
-                                                        type="text"
-                                                        placeholder="Tìm theo tên cư dân"
-                                                        className="mt-1 w-full px-2 border-none outline-none"
-                                                    />
-                                                    <img
-                                                        src="https://file.rendit.io/n/u9XBBnNX3jjEwudGawBB.svg"
-                                                        alt="SearchIcon"
-                                                        id="SearchIcon"
-                                                        className="mt-1 w-5"
-                                                    />
+                                                        value={keySearch}
+                                                        onChange={(e) => {
+                                                          setKeySearch(e.target.value);
+                                                        }}
+                                                        placeholder="Tìm theo tên cư dân, CCCD"
+                                                        className="pl-2 ml-2 w-full h-10"
+                                                    ></input>
                                                 </div>
 
                                                 <div className="flex flex-row mt-1 gap-4 w-1/2 items-start">
@@ -124,7 +137,10 @@ function TemporaryResidence() {
                                                         Lọc theo tháng:
                                                     </div>
                                                     <div className="relative flex flex-row justify-end pt-3 w-25 items-start">
-                                                        <input type="month" id="start" name="start" min="2021-01" max="2025-12" />
+                                                        <input
+                                                            value={selectedMonth}
+                                                            onChange={(e) => setSelectedMonth(e.target.value)}
+                                                            type="month" id="start" name="start" min="2021-01" max="2025-12" />
                                                     </div>
 
                                                 </div>
@@ -134,13 +150,18 @@ function TemporaryResidence() {
                                                     Lọc theo căn hộ:
                                                 </div>
                                                 <div className="relative flex flex-row justify-end pt-3 w-2/5 items-start">
-                                                    <select className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] w-full h-10 bg-white absolute top-0 left-0 flex flex-row items-start pt-3 px-4 rounded-lg">
+                                                    <select
+                                                    value={selectedApartment}
+                                                    onChange={(e) => setSelectedApartment(e.target.value)}
+                                                    className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] w-full h-10 bg-white absolute top-0 left-0 flex flex-row items-start pt-3 px-4 rounded-lg"
+                                                    >
                                                         {["101A1", "102A1", "103A1", "104A1", "105A1", "201A1", "202A1", "203A1", "204A1", "205A1", "301A1", "302A1", "303A1", "304A1", "305A1", "401A1", "402A1", "403A1", "404A1", "405A1",
                                                             "101A2", "102A2", "103A2", "104A2", "105A2", "201A2", "202A2", "203A2", "204A2", "205A2", "301A2", "302A2", "303A2", "304A2", "305A2", "401A2", "402A2", "403A2", "404A2", "405A2"].map((optionValue) => (
                                                                 <option key={optionValue} value={optionValue}>
                                                                     {optionValue}
                                                                 </option>
                                                             ))}
+                                                        <option value="" selected disabled hidden></option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -180,9 +201,9 @@ function TemporaryResidence() {
                                                                         </td>
                                                                         <td className="px-6 py-4">{cudan.fullname}</td>
                                                                         <td className="px-6 py-4">{cudan.CCCD}</td>
-                                                                        <td className="px-6 py-4">{listNgayBatDau[key+10*(currentPage-1)]}</td>
-                                                                        <td className="px-6 py-4">{listNgayKetThuc[key+10*(currentPage-1)]}</td>
-                                                                        <td className="px-6 py-4">{listAppartment[key+10*(currentPage-1)]}</td>
+                                                                        <td className="px-6 py-4">{filteredStart[key+10*(currentPage-1)]}</td>
+                                                                        <td className="px-6 py-4">{filteredEnd[key+10*(currentPage-1)]}</td>
+                                                                        <td className="px-6 py-4">{filteredAppartment[key+10*(currentPage-1)]}</td>
                                                                     </tr>
                                                                 );
                                                             })
