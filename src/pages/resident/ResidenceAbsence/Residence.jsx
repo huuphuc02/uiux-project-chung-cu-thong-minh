@@ -5,7 +5,11 @@ import { useNavigate } from "react-router-dom";
 import PopupConfirm from "../../../components/PopupConfirm";
 import PopupError from "../../../components/PopupError";
 import PopupSuccess from "../../../components/PopupSuccess";
-import { compareDates } from "../../../utility";
+import {
+  compareDates,
+  convertDateFormat,
+  generateRandomString,
+} from "../../../utility";
 
 function Residence() {
   const [resident, setResident] = useState({});
@@ -16,6 +20,8 @@ function Residence() {
   const [address, setAddress] = useState("");
   const [startDay, setStartDay] = useState("");
   const [endDay, setEndDay] = useState("");
+  const [reason, setReason] = useState("");
+  const [apartment, setApartment] = useState("");
   const [messageError, setMessageError] = useState("");
 
   const handleClosePopup = () => {
@@ -29,7 +35,34 @@ function Residence() {
   };
   const handleConfirmAction = () => {
     setPopupConfirm(false);
-    setPopupSuccess(true);
+    const formData = {
+      id: generateRandomString(3),
+      fullname: resident.fullname,
+      CCCD: resident.CCCD,
+      DoB: resident.dob,
+      gender: resident.gender,
+      phone: resident.Sdt,
+      thuongTru: address,
+      ngayBatDau: convertDateFormat(startDay),
+      ngayKetThuc: convertDateFormat(endDay),
+      lyDo: reason,
+      canho: apartment,
+    };
+    console.log(formData);
+    fetch("http://localhost:3001/dangkytamtru", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        response.json();
+        setPopupSuccess(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const handleSubmit = () => {
@@ -37,14 +70,6 @@ function Residence() {
     console.log(endDay);
     if (address == "" || startDay == "" || endDay == "") {
       setMessageError("Vui lòng nhập đầy đủ các trường thông tin bắt buộc!");
-      setPopupError(true);
-      return;
-    }
-    const today = new Date();
-    if (compareDates(startDay, today) < 0) {
-      setMessageError(
-        "Ngày bắt đầu phải lớn hơn hoặc bằng ngày hôm nay. Vui lòng nhập lại!"
-      );
       setPopupError(true);
       return;
     }
@@ -149,20 +174,20 @@ function Residence() {
                     :
                   </label>
                   <input
-                    defaultValue="125D Minh Khai"
+                    onChange={(e) => setAddress(e.target.value)}
                     className="text-black shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"
                   ></input>
                 </div>
                 <div className="flex flex-row justify-between w-full items-start">
                   <label className="text-lg font-bold mt-2 ml-[144px]">
-                    Địa chỉ đăng ký tạm trú{" "}
+                    Tạm trú tại căn hộ
                     <span className="text-red-500 mr-2 text-base font-semibold">
                       (*)
                     </span>
                     :
                   </label>
                   <input
-                    onChange={(e) => setAddress(e.target.value)}
+                    onChange={(e) => setApartment(e.target.value)}
                     className="text-black shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"
                   ></input>
                 </div>
@@ -198,7 +223,10 @@ function Residence() {
                   <label className="text-lg font-bold mt-2 ml-[144px]">
                     Lý do:
                   </label>
-                  <input className="text-black shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-16 items-start px-4"></input>
+                  <textarea
+                    onChange={(e) => setReason(e.target.value)}
+                    className="text-black shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-16 items-start px-4"
+                  ></textarea>
                 </div>
               </div>
               <div className="flex flex-row ml-[490px] gap-8 w-1/3 items-start">
