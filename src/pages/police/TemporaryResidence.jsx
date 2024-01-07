@@ -65,18 +65,31 @@ function TemporaryResidence() {
         const filteredResults = listTamTru.filter((cudan,key) => {
             const matchesKeyword = cudan.fullname.toLowerCase().includes(keySearch.toLowerCase()) || cudan.CCCD.toString().toLowerCase().includes(keySearch.toLowerCase());
             const matchedAppartment = !selectedApartment || listAppartment[key] == selectedApartment;
-            let itemDate = listNgayBatDau[key].split("/").reverse().join("-");
-            const itemMonth1 = itemDate.slice(0,7);
-            itemDate = listNgayKetThuc[key].split("/").reverse().join("-");
-            const itemMonth2 = itemDate.slice(0,7);
-            const matchedMonth = !selectedMonth || itemMonth1 == selectedMonth || itemMonth2 == selectedMonth;
+            const itemDate1 = listNgayBatDau[key].split("/").reverse().join("-");
+            const itemMonth1 = itemDate1.slice(0,7);
+            const itemDate2 = listNgayKetThuc[key].split("/").reverse().join("-");
+            const itemMonth2 = itemDate2.slice(0,7);
+            const matchedMonth = !selectedMonth || (itemMonth2 == selectedMonth || itemMonth1 == selectedMonth);
             if(matchedAppartment){
-                filteredApartmentArray.push(listAppartment[key]);
+                if(!selectedApartment){
+                    if(matchedMonth) {
+                        filteredNgayBatDauArray.push(listNgayBatDau[key]);
+                        filteredNgayKetThucArray.push(listNgayKetThuc[key]);
+                        filteredApartmentArray.push(listAppartment[key]);
+                    }
+                } else {
+                    filteredApartmentArray.push(listAppartment[key]);
+                    if(matchedMonth) {
+                        filteredNgayBatDauArray.push(listNgayBatDau[key]);
+                        filteredNgayKetThucArray.push(listNgayKetThuc[key]);
+                    }
+                } 
             }
-            if(matchedMonth){
-                filteredNgayBatDauArray.push(listNgayBatDau[key]);
-                filteredNgayKetThucArray.push(listNgayKetThuc[key]);
-            }
+            // if(matchedMonth) {
+            //     filteredApartmentArray.push(listAppartment[key]);
+            //     filteredNgayBatDauArray.push(listNgayBatDau[key]);
+            //     filteredNgayKetThucArray.push(listNgayKetThuc[key]);
+            // }
             return matchesKeyword && matchedAppartment && matchedMonth;
         });
         // const filteredResults = filteredApartment
