@@ -10,8 +10,11 @@ function ResidenceAbsence() {
     const [listTamVang, setListTamVang] = useState([]);
     const [filteredTamVang, setFilteredTamVang] = useState([listTamVang]);
     const [listAppartment, setListAppartment] = useState([]);
+    const [filteredAppartment, setFilteredAppartment] = useState([listAppartment]);
     const [listFullName, setListFullName] = useState([]);
+    const [filteredFullName, setFilteredFullName] = useState([listFullName]);
     const [listCCCD, setListCCCD] = useState([]);
+    const [filteredCCCD, setFilteredCCCD] = useState([listCCCD]);
     const [keySearch, setKeySearch] = useState("");
     const [selectedMonth, setSelectedMonth] = useState("");
     const [selectedApartment, setSelectedApartment] = useState("");
@@ -53,23 +56,42 @@ function ResidenceAbsence() {
 
     useEffect(() => {
         console.log(keySearch);
-        // const filteredResults = listTamVang.filter((cudan) => {
-        //   const itemDate = fee.deadline.split("/").reverse().join("-");
-        //   const itemMonth = itemDate.slice(0, 7);
-        //   // const current = (new Date())
-        //   const matchesMonth = !selectedMonth || itemMonth == selectedMonth;
-        //   const matchedApartment = !selectedApartment || cudan. == selectedFeeType;
-        //   const matchesKeyword = fee.feeName
-        //     .toLowerCase()
-        //     .includes(keySearch.toLowerCase());
-        //   return matchedFeeType && matchesKeyword && matchesMonth;
-        // });
-        // filteredResults.sort((a, b) => new Date(b.deadline) - new Date(a.deadline));
-        setTotalPages(Math.ceil(listTamVang.length / 10));
+        let filteredApartmentArray = [];
+        let filteredFullNameArray = [];
+        let filteredCCCDArray = [];
+        const filteredResults = listTamVang.filter((tamvang,key) => {
+            const itemDate1 = tamvang.ngayBatDau.split("/").reverse().join("-");
+            const itemMonth1 = itemDate1.slice(0,7);
+            const itemDate2 = tamvang.ngayKetThuc.split("/").reverse().join("-");
+            const itemMonth2 = itemDate2.slice(0,7);
+            const matchedMonth = !selectedMonth || (itemMonth2 == selectedMonth || itemMonth1 == selectedMonth);
+            const matchedAppartment = !selectedApartment || listAppartment[key] == selectedApartment;
+            const matchesKeyword = listFullName[key].toLowerCase().includes(keySearch.toLowerCase()) || listCCCD[key].toString().toLowerCase().includes(keySearch.toLowerCase());
+            if(matchedAppartment){
+                if(!selectedApartment){
+                    if(matchesKeyword) {
+                        filteredFullNameArray.push(listFullName[key]);
+                        filteredCCCDArray.push(listCCCD[key]);
+                        filteredApartmentArray.push(listAppartment[key]);
+                    }
+                } else {
+                    filteredApartmentArray.push(listAppartment[key]);
+                    if(matchesKeyword) {
+                        filteredFullNameArray.push(listFullName[key]);
+                        filteredCCCDArray.push(listCCCD[key]);
+                    }
+                } 
+            }
+            return matchedMonth && matchesKeyword && matchedAppartment;
+        });
+        setTotalPages(Math.ceil(filteredResults.length / 10));
         const startIndex = (currentPage - 1) * 10;
         const endIndex = startIndex + 10;
-        const slicedData = listTamVang.slice(startIndex, endIndex);
+        const slicedData = filteredResults.slice(startIndex, endIndex);
         setFilteredTamVang(slicedData);
+        setFilteredAppartment(filteredApartmentArray);
+        setFilteredCCCD(filteredCCCDArray);
+        setFilteredFullName(filteredFullNameArray);
         console.log(listTamVang);
     }, [keySearch, listTamVang, selectedApartment, selectedMonth, currentPage]);
     
@@ -103,17 +125,15 @@ function ResidenceAbsence() {
                                         <div className="flex flex-row gap-16 w-full items-start">
                                             <div className="flex flex-row gap-4 w-3/5 items-start">
                                                 <div className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row mb-1 gap-5 w-1/2 h-10 items-start pt-2 px-2 rounded-lg">
+                                                    <LuSearch />
                                                     <input
-                                                        type="text"
-                                                        placeholder="Tìm theo tên cư dân"
+                                                        value={keySearch}
+                                                        onChange={(e) => {
+                                                          setKeySearch(e.target.value);
+                                                        }}
+                                                        placeholder="Tìm theo tên cư dân,CCCD"
                                                         className="mt-1 w-full px-2 border-none outline-none"
-                                                    />
-                                                    <img
-                                                        src="https://file.rendit.io/n/u9XBBnNX3jjEwudGawBB.svg"
-                                                        alt="SearchIcon"
-                                                        id="SearchIcon"
-                                                        className="mt-1 w-5"
-                                                    />
+                                                    ></input>
                                                 </div>
 
                                                 <div className="flex flex-row mt-1 gap-4 w-1/2 items-start">
@@ -121,7 +141,10 @@ function ResidenceAbsence() {
                                                         Lọc theo tháng:
                                                     </div>
                                                     <div className="relative flex flex-row justify-end pt-3 w-25 items-start">
-                                                        <input type="month" id="start" name="start" min="2021-01" max="2025-12" />
+                                                        <input
+                                                            value={selectedMonth}
+                                                            onChange={(e) => setSelectedMonth(e.target.value)}
+                                                            type="month" id="start" name="start" min="2021-01" max="2025-12" />
                                                     </div>
 
                                                 </div>
@@ -131,13 +154,17 @@ function ResidenceAbsence() {
                                                     Lọc theo căn hộ:
                                                 </div>
                                                 <div className="relative flex flex-row justify-end pt-3 w-2/5 items-start">
-                                                    <select className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] w-full h-10 bg-white absolute top-0 left-0 flex flex-row items-start pt-3 px-4 rounded-lg">
+                                                    <select
+                                                        value={selectedApartment}
+                                                        onChange={(e) => setSelectedApartment(e.target.value)}
+                                                        className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] w-full h-10 bg-white absolute top-0 left-0 flex flex-row items-start pt-3 px-4 rounded-lg">
                                                         {["101A1", "102A1", "103A1", "104A1", "105A1", "201A1", "202A1", "203A1", "204A1", "205A1", "301A1", "302A1", "303A1", "304A1", "305A1", "401A1", "402A1", "403A1", "404A1", "405A1",
                                                             "101A2", "102A2", "103A2", "104A2", "105A2", "201A2", "202A2", "203A2", "204A2", "205A2", "301A2", "302A2", "303A2", "304A2", "305A2", "401A2", "402A2", "403A2", "404A2", "405A2"].map((optionValue) => (
                                                                 <option key={optionValue} value={optionValue}>
                                                                     {optionValue}
                                                                 </option>
                                                             ))}
+                                                        <option value="" selected disabled hidden></option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -175,11 +202,11 @@ function ResidenceAbsence() {
                                                                         <td scope="row" className="px-6 py-4 ">
                                                                             {(key + 1)+10*(currentPage-1)}
                                                                         </td>                                                                        
-                                                                        <td className="px-6 py-4">{listFullName[key+10*(currentPage-1)]}</td>
-                                                                        <td className="px-6 py-4">{listCCCD[key+10*(currentPage-1)]}</td>
+                                                                        <td className="px-6 py-4">{filteredFullName[key+10*(currentPage-1)]}</td>
+                                                                        <td className="px-6 py-4">{filteredCCCD[key+10*(currentPage-1)]}</td>
                                                                         <td className="px-6 py-4">{tamvang.ngayBatDau}</td>
                                                                         <td className="px-6 py-4">{tamvang.ngayKetThuc}</td>
-                                                                        <td className="px-6 py-4">{listAppartment[key+10*(currentPage-1)]}</td>
+                                                                        <td className="px-6 py-4">{filteredAppartment[key+10*(currentPage-1)]}</td>
                                                                     </tr>
                                                                 );
                                                             })
