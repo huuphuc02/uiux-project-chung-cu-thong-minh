@@ -66,13 +66,13 @@ function TemporaryResidence() {
             const matchesKeyword = cudan.fullname.toLowerCase().includes(keySearch.toLowerCase()) || cudan.CCCD.toString().toLowerCase().includes(keySearch.toLowerCase());
             const matchedAppartment = !selectedApartment || listAppartment[key] == selectedApartment;
             const itemDate1 = listNgayBatDau[key].split("/").reverse().join("-");
-            const itemMonth1 = itemDate1.slice(0,7);
             const itemDate2 = listNgayKetThuc[key].split("/").reverse().join("-");
+            const itemMonth1 = itemDate1.slice(0,7);
             const itemMonth2 = itemDate2.slice(0,7);
             const matchedMonth = !selectedMonth || (itemMonth2 == selectedMonth || itemMonth1 == selectedMonth);
             if(matchedAppartment){
                 if(!selectedApartment){
-                    if(matchedMonth) {
+                    if(matchedMonth && matchesKeyword) {
                         filteredNgayBatDauArray.push(listNgayBatDau[key]);
                         filteredNgayKetThucArray.push(listNgayKetThuc[key]);
                         filteredApartmentArray.push(listAppartment[key]);
@@ -85,11 +85,6 @@ function TemporaryResidence() {
                     }
                 } 
             }
-            // if(matchedMonth) {
-            //     filteredApartmentArray.push(listAppartment[key]);
-            //     filteredNgayBatDauArray.push(listNgayBatDau[key]);
-            //     filteredNgayKetThucArray.push(listNgayKetThuc[key]);
-            // }
             return matchesKeyword && matchedAppartment && matchedMonth;
         });
         // const filteredResults = filteredApartment
