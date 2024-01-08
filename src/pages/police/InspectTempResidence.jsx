@@ -3,12 +3,15 @@ import PoliceHeader from "../../components/police/PoliceHeader";
 import SidebarPolice from "../../components/police/SidebarPolice";
 import { Fragment, useEffect, useState } from "react";
 import Pagination from "../../components/Pagination";
+import PopupTempDetail from "../../components/police/PopupTempDetail";
 
 function InspectTempResidence() {
     const navigate = useNavigate();
     const [listDangKy, setListDangKy] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
+    const [inspectDetail, setInspectDetail] = useState(false);
+    const [selectedResidence, setSelectedResidence] = useState({});
 
     useEffect(() => {
         const getListDangKy = async () => {
@@ -22,6 +25,18 @@ function InspectTempResidence() {
     const handlePageClick = (page) => {
         setCurrentPage(page);
     };
+    const handleClosePopup = () => {
+        // Xử lý khi component con được đóng
+        setInspectDetail(false);
+    };
+    const handleConfirmAction = () => {
+        setInspectDetail(false);
+        
+    }
+    
+    const handleDeleteAction = () => {
+        setInspectDetail(false);
+    }
 
     useEffect(() => {
         setTotalPages(Math.ceil(listDangKy.length / 10));
@@ -41,7 +56,7 @@ function InspectTempResidence() {
                             <div className="text-3xl font-bold capitalize ml-8 text-center">Danh sách đăng ký tạm trú</div>
 
                         </div>
-                        <div className="bg-white flex flex-col ml-8 gap-12 w-full h-[1024px] items-start pl-5 py-5">
+                        <div className="bg-white flex flex-col ml-8 gap-1 w-full h-[1024px] items-start pl-5 py-5">
                             <div className="flex flex-col ml-1 gap-10 w-full items-start"></div>
                             <div className="flex flex-col w-4/5 items-start mt-2 mb-4">
                                 <div className="bg-white flex flex-col ml-8 gap-12 w-full h-[761px] items-start pl-5 py-5">
@@ -79,7 +94,12 @@ function InspectTempResidence() {
                                                                         <td className="px-6 py-4 ">
                                                                             {(key + 1)+10*(currentPage-1)}
                                                                         </td>
-                                                                        <td className="px-6 py-4">{dangky.fullname}</td>
+                                                                        <td
+                                                                        onClick={()=>{
+                                                                            setInspectDetail(true);
+                                                                            setSelectedResidence(dangky);
+                                                                        }}
+                                                                        className="px-6 py-4">{dangky.fullname}</td>
                                                                         <td className="px-6 py-4">{dangky.ngayBatDau}</td>
                                                                         <td className="px-6 py-4">{dangky.ngayKetThuc}</td>
                                                                         <td className="px-6 py-4">{dangky.canHo}</td>
@@ -110,7 +130,15 @@ function InspectTempResidence() {
                         </div>
                     </div>
                 </div>
+                <PopupTempDetail
+                    isOpen={inspectDetail}
+                    onClose={handleClosePopup}
+                    onConfirm={handleConfirmAction}
+                    onDelete={handleDeleteAction}
+                    residence={selectedResidence}
+                />
             </div>
+
         </div>
     );
 }
