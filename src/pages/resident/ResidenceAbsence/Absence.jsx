@@ -5,7 +5,11 @@ import { useNavigate } from "react-router-dom";
 import PopupConfirm from "../../../components/PopupConfirm";
 import PopupSuccess from "../../../components/PopupSuccess";
 import PopupError from "../../../components/PopupError";
-import { compareDates } from "../../../utility";
+import {
+  compareDates,
+  convertDateFormat,
+  generateRandomString,
+} from "../../../utility";
 
 function Absence() {
   const [resident, setResident] = useState({});
@@ -16,6 +20,7 @@ function Absence() {
   const [address, setAddress] = useState("");
   const [startDay, setStartDay] = useState("");
   const [endDay, setEndDay] = useState("");
+  const [reason, setReason] = useState("");
   const [messageError, setMessageError] = useState("");
 
   const handleClosePopup = () => {
@@ -27,9 +32,32 @@ function Absence() {
     setPopupSuccess(false);
     navigate("/residenceAbsence");
   };
+
   const handleConfirmAction = () => {
     setPopupConfirm(false);
-    setPopupSuccess(true);
+    const formData = {
+      id: generateRandomString(3),
+      MSCD: resident.ID,
+      ngayBatDau: convertDateFormat(startDay),
+      ngayKetThuc: convertDateFormat(endDay),
+      lyDo: reason,
+      address: address,
+    };
+    console.log(formData);
+    fetch("http://localhost:3001/dangkytamvang", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        response.json();
+        setPopupSuccess(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const handleSubmit = () => {
@@ -201,7 +229,10 @@ function Absence() {
                   <label className="text-lg font-bold mt-2 ml-[144px]">
                     Lý do:
                   </label>
-                  <textarea className="text-black shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-16 items-start px-4"></textarea>
+                  <textarea
+                    onChange={(e) => setReason(e.target.value)}
+                    className="text-black shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-16 items-start px-4"
+                  ></textarea>
                 </div>
               </div>
               <div className="flex flex-row ml-[490px] gap-8 w-1/3 items-start">

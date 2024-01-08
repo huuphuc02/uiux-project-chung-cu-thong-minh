@@ -2,9 +2,42 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../../../components/resident/Header";
 import SidebarResident from "../../../components/resident/SidebarResident";
+import { Fragment, useEffect, useState } from "react";
 
 function ResidenceAbsence() {
   const navigate = useNavigate();
+  const [listResidenceForm, setListResidenceForm] = useState([]);
+  const [listAbsenceForm, setListAbsenceForm] = useState([]);
+  const [resident, setResident] = useState({});
+
+  useEffect(() => {
+    setResident(JSON.parse(localStorage.getItem("resident")));
+    const getListResidenceForm = async () => {
+      let response = await fetch(
+        `http://localhost:3001/dangkytamtru?CCCD=${resident?.CCCD}`
+      );
+      const data = await response.json();
+      console.log(data);
+      setListResidenceForm(data);
+    };
+    const getListAbsenceForm = async () => {
+      let response = await fetch(
+        `http://localhost:3001/dangkytamvang?MSCD=${resident?.ID}`
+      );
+      const data = await response.json();
+      console.log(data);
+      setListAbsenceForm(data);
+    };
+
+    getListResidenceForm();
+    getListAbsenceForm();
+  }, [
+    resident?.CCCD,
+    resident.ID,
+    listAbsenceForm.length,
+    listResidenceForm.length,
+  ]);
+
   return (
     <div className="h-screen">
       <Header />
@@ -15,44 +48,68 @@ function ResidenceAbsence() {
             <h1 className="text-[22px] font-bold ml-1">
               Lịch sử đăng ký tạm trú tạm vắng
             </h1>
-            <div className="relative mt-3">
-              <table className="h-4 w-full min-w-[1000px] text-sm text-left rtl:text-right">
-                <thead className="text-sm text-white bg-[#445f99] ">
-                  <tr>
-                    <th scope="col" className="px-6 py-3">
-                      STT
-                    </th>
-                    <th scope="col" className="px-6 py-3">
-                      Loại
-                    </th>
-                    <th scope="col" className="px-6 py-3">
-                      Thời gian đăng ký
-                    </th>
-                    <th scope="col" className="px-6 py-3">
-                      Trạng thái
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="font-medium cursor-pointer overflow-y-scroll">
-                  <tr className="bg-[#b1c9f1] border-b">
-                    <td scope="row" className="px-6 py-4 ">
-                      1
-                    </td>
-                    <td className="px-6 py-4">Tạm vắng</td>
-                    <td className="px-6 py-4">23/12/2023</td>
-                    <td className="px-6 py-4">Chờ phê duyệt</td>
-                  </tr>
-                  <tr className="bg-[#b1c9f1] border-b">
-                    <td scope="row" className="px-6 py-4 ">
-                      2
-                    </td>
-                    <td className="px-6 py-4">Tạm vắng</td>
-                    <td className="px-6 py-4">20/12/2022</td>
-                    <td className="px-6 py-4">Hết thời hạn</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            {listAbsenceForm.length == 0 && listResidenceForm.length == 0 ? (
+              <h3 className="mt-4 ml-2 mb-24">
+                Bạn chưa từng đăng ký tạm trú hay tạm vắng
+              </h3>
+            ) : (
+              <div className="relative mt-3">
+                <table className="h-4 w-full min-w-[1000px] text-sm text-left rtl:text-right">
+                  <thead className="text-sm text-white bg-[#445f99] ">
+                    <tr>
+                      <th scope="col" className="px-6 py-3">
+                        Loại
+                      </th>
+                      <th scope="col" className="px-6 py-3">
+                        Ngày bắt đầu
+                      </th>
+                      <th scope="col" className="px-6 py-3">
+                        Ngày kết thúc
+                      </th>
+                      <th scope="col" className="px-6 py-3">
+                        Lí do
+                      </th>
+                      <th scope="col" className="px-6 py-3">
+                        Đi đến / Đến từ
+                      </th>
+                      <th scope="col" className="px-6 py-3">
+                        Trạng thái
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="font-medium cursor-pointer overflow-y-scroll">
+                    {listAbsenceForm
+                      ? listAbsenceForm.map((form, key) => {
+                          return (
+                            <tr key={key} className="bg-[#b1c9f1] border-b">
+                              <td className="px-6 py-4">Tạm vắng</td>
+                              <td className="px-6 py-4">{form?.ngayBatDau}</td>
+                              <td className="px-6 py-4">{form?.ngayKetThuc}</td>
+                              <td className="px-6 py-4">{form?.lyDo}</td>
+                              <td className="px-6 py-4">{form?.address}</td>
+                              <td className="px-6 py-4">Chờ phê duyệt</td>
+                            </tr>
+                          );
+                        })
+                      : Fragment}
+                    {listResidenceForm
+                      ? listResidenceForm.map((form, key) => {
+                          return (
+                            <tr key={key} className="bg-[#b1c9f1] border-b">
+                              <td className="px-6 py-4">Tạm trú</td>
+                              <td className="px-6 py-4">{form?.ngayBatDau}</td>
+                              <td className="px-6 py-4">{form?.ngayKetThuc}</td>
+                              <td className="px-6 py-4">{form?.lyDo}</td>
+                              <td className="px-6 py-4">{form?.thuongTru}</td>
+                              <td className="px-6 py-4">Chờ phê duyệt</td>
+                            </tr>
+                          );
+                        })
+                      : Fragment}
+                  </tbody>
+                </table>
+              </div>
+            )}
           </div>
           <div className="flex flex-row gap-12 w-full items-start">
             <div className="flex flex-col gap-4 w-[47%] items-start">

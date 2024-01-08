@@ -3,25 +3,30 @@ import PoliceHeader from "../../components/police/PoliceHeader";
 import SidebarPolice from "../../components/police/SidebarPolice";
 import { Fragment, useEffect, useState } from "react";
 import Pagination from "../../components/Pagination";
+import PopupAbsenceDetail from "../../components/police/PopupAbsenceDetail"
 
 function InspectAbsence() {
     const navigate = useNavigate();
     const [listDangKy, setListDangKy] = useState([]);
-    const [listFullName, setListFullName] = useState([]);
+    const [listCuDan, setListCuDan] = useState([]);
     const [listCanHo, setListCanHo] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
+    const [inspectDetail, setInspectDetail] = useState(false);
+    const [selectedResidence, setSelectedResidence] = useState({});
+    const [selectedAbsenceInfo, setSelectedAbsenceInfo] = useState({});
+    const [selectedAppartment, setSelectedAppartment] = useState("");
 
     useEffect(() => {
         const getListDangKy = async () => {
             let response = await fetch(`http://localhost:3001/dangkytamvang`);
             const data = await response.json();
-            let listFullNameArray = [];
+            let listCuDanArray = [];
             let listAppartmentArray = [];
             for (let i in data){
                 response = await fetch(`http://localhost:3001/cudan?ID=${data[i].MSCD}`);
                 const cudan = await response.json();
-                listFullNameArray.push(cudan[0].fullname);
+                listCuDanArray.push(cudan[0]);
                 response = await fetch(`http://localhost:3001/chungcu-cudan?MSCD=${data[i].MSCD}`);
                 const chungcu_cudan = await response.json();
                 response = await fetch(`http://localhost:3001/chungcu?ID=${chungcu_cudan[0].MSCH}`);
@@ -30,7 +35,7 @@ function InspectAbsence() {
                 console.log(canHo);
                 listAppartmentArray.push(canHo);
             }
-            setListFullName(listFullNameArray);
+            setListCuDan(listCuDanArray);
             setListCanHo(listAppartmentArray);
             setListDangKy(data);
         };
@@ -40,6 +45,18 @@ function InspectAbsence() {
     const handlePageClick = (page) => {
         setCurrentPage(page);
     };
+
+    const handleClosePopup = () => {
+        // Xử lý khi component con được đóng
+        setInspectDetail(false);
+    };
+    const handleConfirmAction = () => {
+        setInspectDetail(false);
+        
+    }
+    const handleDeleteAction = () => {
+        setInspectDetail(false);
+    }
 
     useEffect(() => {
         setTotalPages(Math.ceil(listDangKy.length / 10));
@@ -97,7 +114,14 @@ function InspectAbsence() {
                                                                         <td className="px-6 py-4 ">
                                                                             {(key + 1)+10*(currentPage-1)}
                                                                         </td>
-                                                                        <td className="px-6 py-4">{listFullName[key+10*(currentPage-1)]}</td>
+                                                                        <td
+                                                                        onClick={()=>{
+                                                                            setInspectDetail(true);
+                                                                            setSelectedResidence(listCuDan[key+10*(currentPage-1)]);
+                                                                            setSelectedAbsenceInfo(dangky);
+                                                                            setSelectedAppartment(listCanHo[key+10*(currentPage-1)]);
+                                                                        }}
+                                                                        className="px-6 py-4">{listCuDan[key+10*(currentPage-1)].fullname}</td>
                                                                         <td className="px-6 py-4">{dangky.ngayBatDau}</td>
                                                                         <td className="px-6 py-4">{dangky.ngayKetThuc}</td>
                                                                         <td className="px-6 py-4">{listCanHo[key+10*(currentPage-1)]}</td>
@@ -128,6 +152,15 @@ function InspectAbsence() {
                         </div>
                     </div>
                 </div>
+                <PopupAbsenceDetail
+                    isOpen={inspectDetail}
+                    onClose={handleClosePopup}
+                    onConfirm={handleConfirmAction}
+                    onDelete={handleDeleteAction}
+                    residence={selectedResidence}
+                    appartment={selectedAppartment}
+                    absence={selectedAbsenceInfo}
+                />
             </div>
         </div>
     );
