@@ -4,6 +4,10 @@ import SidebarPolice from "../../components/police/SidebarPolice";
 import { Fragment, useEffect, useState } from "react";
 import Pagination from "../../components/Pagination";
 import PopupTempDetail from "../../components/police/PopupTempDetail";
+import {generateRandomString} from "../../utility";
+import PopupSuccess from "../../components/PopupSuccess";
+
+
 
 function InspectTempResidence() {
     const navigate = useNavigate();
@@ -12,6 +16,7 @@ function InspectTempResidence() {
     const [totalPages, setTotalPages] = useState(0);
     const [inspectDetail, setInspectDetail] = useState(false);
     const [selectedResidence, setSelectedResidence] = useState({});
+    const [popupSuccess, setPopupSuccess] = useState(false);
 
     useEffect(() => {
         const getListDangKy = async () => {
@@ -31,12 +36,98 @@ function InspectTempResidence() {
     };
     const handleConfirmAction = () => {
         setInspectDetail(false);
-        
+        const cudan = {
+            id: generateRandomString(3),
+            ID: "CD101",
+            fullname: selectedResidence.fullname,
+            CCCD: selectedResidence.CCCD,
+            dob: selectedResidence.DoB,
+            gender: selectedResidence.gender,
+            residenceStatus: "Tam tru",
+            Sdt: selectedResidence.phone,
+        };
+        const tamtru = {
+            id: generateRandomString(3),
+            ID: "CD101",
+            ngayBatDau: selectedResidence.ngayBatDau,
+            ngayKetThuc: selectedResidence.ngayKetThuc,
+        };
+        const chungcuCudan = {
+            id: generateRandomString(3),
+            MSCD: "CD101",
+            MSCH: selectedResidence.canHo,
+        };
+        fetch(`http://localhost:3001/cudan`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json; charset=UTF-8",
+            },
+            body: JSON.stringify(cudan),
+        })
+            .then((response) => {
+                response.json();
+                console.log(cudan);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        fetch(`http://localhost:3001/chungcu-cudan`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json; charset=UTF-8",
+            },
+            body: JSON.stringify(chungcuCudan),
+        })
+            .then((response) => {
+                response.json();
+                console.log(chungcuCudan);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        fetch(`http://localhost:3001/tamtru`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json; charset=UTF-8",
+            },
+            body: JSON.stringify(tamtru),
+        })
+            .then((response) => {
+                response.json();
+                console.log(tamtru);
+                setPopupSuccess(true);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        fetch(`http://localhost:3001/dangkytamtru/${selectedResidence.id}`, {
+            method: "DELETE"
+        })
+            .then((response) => {
+                response.json();
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
     
     const handleDeleteAction = () => {
         setInspectDetail(false);
+        fetch(`http://localhost:3001/dangkytamtru/${selectedResidence.id}`, {
+                method: "DELETE"
+            })
+                .then((response) => {
+                    response.json();
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
     }
+    const handleSuccess = () => {
+        setPopupSuccess(false);
+        setInspectDetail(false);
+        location.reload();
+    };
 
     useEffect(() => {
         setTotalPages(Math.ceil(listDangKy.length / 10));
@@ -136,6 +227,11 @@ function InspectTempResidence() {
                     onConfirm={handleConfirmAction}
                     onDelete={handleDeleteAction}
                     residence={selectedResidence}
+                />
+                <PopupSuccess 
+                    isOpen={popupSuccess}
+                    onClose={handleSuccess}
+                    message="Duyệt đơn đăng ký tạm trú thành công!"
                 />
             </div>
 
