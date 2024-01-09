@@ -7,6 +7,9 @@ function ResidentStatistics() {
   const navigate = useNavigate();
   const [cuDanData, setCuDanData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedBuilding, setSelectedBuilding] = useState(null);
+  const [selectedApartment, setSelectedApartment] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
   const itemsPerPage = 10;
 
   useEffect(() => {
@@ -58,10 +61,39 @@ function ResidentStatistics() {
     setCuDanData(combinedData.filter((data) => data !== null));
   }
 
-  const totalPages = Math.ceil(cuDanData.length / itemsPerPage);
+  function handleBuildingChange(event) {
+    const selectedBuildingValue = event.target.value;
+    setSelectedBuilding(selectedBuildingValue);
+  }
+
+  function handleApartmentChange(event) {
+    const selectedApartmentValue = event.target.value;
+    setSelectedApartment(selectedApartmentValue);
+  }
+
+  function handleSearchChange(event) {
+    const searchTermValue = event.target.value;
+    setSearchTerm(searchTermValue);
+  }
+
+  const filteredDataBySearch = cuDanData.filter((item) => {
+    return item.fullname.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+
+  const filteredData = filteredDataBySearch.filter((item) => {
+    if (
+      (!selectedBuilding || item.building === selectedBuilding) &&
+      (!selectedApartment || item.apartment === parseInt(selectedApartment))
+    ) {
+      return true;
+    }
+    return false;
+  });
+
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const currentData = cuDanData.slice(startIndex, endIndex);
+  const currentData = filteredData.slice(startIndex, endIndex);
 
   return (
     <div className="h-Screen">
@@ -82,6 +114,8 @@ function ResidentStatistics() {
                         type="text"
                         placeholder="Tìm theo tên cư dân"
                         className="mt-1 w-full px-2 border-none outline-none"
+                        value={searchTerm}
+                        onChange={handleSearchChange}
                       />
                       <img
                         src="https://file.rendit.io/n/u9XBBnNX3jjEwudGawBB.svg"
@@ -96,9 +130,14 @@ function ResidentStatistics() {
                         Lọc theo tòa nhà:
                       </div>
                       <div className="relative flex flex-row justify-end pt-3 w-20 items-start">
-                        <select className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] w-20 h-10 bg-white absolute top-0 left-0 flex flex-row items-start pt-3 px-2 rounded-lg">
-                          <option value="1">A1</option>
-                          <option value="2">A2</option>
+                        <select
+                          className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] w-20 h-10 bg-white absolute top-0 left-0 flex flex-row items-start pt-3 px-2 rounded-lg"
+                          value={selectedBuilding}
+                          onChange={handleBuildingChange}
+                        >
+                          <option value="">All</option>
+                          <option value="A1">A1</option>
+                          <option value="A2">A2</option>
                         </select>
                       </div>
                     </div>
@@ -108,11 +147,13 @@ function ResidentStatistics() {
                       Lọc theo căn hộ:
                     </div>
                     <div className="relative flex flex-row justify-end pt-3 w-2/5 items-start">
-                      <select className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] w-full h-10 bg-white absolute top-0 left-0 flex flex-row items-start pt-3 px-4 rounded-lg">
-                        {[
-                          101, 102, 103, 104, 105, 201, 202, 203, 204, 205, 301,
-                          302, 303, 304, 305, 401, 402, 403, 404, 405,
-                        ].map((optionValue) => (
+                      <select
+                        className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] w-full h-10 bg-white absolute top-0 left-0 flex flex-row items-start pt-3 px-4 rounded-lg"
+                        value={selectedApartment}
+                        onChange={handleApartmentChange}
+                      >
+                        <option value="">All</option>
+                        {[101, 102, 103, 104, 105, 201, 202, 203, 204, 205, 301, 302, 303, 304, 305, 401, 402, 403, 404, 405].map((optionValue) => (
                           <option key={optionValue} value={optionValue}>
                             {optionValue}
                           </option>
