@@ -3,7 +3,9 @@ import PoliceHeader from "../../components/police/PoliceHeader";
 import SidebarPolice from "../../components/police/SidebarPolice";
 import { Fragment, useEffect, useState } from "react";
 import Pagination from "../../components/Pagination";
-import PopupAbsenceDetail from "../../components/police/PopupAbsenceDetail"
+import PopupAbsenceDetail from "../../components/police/PopupAbsenceDetail";
+import PopupSuccess from "../../components/PopupSuccess";
+import {generateRandomString} from "../../utility";
 
 function InspectAbsence() {
     const navigate = useNavigate();
@@ -16,8 +18,69 @@ function InspectAbsence() {
     const [selectedResidence, setSelectedResidence] = useState({});
     const [selectedAbsenceInfo, setSelectedAbsenceInfo] = useState({});
     const [selectedAppartment, setSelectedAppartment] = useState("");
+    const [popupSuccess, setPopupSuccess] = useState(false);
 
-    useEffect(() => {
+    const handlePageClick = (page) => {
+        setCurrentPage(page);
+    };
+
+    const handleClosePopup = () => {
+        // Xử lý khi component con được đóng
+        setInspectDetail(false);
+    };
+    const handleConfirmAction = () => {
+        setInspectDetail(false);
+        const tamvang = {
+            id: generateRandomString(3),
+            MSCD: selectedAbsenceInfo.MSCD,
+            ngayBatDau: selectedAbsenceInfo.ngayBatDau,
+            ngayKetThuc: selectedAbsenceInfo.ngayKetThuc,
+        };
+        fetch(`http://localhost:3001/tamvang`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json; charset=UTF-8",
+            },
+            body: JSON.stringify(tamvang),
+        })
+            .then((response) => {
+                response.json();
+                console.log(tamvang);
+                setPopupSuccess(true);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        fetch(`http://localhost:3001/dangkytamvang/${selectedAbsenceInfo.id}`, {
+            method: "DELETE"
+        })
+            .then((response) => {
+                response.json();
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+    const handleDeleteAction = () => {
+        setInspectDetail(false);
+        fetch(`http://localhost:3001/dangkytamvang/${selectedAbsenceInfo.id}`, {
+            method: "DELETE"
+        })
+            .then((response) => {
+                response.json();
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        location.reload();
+    }
+    const handleSuccess = () => {
+        setPopupSuccess(false);
+        setInspectDetail(false);
+        location.reload();
+    };
+
+      useEffect(() => {
         const getListDangKy = async () => {
             let response = await fetch(`http://localhost:3001/dangkytamvang`);
             const data = await response.json();
@@ -41,22 +104,6 @@ function InspectAbsence() {
         };
         getListDangKy();
     }, []);
-
-    const handlePageClick = (page) => {
-        setCurrentPage(page);
-    };
-
-    const handleClosePopup = () => {
-        // Xử lý khi component con được đóng
-        setInspectDetail(false);
-    };
-    const handleConfirmAction = () => {
-        setInspectDetail(false);
-        
-    }
-    const handleDeleteAction = () => {
-        setInspectDetail(false);
-    }
 
     useEffect(() => {
         setTotalPages(Math.ceil(listDangKy.length / 10));
@@ -160,6 +207,11 @@ function InspectAbsence() {
                     residence={selectedResidence}
                     appartment={selectedAppartment}
                     absence={selectedAbsenceInfo}
+                />
+                <PopupSuccess 
+                    isOpen={popupSuccess}
+                    onClose={handleSuccess}
+                    message="Duyệt đơn đăng ký tạm vắng thành công!"
                 />
             </div>
         </div>
