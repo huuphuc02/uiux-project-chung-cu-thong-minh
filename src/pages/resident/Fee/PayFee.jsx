@@ -4,6 +4,7 @@ import SidebarResident from "../../../components/resident/SidebarResident";
 import { useEffect, useState } from "react";
 import PopupConfirm from "../../../components/PopupConfirm";
 import PopupError from "../../../components/PopupError";
+import { getCurrentDate } from "../../../utility";
 
 function PayFee() {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ function PayFee() {
   const [stk, setStk] = useState("");
   const [popupConfirm, setPopupConfirm] = useState(false);
   const [popupError, setPopupError] = useState(false);
+  let [payingFees, setPayingFees] = useState([]);
 
   const handleClosePopup = () => {
     setPopupConfirm(false);
@@ -24,7 +26,14 @@ function PayFee() {
   const handleConfirmAction = () => {
     setPopupConfirm(false);
     const selected = listFees.find((fee) => fee?.feeName == selectedFee);
+    selected.deadline = getCurrentDate();
     console.log(selected);
+    payingFees = payingFees.filter((fee) => fee?.ID != selected?.ID);
+    localStorage.setItem("payingFees", JSON.stringify(payingFees));
+    console.log(payingFees);
+    const paidFees = JSON.parse(localStorage.getItem("paidFees"));
+    paidFees.push(selected);
+    localStorage.setItem("paidFees", JSON.stringify(paidFees));
     const queryParams = {
       fee: selected?.feeName,
       cost: selected?.cost,
@@ -59,8 +68,14 @@ function PayFee() {
       console.log(listFees);
       list.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
       setListFees(list);
+      localStorage.setItem("payingFees", JSON.stringify(list));
+      setPayingFees(JSON.parse(localStorage.getItem("payingFees")));
     };
-
+    // const payFees = JSON.parse(localStorage.getItem("payingFees"));
+    // if (payFees.length > 0) {
+    //   setListFees(payFees);
+    //   setPayingFees(payFees); //
+    // } else
     getListFees();
   }, []);
   return (
