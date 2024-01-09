@@ -1,8 +1,18 @@
 // import { useNavigate } from "react-router-dom";
 import ManagerHeader from "../../components/manager/ManagerHeader";
 import SidebarManager from "../../components/manager/SidebarManager";
+import React from "react";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Doughnut } from "react-chartjs-2";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
+
+
 import { useNavigate } from "react-router-dom";
 function Statistics() {
+
+
+
   const navigate = useNavigate();
   return (
     <div className="s-Screen">
@@ -48,91 +58,37 @@ function Statistics() {
             Thống kê khoản phí
           </h1>
           <div className="bg-white w-full h-[385px] rounded-lg flex flex-col justify-center items-center">
-            <img
-              src="https://file.rendit.io/n/fgT4co7fuadsqewAuzgm.svg"
-              alt="Doughnut"
-              id="DoughnutRoot"
-              className="w-min mb-6"
-            />
-            <div className="flex flex-row gap-10 w-[80%] font-sans items-start">
-              <div className="flex flex-row gap-6 w-full items-center justify-between">
-                <div className="flex flex-col gap-1 w-1/4 items-start">
-                  <div className="flex flex-row gap-3 w-full items-start">
-                    <img
-                      src="https://file.rendit.io/n/MFiVeFljhRr9dSy4bN1L.svg"
-                      alt="Bullet1"
-                      id="Bullet1"
-                      className="w-4"
-                    />
-                    <div
-                      id="PhThuLt1"
-                      className="text-xs font-medium text-black/38"
-                    >
-                      Phụ thu - 01{" "}
-                      <span className="text-xs font-sans">(lt)</span>
-                    </div>
-                  </div>
-                  <div className="font-medium text-black/87 ml-6">12,423</div>
-                </div>
-
-                <div className="flex flex-col gap-1 w-1/4 items-start">
-                  <div className="flex flex-row gap-3 w-full items-start">
-                    <img
-                      src="https://file.rendit.io/n/4rtyJurxj3cOVHEBlNwO.svg"
-                      alt="Bullet1"
-                      id="Bullet1"
-                      className="w-4"
-                    />
-                    <div
-                      id="PhThuLt1"
-                      className="text-xs font-medium text-black/38"
-                    >
-                      Phụ thu - 01{" "}
-                      <span className="text-xs font-sans">(lt)</span>
-                    </div>
-                  </div>
-                  <div className="font-medium text-black/87 ml-6">12,423</div>
-                </div>
-
-                <div className="flex flex-col gap-1 w-1/4 items-start">
-                  <div className="flex flex-row gap-3 w-full items-start">
-                    <img
-                      src="https://file.rendit.io/n/RNHDRsvagmQ4pNn27VIo.svg"
-                      alt="Bullet1"
-                      id="Bullet1"
-                      className="w-4"
-                    />
-                    <div
-                      id="PhThuLt1"
-                      className="text-xs font-medium text-black/38"
-                    >
-                      Phụ thu - 01{" "}
-                      <span className="text-xs font-sans">(lt)</span>
-                    </div>
-                  </div>
-                  <div className="font-medium text-black/87 ml-6">12,423</div>
-                </div>
-
-                <div className="flex flex-col gap-1 w-1/4 items-start">
-                  <div className="flex flex-row gap-3 w-full items-start">
-                    <img
-                      src="https://file.rendit.io/n/eh2tjljTkcBke8qCMQBI.svg"
-                      alt="Bullet1"
-                      id="Bullet1"
-                      className="w-4"
-                    />
-                    <div
-                      id="PhThuLt1"
-                      className="text-xs font-medium text-black/38"
-                    >
-                      Phụ thu - 01{" "}
-                      <span className="text-xs font-sans">(lt)</span>
-                    </div>
-                  </div>
-                  <div className="font-medium text-black/87 ml-6">12,423</div>
-                </div>
-              </div>
+            <div className="w-full h-full p-8">
+              <Doughnut
+                data={{
+                  labels: [
+                    "Phí bảo trì",
+                    "Phí quản lý",
+                    "Phí dịch vụ",
+                    "Phí gửi xe",
+                    "Phí thuê",
+                    "Tiền điện, nước, internet"
+                  ],
+                  datasets: [
+                    {
+                      label: "Triệu vnd",
+                      backgroundColor: [
+                        "#99B7F0",
+                        "#8e5ea2",
+                        "#3cba9f",
+                        "#e8c3b9",
+                        "#5388D8",
+                        "#f4be37",
+                        "#FF9F40",
+                      ],
+                      data: [78.4, 80.7, 87.54, 56.82, 120.3, 278.9]
+                    }
+                  ]
+                }}
+                options={{ maintainAspectRatio: false }}
+              />
             </div>
+
           </div>
 
           <div className="flex flex-row items-start mt-8">
@@ -143,6 +99,7 @@ function Statistics() {
               Xem chi tiết
             </div>
           </div>
+
         </div>
       </div>
     </div>
