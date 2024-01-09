@@ -913,6 +913,11 @@
       "MSCD": "CD92",
       "MSCH": 4052,
       "QHChuHo": "Chủ hộ"
+    },
+    {
+      "id": "BEA",
+      "MSCD": "CD101",
+      "MSCH": 3011
     }
   ],
   "chungcu": [
@@ -2536,6 +2541,16 @@
       "hometown": "Lao Cai",
       "residenceStatus": "Tam tru",
       "Sdt": "0855566439"
+    },
+    {
+      "id": "FF1",
+      "ID": "CD101",
+      "fullname": "Lê Thị Anh",
+      "CCCD": 419632857028,
+      "dob": "03/08/1995",
+      "gender": "Nữ",
+      "residenceStatus": "Tam tru",
+      "Sdt": 555517184
     }
   ],
   "khoanphi": [
@@ -3463,6 +3478,12 @@
       "MSCD": "CD100",
       "ngayBatDau": "09/07/2019",
       "ngayKetThuc": "08/08/2019"
+    },
+    {
+      "id": "CF5",
+      "MSCD": "CD101",
+      "ngayBatDau": "12/01/2024",
+      "ngayKetThuc": "11/02/2024"
     }
   ],
   "dangkytamtru": [
@@ -3491,19 +3512,6 @@
       "ngayKetThuc": "08/02/2024",
       "lyDo": "thuê phòng",
       "canHo": 1032
-    },
-    {
-      "id": 3,
-      "fullname": "Lê Thị Anh",
-      "CCCD": 419632857028,
-      "DoB": "03/08/1995",
-      "gender": "Nữ",
-      "phone": 555517184,
-      "thuongTru": "84 Đường Trần Phú, Phường Thạch Thang, Quận Hải Châu, Thành phố Đà Nẵng",
-      "ngayBatDau": "12/01/2024",
-      "ngayKetThuc": "11/02/2024",
-      "lyDo": "thuê phòng",
-      "canHo": 3011
     },
     {
       "id": 4,

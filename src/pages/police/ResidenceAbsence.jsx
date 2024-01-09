@@ -144,8 +144,8 @@ function ResidenceAbsence() {
                 <div className="flex flex-col ml-8 w-full h-max items-start">
                   <div className="flex flex-col ml-1 gap-4 w-full items-start">
                     <div className="flex flex-row gap-16 w-full items-start">
-                      <div className="flex flex-row gap-4 w-3/5 items-start">
-                        <div className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row mb-1 w-3/5 h-10 items-start pt-2 px-2 rounded-lg">
+                      <div className="flex flex-row gap-4 w-full items-start">
+                        <div className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row mb-1 w-1/2 h-10 items-start pt-2 px-2 rounded-lg">
                           <LuSearch className="mt-1" />
                           <input
                             value={keySearch}
@@ -157,7 +157,7 @@ function ResidenceAbsence() {
                           ></input>
                         </div>
 
-                        <div className="flex flex-row mt-1 gap-4 w-1/2 items-start">
+                        <div className="flex flex-row mt-1 gap-4 w-1/2 items-start ml-5">
                           <div className="text-lg font-semibold text-[#777777] mt-2">
                             Lọc theo tháng:
                           </div>
@@ -173,67 +173,68 @@ function ResidenceAbsence() {
                             />
                           </div>
                         </div>
-                      </div>
-                      <div className="flex flex-row mt-1 gap-12 w-1/3 items-start mr-4">
-                        <div className="text-lg font-semibold text-[#777777] mt-2">
-                          Lọc theo căn hộ:
-                        </div>
-                        <div className="relative flex flex-row justify-end pt-3 w-2/5 items-start">
-                          <select
-                            value={selectedApartment}
-                            onChange={(e) =>
-                              setSelectedApartment(e.target.value)
-                            }
-                            className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] w-full h-10 bg-white absolute top-0 left-0 flex flex-row items-start pt-3 px-4 rounded-lg"
-                          >
-                            {[
-                              "101A1",
-                              "102A1",
-                              "103A1",
-                              "104A1",
-                              "105A1",
-                              "201A1",
-                              "202A1",
-                              "203A1",
-                              "204A1",
-                              "205A1",
-                              "301A1",
-                              "302A1",
-                              "303A1",
-                              "304A1",
-                              "305A1",
-                              "401A1",
-                              "402A1",
-                              "403A1",
-                              "404A1",
-                              "405A1",
-                              "101A2",
-                              "102A2",
-                              "103A2",
-                              "104A2",
-                              "105A2",
-                              "201A2",
-                              "202A2",
-                              "203A2",
-                              "204A2",
-                              "205A2",
-                              "301A2",
-                              "302A2",
-                              "303A2",
-                              "304A2",
-                              "305A2",
-                              "401A2",
-                              "402A2",
-                              "403A2",
-                              "404A2",
-                              "405A2",
-                            ].map((optionValue) => (
-                              <option key={optionValue} value={optionValue}>
-                                {optionValue}
-                              </option>
-                            ))}
-                            <option value="" selected disabled hidden></option>
-                          </select>
+                    
+                        <div className="flex flex-row mt-1 gap-12 w-1/2 items-start mr-4">
+                          <div className="text-lg font-semibold text-[#777777] mt-2">
+                            Lọc theo căn hộ:
+                          </div>
+                          <div className="relative flex flex-row justify-end pt-3 w-2/5 items-start">
+                            <select
+                              value={selectedApartment}
+                              onChange={(e) =>
+                                setSelectedApartment(e.target.value)
+                              }
+                              className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] w-full h-10 bg-white absolute top-0 left-0 flex flex-row items-start pt-3 px-4 rounded-lg"
+                            >
+                              {[
+                                "101A1",
+                                "102A1",
+                                "103A1",
+                                "104A1",
+                                "105A1",
+                                "201A1",
+                                "202A1",
+                                "203A1",
+                                "204A1",
+                                "205A1",
+                                "301A1",
+                                "302A1",
+                                "303A1",
+                                "304A1",
+                                "305A1",
+                                "401A1",
+                                "402A1",
+                                "403A1",
+                                "404A1",
+                                "405A1",
+                                "101A2",
+                                "102A2",
+                                "103A2",
+                                "104A2",
+                                "105A2",
+                                "201A2",
+                                "202A2",
+                                "203A2",
+                                "204A2",
+                                "205A2",
+                                "301A2",
+                                "302A2",
+                                "303A2",
+                                "304A2",
+                                "305A2",
+                                "401A2",
+                                "402A2",
+                                "403A2",
+                                "404A2",
+                                "405A2",
+                              ].map((optionValue) => (
+                                <option key={optionValue} value={optionValue}>
+                                  {optionValue}
+                                </option>
+                              ))}
+                              <option value="" selected disabled hidden></option>
+                            </select>
+                          </div>
                         </div>
                       </div>
                     </div>

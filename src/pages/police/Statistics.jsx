@@ -69,8 +69,8 @@ function Statistics() {
               <div className="flex flex-col ml-1 gap-10 w-full items-start"></div>
               <div className="flex flex-col w-4/5 items-start mt-2 mb-4">
                 <div className=" flex flex-col gap-4 w-full h-max items-start">
-                  <div className="flex flex-col w-full items-start">
-                    <div className="flex ml-8 flex-row gap-24 w-full items-start">
+                  <div className="flex flex-col ml-8 w-full items-start">
+                    <div className="flex flex-row gap-24 w-full items-start">
                       <div className="flex flex-row gap-4 w-3/5 items-start">
                         <div className="text-black shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-2/3 rounded-lg h-10 items-center pl-2 py-2">
                           <LuSearch />
@@ -134,7 +134,7 @@ function Statistics() {
                         </div>
                       </div>
                     </div>
-                    <div>
+                    <div className="py-5">
                       <div className="relative">
                         <table className="h-5 w-[95%] text-sm text-left rtl:text-right">
                           <thead className="text-sm text-white bg-[#445f99] ">

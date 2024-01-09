@@ -151,7 +151,7 @@ function TemporaryResidence() {
                   <div className="flex flex-col w-full items-start">
                     <div className="flex flex-row gap-24 w-full items-start">
                       <div className="flex flex-row gap-4 w-full items-start">
-                        <div className="text-black shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-2/3 rounded-lg h-10 items-center pl-2 py-2">
+                        <div className="text-black shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 rounded-lg h-10 items-center pl-2 py-2">
                           <LuSearch />
                           <input
                             value={keySearch}
@@ -163,11 +163,11 @@ function TemporaryResidence() {
                           ></input>
                         </div>
 
-                        <div className="flex flex-row mt-1 gap-4 w-3/5 items-start">
-                          <div className="text-lg font-semibold text-[#777777] mt-2">
+                        <div className="flex flex-row mt-1 gap-2 w-1/2 items-start">
+                          <div className="text-lg w-1/2 font-semibold text-[#777777] mt-2">
                             Lọc theo tháng:
                           </div>
-                          <div className="relative flex flex-row justify-end pt-3 w-25 items-start">
+                          <div className="relative flex flex-row justify-end pt-3 w-1/2 items-start">
                             <input
                               value={selectedMonth}
                               onChange={(e) => setSelectedMonth(e.target.value)}
@@ -179,9 +179,9 @@ function TemporaryResidence() {
                             />
                           </div>
                         </div>
-                      </div>
-                      <div className="flex flex-row mt-1 gap-12 w-1/3 items-start mr-4">
-                        <div className="text-lg font-semibold text-[#777777] mt-2">
+                      
+                      <div className="flex flex-row mt-1 w-1/2 items-start mr-4">
+                        <div className="text-lg w-1/2 font-semibold text-[#777777] mt-2">
                           Lọc theo căn hộ:
                         </div>
                         <div className="relative flex flex-row justify-end pt-3 w-2/5 items-start">
@@ -242,9 +242,10 @@ function TemporaryResidence() {
                           </select>
                         </div>
                       </div>
+                      </div>
                     </div>
                     <div>
-                      <div className="relative">
+                      <div className="relative py-5">
                         <table className="h-5 w-full text-sm text-left rtl:text-right">
                           <thead className="text-sm text-white bg-[#445f99] ">
                             <tr>
