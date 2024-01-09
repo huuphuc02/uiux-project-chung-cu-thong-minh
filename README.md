@@ -56,6 +56,9 @@ Hướng dẫn cài đặt và chạy dự án trên máy tính cá nhân của 
 - Quản lý:
   - Sdt: 0559036509
   - Password: wH2!oL7zT@8y
+- Công an:
+  - Sdt: 0123456789
+  - Password: 123456
 
 ## Liên hệ
 
