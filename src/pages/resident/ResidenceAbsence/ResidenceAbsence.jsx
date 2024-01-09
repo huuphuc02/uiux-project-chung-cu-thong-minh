@@ -28,7 +28,6 @@ function ResidenceAbsence() {
       console.log(data);
       setListAbsenceForm(data);
     };
-
     getListResidenceForm();
     getListAbsenceForm();
   }, [
