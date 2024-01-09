@@ -1,4 +1,5 @@
-function NotificationDetail({ onClose }) {
+/* eslint-disable react/prop-types */
+function NotificationDetail({ onClose, noti }) {
   return (
     <div
       id="ThongBaoRoot"
@@ -18,20 +19,16 @@ function NotificationDetail({ onClose }) {
             className="mt-4 w-8"
           />
           <h2 className="text-lg font-bold leading-[31.2px] w-2/3">
-            Đóng quỹ khuyến học năm học 2023-2024
+            {noti?.title}
           </h2>
         </div>
       </div>
       <div className="flex flex-col ml-20 text-sm gap-2 w-4/5 items-start">
         <div className="leading-[22.4px] text-[#212121]">
-          Thời hạn: 21:45:31 16/10/2023
+          Thời gian: {noti?.time}
         </div>
         <div id="PhVND" className="leading-[22.4px] text-[#212121] mb-px">
-          Phí: 100.000VND
-        </div>
-        <div className="leading-[22.4px] text-[#212121] w-full">
-          Quỹ khuyến khích học tập cho các em học sinh trong khu dân cư năm
-          2023-2024
+          Nội dung: {noti?.description}
         </div>
       </div>
     </div>
