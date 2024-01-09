@@ -38,7 +38,7 @@ function InspectTempResidence() {
         setInspectDetail(false);
         const cudan = {
             id: generateRandomString(3),
-            ID: "CD101",
+            MSCD: "CD101",
             fullname: selectedResidence.fullname,
             CCCD: selectedResidence.CCCD,
             dob: selectedResidence.DoB,
