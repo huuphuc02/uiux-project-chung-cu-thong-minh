@@ -4,6 +4,7 @@ import SidebarPolice from "../../components/police/SidebarPolice";
 import { Fragment, useEffect, useState } from "react";
 import Pagination from "../../components/Pagination";
 import { LuSearch } from "react-icons/lu";
+import { CSVLink, CSVDownload } from "react-csv";
 
 function TemporaryResidence() {
   const navigate = useNavigate();
@@ -22,6 +23,17 @@ function TemporaryResidence() {
   const [selectedApartment, setSelectedApartment] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const [exportTamTru, setExportTamtru] = useState([]);
+
+  const headers = [
+    {label: "STT", key: "stt"},
+    {label: "Họ và tên", key: "fullname"},
+    {label: "CCCD", key: "cccd"},
+    {label: "Ngày bắt đầu", key: "startday"},
+    {label: "Ngày kết thúc", key: "endday"},
+    {label: "Căn hộ", key: "apartment"}
+  ];
+  const data=[];
 
   useEffect(() => {
     const getListTamTru = async () => {
@@ -62,7 +74,7 @@ function TemporaryResidence() {
   };
 
   useEffect(() => {
-    console.log(keySearch);
+    // console.log(keySearch);
     let filteredApartmentArray = [];
     let filteredNgayBatDauArray = [];
     let filteredNgayKetThucArray = [];
@@ -103,10 +115,11 @@ function TemporaryResidence() {
     const endIndex = startIndex + 10;
     const slicedData = filteredResults.slice(startIndex, endIndex);
     setFilteredTamTru(slicedData);
+    setExportTamtru(filteredResults);
     setFilteredAppartment(filteredApartmentArray);
     setFilteredStart(filteredNgayBatDauArray);
     setFilteredEnd(filteredNgayKetThucArray);
-    console.log(listTamTru);
+    // console.log(listTamTru);
   }, [
     keySearch,
     listTamTru,
@@ -118,6 +131,21 @@ function TemporaryResidence() {
     listNgayKetThuc,
   ]);
 
+  const add_item_csv = () =>{  
+    for(let i =0; i<exportTamTru.length;i++){
+      let result ={
+          stt: i,
+          fullname: exportTamTru[i].fullname,
+          cccd: exportTamTru[i].CCCD,
+          startday:filteredStart[i],
+          endday: filteredEnd[i],
+          apartment: filteredAppartment[i]
+    };
+      data.push(result);
+    }
+  };
+  
+
   return (
     <div className="h-screen">
       <PoliceHeader />
@@ -125,23 +153,26 @@ function TemporaryResidence() {
         <SidebarPolice tab={"Tạm trú"} />
         <div id="NewRootRoot" className="flex flex-row w-[82%] items-start">
           <div className="bg-[#f5f5f5] flex flex-col w-full font-['Nunito_Sans'] items-start">
-            <div className="flex flex-row w-full items-center justify-between">
+            <div className="flex ml-6 flex-row w-full items-center justify-start">
               <div className="text-2xl font-bold ml-8 text-center">
                 Danh sách tạm trú
               </div>
-              <div>
+              <div className="w-1/3">
                 <button
+                  border="3px solid #99b7f0"
                   onClick={() => navigate("/inspectTemporaryResidence")}
-                  className="items-center mt-6 mb-6 bg-white px-6 py-2 text-[#99b7f0] border-[#99b7f0] rounded-lg h-10"
+                  className="items-center mt-6 mb-6 bg-white px-6 py-2 text-[#99b7f0] btn_primary rounded-lg h-10"
                 >
                   Duyệt mới
                 </button>
-                <button
+                {add_item_csv()}
+                <CSVLink data={data} headers={headers}
                   id="ButtonRoot"
                   className="cursor-pointer items-start text-center font-['Nunito_Sans'] text-white bg-[#99b7f0] justify-center py-2 px-4 h-10 mt-6 mb-6 ml-8 rounded-lg"
+                  filename="Danh-sach-tam-tru.csv"
                 >
                   Xuất bảng
-                </button>
+                </CSVLink>
               </div>
             </div>
             <div className="flex flex-col mb-4 pl-6 gap-4 w-full h-max items-start">
@@ -151,7 +182,7 @@ function TemporaryResidence() {
                   <div className="flex flex-col w-full items-start">
                     <div className="flex flex-row gap-24 w-full items-start">
                       <div className="flex flex-row gap-4 w-full items-start">
-                        <div className="text-black shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-2/3 rounded-lg h-10 items-center pl-2 py-2">
+                        <div className="text-black shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 rounded-lg h-10 items-center pl-2 py-2">
                           <LuSearch />
                           <input
                             value={keySearch}
@@ -163,11 +194,11 @@ function TemporaryResidence() {
                           ></input>
                         </div>
 
-                        <div className="flex flex-row mt-1 gap-4 w-3/5 items-start">
-                          <div className="text-lg font-semibold text-[#777777] mt-2">
+                        <div className="flex flex-row mt-1 gap-2 w-1/2 items-start">
+                          <div className="text-lg w-1/2 font-semibold text-[#777777] mt-2">
                             Lọc theo tháng:
                           </div>
-                          <div className="relative flex flex-row justify-end pt-3 w-25 items-start">
+                          <div className="relative flex flex-row justify-end pt-3 w-1/2 items-start">
                             <input
                               value={selectedMonth}
                               onChange={(e) => setSelectedMonth(e.target.value)}
@@ -179,9 +210,9 @@ function TemporaryResidence() {
                             />
                           </div>
                         </div>
-                      </div>
-                      <div className="flex flex-row mt-1 gap-12 w-1/3 items-start mr-4">
-                        <div className="text-lg font-semibold text-[#777777] mt-2">
+                      
+                      <div className="flex flex-row mt-1 w-1/2 items-start mr-4">
+                        <div className="text-lg w-1/2 font-semibold text-[#777777] mt-2">
                           Lọc theo căn hộ:
                         </div>
                         <div className="relative flex flex-row justify-end pt-3 w-2/5 items-start">
@@ -242,9 +273,10 @@ function TemporaryResidence() {
                           </select>
                         </div>
                       </div>
+                      </div>
                     </div>
                     <div>
-                      <div className="relative">
+                      <div className="relative py-5">
                         <table className="h-5 w-full text-sm text-left rtl:text-right">
                           <thead className="text-sm text-white bg-[#445f99] ">
                             <tr>
