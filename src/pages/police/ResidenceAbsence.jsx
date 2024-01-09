@@ -4,6 +4,7 @@ import SidebarPolice from "../../components/police/SidebarPolice";
 import { Fragment, useEffect, useState } from "react";
 import Pagination from "../../components/Pagination";
 import { LuSearch } from "react-icons/lu";
+import { CSVLink } from "react-csv";
 
 function ResidenceAbsence() {
   const navigate = useNavigate();
@@ -22,6 +23,30 @@ function ResidenceAbsence() {
   const [selectedApartment, setSelectedApartment] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const [exportTamVang, setExportTamVang] = useState([]);
+
+  const headers = [
+    {label: "STT", key: "stt"},
+    {label: "Họ và tên", key: "fullname"},
+    {label: "CCCD", key: "cccd"},
+    {label: "Ngày bắt đầu", key: "startday"},
+    {label: "Ngày kết thúc", key: "endday"},
+    {label: "Căn hộ", key: "apartment"}
+  ];
+  const data=[];
+  const add_item_csv = () =>{  
+    for(let i =0; i<exportTamVang.length;i++){
+      let result ={
+          stt: i,
+          fullname: filteredFullName[i],
+          cccd: filteredCCCD[i],
+          startday:exportTamVang[i].ngayBatDau,
+          endday: exportTamVang[i].ngayKetThuc,
+          apartment: filteredAppartment[i]
+    };
+      data.push(result);
+    }
+  };
 
   useEffect(() => {
     const getListTamVang = async () => {
@@ -106,6 +131,7 @@ function ResidenceAbsence() {
     const endIndex = startIndex + 10;
     const slicedData = filteredResults.slice(startIndex, endIndex);
     setFilteredTamVang(slicedData);
+    setExportTamVang(filteredResults);
     setFilteredAppartment(filteredApartmentArray);
     setFilteredCCCD(filteredCCCDArray);
     setFilteredFullName(filteredFullNameArray);
@@ -119,23 +145,25 @@ function ResidenceAbsence() {
         <SidebarPolice tab={"Tạm vắng"} />
         <div id="NewRootRoot" className="flex flex-row w-[82%] items-start">
           <div className="bg-[#f5f5f5] flex flex-col w-full font-['Nunito_Sans'] items-start pr-2">
-            <div className="flex flex-row gap-3 w-full items-center justify-between">
+            <div className="flex flex-row ml-6 gap-3 w-full items-center justify-start">
               <div className="text-2xl font-bold ml-8 text-center">
                 Danh sách tạm Vắng
               </div>
-              <div>
+              <div className="w-1/3">
                 <button
                   onClick={() => navigate("/inspectAbsence")}
-                  className="items-center mt-6 mb-6 px-6 py-2 bg-white text-[#99b7f0] border-[#99b7f0] rounded-lg h-10"
+                  className="items-center mt-6 mb-6 px-6 py-2 bg-white text-[#99b7f0] btn_primary rounded-lg h-10"
                 >
                   Duyệt mới
                 </button>
-                <button
+                {add_item_csv()}
+                <CSVLink data={data} headers={headers}
                   id="ButtonRoot"
                   className="cursor-pointer items-start text-center font-['Nunito_Sans'] text-white bg-[#99b7f0] justify-center py-2 px-4 h-10 mt-6 mb-6 ml-8 rounded-lg"
+                  filename="Danh-sach-tam-vang.csv"
                 >
                   Xuất bảng
-                </button>
+                </CSVLink>
               </div>
             </div>
             <div className="flex flex-col ml-8 w-full h-max items-start">
