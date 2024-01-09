@@ -49,7 +49,7 @@ function Statistics() {
     <div className="h-screen">
       <PoliceHeader />
       <div className="flex">
-        <SidebarPolice />
+        <SidebarPolice tab={"Thống kê"}/>
         <div id="NewRootRoot" className="flex flex-row w-full items-start">
                     <div className="bg-[#d9d9d9] flex flex-col gap-6 w-full font-['Nunito_Sans'] items-start pt-6 pb-12 px-5">
                         <div className="flex flex-row gap-3 w-full items-center pt-6 pb-12 px-5 justify-between">

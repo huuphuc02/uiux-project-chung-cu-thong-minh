@@ -8,7 +8,7 @@ function HomePage() {
     <div className="h-screen">
       <PoliceHeader />
       <div className="flex">
-        <SidebarPolice />
+        <SidebarPolice tab={"Trang chủ"}/>
         <div className="flex flex-col w-4/5 items-start mt-2 mb-4">
           <div className="flex gap-28 mb-[38px]">
             <div className="flex flex-row w-full items-start">

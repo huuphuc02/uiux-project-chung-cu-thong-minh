@@ -44,35 +44,42 @@ function SidebarPolice({ tab }) {
           <div
             className={
               tab == "Thống kê"
-              ? "bg-[#99b7f0] text-white items-center flex flex-row gap-6 w-full h-16 px-4 cursor-pointer"
+              ? "bg-[#99b7f0] items-center flex flex-row gap-6 w-full h-16 px-4 cursor-pointer text-white"
               : "flex flex-row text-[#a3a0a0] px-4 gap-6 items-center py-4 cursor-pointer w-full hover:bg-[#99b7f0] hover:text-white"
             }
             onClick={() => navigate("/statisticsPolice")}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 50 48" fill="none">
-              <path d="M5 33.1714C2.25 33.1714 0 35.3038 0 37.9102V42.6489C0 45.2552 2.25 47.3877 5 47.3877H10C12.75 47.3877 15 45.2552 15 42.6489V37.9102C15 35.3038 12.75 33.1714 10 33.1714H5ZM10 42.6489H5V37.9102H10V42.6489Z" fill="#A3A0A0" />
-              <path d="M22.5 21.3245C19.75 21.3245 17.5 23.4569 17.5 26.0632V42.6489C17.5 45.2552 19.75 47.3877 22.5 47.3877H27.5C30.25 47.3877 32.5 45.2552 32.5 42.6489V26.0632C32.5 23.4569 30.25 21.3245 27.5 21.3245H22.5ZM27.5 42.6489H22.5V26.0632H27.5V42.6489Z" fill="#A3A0A0" />
-              <path d="M50 4.73877C50 2.13244 47.75 0 45 0H40C37.25 0 35 2.13244 35 4.73877V42.6489C35 45.2552 37.25 47.3877 40 47.3877H45C47.75 47.3877 50 45.2552 50 42.6489V4.73877ZM45 42.6489H40V4.73877H45V42.6489Z" fill="#A3A0A0" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 50 50" fill="none">
+              <path 
+              d="M5 33.1714C2.25 33.1714 0 35.3038 0 37.9102V42.6489C0 45.2552 2.25 47.3877 5 47.3877H10C12.75 47.3877 15 45.2552 15 42.6489V37.9102C15 35.3038 12.75 33.1714 10 33.1714H5ZM10 42.6489H5V37.9102H10V42.6489Z"
+              fill="white"
+              className={tab == "Thống kê" ? "none" : "fill-gray-400"}/>
+              <path d="M22.5 21.3245C19.75 21.3245 17.5 23.4569 17.5 26.0632V42.6489C17.5 45.2552 19.75 47.3877 22.5 47.3877H27.5C30.25 47.3877 32.5 45.2552 32.5 42.6489V26.0632C32.5 23.4569 30.25 21.3245 27.5 21.3245H22.5ZM27.5 42.6489H22.5V26.0632H27.5V42.6489Z"
+              fill="white"
+              className={tab == "Thống kê" ? "none" : "fill-gray-400"}/>
+              <path d="M50 4.73877C50 2.13244 47.75 0 45 0H40C37.25 0 35 2.13244 35 4.73877V42.6489C35 45.2552 37.25 47.3877 40 47.3877H45C47.75 47.3877 50 45.2552 50 42.6489V4.73877ZM45 42.6489H40V4.73877H45V42.6489Z" 
+              fill="white"
+              className={tab == "Thống kê" ? "none" : "fill-gray-400"}/>
             </svg>
-            <span className="mb-2 font-semibold text-[#a3a0a0]">Thống kê</span>
+            <span className="mb-2 font-semibold">Thống kê</span>
           </div>
           <div
             className={
-              tab == "Tạm vắng"
-              ?"flex flex-row gap-4 items-center cursor-pointer w-full px-4 hover:bg-[#99b7f0]"
+              tab == "Tạm trú"
+              ?"bg-[#99b7f0] items-center flex flex-row gap-6 w-full h-16 px-4 cursor-pointer text-white"
               : "flex flex-row text-[#a3a0a0] px-4 gap-6 items-center py-4 cursor-pointer w-full hover:bg-[#99b7f0] hover:text-white"
             }onClick={() => navigate("/temporaryResidencePolice")}
           >
             <svg xmlns="http://www.w3.org/2000/svg"
-                width="38" height="38"viewBox="0 0 50 48" fill="none">
+                width="38" height="38"viewBox="0 0 50 50" fill="none" className={tab == "Tạm trú" ? "none" : "fill-gray-400"}>
                   <path d="M2 22.3583C2 11.1147 10.9543 2 22 2C33.0458 2 42 11.1147 42 22.3583C42 33.5138 35.6168 46.531 25.6573 51.186C23.3358 52.2713 20.6642 52.2713 18.3427 51.186C8.3833 46.531 2 33.5138 2 22.3583Z" 
-                  stroke="#A3A0A0" 
+                  stroke="white" 
                   stroke-width="3.75"/>
                   <path d="M22 29.5C26.1421 29.5 29.5 26.1421 29.5 22C29.5 17.8579 26.1421 14.5 22 14.5C17.8579 14.5 14.5 17.8579 14.5 22C14.5 26.1421 17.8579 29.5 22 29.5Z" 
-                  stroke="#A3A0A0" 
+                  stroke="white" 
                   strokeWidth="3.75"/>
             </svg>
-            <span className="font-semibold text-[#a3a0a0] w-1/2 text-left mt-3 ml-2">
+            <span className="font-semibold mt-3 ml-2">
               Tạm trú
             </span>
           </div>
@@ -96,7 +103,8 @@ function SidebarPolice({ tab }) {
                 className={tab == "Tạm vắng" ? "none" : "fill-gray-400"}
               />
             </svg>
-            <span className="font-semibold text-[#a3a0a0] w-1/2 text-left mt-3 ml-2">
+            <span className="font-semibold mt-3 ml-2 "
+             >
               Tạm vắng
             </span>
           </div>
