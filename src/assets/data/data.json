@@ -2938,6 +2938,7 @@
       "cost": 200000,
       "apartmentId": "1021",
       "deadline": "15/12/2023"
+
     },
     {
       "id": "C61",
@@ -3143,6 +3144,7 @@
   ],
   "dangkytamvang": [
     {
+      "id": 1,
       "MSCD": "CD65",
       "ngayBatDau": "08/02/2024",
       "ngayKetThuc": "15/02/2024",
@@ -3150,6 +3152,7 @@
       "address": "Thành phố Vũng Tàu"
     },
     {
+      "id": 2,
       "MSCD": "CD32",
       "ngayBatDau": "01/03/2024",
       "ngayKetThuc": "08/03/2024",
@@ -3157,6 +3160,7 @@
       "address": "Thành phố Huế"
     },
     {
+      "id": 3,
       "MSCD": "CD09",
       "ngayBatDau": "05/04/2024",
       "ngayKetThuc": "13/04/2024",
@@ -3164,6 +3168,8 @@
       "address": "Thành phố Qui nhơn"
     },
     {
+
+      "id": 4,
       "MSCD": "CD54",
       "ngayBatDau": "24/1/2024",
       "ngayKetThuc": "31/1/2024",
@@ -3171,6 +3177,7 @@
       "address": "Thành phố Hải phòng"
     },
     {
+      "id": 5,
       "MSCD": "CD79",
       "ngayBatDau": "10/02/2024",
       "ngayKetThuc": "20/02/2024",
@@ -3462,6 +3469,7 @@
   ],
   "dangkytamtru": [
     {
+      "id": 1,
       "fullname": "Nguyễn Thị Hoài",
       "CCCD": 193824657508,
       "DoB": "05/12/1989",
@@ -3474,6 +3482,7 @@
       "canHo": "1011"
     },
     {
+      "id": 2,
       "fullname": "Trần Văn Minh",
       "CCCD": 657208341295,
       "DoB": "11/25/1976",
@@ -3486,6 +3495,7 @@
       "canHo": "1032"
     },
     {
+      "id": 3,
       "fullname": "Lê Thị Anh",
       "CCCD": 419632857028,
       "DoB": "03/08/1995",
@@ -3498,6 +3508,7 @@
       "canHo": "3011"
     },
     {
+      "id": 4,
       "fullname": "Phạm Quốc Bảo",
       "CCCD": 874510392568,
       "DoB": "09/16/1982",
@@ -3510,6 +3521,7 @@
       "canHo": "2051"
     },
     {
+      "id": 5,
       "fullname": "Hoàng Minh Tuấn",
       "CCCD": 230985716498,
       "DoB": "01/30/2000",
@@ -3522,6 +3534,7 @@
       "canHo": "3022"
     },
     {
+      "id": 6,
       "fullname": "Đặng Thị Mai",
       "CCCD": 768502314679,
       "DoB": "07/22/1991",
@@ -3534,6 +3547,7 @@
       "canHo": "1022"
     },
     {
+      "id": 7,
       "fullname": "Vũ Đức Hòa",
       "CCCD": 562389041703,
       "DoB": "04/11/1978",
@@ -3546,6 +3560,7 @@
       "canHo": "4031"
     },
     {
+      "id": 8,
       "fullname": "Lý Thanh Trúc",
       "CCCD": 927601438514,
       "DoB": "10/03/1985",
@@ -3558,6 +3573,7 @@
       "canHo": "1021"
     },
     {
+      "id": 9,
       "fullname": "Ngô Thị Lan Anh",
       "CCCD": 385174960231,
       "DoB": "06/19/1998",
@@ -3570,6 +3586,7 @@
       "canHo": "5012"
     },
     {
+      "id": 10,
       "fullname": "Bùi Văn Đức",
       "CCCD": 146795283012,
       "DoB": "12/07/1972",
