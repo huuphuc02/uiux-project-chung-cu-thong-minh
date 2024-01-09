@@ -2938,6 +2938,47 @@
       "cost": 200000,
       "apartmentId": "1021",
       "deadline": "15/12/2023"
+
+    },
+    {
+      "id": "C61",
+      "type": "Bảo trì",
+      "feeName": "Bảo trì đèn",
+      "apartmentId": "All",
+      "cost": 250000,
+      "deadline": "13/01/2024"
+    },
+    {
+      "id": "3E2",
+      "type": "Phí bảo trì",
+      "feeName": "Phí bảo trì hệ thống PCCC",
+      "apartmentId": "All",
+      "cost": 500000,
+      "deadline": "01/02/2024"
+    },
+    {
+      "id": "552",
+      "type": "Phí thuê",
+      "feeName": "Phí cắt cây",
+      "apartmentId": "All",
+      "cost": 250000,
+      "deadline": "27/01/2024"
+    },
+    {
+      "id": "A5B",
+      "type": "Phí thuê",
+      "feeName": "Phí hút bể phốt",
+      "apartmentId": "All",
+      "cost": 300000,
+      "deadline": "01/02/2024"
+    },
+    {
+      "id": "12B",
+      "type": "Phí quản lý",
+      "feeName": "Phí bảo vệ",
+      "apartmentId": "All",
+      "cost": 500000,
+      "deadline": "26/01/2024"
     }
   ],
   "quantri": [
@@ -3127,6 +3168,7 @@
       "address": "Thành phố Qui nhơn"
     },
     {
+
       "id": 4,
       "MSCD": "CD54",
       "ngayBatDau": "24/1/2024",

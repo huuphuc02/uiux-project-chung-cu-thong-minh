@@ -28,11 +28,12 @@ function FeeManager() {
       let response = await fetch(`http://localhost:3001/khoanphi`);
       const data = await response.json();
       const currentDate = new Date();
-      let list = data.filter((item) => {
-        const [day, month, year] = item.deadline.split("/");
-        const itemDate = new Date(`${year}-${month}-${day}`);
-        return itemDate < currentDate;
-      });
+      let list = data
+      // .filter((item) => {
+      //   const [day, month, year] = item.deadline.split("/");
+      //   const itemDate = new Date(`${year}-${month}-${day}`);
+      //   return itemDate < currentDate;
+      // });
       list.sort(
         (a, b) =>
           new Date(parseDate(b.deadline)) - new Date(parseDate(a.deadline))
