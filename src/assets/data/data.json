@@ -2938,7 +2938,6 @@
       "cost": 200000,
       "apartmentId": "1021",
       "deadline": "15/12/2023"
-
     },
     {
       "id": "C61",
@@ -3168,7 +3167,6 @@
       "address": "Thành phố Qui nhơn"
     },
     {
-
       "id": 4,
       "MSCD": "CD54",
       "ngayBatDau": "24/1/2024",
@@ -3597,6 +3595,40 @@
       "ngayKetThuc": "02/03/2024",
       "lyDo": "Học tập",
       "canHo": 4022
+    }
+  ],
+  "thongbao": [
+    {
+      "id": "",
+      "title": "",
+      "description": "",
+      "target": "",
+      "time": "",
+      "announceTime": ""
+    },
+    {
+      "id": "663",
+      "title": "Tổ chức trung thu cho các cháu thiếu nhi",
+      "description": "Kính thưa toàn thể cư dân",
+      "target": null,
+      "time": "NaN-NaN-NaN",
+      "announceTime": "09-01-2024"
+    },
+    {
+      "id": "DBC",
+      "title": "Tổ chức tất niên Tết Nguyên Đán 2024",
+      "description": "Kính thưa toàn thể cư dân, ban quản lý xin được thông báo về việc tổ chức tất niên vào lúc 20 h30 tại sân chung. Xin cảm ơn và mong mọi người có mặt vui tất niên.",
+      "target": "Resident",
+      "time": "NaN-NaN-NaN",
+      "announceTime": "09-01-2024"
+    },
+    {
+      "id": "A53",
+      "title": "Tổ chức tất niên Tết Nguyên Đán 2024",
+      "description": "Kính thưa toàn thể cư dân, ban quản lý xin được thông báo về việc tổ chức tất niên vào lúc 20 h30 tại sân chung. Xin cảm ơn và mong mọi người có mặt vui tất niên.",
+      "target": "Manager",
+      "time": "01-02-2024",
+      "announceTime": "09-01-2024"
     }
   ]
 }

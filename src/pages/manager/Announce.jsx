@@ -2,18 +2,88 @@
 import ManagerHeader from "../../components/manager/ManagerHeader";
 import SidebarManager from "../../components/manager/SidebarManager";
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-function Announce() {
-  // const navigate = useNavigate()
+import { useLocation, useNavigate } from "react-router-dom";
+import PopupConfirm from "../../components/PopupConfirm";
+import PopupSuccess from "../../components/PopupSuccess";
+import PopupError from "../../components/PopupError";
+import {
+  convertDateFormat,
+  generateRandomString,
+} from "../../utility";
 
-  const [type, setType] = useState(false);
+
+function Announce() {
+  const navigate = useNavigate()
+
+  const [type, setType] = useState("Resident");
   const location = useLocation();
+  // eslint-disable-next-line no-unused-vars
+  const [description, setDescription] = useState("");
+  const [title, setTitle] = useState("");
+  const [time, setTime] = useState("");
 
   useEffect(() => {
     if (location.state) {
       setType(location.state.doiTuong);
     }
   }, []);
+
+
+  const [popupConfirm, setPopupConfirm] = useState(false);
+  const [popupError, setPopupError] = useState(false);
+  const [popupSuccess, setPopupSuccess] = useState(false);
+  const [messageError, setMessageError] = useState("");
+
+  const handleClosePopup = () => {
+    setPopupConfirm(false);
+
+    setPopupError(false);
+  };
+
+  const handleSuccess = () => {
+    setPopupSuccess(false);
+    setTitle("");
+    setTime("");
+    setDescription("");
+    navigate("/announce");
+  };
+
+  const handleConfirmAction = () => {
+    setPopupConfirm(false);
+    console.log("Confirm")
+    const formData = {
+      id: generateRandomString(3),
+      title: title,
+      description: description,
+      target: type,
+      time: convertDateFormat(time),
+      announceTime: convertDateFormat(new Date())
+    };
+    console.log(formData);
+    fetch("http://localhost:3001/thongbao", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        response.json();
+        setPopupSuccess(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleSubmit = () => {
+    if (title == "" || description == "") {
+      setMessageError("Vui lòng nhập đầy đủ các trường thông tin bắt buộc!");
+      setPopupError(true);
+      return;
+    }
+    setPopupConfirm(true);
+  };
 
   return (
     <div className="s-Screen">
@@ -29,6 +99,7 @@ function Announce() {
                 Tiêu đề
               </h2>
               <input
+                onChange={(e) => setTitle(e.target.value)}
                 type="text"
                 placeholder=""
                 className="border-solid border-1 border-black text-[#adaaaa] shadow-[2px_2px_4px_1px_rgba(0,_0,_0,_0.5)]  w-2/3 h-10 items-start px-3 rounded-lg mr-2"
@@ -39,6 +110,7 @@ function Announce() {
                 Nội dung
               </h2>
               <textarea
+                onChange={(e) => setDescription(e.target.value)}
                 type="text"
                 rows={5}
                 cols={50}
@@ -56,7 +128,7 @@ function Announce() {
                   name="role"
                   id="role"
                   className="w-full h-12 px-5"
-                  // onChange={(e) => setRole(e.target.value)}
+                  onChange={(e) => setType(e.target.value)}
                 >
                   {type === "Admin" ? (
                     <>
@@ -107,6 +179,7 @@ function Announce() {
                 Thời gian
               </h2>
               <input
+                onChange={(e) => setTime(e.target.value)}
                 type="date"
                 placeholder=""
                 className="border-solid pt-2 border-1 border-black text-[#adaaaa] shadow-[2px_2px_4px_1px_rgba(0,_0,_0,_0.5)] bg-white  w-1/3 h-10 items-start px-3 rounded-lg mr-2"
@@ -120,7 +193,9 @@ function Announce() {
                 </div>
               </button>
 
-              <button className="flex flex-row  cursor-pointer items-center justify-center ">
+              <button className="flex flex-row  cursor-pointer items-center justify-center "
+                onClick={() => handleSubmit()}
+              >
                 <div className="text-center text-xl font-['Nunito_Sans'] uppercase text-white bg-[#99b7f0] flex flex-row w-full h-16 items-start pt-5 px-8 rounded-lg">
                   Gửi
                 </div>
@@ -129,6 +204,23 @@ function Announce() {
           </div>
         </div>
       </div>
+
+      <PopupConfirm
+          isOpen={popupConfirm}
+          onClose={handleClosePopup}
+          onConfirm={handleConfirmAction}
+          message={"Bạn có chắc chắn muốn gửi thông báo : " + title + " đến "+ type}
+        />
+        <PopupError
+          isOpen={popupError}
+          onClose={handleClosePopup}
+          message={messageError}
+        />
+        <PopupSuccess
+          isOpen={popupSuccess}
+          onClose={handleSuccess}
+          message="Gửi thông báo thành công"
+        />
     </div>
   );
 }
