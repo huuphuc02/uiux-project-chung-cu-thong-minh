@@ -38,7 +38,7 @@ function InspectTempResidence() {
         setInspectDetail(false);
         const cudan = {
             id: generateRandomString(3),
-            MSCD: "CD101",
+            ID: "CD101",
             fullname: selectedResidence.fullname,
             CCCD: selectedResidence.CCCD,
             dob: selectedResidence.DoB,
@@ -48,14 +48,14 @@ function InspectTempResidence() {
         };
         const tamtru = {
             id: generateRandomString(3),
-            ID: "CD101",
+            MSCD: "CD101",
             ngayBatDau: selectedResidence.ngayBatDau,
             ngayKetThuc: selectedResidence.ngayKetThuc,
         };
         const chungcuCudan = {
             id: generateRandomString(3),
             MSCD: "CD101",
-            MSCH: selectedResidence.canHo,
+            MSCH: parseInt(selectedResidence.canHo),
         };
         fetch(`http://localhost:3001/cudan`, {
             method: "POST",
@@ -122,6 +122,7 @@ function InspectTempResidence() {
                 .catch((error) => {
                     console.log(error);
                 });
+        location.reload();
     }
     const handleSuccess = () => {
         setPopupSuccess(false);

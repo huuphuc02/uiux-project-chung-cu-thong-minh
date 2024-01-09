@@ -3479,7 +3479,7 @@
       "ngayBatDau": "07/01/2024",
       "ngayKetThuc": "06/02/2024",
       "lyDo": "thăm người thân",
-      "canHo": "1011"
+      "canHo": 1011
     },
     {
       "id": 2,
@@ -3492,7 +3492,7 @@
       "ngayBatDau": "09/01/2024",
       "ngayKetThuc": "08/02/2024",
       "lyDo": "thuê phòng",
-      "canHo": "1032"
+      "canHo": 1032
     },
     {
       "id": 3,
@@ -3505,7 +3505,7 @@
       "ngayBatDau": "12/01/2024",
       "ngayKetThuc": "11/02/2024",
       "lyDo": "thuê phòng",
-      "canHo": "3011"
+      "canHo": 3011
     },
     {
       "id": 4,
@@ -3518,7 +3518,7 @@
       "ngayBatDau": "13/01/2024",
       "ngayKetThuc": "12/02/2024",
       "lyDo": "thuê phòng",
-      "canHo": "2051"
+      "canHo": 2051
     },
     {
       "id": 5,
@@ -3531,7 +3531,7 @@
       "ngayBatDau": "14/01/2024",
       "ngayKetThuc": "13/02/2024",
       "lyDo": "thuê phòng",
-      "canHo": "3022"
+      "canHo": 3022
     },
     {
       "id": 6,
@@ -3544,7 +3544,7 @@
       "ngayBatDau": "15/01/2024",
       "ngayKetThuc": "14/02/2024",
       "lyDo": "thăm người thân",
-      "canHo": "1022"
+      "canHo": 1022
     },
     {
       "id": 7,
@@ -3557,7 +3557,7 @@
       "ngayBatDau": "17/01/2024",
       "ngayKetThuc": "16/02/2024",
       "lyDo": "Công tác",
-      "canHo": "4031"
+      "canHo": 4031
     },
     {
       "id": 8,
@@ -3570,7 +3570,7 @@
       "ngayBatDau": "18/01/2024",
       "ngayKetThuc": "17/02/2024",
       "lyDo": "Học tập",
-      "canHo": "1021"
+      "canHo": 1021
     },
     {
       "id": 9,
@@ -3583,7 +3583,7 @@
       "ngayBatDau": "19/01/2024",
       "ngayKetThuc": "18/02/2024",
       "lyDo": "Công tác",
-      "canHo": "5012"
+      "canHo": 5012
     },
     {
       "id": 10,
@@ -3596,7 +3596,7 @@
       "ngayBatDau": "01/02/2024",
       "ngayKetThuc": "02/03/2024",
       "lyDo": "Học tập",
-      "canHo": "4022"
+      "canHo": 4022
     }
   ]
 }
