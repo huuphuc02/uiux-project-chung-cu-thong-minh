@@ -33,9 +33,12 @@ function FeesList() {
           new Date(parseDate(a.deadline)) - new Date(parseDate(b.deadline))
       );
       setListFees(list);
+      localStorage.setItem("payingFees", JSON.stringify(list));
     };
-
-    getListFees();
+    const payingFees = JSON.parse(localStorage.getItem("payingFees"));
+    if (payingFees.length > 0) {
+      setListFees(payingFees);
+    } else getListFees();
   }, []);
   return (
     <div>

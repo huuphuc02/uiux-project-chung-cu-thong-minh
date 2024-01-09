@@ -27,6 +27,18 @@ export function getCurrentDateTime() {
   return formattedDateTime;
 }
 
+export function getCurrentDate() {
+  const today = new Date();
+
+  const day = String(today.getDate()).padStart(2, "0");
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const year = today.getFullYear();
+
+  const formattedDate = `${day}/${month}/${year}`;
+
+  return formattedDate;
+}
+
 export function generateRandomString(length) {
   const characters = "ABCDEF123456";
   let result = "";

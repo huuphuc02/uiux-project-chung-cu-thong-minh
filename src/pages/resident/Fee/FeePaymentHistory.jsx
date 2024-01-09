@@ -39,9 +39,16 @@ function FeePaymentHistory() {
       );
       setListFees(list);
       console.log(listFees);
+      localStorage.setItem("paidFees", JSON.stringify(list));
     };
-
-    getListFees();
+    const paidFees = JSON.parse(localStorage.getItem("paidFees"));
+    if (paidFees.length > 0) {
+      paidFees.sort(
+        (a, b) =>
+          new Date(parseDate(b.deadline)) - new Date(parseDate(a.deadline))
+      );
+      setListFees(paidFees);
+    } else getListFees();
   }, []);
 
   // Handler khi bấm vào trang số
