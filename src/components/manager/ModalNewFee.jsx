@@ -203,7 +203,7 @@ function ModalNewFee(props) {
           isOpen={popupConfirm}
           onClose={handleClosePopup}
           onConfirm={handleConfirmAction}
-          message="Bạn có chắc chắn muốn gửi đơn đăng ký này?"
+          message={"Bạn có chắc chắn muốn tạo "+ feeName +" đến " + apartmentId}
         />
         <PopupError
           isOpen={popupError}
@@ -213,7 +213,7 @@ function ModalNewFee(props) {
         <PopupSuccess
           isOpen={popupSuccess}
           onClose={handleSuccess}
-          message="Đăng ký tạm vắng thành công! Đơn đăng ký của bạn sẽ được gửi công an chờ phê duyệt."
+          message="Tạo khoản thu mới thành công"
         />
       </div>
 
