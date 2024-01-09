@@ -1,14 +1,25 @@
 import { useNavigate } from "react-router-dom";
 import PoliceHeader from "../../components/police/PoliceHeader";
 import SidebarPolice from "../../components/police/SidebarPolice";
+import { useEffect,useState } from "react";
 
 function HomePage() {
   const navigate = useNavigate();
+  const [numberResidence, setNumberResidence] = useState(0);
+  useEffect(()=>{
+    const getNumberResidence = async () => {
+      let response = await fetch('http://localhost:3001/cudan');
+      const data = await response.json();
+      const length = data.length;
+      setNumberResidence(length);
+    };
+    getNumberResidence();
+  }, []);
   return (
     <div className="h-screen">
       <PoliceHeader />
       <div className="flex">
-        <SidebarPolice />
+        <SidebarPolice tab={"Trang chủ"}/>
         <div className="flex flex-col w-4/5 items-start mt-2 mb-4">
           <div className="flex gap-28 mb-[38px]">
             <div className="flex flex-row w-full items-start">
@@ -23,7 +34,7 @@ function HomePage() {
             <div className="flex flex-row w-full items-start">
               <div className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row justify-center pt-4 gap-4 w-full h-[141px] font-['Nunito_Sans'] items-start rounded-lg">
                 <div className="text-center text-6xl font-bold text-[#99b7f0] mt-6">
-                  100
+                  {numberResidence}
                 </div>
                 <div id="CDn" className="text-5xl mt-10">
                   cư dân

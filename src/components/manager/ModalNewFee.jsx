@@ -1,5 +1,15 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import PopupConfirm from "../../components/PopupConfirm";
+import PopupSuccess from "../../components/PopupSuccess";
+import PopupError from "../../components/PopupError";
+import {
+  compareDates,
+  convertDateFormat2,
+  generateRandomString,
+} from "../../utility";
+
 
 function ModalNewFee(props) {
   const ref = useRef(null);
@@ -9,6 +19,13 @@ function ModalNewFee(props) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const onClickOutside = () => { setShowNewFee(!isShowNewFee) }
 
+  const navigate = useNavigate();
+  const [feeName, setFeeName] = useState("");
+  // eslint-disable-next-line no-unused-vars
+  const [apartmentId, setApartmentId] = useState("All");
+  const [type, setType] = useState("");
+  const [cost, setCost] = useState(null);
+  const [deadline, setDeadline] = useState("");
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -22,6 +39,75 @@ function ModalNewFee(props) {
     };
   }, [onClickOutside]);
 
+  const [popupConfirm, setPopupConfirm] = useState(false);
+  const [popupError, setPopupError] = useState(false);
+  const [popupSuccess, setPopupSuccess] = useState(false);
+  const [messageError, setMessageError] = useState("");
+
+  const handleClosePopup = () => {
+    setPopupConfirm(false);
+    setPopupError(false);
+  };
+
+  const handleSuccess = () => {
+    setPopupSuccess(false);
+    onClickOutside();
+    navigate("/feeManager");
+  };
+
+  const handleConfirmAction = () => {
+    setPopupConfirm(false);
+    console.log("Confirm")
+    const formData = {
+      id: generateRandomString(3),
+      // ID: generateRandomString(3),
+      type: type,
+      feeName: feeName,
+      apartmentId: apartmentId,
+      cost: cost / 40,
+      deadline: convertDateFormat2(deadline)
+    };
+    console.log(formData);
+    fetch("http://localhost:3001/khoanphi", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        response.json();
+        setPopupSuccess(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleSubmit = () => {
+    if (feeName == "" || type == "" || deadline == "" || cost == null) {
+      setMessageError("Vui lòng nhập đầy đủ các trường thông tin bắt buộc!");
+      setPopupError(true);
+      return;
+    }
+    const today = new Date();
+    if (compareDates(deadline, today) < 0) {
+      setMessageError(
+        "Hạn thu phải lớn hơn hoặc bằng ngày hôm nay. Vui lòng nhập lại!"
+      );
+      setPopupError(true);
+      return;
+    }
+
+    if (cost == 0) {
+      setMessageError(
+        "Số tiền thu phải lớn hơn 0"
+      );
+      setPopupError(true);
+      return;
+    }
+    setPopupConfirm(true);
+  };
 
 
   return (
@@ -37,7 +123,7 @@ function ModalNewFee(props) {
                 Tên khoản phí (*):
               </label>
               <input
-                // defaultValue={resident.fullname}
+                onChange={(e) => setFeeName(e.target.value)}
                 className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"
               ></input>
             </div>
@@ -46,7 +132,7 @@ function ModalNewFee(props) {
                 Loại phí (*):
               </label>
               <input
-                // defaultValue={resident.CCCD}
+                onChange={(e) => setType(e.target.value)}
                 className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"
               ></input>
             </div>
@@ -56,7 +142,7 @@ function ModalNewFee(props) {
                 Số tiền (*):
               </label>
               <input
-                // defaultValue={resident.Sdt}
+                onChange={(e) => setCost(e.target.value)}
                 className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"
               ></input>
             </div>
@@ -89,6 +175,7 @@ function ModalNewFee(props) {
               </label>
               <input
                 type="date"
+                onChange={(e) => setDeadline(e.target.value)}
                 className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4 pt-2"
               ></input>
             </div>
@@ -104,17 +191,32 @@ function ModalNewFee(props) {
             <button
               className="text-center text-md uppercase text-white bg-[#99b7f0] flex flex-row w-1/2 h-10 items-start pt-2 pl-10 rounded-lg"
               onClick={() => {
-                alert(
-                  "Tạo hộ khẩu mới thành công!"
-                );
-                setShowNewFee(!isShowNewFee)
+                handleSubmit()
+                // setShowNewFee(!isShowNewFee)
               }}
             >
               Gửi
             </button>
           </div>
         </div>
+        <PopupConfirm
+          isOpen={popupConfirm}
+          onClose={handleClosePopup}
+          onConfirm={handleConfirmAction}
+          message={"Bạn có chắc chắn muốn tạo "+ feeName +" đến " + apartmentId}
+        />
+        <PopupError
+          isOpen={popupError}
+          onClose={handleClosePopup}
+          message={messageError}
+        />
+        <PopupSuccess
+          isOpen={popupSuccess}
+          onClose={handleSuccess}
+          message="Tạo khoản thu mới thành công"
+        />
       </div>
+
     </div>
   )
 }

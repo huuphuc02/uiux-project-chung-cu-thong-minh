@@ -1,4 +1,33 @@
 function PopupAbsenceDetail ({isOpen, onClose, onConfirm,onDelete, residence, appartment, absence}){
+    // {onConfirm(()=>{
+    //     const tamvang = {
+    //         MSCD: absence.MSCD,
+    //         ngayBatDau: absence.ngayBatDau,
+    //         ngayKetThuc: absence.ngayKetThuc,
+    //     };
+    //     fetch("http://localhost:3001/tamvang", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json; charset=UTF-8",
+    //         },
+    //         body: JSON.stringify(tamvang),
+    //     })
+    //         .then((response) => {
+    //             response.json();
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //         });
+    //     fetch("http://localhost:3001/dangkytamvang?ID={absence.ID}", {
+    //         method: "DELETE"
+    //     })
+    //         .then((response) => {
+    //             response.json();
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //         });
+    // })}
     return (
         <div className={`${isOpen ? "" : "hidden"}`}>
             <div
