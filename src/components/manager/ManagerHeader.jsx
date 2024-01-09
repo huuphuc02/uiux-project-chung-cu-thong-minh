@@ -4,11 +4,13 @@ import { LuSearch } from "react-icons/lu";
 import OverlayPolice from "../police/OverlayPolice";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PopupNotification from "./PopupNotification";
 
 function ManagerHeader() {
   const [overlay, setOverlay] = useState(false);
   const navigate = useNavigate();
   const [manager, setManager] = useState({});
+  const [popupNoti, setPopupNoti] = useState(false);
 
   useEffect(() => {
     setManager(JSON.parse(localStorage.getItem("manager"))[0]);
@@ -39,7 +41,9 @@ function ManagerHeader() {
           </div>
         </div>
         <div className="flex flex-row mt-3 gap-8 w-2/5 items-start">
-          <div className="flex flex-row mt-3 items-start cursor-pointer">
+          <div className="flex flex-row mt-3 items-start cursor-pointer"
+           onClick={() => setPopupNoti(!popupNoti)}
+          >
             <img
               src="https://file.rendit.io/n/iBFcxEGp8ZRjB80YBCkZ.png"
               alt="Image1"
@@ -78,6 +82,7 @@ function ManagerHeader() {
         </div>
       </div>
       {overlay && <OverlayPolice />}
+      {popupNoti && <PopupNotification />}
     </div>
   );
 }
