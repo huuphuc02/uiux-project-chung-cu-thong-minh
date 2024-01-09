@@ -103,7 +103,7 @@ function TemporaryResidence() {
         <div className="h-screen">
             <PoliceHeader />
             <div className="flex">
-                <SidebarPolice />
+                <SidebarPolice tab={"Tạm trú"}/>
                 <div id="NewRootRoot" className="flex flex-row w-full items-start">
                     <div className="bg-[#d9d9d9] flex flex-col gap-6 w-full font-['Nunito_Sans'] items-start pt-6 pb-12 px-5">
                         <div className="flex flex-row gap-3 w-full items-center pt-6 pb-12 px-5 justify-between">
@@ -128,7 +128,7 @@ function TemporaryResidence() {
                                     <div className="flex flex-col ml-1 gap-10 w-full items-start">
                                         <div className="flex flex-row gap-16 w-full items-start">
                                             <div className="flex flex-row gap-4 w-3/5 items-start">
-                                                <div className="text-black shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/3 rounded-lg h-10 items-center pl-2 py-2">
+                                                <div className="text-black shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-2/3 rounded-lg h-10 items-center pl-2 py-2">
                                                     <LuSearch />
                                                     <input
                                                         value={keySearch}
