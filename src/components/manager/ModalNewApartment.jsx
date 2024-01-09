@@ -1,5 +1,13 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import PopupConfirm from "../../components/PopupConfirm";
+import PopupSuccess from "../../components/PopupSuccess";
+import PopupError from "../../components/PopupError";
+import {
+  compareDates,
+  generateRandomString,
+} from "../../utility";
 
 function ModalNewApartment(props) {
   const ref = useRef(null);
@@ -9,6 +17,15 @@ function ModalNewApartment(props) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const onClickOutside = () => { setShowNewApartment(!isShowNewApartment) }
 
+  const navigate = useNavigate();
+  // eslint-disable-next-line no-unused-vars
+  const [apartment, setApartment] = useState(null);
+  const [cccd, setCccd] = useState("");
+  const [ngaySinh, setNgaySinh] = useState("");
+  const [gioiTinh, setGioiTinh] = useState("nam");
+  const [sdt, setSdt] = useState("");
+  const [building, setBuilding] = useState("");
+  const [HoTen, setHoTen] = useState("");
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -23,6 +40,58 @@ function ModalNewApartment(props) {
   }, [onClickOutside]);
 
 
+  const [popupConfirm, setPopupConfirm] = useState(false);
+  const [popupError, setPopupError] = useState(false);
+  const [popupSuccess, setPopupSuccess] = useState(false);
+  const [messageError, setMessageError] = useState("");
+
+  const handleClosePopup = () => {
+    setPopupConfirm(false);
+    setPopupError(false);
+  };
+
+  const handleSuccess = () => {
+    setPopupSuccess(false);
+    onClickOutside();
+    navigate("/feeManager");
+  };
+
+  const handleConfirmAction = () => {
+    setPopupConfirm(false);
+    console.log("Confirm")
+    const formData = {
+      id: generateRandomString(4),
+      apartment: apartment,
+      building: building,
+      floor: (apartment - (apartment % 100))/100,
+      area: 89,
+      HoTen: HoTen
+    };
+    fetch("http://localhost:3001/chungcu", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        response.json();
+        setPopupSuccess(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleSubmit = () => {
+    if (HoTen == "" || building == "" || cccd == "" || ngaySinh == null || sdt == "") {
+      setMessageError("Vui lòng nhập đầy đủ các trường thông tin bắt buộc!");
+      setPopupError(true);
+      return;
+    }
+  };
+
+
 
   return (
     <div className="flex flex-row w-full h-full items-center justify-center bg-black/30 absolute z-100 " >
@@ -34,10 +103,11 @@ function ModalNewApartment(props) {
           <div className="flex flex-col gap-4 w-full items-start">
             <div className="flex flex-row justify-between w-[90%] items-start">
               <label className="text-md font-bold ml-4">
-                Họ và tên (*):
+                Họ và tên chủ hộ (*):
               </label>
               <input
                 // defaultValue={resident.fullname}
+                onChange={(e) => setHoTen(e.target.value)}
                 className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"
               ></input>
             </div>
@@ -46,6 +116,7 @@ function ModalNewApartment(props) {
                 CCCD (*):
               </label>
               <input
+                onChange={(e) => setCccd(e.target.value)}
                 // defaultValue={resident.CCCD}
                 className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"
               ></input>
@@ -56,6 +127,7 @@ function ModalNewApartment(props) {
                 Ngày sinh (*):
               </label>
               <input
+                onChange={(e) => setNgaySinh(e.target.value)}
                 type="date"
                 className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4 pt-2"
               ></input>
@@ -75,11 +147,11 @@ function ModalNewApartment(props) {
                     name="role"
                     id="role"
                     className="w-full h-10 px-5"
-
+                    onChange={(e) => setGioiTinh(e.target.value)}
                   >
-                    <option value="">Nam</option>
-                    <option value="">Nữ</option>
-                    <option value="">Khác</option>
+                    <option value="nam">Nam</option>
+                    <option value="nu">Nữ</option>
+                    <option value="khac">Khác</option>
                   </select>
                 </div>
               </div>
@@ -91,6 +163,7 @@ function ModalNewApartment(props) {
               </label>
               <input
                 // defaultValue={resident.Sdt}
+                onChange={(e) => setSdt(e.target.value)}
                 className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/2 h-10 items-start px-4"
               ></input>
             </div>
@@ -108,9 +181,10 @@ function ModalNewApartment(props) {
                     name="role"
                     id="role"
                     className="w-full h-10 px-5"
+                    onChange={(e) => setBuilding(e.target.value)}
                   >
-                    <option value="">A1</option>
-                    <option value="">A2</option>
+                    <option value="A1">A1</option>
+                    <option value="A2">A2</option>
                   </select>
                 </div>
               </div>
@@ -121,7 +195,9 @@ function ModalNewApartment(props) {
                 Căn hộ (*):
               </label>
               <div className="w-1/2">
-                <input className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-2/3 h-10 items-start px-4"></input>
+                <input 
+                 onChange={(e) => setApartment(e.target.value)}
+                className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-2/3 h-10 items-start px-4"></input>
               </div>
             </div>
 
@@ -136,16 +212,31 @@ function ModalNewApartment(props) {
             <button
               className="text-center text-md uppercase text-white bg-[#99b7f0] flex flex-row w-1/2 h-10 items-start pt-2 pl-10 rounded-lg"
               onClick={() => {
-                alert(
-                  "Tạo hộ khẩu mới thành công!"
-                );
-                setShowNewApartment(!isShowNewApartment)
+                handleSubmit();
+
               }}
             >
               Gửi
             </button>
           </div>
         </div>
+
+        <PopupConfirm
+          isOpen={popupConfirm}
+          onClose={handleClosePopup}
+          onConfirm={handleConfirmAction}
+          message={"Bạn có chắc chắn muốn tạo hộ khẩu cho căn hộ"+ apartment +" tòa  " + building +" ?"}
+        />
+        <PopupError
+          isOpen={popupError}
+          onClose={handleClosePopup}
+          message={messageError}
+        />
+        <PopupSuccess
+          isOpen={popupSuccess}
+          onClose={handleSuccess}
+          message="Tạo hộ mới thành công"
+        />
       </div>
     </div>
   )
