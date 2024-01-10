@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PopupError from "../components/PopupError";
 
 function Login() {
   const navigate = useNavigate();
@@ -7,7 +8,11 @@ function Login() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [typePassword, setTypePassword] = useState("true");
+  const [popupError, setPopupError] = useState(false);
 
+  const handleClosePopup = () => {
+    setPopupError(false);
+  };
   const handleLogin = async () => {
     try {
       console.log(phoneNumber);
@@ -68,7 +73,7 @@ function Login() {
           }
         }
       } else {
-        alert("Phone number or password is incorrect");
+        setPopupError(true);
       }
     } catch (error) {
       console.error("Error logging in:", error.response);
@@ -166,6 +171,11 @@ function Login() {
           Đăng nhập
         </button>
       </div>
+      <PopupError
+        isOpen={popupError}
+        onClose={handleClosePopup}
+        message="SĐT hoặc mật khẩu không đúng. Vui lòng nhập lại!"
+      />
     </div>
   );
 }

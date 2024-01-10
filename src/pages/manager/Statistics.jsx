@@ -7,12 +7,8 @@ import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-
 import { useNavigate } from "react-router-dom";
 function Statistics() {
-
-
-
   const navigate = useNavigate();
   return (
     <div className="s-Screen">
@@ -20,7 +16,7 @@ function Statistics() {
       <div className="flex">
         <SidebarManager tab={"Thống kê"} />
         <div className="w-[82%] bg-[#f5f5f5] px-8 py-4 pb-4">
-          <h1 className="text-4xl font-bold text-left mb-[26px]">
+          <h1 className="text-2xl font-bold text-left mb-[26px]">
             Thống kê cư dân
           </h1>
           <div className="flex gap-28 mb-[38px]">
@@ -47,14 +43,14 @@ function Statistics() {
           </div>
           <div className="flex flex-row items-start">
             <div
-              className="text-center text-xl font-['Nunito_Sans'] uppercase text-white bg-[#99b7f0] flex flex-row  h-16 items-start pt-4 pl-10 pr-12 rounded-lg cursor-pointer"
+              className="text-center text-xl font-['Nunito_Sans'] uppercase text-white bg-[#99b7f0] flex flex-row  h-14 items-start pt-4 pl-10 pr-12 rounded-lg cursor-pointer"
               onClick={() => navigate("/familyRegister")}
             >
               Xem chi tiết
             </div>
           </div>
 
-          <h1 className="text-4xl font-bold text-left my-[26px]">
+          <h1 className="text-2xl font-bold text-left my-[26px]">
             Thống kê khoản phí
           </h1>
           <div className="bg-white w-full h-[385px] rounded-lg flex flex-col justify-center items-center">
@@ -67,7 +63,7 @@ function Statistics() {
                     "Phí dịch vụ",
                     "Phí gửi xe",
                     "Phí thuê",
-                    "Tiền điện, nước, internet"
+                    "Tiền điện, nước, internet",
                   ],
                   datasets: [
                     {
@@ -81,25 +77,23 @@ function Statistics() {
                         "#f4be37",
                         "#FF9F40",
                       ],
-                      data: [78.4, 80.7, 87.54, 56.82, 120.3, 278.9]
-                    }
-                  ]
+                      data: [78.4, 80.7, 87.54, 56.82, 120.3, 278.9],
+                    },
+                  ],
                 }}
                 options={{ maintainAspectRatio: false }}
               />
             </div>
-
           </div>
 
           <div className="flex flex-row items-start mt-8">
             <div
-              className="text-center text-xl font-['Nunito_Sans'] uppercase text-white bg-[#99b7f0] flex flex-row  h-16 items-start pt-4 pl-10 pr-12 rounded-lg cursor-pointer"
+              className="text-center text-xl font-['Nunito_Sans'] uppercase text-white bg-[#99b7f0] flex flex-row  h-14 items-start pt-4 pl-10 pr-12 rounded-lg cursor-pointer"
               onClick={() => navigate("/feeManager")}
             >
               Xem chi tiết
             </div>
           </div>
-
         </div>
       </div>
     </div>

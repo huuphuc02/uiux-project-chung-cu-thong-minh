@@ -41,8 +41,9 @@ function ManagerHeader() {
           </div>
         </div>
         <div className="flex flex-row mt-3 gap-8 w-2/5 items-start">
-          <div className="flex flex-row mt-3 items-start cursor-pointer"
-           onClick={() => setPopupNoti(!popupNoti)}
+          <div
+            className="flex flex-row mt-3 items-start cursor-pointer"
+            onClick={() => setPopupNoti(!popupNoti)}
           >
             <img
               src="https://file.rendit.io/n/iBFcxEGp8ZRjB80YBCkZ.png"
@@ -62,11 +63,7 @@ function ManagerHeader() {
               className="mb-1 w-12"
             />
             <div className="cursor-pointer flex flex-row gap-2 w-3/5 items-center">
-              <div
-                id="LHuTiCDn1"
-                className="font-semibold text-left"
-                onClick={() => navigate("/residentInfo")}
-              >
+              <div id="LHuTiCDn1" className="font-semibold text-left">
                 {manager.HoTen}
                 <br />
                 <span className="text-[#686868]">Quản lý</span>

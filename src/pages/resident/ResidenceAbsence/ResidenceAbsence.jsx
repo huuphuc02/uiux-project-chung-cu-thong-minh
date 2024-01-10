@@ -8,10 +8,14 @@ function ResidenceAbsence() {
   const navigate = useNavigate();
   const [listResidenceForm, setListResidenceForm] = useState([]);
   const [listAbsenceForm, setListAbsenceForm] = useState([]);
+  const [listResidence, setListResidence] = useState([]);
+  const [listAbsence, setListAbsence] = useState([]);
   const [resident, setResident] = useState({});
 
   useEffect(() => {
     setResident(JSON.parse(localStorage.getItem("resident")));
+  }, []);
+  useEffect(() => {
     const getListResidenceForm = async () => {
       let response = await fetch(
         `http://localhost:3001/dangkytamtru?CCCD=${resident?.CCCD}`
@@ -28,14 +32,27 @@ function ResidenceAbsence() {
       console.log(data);
       setListAbsenceForm(data);
     };
+    const getListAbsence = async () => {
+      let response = await fetch(
+        `http://localhost:3001/tamvang?MSCD=${resident?.ID}`
+      );
+      const data = await response.json();
+      console.log(data);
+      setListAbsence(data);
+    };
+    const getListResidence = async () => {
+      let response = await fetch(
+        `http://localhost:3001/tamtru?MSCD=${resident?.ID}`
+      );
+      const data = await response.json();
+      console.log(data);
+      setListResidence(data);
+    };
     getListResidenceForm();
     getListAbsenceForm();
-  }, [
-    resident?.CCCD,
-    resident.ID,
-    listAbsenceForm.length,
-    listResidenceForm.length,
-  ]);
+    getListAbsence();
+    getListResidence();
+  }, [resident?.CCCD, resident.ID]);
 
   return (
     <div className="h-screen">
@@ -47,7 +64,10 @@ function ResidenceAbsence() {
             <h1 className="text-[22px] font-bold ml-1">
               Lịch sử đăng ký tạm trú tạm vắng
             </h1>
-            {listAbsenceForm.length == 0 && listResidenceForm.length == 0 ? (
+            {listAbsenceForm.length == 0 &&
+            listResidenceForm.length == 0 &&
+            listAbsence.length == 0 &&
+            listResidence.length == 0 ? (
               <h3 className="mt-4 ml-2 mb-24">
                 Bạn chưa từng đăng ký tạm trú hay tạm vắng
               </h3>
@@ -101,6 +121,34 @@ function ResidenceAbsence() {
                               <td className="px-6 py-4">{form?.lyDo}</td>
                               <td className="px-6 py-4">{form?.thuongTru}</td>
                               <td className="px-6 py-4">Chờ phê duyệt</td>
+                            </tr>
+                          );
+                        })
+                      : Fragment}
+                    {listResidence
+                      ? listResidence.map((form, key) => {
+                          return (
+                            <tr key={key} className="bg-[#b1c9f1] border-b">
+                              <td className="px-6 py-4">Tạm trú</td>
+                              <td className="px-6 py-4">{form?.ngayBatDau}</td>
+                              <td className="px-6 py-4">{form?.ngayKetThuc}</td>
+                              <td className="px-6 py-4"></td>
+                              <td className="px-6 py-4"></td>
+                              <td className="px-6 py-4">Đã được duyệt</td>
+                            </tr>
+                          );
+                        })
+                      : Fragment}
+                    {listAbsence
+                      ? listAbsence.map((form, key) => {
+                          return (
+                            <tr key={key} className="bg-[#b1c9f1] border-b">
+                              <td className="px-6 py-4">Tạm vắng</td>
+                              <td className="px-6 py-4">{form?.ngayBatDau}</td>
+                              <td className="px-6 py-4">{form?.ngayKetThuc}</td>
+                              <td className="px-6 py-4"></td>
+                              <td className="px-6 py-4"></td>
+                              <td className="px-6 py-4">Đã được duyệt</td>
                             </tr>
                           );
                         })

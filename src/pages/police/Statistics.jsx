@@ -136,7 +136,7 @@ function Statistics() {
                     </div>
                     <div className="py-5">
                       <div className="relative">
-                        <table className="h-5 w-[95%] text-sm text-left rtl:text-right">
+                        <table className="h-5 w-[90%] text-sm text-left rtl:text-right">
                           <thead className="text-sm text-white bg-[#445f99] ">
                             <tr>
                               <th scope="col" className="px-6 py-3">
@@ -156,12 +156,6 @@ function Statistics() {
                               </th>
                               <th scope="col" className="px-6 py-3">
                                 Dân tộc
-                              </th>
-                              <th scope="col" className="px-6 py-3">
-                                Tôn giáo
-                              </th>
-                              <th scope="col" className="px-6 py-3">
-                                Nghề nghiệp
                               </th>
                               <th scope="col" className="px-6 py-3">
                                 Số điện thoại
@@ -188,12 +182,8 @@ function Statistics() {
                                       {cudan.gender}
                                     </td>
                                     <td className="px-6 py-4">
-                                      {cudan.religion}
-                                    </td>
-                                    <td className="px-6 py-4">
                                       {cudan.ethnic}
                                     </td>
-                                    <td className="px-6 py-4">{cudan.job}</td>
                                     <td className="px-6 py-4">{cudan.Sdt}</td>
                                   </tr>
                                 );

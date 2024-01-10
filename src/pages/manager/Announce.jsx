@@ -6,14 +6,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import PopupConfirm from "../../components/PopupConfirm";
 import PopupSuccess from "../../components/PopupSuccess";
 import PopupError from "../../components/PopupError";
-import {
-  convertDateFormat,
-  generateRandomString,
-} from "../../utility";
-
+import { convertDateFormat, generateRandomString } from "../../utility";
 
 function Announce() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [type, setType] = useState("Resident");
   const location = useLocation();
@@ -27,7 +23,6 @@ function Announce() {
       setType(location.state.doiTuong);
     }
   }, []);
-
 
   const [popupConfirm, setPopupConfirm] = useState(false);
   const [popupError, setPopupError] = useState(false);
@@ -50,14 +45,14 @@ function Announce() {
 
   const handleConfirmAction = () => {
     setPopupConfirm(false);
-    console.log("Confirm")
+    console.log("Confirm");
     const formData = {
       id: generateRandomString(3),
       title: title,
       description: description,
       target: type,
       time: convertDateFormat(time),
-      announceTime: convertDateFormat(new Date())
+      announceTime: convertDateFormat(new Date()),
     };
     console.log(formData);
     fetch("http://localhost:3001/thongbao", {
@@ -94,20 +89,26 @@ function Announce() {
           <h1 className="text-2xl font-bold text-left ">Gửi thông báo</h1>
 
           <div className=" w-full h-max rounded-lg flex flex-col">
-            <div className="flex justify-start items-center mt-[43px] ml-[118px] mb-[62px] mr-[98px]">
+            <div className="flex justify-start items-center mt-[30px] ml-[118px] mb-[40px] mr-[98px]">
               <h2 className="text-xl font-['Nunito_Sans'] font-bold w-1/3 text-start">
-                Tiêu đề
+                Tiêu đề{" "}
+                <span className="text-red-500 ml-2 text-base font-semibold">
+                  (*)
+                </span>
               </h2>
               <input
                 onChange={(e) => setTitle(e.target.value)}
                 type="text"
                 placeholder=""
-                className="border-solid border-1 border-black text-[#adaaaa] shadow-[2px_2px_4px_1px_rgba(0,_0,_0,_0.5)]  w-2/3 h-10 items-start px-3 rounded-lg mr-2"
+                className="border-solid border-1 border-black text-black shadow-[2px_2px_4px_1px_rgba(0,_0,_0,_0.5)]  w-2/3 h-10 items-start px-3 rounded-lg mr-2"
               />
             </div>
-            <div className="flex flex-row  justify-start items-start ml-[118px] mb-[62px] mr-[98px]">
+            <div className="flex flex-row  justify-start items-start ml-[118px] mb-[40px] mr-[98px]">
               <h2 className="text-xl font-['Nunito_Sans'] font-bold w-1/3 text-start">
-                Nội dung
+                Nội dung{" "}
+                <span className="text-red-500 ml-2 text-base font-semibold">
+                  (*)
+                </span>
               </h2>
               <textarea
                 onChange={(e) => setDescription(e.target.value)}
@@ -115,15 +116,18 @@ function Announce() {
                 rows={5}
                 cols={50}
                 placeholder="Nội dung của thông báo..."
-                className="border-solid text-[#adaaaa] shadow-[2px_2px_4px_1px_rgba(0,_0,_0,_0.5)] bg-white flex flex-row  w-2/3 h-50 items-start px-3 rounded-lg mr-2"
+                className="border-solid text-black shadow-[2px_2px_4px_1px_rgba(0,_0,_0,_0.5)] bg-white flex flex-row  w-2/3 h-50 items-start px-3 rounded-lg mr-2"
               />
             </div>
             <div className="flex  justify-start items-center ml-[118px] mb-[62px] mr-[98px]">
               <h2 className="text-xl font-['Nunito_Sans'] font-bold w-1/3 text-start">
-                Đối tượng gửi
+                Đối tượng gửi{" "}
+                <span className="text-red-500 ml-2 text-base font-semibold">
+                  (*)
+                </span>
               </h2>
 
-              <div className="border-solid text-[#adaaaa] shadow-[2px_2px_4px_1px_rgba(0,_0,_0,_0.5)] bg-white flex flex-row w-1/3 h-10 px items-start mr-2">
+              <div className="border-solid text-black shadow-[2px_2px_4px_1px_rgba(0,_0,_0,_0.5)] bg-white flex flex-row w-1/3 h-10 px items-start mr-2">
                 <select
                   name="role"
                   id="role"
@@ -174,29 +178,33 @@ function Announce() {
               </div>
             </div>
 
-            <div className="flex justify-start items-center mt-[43px] ml-[118px] mb-[62px] mr-[98px]">
+            <div className="flex justify-start items-center ml-[118px] mb-[40px] mr-[98px]">
               <h2 className="text-xl font-['Nunito_Sans'] font-bold w-1/3 text-start">
-                Thời gian
+                Thời gian{" "}
+                <span className="text-red-500 ml-2 text-base font-semibold">
+                  (*)
+                </span>
               </h2>
               <input
                 onChange={(e) => setTime(e.target.value)}
                 type="date"
                 placeholder=""
-                className="border-solid pt-2 border-1 border-black text-[#adaaaa] shadow-[2px_2px_4px_1px_rgba(0,_0,_0,_0.5)] bg-white  w-1/3 h-10 items-start px-3 rounded-lg mr-2"
+                className="border-solid pt-2 border-1 border-black text-black shadow-[2px_2px_4px_1px_rgba(0,_0,_0,_0.5)] bg-white  w-1/3 h-10 items-start px-3 rounded-lg mr-2"
               />
             </div>
 
             <div className="flex justify-center items-center gap-10 ">
               <button className="flex flex-row  cursor-pointer items-start ">
-                <div className="text-center text-xl font-['Nunito_Sans'] uppercase text-[#99b7f0] border-solid border-[#5387e9] bg-white flex flex-row w-full h-16 items-start pt-5 px-8 border-0 rounded-lg">
+                <div className="text-center text-xl font-['Nunito_Sans'] uppercase text-[#99b7f0] border-solid border-[#5387e9] bg-white flex flex-row w-full h-12 items-start pt-3 px-8 border-0 rounded-lg">
                   huỷ
                 </div>
               </button>
 
-              <button className="flex flex-row  cursor-pointer items-center justify-center "
+              <button
+                className="flex flex-row  cursor-pointer items-center justify-center "
                 onClick={() => handleSubmit()}
               >
-                <div className="text-center text-xl font-['Nunito_Sans'] uppercase text-white bg-[#99b7f0] flex flex-row w-full h-16 items-start pt-5 px-8 rounded-lg">
+                <div className="text-center text-xl font-['Nunito_Sans'] uppercase text-white bg-[#99b7f0] flex flex-row w-full h-12 items-start pt-3 px-8 rounded-lg">
                   Gửi
                 </div>
               </button>
@@ -206,21 +214,23 @@ function Announce() {
       </div>
 
       <PopupConfirm
-          isOpen={popupConfirm}
-          onClose={handleClosePopup}
-          onConfirm={handleConfirmAction}
-          message={"Bạn có chắc chắn muốn gửi thông báo : " + title + " đến "+ type}
-        />
-        <PopupError
-          isOpen={popupError}
-          onClose={handleClosePopup}
-          message={messageError}
-        />
-        <PopupSuccess
-          isOpen={popupSuccess}
-          onClose={handleSuccess}
-          message="Gửi thông báo thành công"
-        />
+        isOpen={popupConfirm}
+        onClose={handleClosePopup}
+        onConfirm={handleConfirmAction}
+        message={
+          "Bạn có chắc chắn muốn gửi thông báo : " + title + " đến " + type
+        }
+      />
+      <PopupError
+        isOpen={popupError}
+        onClose={handleClosePopup}
+        message={messageError}
+      />
+      <PopupSuccess
+        isOpen={popupSuccess}
+        onClose={handleSuccess}
+        message="Gửi thông báo thành công"
+      />
     </div>
   );
 }

@@ -65,7 +65,7 @@ function FamilyRegister() {
             />
           )}
           <div className="w-full px-8 py-4 pb-4 ">
-            <h1 className="text-4xl font-bold text-left">Danh sách hộ khẩu</h1>
+            <h1 className="text-2xl font-bold text-left">Danh sách hộ khẩu</h1>
             <div className="flex mt-6 justify-between">
               <div className="text-[#a6a6a6] shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-white flex flex-row w-1/3 rounded-lg h-10 items-center pl-2 py-2">
                 <LuSearch />
@@ -134,7 +134,7 @@ function FamilyRegister() {
                             key={key + (currentPage - 1) * 10}
                           >
                             <td scope="row" className="px-6 py-4 ">
-                              {key + (currentPage - 1) * 10}
+                              {key + (currentPage - 1) * 10 + 1}
                             </td>
                             <td className="px-6 py-4">{apt.apartment}</td>
                             <td className="px-6 py-4">{apt.HoTen}</td>

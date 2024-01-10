@@ -16,20 +16,23 @@ function PayFee() {
   const [stk, setStk] = useState("");
   const [popupConfirm, setPopupConfirm] = useState(false);
   const [popupError, setPopupError] = useState(false);
-  let [payingFees, setPayingFees] = useState([]);
+  const [payingFees, setPayingFees] = useState([]);
 
   const handleClosePopup = () => {
     setPopupConfirm(false);
     setPopupError(false);
   };
 
-  const handleConfirmAction = () => {
+  const handleConfirmAction = async () => {
     setPopupConfirm(false);
     const selected = listFees.find((fee) => fee?.feeName == selectedFee);
     selected.deadline = getCurrentDate();
     console.log(selected);
-    payingFees = payingFees.filter((fee) => fee?.ID != selected?.ID);
-    localStorage.setItem("payingFees", JSON.stringify(payingFees));
+    console.log(payingFees);
+    const newPayingFees = payingFees.filter((fee) => fee?.id != selected?.id);
+    console.log(newPayingFees);
+
+    await localStorage.setItem("payingFees", JSON.stringify(newPayingFees));
     console.log(payingFees);
     const paidFees = JSON.parse(localStorage.getItem("paidFees"));
     paidFees.push(selected);
@@ -69,14 +72,13 @@ function PayFee() {
       list.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
       setListFees(list);
       localStorage.setItem("payingFees", JSON.stringify(list));
-      setPayingFees(JSON.parse(localStorage.getItem("payingFees")));
+      setPayingFees(list);
     };
-    // const payFees = JSON.parse(localStorage.getItem("payingFees"));
-    // if (payFees.length > 0) {
-    //   setListFees(payFees);
-    //   setPayingFees(payFees); //
-    // } else
-    getListFees();
+    const payFees = JSON.parse(localStorage.getItem("payingFees"));
+    if (payFees.length > 0) {
+      setListFees(payFees);
+      setPayingFees(payFees); //
+    } else getListFees();
   }, []);
   return (
     <div>

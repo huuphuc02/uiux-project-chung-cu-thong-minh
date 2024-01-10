@@ -42,7 +42,7 @@ function FeePaymentHistory() {
       localStorage.setItem("paidFees", JSON.stringify(list));
     };
     const paidFees = JSON.parse(localStorage.getItem("paidFees"));
-    if (paidFees.length > 0) {
+    if (paidFees?.length > 0) {
       paidFees.sort(
         (a, b) =>
           new Date(parseDate(b.deadline)) - new Date(parseDate(a.deadline))

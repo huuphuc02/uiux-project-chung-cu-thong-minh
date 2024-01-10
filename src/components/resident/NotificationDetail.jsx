@@ -3,7 +3,7 @@ function NotificationDetail({ onClose, noti }) {
   return (
     <div
       id="ThongBaoRoot"
-      className="bg-white flex flex-col gap-4 w-1/3 h-max text-left items-start pl-2 py-2 absolute right-72 rounded-lg"
+      className="bg-white flex z-30 flex-col gap-4 w-1/3 h-max text-left items-start pl-2 py-2 absolute right-72 rounded-lg"
     >
       <div className="flex flex-col ml-3 w-full items-start">
         <img

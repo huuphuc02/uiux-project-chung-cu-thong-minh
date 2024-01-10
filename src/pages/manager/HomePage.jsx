@@ -133,12 +133,12 @@ function HomePage() {
             </div>
             <div className="flex flex-row gap-12 w-1/2 items-start">
               <div className="flex flex-col gap-2 w-full font-['Nunito_Sans'] items-start">
-                <div className="text-3xl font-bold text-[#4e4e4e]">
+                <div className="text-2xl font-bold text-[#4e4e4e]">
                   Gửi thông báo
                 </div>
                 <div className="flex flex-row justify-between w-full items-start">
                   <div
-                    className="text-center text-xl uppercase bg-[#99b7f0] flex flex-row justify-center mt-px pt-5 w-1/4 h-16 items-start rounded-lg cursor-pointer"
+                    className="text-center text-white  text-xl uppercase bg-[#99b7f0] flex flex-row justify-center mt-px pt-5 w-1/4 h-16 items-start rounded-lg cursor-pointer"
                     onClick={() => {
                       navigate("/announce", {
                         state: {
@@ -150,7 +150,7 @@ function HomePage() {
                     Cư dân
                   </div>
                   <div
-                    className="text-center text-xl uppercase bg-[#99b7f0] flex flex-row justify-center pt-5 w-1/4 h-16 items-start rounded-lg cursor-pointer"
+                    className="text-center text-white text-xl uppercase bg-[#99b7f0] flex flex-row justify-center pt-5 w-1/4 h-16 items-start rounded-lg cursor-pointer"
                     onClick={() => {
                       navigate("/announce", {
                         state: {
@@ -162,7 +162,7 @@ function HomePage() {
                     quản lý{" "}
                   </div>
                   <div
-                    className="text-center text-xl uppercase bg-[#99b7f0] flex flex-row justify-center pt-5 w-1/4 h-16 items-start rounded-lg cursor-pointer"
+                    className="text-center text-white text-xl uppercase bg-[#99b7f0] flex flex-row justify-center pt-5 w-1/4 h-16 items-start rounded-lg cursor-pointer"
                     onClick={() => {
                       navigate("/announce", {
                         state: {

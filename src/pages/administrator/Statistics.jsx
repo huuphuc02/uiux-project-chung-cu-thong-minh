@@ -8,9 +8,9 @@ function StatisticsAdmin() {
       <AdministratorHeader />
       <div className="flex">
         <SidebarAdministrator tab={"Thống kê"} />
-        <div id="NewRootRoot" className="flex flex-row w-4/5 items-start">
+        <div id="NewRootRoot" className="flex flex-row w-[82%] items-start">
           <div className="bg-[#f5f5f5] flex flex-col justify-end gap-6 w-full font-['Nunito_Sans'] items-start px-4">
-            <div className="text-3xl font-bold capitalize mt-9 ml-6">
+            <div className="text-2xl font-bold capitalize mt-4 ml-6">
               Thống kê cư dân
             </div>
             <div className="flex flex-row justify-between w-full items-start">
@@ -47,7 +47,7 @@ function StatisticsAdmin() {
             </div>
             <div className="flex flex-col gap-5 w-3/5 font-['Nunito_Sans'] items-start">
               <div className="flex flex-col w-full items-start">
-                <div className="text-3xl font-bold capitalize text-right ml-6 mb-4">
+                <div className="text-2xl font-bold capitalize text-right ml-6 mb-4">
                   Thống kê khoản phí
                 </div>
                 <div className="bg-white flex flex-row gap-10 w-[600px] font-sans items-start pt-6 pl-6 pr-10 rounded-lg ml-6">

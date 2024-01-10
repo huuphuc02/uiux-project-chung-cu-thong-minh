@@ -2555,7 +2555,7 @@
   ],
   "khoanphi": [
     {
-      "ID": "P1",
+      "id": "P1",
       "type": "Phí quản lý",
       "feeName": "Phí quản lý chung cư",
       "cost": 50000,
@@ -2563,7 +2563,7 @@
       "deadline": "15/11/2022"
     },
     {
-      "ID": "P2",
+      "id": "P2",
       "type": "Phí gửi xe",
       "feeName": "Phí giữ chỗ bãi đỗ xe máy",
       "cost": 50000,
@@ -2571,7 +2571,7 @@
       "deadline": "07/08/2021"
     },
     {
-      "ID": "P3",
+      "id": "P3",
       "type": "Phí dịch vụ",
       "feeName": "Phí dịch vụ vệ sinh khu vực chung",
       "cost": 20000,
@@ -2579,7 +2579,7 @@
       "deadline": "03/12/2021"
     },
     {
-      "ID": "P4",
+      "id": "P4",
       "type": "Phí dịch vụ",
       "feeName": "Phí sử dụng hồ bơi",
       "cost": 80000,
@@ -2587,7 +2587,7 @@
       "deadline": "19/09/2022"
     },
     {
-      "ID": "P5",
+      "id": "P5",
       "type": "Phí dịch vụ",
       "feeName": "Phí dịch vụ an ninh 24/7",
       "cost": 50000,
@@ -2595,7 +2595,7 @@
       "deadline": "02/08/2022"
     },
     {
-      "ID": "P6",
+      "id": "P6",
       "type": "Phí quản lý",
       "feeName": "Phí quản lý vận hành thang máy",
       "cost": 20000,
@@ -2603,7 +2603,7 @@
       "deadline": "05/05/2021"
     },
     {
-      "ID": "P7",
+      "id": "P7",
       "type": "Phí dịch vụ",
       "feeName": "Phí sử dụng phòng gym",
       "cost": 40000,
@@ -2611,7 +2611,7 @@
       "deadline": "28/05/2023"
     },
     {
-      "ID": "P8",
+      "id": "P8",
       "type": "Phí quản lý",
       "feeName": "Phí bảo dưỡng cảnh quan",
       "cost": 30000,
@@ -2619,7 +2619,7 @@
       "deadline": "30/12/2023"
     },
     {
-      "ID": "P9",
+      "id": "P9",
       "type": "Phí thuê",
       "feeName": "Phí thuê phòng họp chung",
       "cost": 200000,
@@ -2627,7 +2627,7 @@
       "deadline": "09/10/2023"
     },
     {
-      "ID": "P10",
+      "id": "P10",
       "type": "Phí dịch vụ",
       "feeName": "Phí sử dụng sân chơi cho trẻ em",
       "cost": 30000,
@@ -2635,7 +2635,7 @@
       "deadline": "20/04/2022"
     },
     {
-      "ID": "P11",
+      "id": "P11",
       "type": "Phí bảo trì",
       "feeName": "Phí bảo trì và sửa chữa kết cấu chung cư",
       "cost": 30000,
@@ -2643,7 +2643,7 @@
       "deadline": "07/01/2022"
     },
     {
-      "ID": "P12",
+      "id": "P12",
       "type": "Phí bảo trì",
       "feeName": "Phí bảo dưỡng cửa tự động và cổng an ninh",
       "cost": 20000,
@@ -2651,7 +2651,7 @@
       "deadline": "10/02/2021"
     },
     {
-      "ID": "P13",
+      "id": "P13",
       "type": "Phí dịch vụ",
       "feeName": "Phí sử dụng khu vực barbecue chung",
       "cost": 200000,
@@ -2659,7 +2659,7 @@
       "deadline": "03/10/2021"
     },
     {
-      "ID": "P14",
+      "id": "P14",
       "type": "Phí dịch vụ",
       "feeName": "Phí đổ rác và xử lý chất thải",
       "cost": 30000,
@@ -2667,7 +2667,7 @@
       "deadline": "25/02/2023"
     },
     {
-      "ID": "P15",
+      "id": "P15",
       "type": "Phí bảo trì",
       "feeName": "Phí bảo dưỡng hệ thống điện và chiếu sáng chung",
       "cost": 20000,
@@ -2675,7 +2675,7 @@
       "deadline": "28/05/2022"
     },
     {
-      "ID": "P16",
+      "id": "P16",
       "type": "Phí thuê",
       "feeName": "Phí sử dụng phòng sinh hoạt cộng đồng",
       "cost": 150000,
@@ -2683,7 +2683,7 @@
       "deadline": "20/12/2022"
     },
     {
-      "ID": "P17",
+      "id": "P17",
       "type": "Tiền điện, nước, internet",
       "feeName": "Phí dịch vụ internet và truyền hình cáp chung",
       "cost": 250000,
@@ -2691,7 +2691,7 @@
       "deadline": "08/06/2021"
     },
     {
-      "ID": "P18",
+      "id": "P18",
       "type": "Phí bảo trì",
       "feeName": "Phí bảo trì và sửa chữa hệ thống điều hòa không khí",
       "cost": 20000,
@@ -2699,7 +2699,7 @@
       "deadline": "15/06/2022"
     },
     {
-      "ID": "P19",
+      "id": "P19",
       "type": "Phí thiết bị",
       "feeName": "Phí đặt cọc dành cho các thiết bị chung cư (remote, thẻ từ, etc.)",
       "cost": 50000,
@@ -2707,7 +2707,7 @@
       "deadline": "30/03/2022"
     },
     {
-      "ID": "P20",
+      "id": "P20",
       "type": "Phí gửi xe",
       "feeName": "Phí sử dụng khu vực đậu xe cho khách",
       "cost": 30000,
@@ -2715,7 +2715,7 @@
       "deadline": "18/02/2021"
     },
     {
-      "ID": "P21",
+      "id": "P21",
       "type": "Phí bảo trì",
       "feeName": "Phí bảo trì và sửa chữa thang bộ",
       "cost": 15000,
@@ -2723,7 +2723,7 @@
       "deadline": "15/01/2024"
     },
     {
-      "ID": "P22",
+      "id": "P22",
       "type": "Tiền điện, nước, internet",
       "feeName": "Tiền nước tháng 8/2021",
       "cost": 180000,
@@ -2731,7 +2731,7 @@
       "deadline": "15/09/2021"
     },
     {
-      "ID": "P23",
+      "id": "P23",
       "type": "Phí dịch vụ",
       "feeName": "Phí dịch vụ chăm sóc sức khỏe",
       "cost": 300000,
@@ -2739,7 +2739,7 @@
       "deadline": "22/06/2021"
     },
     {
-      "ID": "P24",
+      "id": "P24",
       "type": "Phí bảo trì",
       "feeName": "Phí bảo dưỡng hệ thống nước sạch",
       "cost": 20000,
@@ -2747,7 +2747,7 @@
       "deadline": "05/10/2022"
     },
     {
-      "ID": "P25",
+      "id": "P25",
       "type": "Phí bảo trì",
       "feeName": "Phí bảo trì và sửa chữa hệ thống xử lý nước thải",
       "cost": 15000,
@@ -2755,7 +2755,7 @@
       "deadline": "20/11/2023"
     },
     {
-      "ID": "P26",
+      "id": "P26",
       "type": "Phí thuê",
       "feeName": "Phí sử dụng khu vực trồng cây và vườn hoa",
       "cost": 4000000,
@@ -2763,7 +2763,7 @@
       "deadline": "20/01/2024"
     },
     {
-      "ID": "P27",
+      "id": "P27",
       "type": "Phí dịch vụ",
       "feeName": "Phí dịch vụ đưa thư và bưu kiện",
       "cost": 30000,
@@ -2771,7 +2771,7 @@
       "deadline": "08/01/2023"
     },
     {
-      "ID": "P28",
+      "id": "P28",
       "type": "Phí bảo trì",
       "feeName": "Phí bảo trì và sửa chữa cửa kính và cổng sổ",
       "cost": 25000,
@@ -2779,7 +2779,7 @@
       "deadline": "08/11/2022"
     },
     {
-      "ID": "P29",
+      "id": "P29",
       "type": "Phí bảo trì",
       "feeName": "Phí bảo trì và sửa chữa hệ thống chống cháy",
       "cost": 30000,
@@ -2787,7 +2787,7 @@
       "deadline": "11/10/2021"
     },
     {
-      "ID": "P30",
+      "id": "P30",
       "type": "Phí dịch vụ",
       "feeName": "Phí dịch vụ dọn dẹp hàng ngày",
       "cost": 20000,
@@ -2795,7 +2795,7 @@
       "deadline": "13/04/2021"
     },
     {
-      "ID": "P31",
+      "id": "P31",
       "type": "Phí bảo trì",
       "feeName": "Phí bảo trì và sửa chữa hệ thống an ninh camera",
       "cost": 10000,
@@ -2803,7 +2803,7 @@
       "deadline": "06/05/2023"
     },
     {
-      "ID": "P32",
+      "id": "P32",
       "type": "Phí dịch vụ",
       "feeName": "Phí dịch vụ lễ tân",
       "cost": 10000,
@@ -2811,7 +2811,7 @@
       "deadline": "30/06/2022"
     },
     {
-      "ID": "P33",
+      "id": "P33",
       "type": "Phí bảo trì",
       "feeName": "Phí bảo dưỡng và sửa chữa thang cuốn",
       "cost": 10000,
@@ -2819,7 +2819,7 @@
       "deadline": "17/08/2021"
     },
     {
-      "ID": "P34",
+      "id": "P34",
       "type": "Tiền điện, nước, internet",
       "feeName": "Tiền Internet tháng 11/2023",
       "cost": 150000,
@@ -2827,7 +2827,7 @@
       "deadline": "28/12/2023"
     },
     {
-      "ID": "P35",
+      "id": "P35",
       "type": "Phí dịch vụ",
       "feeName": "Phí dịch vụ tư vấn pháp lý và quản lý tài chính",
       "cost": 300000,
@@ -2835,7 +2835,7 @@
       "deadline": "30/01/2022"
     },
     {
-      "ID": "P36",
+      "id": "P36",
       "type": "Tiền điện, nước, internet",
       "feeName": "Tiền Internet tháng 11/2023",
       "cost": 200000,
@@ -2843,7 +2843,7 @@
       "deadline": "14/12/2023"
     },
     {
-      "ID": "P37",
+      "id": "P37",
       "type": "Phí bảo hiểm",
       "feeName": "Phí bảo hiểm chung cư",
       "cost": 200000,
@@ -2851,7 +2851,7 @@
       "deadline": "01/05/2024"
     },
     {
-      "ID": "P38",
+      "id": "P38",
       "type": "Phí dịch vụ",
       "feeName": "Phí sử dụng khu vực đọc sách và thư viện",
       "cost": 30000,
@@ -2859,7 +2859,7 @@
       "deadline": "29/12/2023"
     },
     {
-      "ID": "P39",
+      "id": "P39",
       "type": "Phí bảo trì",
       "feeName": "Phí bảo trì và sửa chữa thang máy tải",
       "cost": 15000,
@@ -2867,7 +2867,7 @@
       "deadline": "10/12/2021"
     },
     {
-      "ID": "P40",
+      "id": "P40",
       "type": "Phí thuê",
       "feeName": "Phí sử dụng khu vực tiệc nước và sự kiện",
       "cost": 500000,
@@ -2875,7 +2875,7 @@
       "deadline": "03/04/2022"
     },
     {
-      "ID": "P41",
+      "id": "P41",
       "type": "Phí bảo trì",
       "feeName": "Phí bảo dưỡng hệ thống cảm biến và báo động",
       "cost": 20000,
@@ -2883,7 +2883,7 @@
       "deadline": "02/01/2023"
     },
     {
-      "ID": "P42",
+      "id": "P42",
       "type": "Phí dịch vụ",
       "feeName": "Phí dịch vụ điện thoại chung cư",
       "cost": 20000,
@@ -2891,7 +2891,7 @@
       "deadline": "20/05/2021"
     },
     {
-      "ID": "P43",
+      "id": "P43",
       "type": "Phí bảo trì",
       "feeName": "Phí bảo trì và sửa chữa cầu thang ngoại vi",
       "cost": 20000,
@@ -2899,7 +2899,7 @@
       "deadline": "23/11/2022"
     },
     {
-      "ID": "P44",
+      "id": "P44",
       "type": "Tiền điện, nước, internet",
       "feeName": "Tiền điện tháng 11/2023",
       "cost": 700000,
@@ -2907,7 +2907,7 @@
       "deadline": "14/12/2023"
     },
     {
-      "ID": "P45",
+      "id": "P45",
       "type": "Phí bảo trì",
       "feeName": "Phí bảo dưỡng hệ thống điều khiển cổng và chuỗi khóa",
       "cost": 10000,
@@ -2915,7 +2915,7 @@
       "deadline": "27/03/2021"
     },
     {
-      "ID": "P46",
+      "id": "P46",
       "type": "Phí dịch vụ",
       "feeName": "Phí sử dụng khu vực thể dục ngoài trời",
       "cost": 10000,
@@ -2923,7 +2923,7 @@
       "deadline": "08/06/2022"
     },
     {
-      "ID": "P47",
+      "id": "P47",
       "type": "Phí bảo trì",
       "feeName": "Phí bảo trì và sửa chữa hệ thống đèn hiệu và biển báo",
       "cost": 15000,
@@ -2931,7 +2931,7 @@
       "deadline": "15/11/2021"
     },
     {
-      "ID": "P48",
+      "id": "P48",
       "type": "Phí dịch vụ",
       "feeName": "Phí sử dụng khu vực chơi thể thao đa năng",
       "cost": 10000,
@@ -2939,7 +2939,7 @@
       "deadline": "04/05/2022"
     },
     {
-      "ID": "P49",
+      "id": "P49",
       "type": "Phí bảo trì",
       "feeName": "Phí bảo dưỡng hệ thống thông gió và điều hòa không khí",
       "cost": 20000,
@@ -2947,7 +2947,7 @@
       "deadline": "20/10/2023"
     },
     {
-      "ID": "P50",
+      "id": "P50",
       "type": "Tiền điện, nước, internet",
       "feeName": "Tiền nước tháng 11/2023",
       "cost": 200000,
@@ -2963,36 +2963,12 @@
       "deadline": "13/01/2024"
     },
     {
-      "id": "3E2",
+      "id": "A5E",
       "type": "Phí bảo trì",
-      "feeName": "Phí bảo trì hệ thống PCCC",
+      "feeName": "Phí sửa chữa thang máy",
       "apartmentId": "All",
-      "cost": 500000,
-      "deadline": "01/02/2024"
-    },
-    {
-      "id": "552",
-      "type": "Phí thuê",
-      "feeName": "Phí cắt cây",
-      "apartmentId": "All",
-      "cost": 250000,
-      "deadline": "27/01/2024"
-    },
-    {
-      "id": "A5B",
-      "type": "Phí thuê",
-      "feeName": "Phí hút bể phốt",
-      "apartmentId": "All",
-      "cost": 300000,
-      "deadline": "01/02/2024"
-    },
-    {
-      "id": "12B",
-      "type": "Phí quản lý",
-      "feeName": "Phí bảo vệ",
-      "apartmentId": "All",
-      "cost": 500000,
-      "deadline": "26/01/2024"
+      "cost": 125000,
+      "deadline": "18/01/2024"
     }
   ],
   "quantri": [
@@ -3154,6 +3130,18 @@
       "MSCD": "CD27",
       "ngayBatDau": "05/07/2021",
       "ngayKetThuc": "12/07/2021"
+    },
+    {
+      "id": "D66",
+      "MSCD": "CD04",
+      "ngayBatDau": "10-01-2024",
+      "ngayKetThuc": "26-01-2024"
+    },
+    {
+      "id": "32A",
+      "MSCD": "CD04",
+      "ngayBatDau": "12-01-2024",
+      "ngayKetThuc": "18-01-2024"
     }
   ],
   "dangkytamvang": [
@@ -3627,7 +3615,7 @@
       "title": "Tổ chức tất niên Tết Nguyên Đán 2024",
       "description": "Kính thưa toàn thể cư dân, ban quản lý xin được thông báo về việc tổ chức tất niên vào lúc 20 h30 tại sân chung. Xin cảm ơn và mong mọi người có mặt vui tất niên.",
       "target": "Resident",
-      "time": "NaN-NaN-NaN",
+      "time": "01-02-2024",
       "announceTime": "09-01-2024"
     },
     {
@@ -3637,6 +3625,14 @@
       "target": "Manager",
       "time": "01-02-2024",
       "announceTime": "09-01-2024"
+    },
+    {
+      "id": "3BC",
+      "title": "Tổ chức tất niên",
+      "description": "Tổ chức tất niên cho toàn bộ cư dân trong chung cư",
+      "target": "Resident",
+      "time": "18-01-2024",
+      "announceTime": "10-01-2024"
     }
   ]
 }

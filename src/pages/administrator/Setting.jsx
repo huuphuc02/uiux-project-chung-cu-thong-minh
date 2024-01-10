@@ -8,8 +8,8 @@ function Setting() {
       <AdministratorHeader />
       <div className="flex">
         <SidebarAdministrator tab={"Cài đặt"} />
-        <div id="NewRootRoot" className="flex flex-row w-4/5 items-start">
-          <div className="bg-[#f5f5f5] flex flex-col justify-center w-full font-['Nunito_Sans'] items-start pt-10 pb-8 px-10">
+        <div id="NewRootRoot" className="flex flex-row w-[82%] items-start">
+          <div className="bg-[#f5f5f5] flex flex-col justify-center w-full font-['Nunito_Sans'] items-start pt-4 pb-4 px-10">
             <div className="text-2xl font-bold ml-2">Cài đặt tài khoản</div>
             <div className=" flex flex-row ml-1 gap-2 w-full items-start px-24">
               <div className="flex flex-col mt-12 gap-6 w-1/2 items-start">
@@ -29,7 +29,7 @@ function Setting() {
                   <div className="text-xl font-bold">Mật khẩu mới:</div>
                 </div>
                 <div
-                  className="text-center text-xl uppercase text-[#99b7f0] border-solid border-[#5387e9] bg-white flex flex-row w-2/5 h-16 items-start pt-5 pl-10 mt-20 ml-40 border-0 rounded-lg mb-5"
+                  className="text-center text-xl uppercase text-[#99b7f0] border-solid border-[#5387e9] bg-white flex flex-row w-2/5 h-16 items-start pt-5 pl-10 mt-20 ml-56 border-0 rounded-lg mb-5"
                   onClick={() => navigate("/homepageAdmin")}
                 >
                   huỷ

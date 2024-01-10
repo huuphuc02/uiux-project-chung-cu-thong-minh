@@ -28,7 +28,7 @@ function FeeManager() {
       let response = await fetch(`http://localhost:3001/khoanphi`);
       const data = await response.json();
       const currentDate = new Date();
-      let list = data
+      let list = data;
       // .filter((item) => {
       //   const [day, month, year] = item.deadline.split("/");
       //   const itemDate = new Date(`${year}-${month}-${day}`);
@@ -90,7 +90,7 @@ function FeeManager() {
             />
           )}
           <div className="w-full px-8 py-4 pb-4 ">
-            <h1 className="text-4xl font-bold text-left">Khoản thu</h1>
+            <h1 className="text-2xl font-bold text-left">Khoản thu</h1>
             <div className="flex justify-end">
               <button
                 id="ButtonRoot"

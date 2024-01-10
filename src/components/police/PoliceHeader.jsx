@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 function PoliceHeader() {
   const [overlay, setOverlay] = useState(false);
   const navigate = useNavigate();
-  
+
   return (
     <div id="NewRootRoot" className="w-full items-start">
       <div className="border-solid border-b border-[#e2e2e2] pl-2 bg-white flex flex-row gap-16 w-full items-center">
@@ -53,11 +53,7 @@ function PoliceHeader() {
               className="mb-1 w-12"
             />
             <div className="cursor-pointer flex flex-row gap-2 w-3/5 items-center">
-              <div
-                id="LHuTiCDn1"
-                className="font-semibold text-left"
-                onClick={() => navigate("/residentInfo")}
-              >
+              <div id="LHuTiCDn1" className="font-semibold text-left">
                 Nguyễn Thị Thảo
                 <br />
                 <span className="text-[#686868]">Công an</span>

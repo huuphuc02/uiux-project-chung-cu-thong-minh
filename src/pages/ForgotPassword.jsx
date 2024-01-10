@@ -1,4 +1,15 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import PopupSuccess from "../components/PopupSuccess";
+
 function ForgotPassword() {
+  const [popupSuccess, setPopupSuccess] = useState(false);
+  const navigate = useNavigate(false);
+
+  const handleSuccess = () => {
+    setPopupSuccess(false);
+    navigate("/");
+  };
   return (
     <div
       id="LoginRoot"
@@ -37,13 +48,21 @@ function ForgotPassword() {
             ></input>
           </div>
         </div>
-        <button className="justify-center hover:bg-[#5387E9] text-xl uppercase text-white bg-[#99b7f0] flex flex-row w-full h-12 items-start pt-3 px-5 rounded-lg">
+        <button
+          className="justify-center hover:bg-[#5387E9] text-xl uppercase text-white bg-[#99b7f0] flex flex-row w-full h-12 items-start pt-3 px-5 rounded-lg"
+          onClick={() => setPopupSuccess(true)}
+        >
           Gửi mật khẩu
         </button>
         <a href="/" className=" text-[#99b7f0] ml-20">
           Quay lại trang đăng nhập
         </a>
       </div>
+      <PopupSuccess
+        isOpen={popupSuccess}
+        onClose={handleSuccess}
+        message="Mật khẩu đã được gửi về tin nhắn trên SĐT của bạn. Vui lòng đăng nhập lại để sử dụng!"
+      />
     </div>
   );
 }
